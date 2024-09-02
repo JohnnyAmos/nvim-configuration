@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+--                plugin configuration: browser-bookmarks.nvim               --
+--                      Last Modified: 2024-09-01 18:06
+-------------------------------------------------------------------------------
+
+return {
+  {
+    'dhruvmanila/browser-bookmarks.nvim',
+    version = '*',
+    opts = {
+      selected_browser = 'vivaldi'
+    }
+  }
+}
+
+-- vim: set ts=2 sts=2 sw=2: --
+
