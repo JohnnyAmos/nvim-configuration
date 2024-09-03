@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+--                  plugin configuration: todo-comments.nvim                 --
+--                      Last Modified: 2024-08-31 17:15                      --
+-------------------------------------------------------------------------------
+
+return {
+  {
+    'folke/todo-comments.nvim',
+    cmd = { 'TodoTrouble', 'TodoTelescope' },
+    lazy = false,
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('todo-comments').setup()
+    end
+  }
+}
+
+-- vim: set ts=2 sts=2 sw=2: --
+

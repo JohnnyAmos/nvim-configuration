@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+--                    plugin configuration: neo-tree.nvim                    --
+--                      Last Modified: 2024-08-31 17:15                      --
+-------------------------------------------------------------------------------
+
+return {
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim'
+    }
+  }
+}
+
+-- vim: set ts=2 sts=2 sw=2: --
+

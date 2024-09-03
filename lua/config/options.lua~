@@ -1,5 +1,5 @@
 -- nvim options configuration file
--- Last Modified: 2024-09-01 18:04
+-- Last Modified: 2024-09-01 18:24
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -57,14 +57,21 @@ end
 opt.textwidth = 79 -- Yes, I'm old fashioned.
 opt.colorcolumn = '79'
 opt.cursorline = true
+opt.cursorlineopt = 'screenline' -- 'line' & 'number' are the other options
 
 -- make room for purdy pictures
 opt.signcolumn = 'yes'
 
 -- Show helper symbols
 opt.list = true
-opt.listchars = { tab = '->', trail = '#', nbsp = '␣', extends = '»', precedes = '«' }
--- opt.listchars += { eol = '¦' } -- use sparingly, it's really annoying
+opt.listchars = {
+  tab = '->',
+  trail = '#',
+  nbsp = '␣',
+  extends = '»',
+  precedes = '«',
+--  eol = '¦' -- use sparingly, it's really annoying
+}
 opt.showbreak = '¤ '
 
 -- make with the line numbers

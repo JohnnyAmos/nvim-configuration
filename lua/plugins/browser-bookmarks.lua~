@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 --                plugin configuration: browser-bookmarks.nvim               --
---                      Last Modified: 2024-09-01 18:06
+--                      Last Modified: 2024-09-01 18:25
 -------------------------------------------------------------------------------
 
 return {
@@ -9,7 +9,11 @@ return {
     version = '*',
     opts = {
       selected_browser = 'vivaldi'
-    }
+    },
+    -- TODO: uncomment after telescope.nvim is installes
+--     dependencies = {
+--       'nvim-telescope/telescope.nvim'
+--     }
   }
 }
 

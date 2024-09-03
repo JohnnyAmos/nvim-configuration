@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+--                    plugin configuration: headlines.nvim                   --
+--                      Last Modified: 2024-09-02 13:03
+-------------------------------------------------------------------------------
+
+return {
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true, -- or `opts = {}`
+  },
+}
+
+-- vim: set ts=2 sts=2 sw=2: --
+

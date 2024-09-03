@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+--                   plugin configuration: cheatsheet.nvim                   --
+--                      Last Modified: 2024-09-02 13:16
+-------------------------------------------------------------------------------
+
+-- return {
+--   {
+--     'doctorfree/cheatsheet.nvim',
+--     event = 'VeryLazy',
+--     dependencies = {
+--       'nvim-telescope/telescope.nvim',
+--       'nvim-lua/plenary.nvim',
+--     },
+--     require('cheatsheet').setup()
+--   }
+-- }
+
+-- vim: set ts=2 sts=2 sw=2: --
+

@@ -57,7 +57,7 @@ end
 opt.textwidth = 79 -- Yes, I'm old fashioned.
 opt.colorcolumn = '79'
 opt.cursorline = true
-opt.cursorlineopt = 'screenline' -- 'line' & 'number' are the other options
+opt.cursorlineopt = 'number' -- 'line' & 'screenline' are the other options
 
 -- make room for purdy pictures
 opt.signcolumn = 'yes'
