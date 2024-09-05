@@ -1,5 +1,5 @@
 -- nvim options configuration file
--- Last Modified: 2024-09-04 17:21
+-- Last Modified: 2024-09-05 10:55
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -87,6 +87,8 @@ opt.softtabstop = 4
 opt.showmatch = true
 opt.smartindent = true
 opt.indentexpr = ''
+opt.formatoptions = 'cqt'
+opt.formatexpr = ''
 
 -- folding
 opt.foldmethod = indent

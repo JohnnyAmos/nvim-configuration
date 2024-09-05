@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------
 --                  nvim keymap configuration file                  --
---                  Last Modified: 2024-09-04 00:22
+--                  Last Modified: 2024-09-04 20:02
 ----------------------------------------------------------------------
 function Map(mode, lhs, rhs, opts)
     local options   =   { noremap = true, silent = true }
@@ -17,6 +17,9 @@ Map('n', 'Y', 'y$')
 
 
 Map("n", ";", ":")
+
+-- close all but current window (in a single tab, aka close all other splits)
+Map('n', '<space>o', ':only<cr>')
 
 -- exit insert mode quickly
 Map("i", "jk", "<ESC>")

@@ -49,11 +49,15 @@ local plugins = {
          dependencies = { 'nvim-lua/plenary.nvim' },
          config = function()
             require('telescope').load_extension('bookmarks')
+            require("telescope").load_extension("frecency")
+            require('telescope').load_extension('fzf')
+            require('telescope').load_extension('repo')
          end
       },
       'wesleimp/stylua.nvim',
       'kkharji/sqlite.lua',
       'nvim-lua/plenary.nvim',
+      'cljoly/telescope-repo.nvim',
       {
          'nvim-tree/nvim-web-devicons',
          lazy = true
@@ -85,7 +89,8 @@ local plugins = {
             require('mini.files').setup()
             require('mini.git').setup()
             require('mini.icons').setup()
-            require('mini.sessions').setup()
+--             require('mini.sessions').setup()
+--             require('mini.starter').setup()
             require('mini.visits').setup()
          end
       },
@@ -170,6 +175,7 @@ local plugins = {
          'nvim-telescope/telescope-fzf-native.nvim',
          build = 'make'
       },
+      "nvim-telescope/telescope-frecency.nvim",
       {
          'folke/edgy.nvim',
          event = "VeryLazy",
@@ -292,7 +298,7 @@ local plugins = {
                      separator = true
                   }
                },
-               show_tab_indicators = false,
+               show_tab_indicators = true,
                hover = {
                   enabled = true,
                   delay = 200,
