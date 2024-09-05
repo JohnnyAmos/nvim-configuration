@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------
 --                     nvim initialization file                     --
---                 Last Modified: 2024-09-02 13:29
+--                 Last Modified: 2024-09-04 14:49
 ----------------------------------------------------------------------
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -28,8 +28,9 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.loader.enable()
 
-require("config.options")
-require("config.plugins")
-require("config.keymaps")
-require("config.commands")
+require("options")
+require("keymaps")
+require("commands")
+require("plugins")
+require("plugin_config")
 

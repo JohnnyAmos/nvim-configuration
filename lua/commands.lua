@@ -28,6 +28,5 @@ aucmd(
   }
 )
 
--- TODO: delete modline when nvim is set up
--- vim: set ts=2 sts=2 sw=2: --
+-- vim: set sts=3 sw=3 ts=3 tw=79:
 

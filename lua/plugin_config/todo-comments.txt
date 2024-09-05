@@ -1,0 +1,77 @@
+--[[ TODO: add comment header ]]--
+
+local status_ok, todo_comments = pcall(require, "todo-comments")
+if not status_ok then
+   return
+end
+
+todo_comments.setup({
+
+   keywords = {
+      FIX = {
+         icon = " ",
+         color = "error"
+      },
+      TODO = {
+         icon = " ",
+         color = "info"
+      },
+      HACK = {
+         icon = " ",
+         color = "hack"
+      },
+      WARN = {
+         icon = " ",
+         color = "warning"
+      },
+      PERF = {
+         icon = " "
+      },
+      NOTE = {
+         icon = "󱓧 ",
+         color = "hint"
+      },
+      TEST = {
+         icon = "⏲ ",
+         color = "test"
+      }
+   },
+
+   --[[ FIX: ]]--
+   --[[ TODO: ]]-
+   --[[ HACK: ]]--
+   --[[ WARN: ]]--
+   --[[ PERF: ]]--
+   --[[ NOTE: ]]--
+   --[[ TEST: ]]--
+
+
+   merge_keywords = true, -- when true, custom keywords will be merged with
+   -- the defaults. fine, but what does it really do?
+   colors = {
+      error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+      warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+      info = { "DiagnosticInfo", "#2563EB" },
+      hint = { "DiagnosticHint", "#10B981" },
+      default = { "Identifier", "#7C3AED" },
+      test = { "Identifier", "#FF00FF" },
+      hack = { "Identifier", "mediumblue" },
+   },
+   highlight = {
+      -- enable multine todo comments
+      multiline = true,
+      -- "fg" or "bg" or empty
+      before = "fg",
+      -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg
+      -- is the same as bg, but will also highlight surrounding characters,
+      -- wide_fg acts accordingly but with fg)
+      keyword = "wide",
+      -- "fg" or "bg" or empty
+      after = "fg",
+      -- pattern or table of patterns, used for highlightng (vim regex)
+      pattern = [[.*<(KEYWORDS)\s*:]]
+   },
+})
+
+-- vim: set sts=3 sw=3 ts=3 tw=79: --
+
