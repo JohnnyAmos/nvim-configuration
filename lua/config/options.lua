@@ -1,5 +1,6 @@
+-- options.lua
 -- nvim options configuration file
--- Last Modified: 2024-09-05 10:55
+-- Last Modified: 2024-09-06 00:21
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -27,22 +28,22 @@ g.base16_colorspace = 256
 opt.termguicolors = true
 
 local theme_script_path = vim.fn.expand(
-  "~/Library/Application Support/tinted-theming/tinty/base16-vim-colors-file.vim"
+   "~/Library/Application Support/tinted-theming/tinty/base16-vim-colors-file.vim"
 )
 
 local function file_exists(file_path)
-  return vim.fn.filereadable(file_path) == 1 and true or false
+   return vim.fn.filereadable(file_path) == 1 and true or false
 end
 
 local function handle_focus_gained()
-  if file_exists(theme_script_path) then
+   if file_exists(theme_script_path) then
       cmd("source " .. theme_script_path)
-  end
+   end
 end
 
 if file_exists(theme_script_path) then
-  g.tinted_colorspace = 256
-  cmd("source " .. theme_script_path)
+   g.tinted_colorspace = 256
+   cmd("source " .. theme_script_path)
 end
 
 -- set text width and show helpful quides 
@@ -58,11 +59,11 @@ opt.signcolumn = 'yes:4'
 -- Show helper symbols
 opt.list = true
 opt.listchars = {
-  tab = '->',
-  trail = '#',
-  nbsp = '␣',
-  extends = '»',
-  precedes = '«',
+   tab = '>-',
+   trail = '#',
+   nbsp = '␣',
+   extends = '»',
+   precedes = '«',
 --  eol = '¦' -- use sparingly, it's really annoying
 }
 opt.showbreak = '¤ '
@@ -91,9 +92,9 @@ opt.formatoptions = 'cqt'
 opt.formatexpr = ''
 
 -- folding
-opt.foldmethod = indent
+opt.foldmethod = manual
 -- opt.foldmarker = ''
-opt.foldlevel = 99
+-- opt.foldlevel = 99
 
 -- backip and undo
 opt.backup = false -- tried it, didn't like it. may try it again
@@ -116,26 +117,6 @@ opt.splitkeep = 'topline'
 -- scrolling
 opt.smoothscroll = true
 opt.scrolloff = 10
-
---[[ IDEA: This is an interesting alternative to todo-comments.nvim.
-Much simpler, but at the loss of flexibility and customization.
-The space after the first letter in each keyword is to stop
-todo-comments.nvim from highlighting them. ]]--
--- vim.fn.matchadd("DiagnosticInfo", "\\(T ODO :\\)")
--- vim.fn.matchadd("DiagnosticWarn", "\\(H ACK:\\)")
--- vim.fn.matchadd("DiagnosticWarn", "\\(W ARN:\\)")
--- vim.fn.matchadd("DiagnosticWarn", "\\(W ARNING:\\)")
--- vim.fn.matchadd("DiagnosticWarn", "\\(X XX:\\)")
--- vim.fn.matchadd("Identifier", "\\(P ERF:\\)")
--- vim.fn.matchadd("Identifier", "\\(P ERFORMANCE:\\)")
--- vim.fn.matchadd("Identifier", "\\(O PTIM:\\)")
--- vim.fn.matchadd("Identifier", "\\(O PTIMIZE:\\)")
--- vim.fn.matchadd("DiagnosticHint", "\\(N OTE:\\)")
--- vim.fn.matchadd("Identifier", "\\(T EST:\\)")
--- vim.fn.matchadd("Identifier", "\\(T ESTING:\\)")
--- vim.fn.matchadd("Identifier", "\\(P ASSED:\\)")
--- vim.fn.matchadd("Identifier", "\\(F AILED:\\)")
-
 
 -- vim: set sts=3 sw=3 ts=3 tw=79:
 

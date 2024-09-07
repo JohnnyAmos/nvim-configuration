@@ -1,13 +1,14 @@
 ---------------------------------------------------------------------
 --                  nvim keymap configuration file                  --
---                  Last Modified: 2024-09-04 20:02
+--                  Last Modified: 2024-09-06 21:38
 ----------------------------------------------------------------------
+
 function Map(mode, lhs, rhs, opts)
-    local options   =   { noremap = true, silent = true }
-    if opts then
-        options   =   vim.tbl_extend("force", options, opts)
-    end
-    vim.keymap.set(mode, lhs, rhs, options)
+   local options   =   { noremap = true, silent = true }
+   if opts then
+      options   =   vim.tbl_extend("force", options, opts)
+   end
+   vim.keymap.set(mode, lhs, rhs, options)
 end
 
 --[[ LITTLE HELPERS ]]--
@@ -141,20 +142,60 @@ Map(
 )
 
 -- PLUGIN: Telescope
--- local builtin   =   require('telescope.builtin')
--- Map('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
--- Map('n', '<leader>fg', builtin.live_grep, { desc = 'Live grep' })
--- Map('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
--- Map('n', '<leader>fo', builtin.oldfiles, { desc = 'Old files' })
--- Map('n', '<leader>fbu', builtin.buffers, { desc = 'List buffers' })
--- Map('n', '<leader>ffc', builtin.current_buffer_fuzzy_find, {
---   desc = 'fzf in current buffer'
--- })
--- Map('n', '<leader>ft', builtin.tags, { desc = 'List ctags' })
--- Map('n', '<leader>ftb', builtin.current_buffer_tags, {
---   desc = "This buffer's ctags"
--- })
--- Map("n", "<leader>fbr", ":Telescope file_browser<CR>", { desc = 'Browser' })
+Map(
+   'n',
+   '<leader>ff',
+   "<cmd>Telescope find_files<CR>",
+   { desc = 'Find files' }
+)
+Map(
+   'n',
+   '<leader>fg',
+   "<cmd>Telescope live_grep<CR>",
+   { desc = 'Live grep' }
+)
+Map(
+   'n',
+   '<leader>fh',
+   "<cmd>Telescope help_tags<CR>",
+   { desc = 'Help tags' }
+)
+Map(
+   'n',
+   '<leader>fo',
+   "<cmd>Telescope oldfiles<CR>",
+   { desc = 'Old files' }
+)
+Map(
+   'n',
+   '<leader>fbu',
+   "<cmd>Telescope buffers<CR>",
+   { desc = 'List buffers' }
+)
+Map(
+   'n',
+   '<leader>ffc',
+   "<cmd>Telescope current_buffer_fuzzy_find<CR>",
+   { desc = 'fzf in current buffer' }
+)
+Map(
+   'n',
+   '<leader>ft',
+   "<cmd>Telescope tags<CR>",
+   { desc = 'List ctags' }
+)
+Map(
+   'n',
+   '<leader>ftb',
+   "<cmd>Telescope current_buffer_tags<CR>",
+   { desc = "This buffer's ctags" }
+)
+Map(
+   "n",
+   "<leader>fbr",
+   ":Telescope file_browser<CR>",
+   { desc = 'Browser' }
+)
 
 --[[ PLUGIN: YANKY.NVIM ]]--
 --[[ FIX: <leader>, <localleader>. or neither. probably neither
