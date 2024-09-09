@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------
 --                     nvim initialization file                     --
---                 Last Modified: 2024-09-07 23:00
+--                 Last Modified: 2024-09-09 12:57
 ----------------------------------------------------------------------
 
--- vim.loader.enable()
+vim.loader.enable()
 
 require('config/options')
 require('config/keymaps')
