@@ -11,18 +11,7 @@ return {
          require('mini.basics').setup()
          require('mini.bracketed').setup()
          require('mini.bufremove').setup()
---          require('mini.clue').setup({ -- see about improving popup
---             -- Register `<Leader>` as trigger
---             triggers = {
---                { mode = 'n', keys = '<Leader>' },
---                { mode = 'x', keys = '<Leader>' },
---             },
---              -- Add descriptions for mapping groups
---             clues = {
---                { mode = 'n', keys = '<Leader>b', desc = '+Buffers' },
---                { mode = 'n', keys = '<Leader>l', desc = '+LSP' },
---             },
---          })
+--          require('mini.clue').setup({})
          require('mini.colors').setup()
          require('mini.comment').setup()
 --          require('mini.completion').setup()
@@ -34,7 +23,12 @@ return {
          require('mini.files').setup()
          require('mini.fuzzy').setup()
          require('mini.git').setup()
-         require('mini.hipatterns').setup()
+--          require('mini.hipatterns').setup({
+--             highlighters = {
+--                fix = { pattern = 'FIX', group = 'MiniHipatternsFix' },
+--                 - { pattern = '', group = '' },
+--             }
+--          })
 --          require('mini.hues').setup()
          require('mini.icons').setup()
 --          require('mini.indentscope').setup()

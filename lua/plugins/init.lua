@@ -81,20 +81,6 @@ return {
       'folke/neoconf.nvim',
       cmd = 'Neoconf'
    },
---    {
---       'echasnovski/mini.nvim',
---       version = false,
---       config = function()
---          require('mini.diff').setup()
---          require('mini.extra').setup()
---          require('mini.files').setup()
---          require('mini.git').setup()
---          require('mini.icons').setup()
---          require('mini.sessions').setup()
---          require('mini.starter').setup()
---          require('mini.visits').setup()
---       end
---    },
    {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -124,15 +110,6 @@ return {
       'stevearc/dressing.nvim',
       opts = {}
    },
---    {
---       'folke/todo-comments.nvim',
---       dependencies = { 'nvim-lua/plenary.nvim' },
---       cmd = { 'TodoTrouble', 'TodoTelescope' },
---       lazy = false,
---       config = function()
---          require('todo-comments').setup()
---       end
---    },
    'nvim-telescope/telescope-github.nvim',
    {
       'nvim-telescope/telescope-file-browser.nvim',
