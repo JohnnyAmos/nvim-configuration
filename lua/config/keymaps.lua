@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------
 --                  nvim keymap configuration file                  --
---                  Last Modified: 2024-09-06 21:38
+--                  Last Modified: 2024-09-08 20:30
 ----------------------------------------------------------------------
 
 function Map(mode, lhs, rhs, opts)
@@ -33,7 +33,7 @@ Map('n', 'hc', ':helpc<CR>')
 --     <leader><down> = one line
 --     \n<leader><down> = n lines
 --   For lines above cursor:
---     <leader><up> = one line
+--       <leader><up> = one line
 --     \n<leader><up> = n lines
 Map(
    'n',
@@ -93,8 +93,22 @@ Map("n", "<C-Down>", ":resize +2<CR>")
 Map("n", "<C-Left>", ":vertical resize -2<CR>")
 Map("n", "<C-Right>", ":vertical resize +2<CR>")
 
+--[[  PLUGIN: nvim-comment-frame ]]
+Map(
+   'n',
+   '<leader>cs',
+   ":lua require('nvim-comment-frame').add_comment()<CR>",
+   { desc = 'Add single-line comment frame' }
+)
+Map(
+   'n',
+   '<leader>cm',
+   ":lua require('nvim-comment-frame').add_multiline_comment()<CR>",
+   { desc = 'Add multiple-line comment frame' }
+)
+
 --[[ PLUGIN: TROUBLE.NVIM ]]--
---[[ FIX: 'c', 'x', or what? with <leader> or no?
+--[[ FIX: 'c', 'x', or what? with <leader> or no? -->
 Map{
    "<leader>xx",
    "<cmd>Trouble diagnostics toggle<cr>",
@@ -126,20 +140,6 @@ Map{
    desc = "Quickfix List (Trouble)",
 }
 ]]
-
---[[ PLUGIN: NVIM-COMMENT-FRAME ]]--
-Map(
-   'n',
-   '<leader>cc',
-   ":lua require('nvim-comment-frame').add_comment()<CR>",
-   { desc = 'Single-line comment' }
-)
-Map(
-   'n',
-   '<leader>C',
-   ":lua require('nvim-comment-frame').add_multiline_comment()<CR>",
-   { desc = 'Multi-line comment' }
-)
 
 -- PLUGIN: Telescope
 Map(

@@ -1,6 +1,6 @@
 -- options.lua
 -- nvim options configuration file
--- Last Modified: 2024-09-06 00:21
+-- Last Modified: 2024-09-08 20:18
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -49,12 +49,12 @@ end
 -- set text width and show helpful quides 
 opt.textwidth = 79 -- Yes, I'm old fashioned.
 opt.breakindent = on
-opt.colorcolumn = '79'
+opt.colorcolumn = '80'
 opt.cursorline = true
 opt.cursorlineopt = 'number' -- 'line' & 'screenline' are the other options
 
 -- make room for purdy pictures
-opt.signcolumn = 'yes:4'
+opt.signcolumn = 'yes:2'
 
 -- Show helper symbols
 opt.list = true
