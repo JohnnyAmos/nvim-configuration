@@ -1,6 +1,6 @@
 -- options.lua
 -- nvim options configuration file
--- Last Modified: 2024-09-08 20:18
+-- Last Modified: 2024-09-09 22:20
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -47,7 +47,8 @@ if file_exists(theme_script_path) then
 end
 
 -- set text width and show helpful quides 
-opt.textwidth = 79 -- Yes, I'm old fashioned.
+-- opt.textwidth = 79 -- Yes, I'm old fashioned. Turned off because I don't like hard wrap and I prefer to decide how my code gets formatted.
+opt.linebreak = on
 opt.breakindent = on
 opt.colorcolumn = '80'
 opt.cursorline = true
@@ -82,9 +83,9 @@ opt.wildignorecase = on
 --[[ SECTION: editing ]]--
 
 opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+opt.tabstop = 3
+opt.shiftwidth = 3
+opt.softtabstop = 3
 opt.showmatch = true
 opt.smartindent = true
 opt.indentexpr = ''
@@ -92,7 +93,7 @@ opt.formatoptions = 'cqt'
 opt.formatexpr = ''
 
 -- folding
-opt.foldmethod = manual
+opt.foldmethod = indent
 -- opt.foldmarker = ''
 -- opt.foldlevel = 99
 

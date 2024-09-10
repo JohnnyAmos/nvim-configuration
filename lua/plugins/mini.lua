@@ -43,12 +43,7 @@ return {
          require('mini.pick').setup()
 
          --[[ SECTION: mini.sessions ]]--
-         local sessions = require('mini.sessions')
-         sessions.setup({
-            directory = '.local/state/nvim/sessions',
-            file = 'session.vim'
-
-         })
+         require('mini.sessions').setup()
          require('mini.splitjoin').setup()
          --[[ SECTION: mini.starter ]]--
          local logo = table.concat({

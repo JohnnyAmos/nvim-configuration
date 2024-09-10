@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 --                           plugin configuration:                           --
---                      Last Modified: 2024-09-08 23:14
+--                      Last Modified: 2024-09-09 17:30
 -------------------------------------------------------------------------------
 
 return {
@@ -33,21 +33,11 @@ return {
                },
                "Trouble",
                { ft = "qf", title = "QuickFix" },
-               {
-                  title = "Spectre",
-                  ft = "spectre_panel",
-                  size = { height = 0.4 }
-               },
-               {
-                  title = "Neotest Output",
-                  ft = "neotest-output-panel",
-                  size = { height = 15 }
-               },
             },
             left = {
                -- Neo-tree filesystem always takes half the screen height
                {
-                  title = "Neo-Tree",
+                  title = "Files",
                   ft = "neo-tree",
                   filter = function(buf)
                      return vim.b[buf].neo_tree_source == "filesystem"
@@ -55,7 +45,7 @@ return {
                   size = { height = 0.5 },
                },
                {
-                  title = "Neo-Tree Git",
+                  title = "Git",
                   ft = "neo-tree",
                   filter = function(buf)
                      return vim.b[buf].neo_tree_source == "git_status"
@@ -65,7 +55,7 @@ return {
                   open = "Neotree position=right git_status",
                },
                {
-                  title = "Neo-Tree Buffers",
+                  title = "Buffers",
                   ft = "neo-tree",
                   filter = function(buf)
                      return vim.b[buf].neo_tree_source == "buffers" end,
