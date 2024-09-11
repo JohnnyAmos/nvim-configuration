@@ -1,4 +1,7 @@
---[[ TODO: place comment header ]]--
+--JMJ--------------------------------------------------------------------AMDG--
+--                      autocommands configuration file                      --
+--                      Last Modified: 2024-09-10 17:45
+-------------------------------------------------------------------------------
 
 local aucmd = vim.api.nvim_create_autocmd
 local augrp = vim.api.nvim_create_augroup
@@ -27,6 +30,4 @@ aucmd(
       end,
    }
 )
-
--- vim: set sts=3 sw=3 ts=3 tw=79:
 

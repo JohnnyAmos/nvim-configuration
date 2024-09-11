@@ -1,4 +1,7 @@
---[[ TODO: add comment header ]]--
+--JMJ--------------------------------------------------------------------AMDG--
+--                             PLUGIN: mini.lua                              --
+--                      Last Modified: 2024-09-10 19:19
+-------------------------------------------------------------------------------
 
 return {
    {
@@ -31,9 +34,9 @@ return {
 --          })
 --          require('mini.hues').setup()
          require('mini.icons').setup()
---          require('mini.indentscope').setup()
---          require('mini.jump').setup()
---          require('mini.jump2d').setup()
+--         require('mini.indentscope').setup()
+         require('mini.jump').setup()
+         require('mini.jump2d').setup()
          require('mini.map').setup()
          require('mini.misc').setup()
          require('mini.move').setup()
@@ -41,10 +44,9 @@ return {
          require('mini.operators').setup()
          require('mini.pairs').setup()
          require('mini.pick').setup()
-
-         --[[ SECTION: mini.sessions ]]--
          require('mini.sessions').setup()
          require('mini.splitjoin').setup()
+
          --[[ SECTION: mini.starter ]]--
          local logo = table.concat({
             [[                         ___                          ]],
@@ -165,6 +167,4 @@ return {
       end
    }
 }
-
--- vim: set sts=3 sw=3 ts=3 tw=79:
 

@@ -1,6 +1,7 @@
--- options.lua
--- nvim options configuration file
--- Last Modified: 2024-09-09 22:20
+--JMJ--------------------------------------------------------------------AMDG--
+--                      nvim options configuration file                      --
+--                      Last Modified: 2024-09-10 17:48
+-------------------------------------------------------------------------------
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -46,8 +47,7 @@ if file_exists(theme_script_path) then
    cmd("source " .. theme_script_path)
 end
 
--- set text width and show helpful quides 
--- opt.textwidth = 79 -- Yes, I'm old fashioned. Turned off because I don't like hard wrap and I prefer to decide how my code gets formatted.
+-- helpful guides
 opt.linebreak = on
 opt.breakindent = on
 opt.colorcolumn = '80'
@@ -93,8 +93,8 @@ opt.formatoptions = 'cqt'
 opt.formatexpr = ''
 
 -- folding
-opt.foldmethod = indent
--- opt.foldmarker = ''
+opt.foldmethod = marker
+opt.foldmarker = '[[[,]]]'
 -- opt.foldlevel = 99
 
 -- backip and undo
@@ -118,6 +118,4 @@ opt.splitkeep = 'topline'
 -- scrolling
 opt.smoothscroll = true
 opt.scrolloff = 10
-
--- vim: set sts=3 sw=3 ts=3 tw=79:
 

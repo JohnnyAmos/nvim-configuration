@@ -1,4 +1,7 @@
---[[ TODO: add comment header ]]--
+--JMJ--------------------------------------------------------------------AMDG--
+--                       lazy.nvim configuration file                        --
+--                      Last Modified: 2024-09-10 17:44
+-------------------------------------------------------------------------------
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -30,7 +33,4 @@ require("lazy").setup({
    install = { colorscheme = { "base16-github" } },
    checker = { enabled = true },
 })
-
-
--- vim: set sts=3 sw=3 ts=3 tw=79:
 

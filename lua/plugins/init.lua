@@ -1,6 +1,6 @@
--------------------------------------------------------------------------------
+--JMJ--------------------------------------------------------------------AMDG--
 --                    PLUGIN: init.lua (multiple plugins)                    --
---                      Last Modified: 2024-09-09 18:13
+--                      Last Modified: 2024-09-10 19:31
 -------------------------------------------------------------------------------
 
 return {
@@ -41,12 +41,12 @@ return {
       'folke/neoconf.nvim',
       cmd = 'Neoconf'
    },
-   {
-      'MagicDuck/grug-far.nvim',
-      config = function()
-         require('grug-far').setup()
-      end
-   },
+--    {
+--       'MagicDuck/grug-far.nvim',
+--       config = function()
+--          require('grug-far').setup()
+--       end
+--    },
    {
       'lewis6991/gitsigns.nvim',
       opts = {}
@@ -68,6 +68,4 @@ return {
    },
    'smolck/command-completion.nvim',
 }
-
--- vim: set sts=3 sw=3 ts=3 tw=79:
 
