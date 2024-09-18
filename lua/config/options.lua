@@ -1,6 +1,6 @@
---JMJ--------------------------------------------------------------------AMDG--
+--JMJ----------------------------------✝︎---------------------------------AMDG--
 --                      nvim options configuration file                      --
---                      Last Modified: 2024-09-10 17:48
+--                      Last Modified: 2024-09-13 22:44
 -------------------------------------------------------------------------------
 
 local opt = vim.opt
@@ -46,6 +46,16 @@ if file_exists(theme_script_path) then
    g.tinted_colorspace = 256
    cmd("source " .. theme_script_path)
 end
+
+--[[  TODO: function update_hl should be in utils ]]--
+local function update_hl( group, tbl )
+    local old_hl = vim.api.nvim_get_hl_by_name( group, true )
+    local new_hl = vim.tbl_extend( 'force', old_hl, tbl )
+    vim.api.nvim_set_hl( 0, group, new_hl )
+end
+
+update_hl( 'Comment', { italic = false } )
+
 
 -- helpful guides
 opt.linebreak = on
@@ -93,8 +103,8 @@ opt.formatoptions = 'cqt'
 opt.formatexpr = ''
 
 -- folding
-opt.foldmethod = marker
-opt.foldmarker = '[[[,]]]'
+opt.foldmethod = indent
+-- opt.foldmarker = ''
 -- opt.foldlevel = 99
 
 -- backip and undo

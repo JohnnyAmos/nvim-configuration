@@ -1,6 +1,6 @@
 --JMJ--------------------------------------------------------------------AMDG--
 --                          PLUGIN: which-key.nvim                           --
---                      Last Modified: 2024-09-10 17:29
+--                      Last Modified: 2024-09-11 16:25
 -------------------------------------------------------------------------------
 
 return {
@@ -21,6 +21,7 @@ return {
             scroll_down = "<A-DOWN>", -- default: <C-d>
             scroll_up = "<A-UP>", -- default: <C-u>
          },
+         sort = { "alphanum" },
          replace = {
             key = {
                function(key)

@@ -1,9 +1,13 @@
---JMJ--------------------------------------------------------------------AMDG--
+--JMJ----------------------------------✝︎---------------------------------AMDG--
 --                    PLUGIN: init.lua (multiple plugins)                    --
---                      Last Modified: 2024-09-10 19:31
+--                      Last Modified: 2024-09-15 13:41
 -------------------------------------------------------------------------------
 
 return {
+   {
+      'norcalli/nvim-colorizer.lua',
+      opts = {}
+   },
    {
       'tinted-theming/base16-vim',
       priority = 1000
@@ -67,5 +71,9 @@ return {
       lazy = false
    },
    'smolck/command-completion.nvim',
+   {
+      "gbprod/yanky.nvim",
+      opts = {},
+   },
 }
 

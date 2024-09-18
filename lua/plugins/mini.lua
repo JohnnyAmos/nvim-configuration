@@ -1,6 +1,6 @@
 --JMJ--------------------------------------------------------------------AMDG--
 --                             PLUGIN: mini.lua                              --
---                      Last Modified: 2024-09-10 19:19
+--                      Last Modified: 2024-09-11 22:14
 -------------------------------------------------------------------------------
 
 return {
@@ -10,48 +10,64 @@ return {
       config = function()
          require('mini.ai').setup()
          require('mini.align').setup()
---          require('mini.animate').setup()
          require('mini.basics').setup()
          require('mini.bracketed').setup()
          require('mini.bufremove').setup()
---          require('mini.clue').setup({})
-         require('mini.colors').setup()
          require('mini.comment').setup()
---          require('mini.completion').setup()
          require('mini.cursorword').setup()
---          require('mini.deps').setup()
          require('mini.diff').setup()
---          require('mini.doc').setup()
          require('mini.extra').setup()
          require('mini.files').setup()
          require('mini.fuzzy').setup()
          require('mini.git').setup()
---          require('mini.hipatterns').setup({
---             highlighters = {
---                fix = { pattern = 'FIX', group = 'MiniHipatternsFix' },
---                 - { pattern = '', group = '' },
---             }
---          })
---          require('mini.hues').setup()
          require('mini.icons').setup()
---         require('mini.indentscope').setup()
          require('mini.jump').setup()
-         require('mini.jump2d').setup()
          require('mini.map').setup()
          require('mini.misc').setup()
          require('mini.move').setup()
          require('mini.notify').setup()
          require('mini.operators').setup()
-         require('mini.pairs').setup()
          require('mini.pick').setup()
          require('mini.sessions').setup()
          require('mini.splitjoin').setup()
+         require('mini.visits').setup()
+
+         --[[ SECTION: mini.indentscope ]]--
+         require('mini.indentscope').setup({
+            draw = {
+               animation = require('mini.indentscope').gen_animation.none()
+            },
+            try_as_border = true,
+         })
+
+         --[[ SECTION: mini.jump2d ]]--
+         require('mini.jump2d').setup({
+            mappings = {
+               start_jumping = '<leader><cr>',
+            },
+         })
+
+         --[[ SECTION: mini.pairs ]]--
+         require('mini.pairs').setup({
+            mappings = {
+               -- Thanks to https://github.com/wbthomason/dotfiles/blob/main/dot_config/nvim/lua/plugins.lua
+               -- Prevents the action if the cursor is just before any character or next to a "\".
+               ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\][%s%)%]%}]' },
+               ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\][%s%)%]%}]' },
+               ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\][%s%)%]%}]' },
+               -- This is default (prevents the action if the cursor is just next to a "\").
+               [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+               [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+               ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+               -- Prevents the action if the cursor is just before or next to any character.
+               ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^%w][^%w]', register = { cr = false } },
+               ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%w][^%w]', register = { cr = false } },
+               ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^%w][^%w]', register = { cr = false } },
+            },
+         })
 
          --[[ SECTION: mini.starter ]]--
          local logo = table.concat({
-            [[                         ___                          ]],
-            [[                        (o o)                         ]],
-            [[                   -ooO--(_)--Ooo-                    ]],
             [[,----------------------------------------------------,]],
             [[| [][][][][]  [][][][][]  [][][][]  [][__]  [][][][] |]],
             [[|                                                    |]],
@@ -158,13 +174,24 @@ return {
                })
             },
          })
---          require('mini.statusline').setup()
---          require('mini.surround').setup()
---          require('mini.tabline').setup()
---          require('mini.test').setup()
---          require('mini.trailspace').setup()
-         require('mini.visits').setup()
       end
    }
 }
+
+--[[ unused modules
+         require('mini.animate').setup()
+         require('mini.base16').setup()
+         require('mini.clue').setup()
+         require('mini.completion').setup()
+         require('mini.colors').setup()
+         require('mini.deps').setup()
+         require('mini.doc').setup()
+         require('mini.hipatterns').setup()
+         require('mini.hues').setup()
+         require('mini.statusline').setup()
+         require('mini.surround').setup()
+         require('mini.tabline').setup()
+         require('mini.test').setup()
+         require('mini.trailspace').setup()
+]]
 

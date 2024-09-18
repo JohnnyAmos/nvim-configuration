@@ -1,9 +1,20 @@
---JMJ--------------------------------------------------------------------AMDG--
+--JMJ----------------------------------✝︎---------------------------------AMDG--
 --                      nvim keymap configuration file                       --
---                      Last Modified: 2024-09-10 19:26
+--                      Last Modified: 2024-09-14 16:25
 -------------------------------------------------------------------------------
 
 local wk = require('which-key')
+
+--[[  SECTION: group assignments ]]--
+
+wk.add({
+   --{ '<leader>', group = '' },
+   { '<leader>b', group = 'Buffers' },
+   { '<leader>c', group = 'Comments' },
+   { '<leader>f', group = 'Files' },
+   { '<localleader>p', group = 'Preview markdown files' },
+})
+
 
 --[[ SECTION: little helpers group ]]--
 
@@ -13,7 +24,12 @@ wk.add({
    -- use ; for :
    { ';', ':', mode = 'n' },
    -- close all but current window (in a single tab)
-   { '<leader>o', ':only<cr>', mode = 'n' },
+   {
+      '<leader>o',
+      ':only<cr>',
+      mode = 'n',
+      desc = "close all but this window"
+   },
    -- exit insert mode quickly
    { 'jk', '<esc>', mode = 'i' },
    { 'kj', '<esc>', mode = 'i' },
@@ -56,12 +72,13 @@ wk.add({
    -- exit terminal mode (doesn't work in all situations)
    { '<esc><esc>', '<c-\\><c-n>', mode = 't', desc = 'Exit terminal mode' },
    -- Switch buffers quickly.
-   {
-      '<leader>bb',
-      ':buffers<cr>:b<space>',
-      mode = 'n',
-      desc = 'List Buffers'
-   },
+   -- List buffers is handled by 
+   -- {
+   --    '<leader>bb',
+   --    ':buffers<cr>:b<space>',
+   --    mode = 'n',
+   --    desc = 'List Buffers'
+   -- },
    {
       '<leader>bn',
       ':bnext<cr>',
@@ -75,7 +92,7 @@ wk.add({
       desc = 'Previous buffer'
    },
    {
-      '<leader>bd',
+      '<leader>bc',
       ':bdelete<cr>',
       mode = 'n',
       desc = 'Close buffer'
@@ -97,12 +114,83 @@ wk.add({
    { '<c-right>', ':vert res +_2<cr>', mode = 'n' },
 }) -- end little helpers group
 
+
+--[[  PLUGIN: peek.nvim ]]--
+local wk = require('which-key')
+wk.add({
+
+   {
+      '<localleader>po',
+      'require("peek").open',
+      mode = 'n',
+      desc = 'open preview'
+   },
+   {
+      '<localleader>pc',
+      'require("peek").close',
+      mode = 'n', 
+      desc = 'close preview'
+   },
+})
+
 --[[  PLUGIN: nvim-comment-frame ]]--
 
 wk.add({
-   { '<leader>cs', ":lua require('nvim-comment-frame').add_comment()<cr>", mode = 'n', desc = 'Add single-line comment frame' },
-   { '<leader>cm', ":lua require('nvim-comment-frame').add_multiline_comment()<cr>", mode = 'n', desc = 'Add multiple-line comment frame' },
+   {
+      '<leader>cs',
+      ":lua require('nvim-comment-frame').add_comment()<cr>",
+      mode = 'n',
+      desc = 'Add single-line comment frame'
+   },
+   {
+      '<leader>cm',
+      ":lua require('nvim-comment-frame').add_multiline_comment()<cr>",
+      mode = 'n',
+      desc = 'Add multiple-line comment frame'
+   },
 }) -- end nvim-comment-frame
+
+--[[ PLUGIN: todo-comments.nvim ]]--
+
+wk.add({
+   {
+      '<leader>td',
+      group = 'Todo-Comments'
+   },
+   {
+      "<leader>tdn",
+      function()
+         require("todo-comments").jump_next()
+      end,
+      desc = "Next Todo Comment"
+   },
+   {
+      "<leader>tdp",
+      function() require("todo-comments").jump_prev()
+      end,
+      desc = "Previous Todo Comment"
+   },
+   {
+      "<leader>tdr",
+      "<cmd>Trouble todo toggle<cr>",
+      desc = "Todo (Trouble)"
+   },
+   {
+      "<leader>tda",
+      "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>",
+      desc = "Todo/Fix/Fixme (Trouble)"
+   },
+   {
+      "<leader>tdt",
+      "<cmd>TodoTelescope<cr>",
+      desc = "Todo"
+   },
+   {
+      "<leader>tdb",
+      "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",
+      desc = "Todo/Fix/Fixme"
+   },
+})
 
 --[[ PLUGIN: trouble.nvim ]]--
 
@@ -152,7 +240,7 @@ wk.add({
 --[[ PLUGIN: Telescope.nvim ]]--
 
 wk.add({
-   { '<leader>f', group = 'Files' },
+
    {
       '<leader>ff',
       "<cmd>Telescope find_files<CR>",
@@ -178,51 +266,51 @@ wk.add({
       desc = 'Old files'
    },
    {
-      '<leader>fbu',
+      '<leader>bt',
       "<cmd>Telescope buffers<CR>",
       mode = 'n',
-      desc = 'List buffers'
+      desc = 'List buffers (Telescope)'
    },
    {
-      '<leader>ffc',
+      '<leader>fz',
       "<cmd>Telescope current_buffer_fuzzy_find<CR>",
       mode = 'n',
       desc = 'fzf in current buffer'
    },
    {
-      '<leader>ft',
+      '<leader>fg',
       "<cmd>Telescope tags<CR>",
       mode = 'n',
-      desc = 'List ctags'
+      desc = 'List global ctags'
    },
    {
-      '<leader>ftb',
+      '<leader>fl',
       "<cmd>Telescope current_buffer_tags<CR>",
       mode = 'n',
       desc = "This buffer's ctags"
    },
    {
-      "<leader>fbr",
+      "<leader>fb",
       ":Telescope file_browser<CR>",
       mode = "n",
       desc = 'Browser'
    },
    {
-      "<leader>fbl",
-      group = "buffers",
+      "<leader>bb",
       expand = function()
          return require("which-key.extras").expand.buf()
-      end
+      end,
+      desc = 'Show Buffers'
    },
 }) -- end telescope.nvim
 
 
---[[ PLUGIN: YANKY.NVIM ]]--
---[[ FIX: <leader>, <localleader>. or neither. probably neither ]]--
+--[[  PLUGIN: YANKY.NVIM ]]--
+--[[  TODO: <leader>, <localleader>. or neither ]]--
 
 wk.add({
    {
-      "<leader>p",
+      "<leader>yo",
       function()
          require("telescope").extensions.yank_history.yank_history({ })
       end,
@@ -260,62 +348,52 @@ wk.add({
       desc = "Put yanked text before selection"
    },
    {
-      "<c-p>",
+      "<leader>yhp",
       "<Plug>(YankyPreviousEntry)",
       desc = "Select previous entry through yank history"
    },
    {
-      "<c-n>",
+      "<leader>yhn",
       "<Plug>(YankyNextEntry)",
       desc = "Select next entry through yank history"
    },
    {
-      "]p",
+      "<leader>yia",
       "<Plug>(YankyPutIndentAfterLinewise)",
       desc = "Put indented after cursor (linewise)"
    },
    {
-      "[p",
+      "<leader>yib",
       "<Plug>(YankyPutIndentBeforeLinewise)",
       desc = "Put indented before cursor (linewise)"
    },
    {
-      "]P",
-      "<Plug>(YankyPutIndentAfterLinewise)",
-      desc = "Put indented after cursor (linewise)"
-   },
-   {
-      "[P",
-      "<Plug>(YankyPutIndentBeforeLinewise)",
-      desc = "Put indented before cursor (linewise)"
-   },
-   {
-      ">p",
+      "<leader>ypair",
       "<Plug>(YankyPutIndentAfterShiftRight)",
       desc = "Put and indent right"
    },
    {
-      "<p",
+      "<leader>ypail",
       "<Plug>(YankyPutIndentAfterShiftLeft)",
       desc = "Put and indent left"
    },
    {
-      ">P",
+      "<leader>ypbir",
       "<Plug>(YankyPutIndentBeforeShiftRight)",
       desc = "Put before and indent right"
    },
    {
-      "<P",
+      "<leader>ypbil",
       "<Plug>(YankyPutIndentBeforeShiftLeft)",
       desc = "Put before and indent left"
    },
    {
-      "=p",
+      "<leader>ypaf",
       "<Plug>(YankyPutAfterFilter)",
       desc = "Put after applying a filter"
    },
    {
-      "=P",
+      "<leader>ypbf",
       "<Plug>(YankyPutBeforeFilter)",
       desc = "Put before applying a filter"
    },

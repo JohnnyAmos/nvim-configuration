@@ -1,19 +1,7 @@
---JMJ--------------------------------------------------------------------AMDG--
+--JMJ----------------------------------✝︎---------------------------------AMDG--
 --                       PLUGIN: todo-comments.nvim                          --
---                     Last Modified: 2024-09-10 17:31
+--                     Last Modified: 2024-09-14 22:48
 -------------------------------------------------------------------------------
-
---[[  FIX: ]]--
---[[  TODO: ]]--
---[[  HACK: ]]--
---[[  WARN: ]]--
---[[  PERF: ]]--
---[[  NOTE: ]]--
---[[  TEST: ]]--
---[[  IDEA: ]]--
---[[  PLUGIN: ]]--
---[[  SECTION: ]]--
-
 
 return {
    {
@@ -62,64 +50,42 @@ return {
             SECTION = {
                icon = '󰚟 ',
                color = 'section',
-            },
-         },
-         keys = {
-            {
-               "]t",
-               function()
-                  require("todo-comments").jump_next()
-               end,
-               desc = "Next Todo Comment"
-            },
-            {
-               "[t",
-               function() require("todo-comments").jump_prev()
-               end,
-               desc = "Previous Todo Comment"
-            },
-            {
-               "<leader>xt",
-               "<cmd>Trouble todo toggle<cr>",
-               desc = "Todo (Trouble)"
-            },
-            {
-               "<leader>xT",
-               "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX,FIXME}}<cr>",
-               desc = "Todo/Fix/Fixme (Trouble)"
-            },
-            {
-               "<leader>st",
-               "<cmd>TodoTelescope<cr>",
-               desc = "Todo"
-            },
-            {
-               "<leader>sT",
-               "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",
-               desc = "Todo/Fix/Fixme"
+               alt = { 'FUNCTION' }
             },
          },
          merge_keywords = true,
+         --[[  FIX: ]]--
+         --[[  TODO: ]]--
+         --[[  HACK: ]]--
+         --[[  WARN: ]]--
+         --[[  PERF: ]]--
+         --[[  NOTE: ]]--
+         --[[  TEST: ]]--
+         --[[  IDEA: ]]--
+         --[[  PLUGIN: ]]--
+         --[[  SECTION: ]]--
          colors = {
-            fix = { "#ff5151" },
-            todo = { "#5a8dff" },
-            hack = { "#ff8e00" },
+            fix = { "#ff5445" },
+            todo = { "#76c7b7" },
+            hack = { "#fda331" },
             warn = { "#e8e805" },
-            perf = { "#e461ff" },
-            note = { "#dedf97" },
-            test = { "#dea4d8" },
-            idea = { "#b2e35c" },
-            plugin = { "#42d74d" },
-            section = { "#91c1de" },
+            perf = { "#d381c3" },
+            note = { "#6fb3d2" },
+            test = { "#b0b0b0" },
+            idea = { "#a1c659" },
+            plugin = { "#e3845a" },
+            section = { "#6fb3d2" },
          },
          highlight = {
             multiline = false, -- default: false
             before = "fg", -- 'fg', 'bg', or empty
-            keyword = "wide", -- 'fg', 'bg', 'wide', 'wide', 'wide_bg',
+            keyword = "wide", -- 'fg', 'bg', 'wide', 'wide_bg',
                               -- 'wide_fg', or empty
             after = "fg",  -- "fg", "bg" or empty
-            pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]], -- pattern or table of patterns,
-                                             -- used for highlightng (vim regex)
+            comments_only = false,
+            pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]], -- pattern or table of
+                                                     -- patterns, used for
+                                                     -- highlightng (vim regex)
          },
       }
    }
