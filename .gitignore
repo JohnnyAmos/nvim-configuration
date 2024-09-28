@@ -4,4 +4,8 @@ _template.txt
 
 # nvim
 .logs/*
-tmp/*
+.info/*
+
+
+
+

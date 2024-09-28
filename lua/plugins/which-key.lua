@@ -1,16 +1,16 @@
 --JMJ--------------------------------------------------------------------AMDG--
 --                          PLUGIN: which-key.nvim                           --
---                      Last Modified: 2024-09-11 16:25
+--                      Last Modified: 2024-09-24 23:18
 -------------------------------------------------------------------------------
 
 return {
    {
-      "folke/which-key.nvim",
+--      "folke/which-key.nvim",
+      dir = "~/dev/which-key.nvim",
+      branch = "marks",
       event = "VeryLazy",
       opts = {
          preset = "modern",
-         -- add mappings here in spec or use `require('which-key').add()` later
-         spec = {},
          notify = true,
          triggers = {
             { "<auto>", mode = "nixsotc" },
@@ -22,29 +22,11 @@ return {
             scroll_up = "<A-UP>", -- default: <C-u>
          },
          sort = { "alphanum" },
-         replace = {
-            key = {
-               function(key)
-                  return require("which-key.view").format(key)
-               end,
-               -- { "<Space>", "SPC" },
-            },
-            desc = {
-               { "<Plug>%(?(.*)%)?", "%1" },
-               { "^%+", "" },
-               { "<[cC]md>", "" },
-               { "<[cC][rR]>", "" },
-               { "<[sS]ilent>", "" },
-               { "^lua%s+", "" },
-               { "^call%s+", "" },
-               { "^:%s*", "" },
-            },
-         },
-         -- disable WhichKey for certain buf types and file types.
-         disable = {
-            ft = {},
-            bt = {},
-         },
+
+      plugins = {
+        marks = true, -- shows a list of your marks on ' and `
+        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+      },
          debug = false, -- enable wk.log in the current directory
       },
       keys = {

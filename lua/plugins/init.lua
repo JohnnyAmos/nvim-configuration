@@ -1,17 +1,9 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
 --                    PLUGIN: init.lua (multiple plugins)                    --
---                      Last Modified: 2024-09-15 13:41
+--                      Last Modified: 2024-09-23 01:25
 -------------------------------------------------------------------------------
 
 return {
-   {
-      'norcalli/nvim-colorizer.lua',
-      opts = {}
-   },
-   {
-      'tinted-theming/base16-vim',
-      priority = 1000
-   },
    {
       "chentoast/marks.nvim",
       event = "VeryLazy",

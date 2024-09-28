@@ -1,26 +1,12 @@
 --JMJ--------------------------------------------------------------------AMDG--
 --                              PLUGIN: edgy.nvim                            --
---                      Last Modified: 2024-09-10 17:33
+--                      Last Modified: 2024-09-22 21:36
 -------------------------------------------------------------------------------
 
 return {
    {
       'folke/edgy.nvim',
       event = "VeryLazy",
-      keys = {
-         {
-            "<leader>ue",
-            function()
-               require("edgy").toggle()
-            end,
-            desc = "Edgy Toggle",
-         },
-         {
-            "<leader>uE",
-            function() require("edgy").select() end,
-            desc = "Edgy Select Window"
-         },
-      },
       opts = function()
          local opts = {
             bottom = {
