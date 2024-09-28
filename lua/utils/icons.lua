@@ -1,4 +1,9 @@
-
+--JMJ----------------------------------✝︎---------------------------------AMDG--
+--                              utils/iconslua                                --
+--            With thanks to xero. For the original files, go to:            --
+-- https://github.com/xero/dotfiles/tree/main/neovim/.config/nvim/lua/utils  --
+--                      Last Modified: 2024-09-12 23:12
+-------------------------------------------------------------------------------
 
 -- I don't think I need this.
 

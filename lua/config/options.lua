@@ -1,6 +1,6 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
 --                      nvim options configuration file                      --
---                      Last Modified: 2024-09-26 18:06
+--                      Last Modified: 2024-09-28 00:34
 -------------------------------------------------------------------------------
 
 local opt = vim.opt
@@ -9,11 +9,8 @@ local g = vim.g
 
 opt.fileencoding = "UTF-8"
 
--- because sometimes I need to use a mouse
--- even if I would rather not use one
 opt.mouse = "a"
 
--- leaders must be set before loading plugins
 g.mapleader = " "
 g.maplocalleader = ","
 
@@ -25,10 +22,10 @@ g.loaded_netrwPlugin = 1
 
 g.have_nerd_font = true
 g.base16_colorspace = 256
-
 opt.termguicolors = true
 
 local theme_script_path = vim.fn.expand(
+   -- 
    "~/Library/Application Support/tinted-theming/tinty/base16-vim-colors-file.vim"
 )
 
@@ -47,7 +44,10 @@ if file_exists(theme_script_path) then
    cmd("source " .. theme_script_path)
 end
 
---[[  TODO: function update_hl should be in utils ]]--
+-- TODO: Should function update_hl be in utils?
+--
+-- Or should all the colorscheme related code be in a seperate file?
+-- It may be time to rethink plugins/colors_&_comments.lua also.
 local function update_hl( group, tbl )
     local old_hl = vim.api.nvim_get_hl_by_name( group, true )
     local new_hl = vim.tbl_extend( "force", old_hl, tbl )
@@ -58,8 +58,8 @@ update_hl( "Comment", { italic = false } )
 
 
 -- helpful guides
-opt.linebreak = on
-opt.breakindent = on
+opt.linebreak = true
+opt.breakindent = true
 opt.colorcolumn = "80"
 opt.cursorline = true
 opt.cursorlineopt = "number" -- "line" & "screenline" are the other options
@@ -107,12 +107,8 @@ opt.foldmethod = indent
 -- opt.foldmarker = ""
 -- opt.foldlevel = 99
 
--- backip and undo
-opt.backup = false -- tried it, didn"t like it. may try it again
-opt.undofile = true
-
 -- use system clipboard
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamed" -- works better than unnamedplus for me
 
 -- searching
 opt.ignorecase = true
@@ -127,5 +123,5 @@ opt.splitkeep = "topline"
 
 -- scrolling
 opt.smoothscroll = true
-opt.scrolloff = 10
+opt.scrolloff = 6
 

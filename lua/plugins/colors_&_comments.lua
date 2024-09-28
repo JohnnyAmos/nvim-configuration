@@ -137,24 +137,23 @@ return {
             -- pattern or table of patterns, used for highlightng (vim regex)
 --             pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]],
             pattern = [[.*<(KEYWORDS)\s*:]],
-
-                                                     
          },
       },
-      --[[ TODO: eperiment with different patterns ]]
-      -- these patterns allow for usernames in the keyword
---       highlight = {
---         -- vimgrep regex, supporting the pattern TODO(name):
---         pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]],
---       },
---       search = {
---         -- ripgrep regex, supporting the pattern TODO(name):
---         pattern = [[\b(KEYWORDS)(\(\w*\))*:]],
---       },
    }
-
-
 }
 
+-- TODO: Experiment with different patterns for highlights.
+--
+-- These patterns allow for usernames in the keyword.
+--    highlight = {
+--      -- vimgrep regex, supporting the pattern TODO(name):
+--      pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]],
+--    },
+--    search = {
+--      -- ripgrep regex, supporting the pattern TODO(name):
+--      pattern = [[\b(KEYWORDS)(\(\w*\))*:]],
+--    },
+--
+-- Also need to make multiline work.
 
 
