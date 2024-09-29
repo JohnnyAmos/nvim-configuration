@@ -1,21 +1,19 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
 --                      nvim keymap configuration file                       --
---                      Last Modified: 2024-09-28 00:43
+--                      Last Modified: 2024-09-28 13:16
 -------------------------------------------------------------------------------
 
 local wk = require("which-key")
 
-wk.add({
-
-   -- Command/subject group assignments.
-   -- (Plugin-specific groups are assigned in their individual sections.)
-   { "<leader>b", group = "Buffers" },
-   { "<leader>c", group = "Comments" },
-   { "<leader>f", group = "Files" },
-   { "<leader>t", group = "Text" },
 
    -- General keymaps are configured in the core file.
-   require("config.maps.maps-core")
+--   require("config.maps.maps-core")
+   local ok, core = pcall(require, "config.maps.maps-core")
+   if not ok then
+      print("maps.core has an error")
+   end
+
+wk.add({
 
    -- Plugin-specific keymaps are configured in individual files.
    require("config.maps.maps-edgy")

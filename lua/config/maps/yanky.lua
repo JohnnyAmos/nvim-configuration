@@ -4,7 +4,15 @@
 -------------------------------------------------------------------------------
 
 
-return {
+local ok, wk = pcall(require, "which-key")
+if not ok then
+   return
+end
+
+local M = {},
+
+M.maps
+
    {
       "y",
       "<Plug>(YankyYank)",
