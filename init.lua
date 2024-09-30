@@ -10,7 +10,7 @@ require("config.lazy")
 require("config.maps")
 require("config.autocmds")
 
--- TODO: Continue configuration of nvim
+-- TODO [$66fa5109d28c3e0008b8bba6]: Continue configuration of nvim
 --
 -- Finish configuration for the following plugins:
 --

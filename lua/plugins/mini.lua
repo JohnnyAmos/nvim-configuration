@@ -138,7 +138,7 @@ return {
             }
          end
 
-         --[[ TODO: add fortune and stats to footer ]]--
+         --[[ TODO [$66fa5109d28c3e0008b8bbab]: add fortune and stats to footer ]]--
          local starter = require("mini.starter")
          starter.setup({
             evaluating_single = true,

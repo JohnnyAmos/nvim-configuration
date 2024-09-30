@@ -1,4 +1,4 @@
---[[ TODO: insert comment header ]]--
+--[[ TODO [$66fa5109d28c3e0008b8bba8]: insert comment header ]]--
 
 
 return {
@@ -105,7 +105,7 @@ return {
          merge_keywords = true,
 
          --[[ FIX: it's broken ]]--
-         --[[ TODO: do this ]]-- possible explanation
+         --[[ TODO [$66fa5109d28c3e0008b8bba9]: do this ]]-- possible explanation
          --[[ HACK: held together with chewing gum and bailing wire ]]--
          --[[ WARN: something bad may happen ]]--
          --[[ PERF: make it go faster ]]--
@@ -142,7 +142,7 @@ return {
    }
 }
 
--- TODO: Experiment with different patterns for highlights.
+-- TODO [$66fa5109d28c3e0008b8bbaa]: Experiment with different patterns for highlights.
 --
 -- These patterns allow for usernames in the keyword.
 --    highlight = {

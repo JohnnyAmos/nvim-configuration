@@ -44,7 +44,7 @@ if file_exists(theme_script_path) then
    cmd("source " .. theme_script_path)
 end
 
--- TODO: Should function update_hl be in utils?
+-- TODO [$66fa5109d28c3e0008b8bba7]: Should function update_hl be in utils?
 --
 -- Or should all the colorscheme related code be in a seperate file?
 -- It may be time to rethink plugins/colors_&_comments.lua also.
