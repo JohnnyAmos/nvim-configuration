@@ -1,10 +1,18 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
---                   nvim keymaps configuration: core maps                   --
---                      Last modified: 2024-09-27 23:09                      --
+--    Neovim configuration for Mac/Unix
+--    Module: $HOME/.config/nvim/lua/config/modules/core.lua
+--    Last modified: 2024-09-29 11:28
 -------------------------------------------------------------------------------
 
 
-return {
+local M = {}
+
+function M.keys()
+
+   local ok, wk = pcall(require, "which-key")
+   if not ok then
+      return
+   end
 
    wk.add({
 
@@ -113,5 +121,8 @@ return {
 
    })
 
-}
+end
+
+return M
+
 
