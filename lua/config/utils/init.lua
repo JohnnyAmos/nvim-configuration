@@ -8,12 +8,12 @@
 -------------------------------------------------------------------------------
 
 
--- TODO: Convert docs to --EmmyLua-- LuaCATS annotations. We might have use for
+-- TODO [$670dfe84dc2f250008cffcd6]: Convert docs to --EmmyLua-- LuaCATS annotations. We might have use for
 -- them some day, and they're easier on the eyes than this mess.
 
 --[[ FUNCTION: print_tbl
 
-==> TODO: Change variable, argument, and function names. DONE
+==> TODO [$670dfe84dc2f250008cffcd7]: Change variable, argument, and function names. DONE
 
 A simple function to print tbls or to write tbls into files. Great for
 debugging but also for data storage. When writing into files the 'return'
@@ -77,7 +77,7 @@ end
 
 --[[ FUNCTION: copy_tbl
 
-==> TODO: Change variable, argument, and function names. DONE
+==> TODO [$670dfe84dc2f250008cffcd8]: Change variable, argument, and function names. DONE
 
 This is a simple copy tbl function. It uses recursion so you may get trouble
 with cycles and too big tbls. But in most cases this function is absolutely enough.
@@ -105,7 +105,7 @@ end
 -- FUNCTION: rpt (I have no idea what this does; must test.)
 --[[
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffcd9]: Change variable, argument, and function names.
           Unsure of purpose of function.
 
 remove words with length 2 to 4
@@ -124,7 +124,7 @@ end
 
 --[[ FUNCTION read_file
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffcda]: Change variable, argument, and function names.
 
 read_file() reads a file and returns the content as a table with one line per
 index. if the file was not readable read_file returns nil.
@@ -155,7 +155,7 @@ end
 
 --[[ FUNCTION: write_file
 
-==> TODO: Change variable, argument, and function names. DONE
+==> TODO [$670dfe84dc2f250008cffcdb]: Change variable, argument, and function names. DONE
 
 write_file() takes a tbl or string and writes it to a file and returns true if
 writing was successful, otherwise nil. If input is a table it shall contain
@@ -202,7 +202,7 @@ end
 
 --[[ FUNCTION: is_equal
 
-==> TODO: Change variable, argument, and function names.DONE
+==> TODO [$670dfe84dc2f250008cffcdc]: Change variable, argument, and function names.DONE
 
 This function takes 2 values as input and returns true if they are equal and
 false if not.
@@ -270,7 +270,7 @@ end
 
 --[[ FUNCTION: run_cmd
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffcdd]: Change variable, argument, and function names.
 
 This is kind of a wrapper function to os.execute and io.popen. The problem with
 os.execute is that it can only return the exit status but not the command
@@ -320,7 +320,7 @@ end
 
 --[[ FUNCTION: to_string
 
-==> TODO: Change variable, argument, and function names. DONE
+==> TODO [$670dfe84dc2f250008cffcde]: Change variable, argument, and function names. DONE
 
 This function converts tbls, functions, etc., to strings. If the input is a
 string then a quoted string is returned.
@@ -374,7 +374,7 @@ end
 
 --[[ FUNCTION: 
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffcdf]: Change variable, argument, and function names.
 
 This function has actually 3 purposes and the behavior changes with the
 parameters. I know it's kinda dirty, but I had it in separate functions before
@@ -510,7 +510,7 @@ end
 
 --[[ FUNCTION: maxn
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffce0]: Change variable, argument, and function names.
 
  This function only brings back the table.maxn() function from version 5.1.
  It returns the largest positive numerical index of the given table,
@@ -533,7 +533,7 @@ end
 
 --[[ FUNCTION: 
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffce1]: Change variable, argument, and function names.
 
 split() takes a string and splits it at all occurrences of the given delimiter.
 The delimiter itself gets removed and each string piece will be put in a tbl, which will be returned.
@@ -575,7 +575,7 @@ end
 -- test <<<
 --[[
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffce2]: Change variable, argument, and function names.
 
 This function is used for super simple non-fancy unit tests.
 It only needs 3 parameters and the rest is either extracted automatically with the Lua debug module
@@ -622,7 +622,7 @@ end
 
 --[[ FUNCTION: parse
 
-==> TODO: Change variable, argument, and function names.
+==> TODO [$670dfe84dc2f250008cffce3]: Change variable, argument, and function names.
 
 This function provides a quick way to parse the commandline arguments passed to
 the script. It can not be fed with a configuration to describe the supported
