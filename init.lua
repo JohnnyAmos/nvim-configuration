@@ -1,14 +1,16 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
---                         nvim initialization file                          --
---                      Last Modified: 2024-09-29 10:59
+-- Neovim configuration for Mac/Unix
+-- File: $HOME/.config/nvim/init.lua
+-- Last modified: 2024-09-29 11:28
 -------------------------------------------------------------------------------
+
 
 vim.loader.enable()
 
 require("config.options")
+require("config.autocmds")
 require("config.lazy")
 require("config.maps")
-require("config.autocmds")
 
 -- TODO: Continue configuration of nvim
 --
@@ -25,5 +27,4 @@ require("config.autocmds")
 -- - https://github.com/0styx0/abbreinder.nvim
 -- - https://github.com/0styx0/abbremand.nvim
 -- - Consider other plugins/solutions.
-
 

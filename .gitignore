@@ -1,8 +1,7 @@
 # MacOS
 *.DS_Store
-_template.txt
 
 # nvim
 .logs/*
 .info/*
-
+lua/config/wk.log

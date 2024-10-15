@@ -1,6 +1,9 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
---                       lazy.nvim configuration file                        --
---                      Last Modified: 2024-09-13 22:42
+-- Neovim configuration for Mac/Unix
+-- File: $HOME/.config/nvim/lua/config/lazy.lua
+-- Plugin source: https://github.com/folke/lazy.nvim
+-- Plugin license: Apache-2.0
+-- Last modified: 2024-09-29 11:28
 -------------------------------------------------------------------------------
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -28,7 +31,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
    spec = {
-      { import = "plugins" },
+      { import = "config.specs" },
    },
    install = { colorscheme = { "base16-github" } },
    checker = { enabled = true },

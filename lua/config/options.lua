@@ -1,7 +1,9 @@
 --JMJ----------------------------------✝︎---------------------------------AMDG--
---                      nvim options configuration file                      --
---                      Last Modified: 2024-09-28 00:34
+-- Neovim configuration for Mac/Unix
+-- File: $HOME/.config/nvim/lua/config/options.lua
+-- Last modified: 2024-09-29 11:28
 -------------------------------------------------------------------------------
+
 
 local opt = vim.opt
 local cmd = vim.cmd
@@ -11,21 +13,20 @@ opt.fileencoding = "UTF-8"
 
 opt.mouse = "a"
 
-g.mapleader = " "
-g.maplocalleader = ","
-
--- Disable netrw
+-- Disable netrw ahead of the loading of neo-tree.nvim
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
---[[ SECTION: Themes & Schemes ]]--
+-- The leaders must be loaded prior to loading lazy.nvim.
+g.mapleader = "/"
+g.maplocalleader = ","
 
+-- These need to be set prior to loading colorscheme.
 g.have_nerd_font = true
 g.base16_colorspace = 256
 opt.termguicolors = true
 
 local theme_script_path = vim.fn.expand(
-   -- 
    "~/Library/Application Support/tinted-theming/tinty/base16-vim-colors-file.vim"
 )
 
@@ -35,34 +36,31 @@ end
 
 local function handle_focus_gained()
    if file_exists(theme_script_path) then
-      cmd("source " .. theme_script_path)
+      vim.cmd("source " .. theme_script_path)
    end
 end
 
 if file_exists(theme_script_path) then
-   g.tinted_colorspace = 256
-   cmd("source " .. theme_script_path)
+   vim.g.tinted_colorspace = 256
+   vim.cmd("source " .. theme_script_path)
 end
 
--- TODO: Should function update_hl be in utils?
---
--- Or should all the colorscheme related code be in a seperate file?
--- It may be time to rethink plugins/colors_&_comments.lua also.
+-- TODO: Move function update_hl to utils.
 local function update_hl( group, tbl )
     local old_hl = vim.api.nvim_get_hl_by_name( group, true )
     local new_hl = vim.tbl_extend( "force", old_hl, tbl )
     vim.api.nvim_set_hl( 0, group, new_hl )
 end
 
+-- No italicized comments, please.
 update_hl( "Comment", { italic = false } )
-
 
 -- helpful guides
 opt.linebreak = true
 opt.breakindent = true
 opt.colorcolumn = "80"
 opt.cursorline = true
-opt.cursorlineopt = "number" -- "line" & "screenline" are the other options
+opt.cursorlineopt = "number"
 
 -- make room for purdy pictures
 opt.signcolumn = "yes:2"
@@ -90,21 +88,23 @@ opt.laststatus = 3
 -- opt.wildmode = "list,longest" -- default: "full"
 opt.wildignorecase = on
 
---[[ SECTION: editing ]]--
-
 opt.expandtab = true
 opt.tabstop = 3
 opt.shiftwidth = 3
 opt.softtabstop = 3
 opt.showmatch = true
 opt.smartindent = true
-opt.indentexpr = ""
-opt.formatoptions = "cqt"
-opt.formatexpr = ""
 
 -- folding
-opt.foldmethod = indent
--- opt.foldmarker = ""
+if vim.bo.filetype ~= "help" then
+   opt.foldenable = off
+elseif vim.bo.filetype ~= "terminal" then
+   opt.foldenable = off
+end
+opt.foldenable = on
+opt.foldcolumn = "auto"
+opt.foldmethod = marker
+opt.foldmarker = ">>>,<<<"
 -- opt.foldlevel = 99
 
 -- use system clipboard
