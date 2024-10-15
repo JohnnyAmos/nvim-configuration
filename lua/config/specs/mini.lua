@@ -117,7 +117,7 @@ return {
          })
 
          -- PLUGIN: mini.sessions
-         -- TODO: See if there are any keymaps that can be used, or make some
+         -- TODO [$670dfe84dc2f250008cffcd2]: See if there are any keymaps that can be used, or make some
          require("mini.sessions").setup()
 
          -- PLUGIN: mini.starter
@@ -140,7 +140,7 @@ return {
                section = pad .. section
             }
          end
-         -- TODO: mini.starter 
+         -- TODO [$670dfe84dc2f250008cffcd3]: mini.starter 
             -- Add fortune and stats to footer and put the cow back in the
             -- header.
          local starter = require("mini.starter")

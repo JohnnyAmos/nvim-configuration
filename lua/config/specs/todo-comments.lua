@@ -65,7 +65,7 @@ return {
                merge_keywords = true,
    
                --[[ FIX: it's broken ]]--
-               --[[ TODO: do this ]]-- possible explanation
+               --[[ TODO [$670dfe84dc2f250008cffcd4]: do this ]]-- possible explanation
                --[[ HACK: held together with chewing gum and bailing wire ]]--
                --[[ WARN: something bad may happen ]]--
                --[[ PERF: make it go faster ]]--
@@ -104,7 +104,7 @@ return {
    }
 }
 
--- TODO: Experiment with different patterns for highlights.
+-- TODO [$670dfe84dc2f250008cffcd5]: Experiment with different patterns for highlights.
 --
 -- These patterns allow for usernames in the keyword.
 --    highlight = {

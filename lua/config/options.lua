@@ -45,7 +45,7 @@ if file_exists(theme_script_path) then
    vim.cmd("source " .. theme_script_path)
 end
 
--- TODO: Move function update_hl to utils.
+-- TODO [$670dfe84dc2f250008cffcd1]: Move function update_hl to utils.
 local function update_hl( group, tbl )
     local old_hl = vim.api.nvim_get_hl_by_name( group, true )
     local new_hl = vim.tbl_extend( "force", old_hl, tbl )
