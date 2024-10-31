@@ -1,10 +1,13 @@
---JMJ----------------------------------✝︎---------------------------------AMDG--
--- Neovim configuration for Mac/Unix
--- File: $HOME/.config/nvim/lua/config/lazy.lua
--- Plugin source: https://github.com/folke/lazy.nvim
--- Plugin license: Apache-2.0
--- Last modified: 2024-09-29 11:28
--------------------------------------------------------------------------------
+-- ╔═JMJ══════════════════════╡  ❈✧❈  ✞  ❈✧❈  ╞═══════════════════════AMDG═╗ --
+-- ║                  Neovim configuration for Mac/unix                    ║ --
+-- ║                        (Mac now, unix soon.)                          ║ --
+-- ╚═══════════════════════════════════════════════════════════════════════╝ --
+-- ║ Neovim configuration for Mac/Unix
+-- ║ File: $HOME/.config/nvim/lua/config/lazy.lua
+-- ║ Plugin source: https://github.com/folke/lazy.nvim
+-- ║ Plugin license: Apache-2.0
+-- ╚═══════════════════════════════════════════════════════════════════════╝ --
+--                                              Last modified: 2024-10-23 23:26
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -31,9 +34,36 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
    spec = {
-      { import = "config.specs" },
+      { import = "config.plugins" },
    },
-   install = { colorscheme = { "base16-github" } },
-   checker = { enabled = true },
+   install = {
+      colorscheme = { "base16-bright" }
+   },
+   checker = {
+      enabled = true,
+      notify = false
+   },
+   ui = {
+      border = "single",
+      backdrop = 0,
+      icons = require("config.assets.icons").lazy()
+   },
+   performance = {
+      rtp = {
+         disabled_plugins = {
+            "gzip",
+            "matchit",
+            "matchparen",
+            "netrwPlugin",
+            "tarPlugin",
+            "tohtml",
+            "zipPlugin"
+         }
+      }
+   },
+   profiling = {
+      loader = true,
+      require = true
+   }
 })
 

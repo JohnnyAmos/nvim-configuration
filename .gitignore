@@ -4,4 +4,4 @@
 # nvim
 .logs/*
 .info/*
-lua/config/wk.log
+*wk.log
