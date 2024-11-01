@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-10-30 22:35
+--                                              Last modified: 2024-10-31 23:35
 
 --[[
 
@@ -110,13 +110,6 @@ local lsp = vim.lsp
 local opt = vim.opt
 
 
-vim.cmd("colorscheme base16-bright")
-
-
-
-
-
-
 
 -- ╔═══════════════════════════════════════════════════════════════════════╗ --
 -- ║  SECTION: OPTIONS                                                     ║ --
@@ -143,7 +136,7 @@ opt.cursorline = true
 opt.cursorlineopt = "number"
 
 -- Make room for helpful icons.
-opt.signcolumn = "yes:2"
+opt.signcolumn = "yes:4"
 
 -- Show helper symbols.
 opt.list = true
@@ -164,16 +157,19 @@ opt.numberwidth = 2
 -- Only show status line on last window
 opt.laststatus = 3
 
--- Wildcard expansion settings for the command line
+-- Wildcard expansion settings for the command line                             <-- needs work
 -- opt.wildmode = "list,longest" -- default: "full"
 opt.wildignorecase = on
 
+-- We'll have spaces in our indents, if you please.
 opt.expandtab = true
 opt.tabstop = 3
 opt.shiftwidth = 3
 opt.softtabstop = 3
-opt.showmatch = true
 opt.smartindent = true
+
+-- Show the matched paren, brace, or bracket.
+opt.showmatch = true
 
 -- Folding
 if bo.filetype ~= "help" then
@@ -205,6 +201,10 @@ opt.splitkeep = "topline"
 opt.smoothscroll = true
 opt.scrolloff = 6
 
+-- Undoing
+undofile = true
+
+
 -- ╔═══════════════════════════════════════════════════════════════════════╗ --
 -- ║  SECTION:  AUTOCOMMANDS                                               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
@@ -226,6 +226,13 @@ aucmd({ "BufEnter", "BufWinEnter" }, {
    callback = function()
       cmd("silent! loadview 1")
    end
+})
+
+augrp("Help", { clear = true })
+aucmd('FileType', {
+  pattern = {'help', 'man'},
+  group = "Help",
+  command = 'nnoremap <buffer> q <cmd>quit<cr>'
 })
 
 -- Set cwd to the buffer directory. This means that the filename that is
@@ -335,7 +342,7 @@ icons_gitsigns_signs_staged = {
    untracked = { text = '┆' }
 }
 
--- ╞═╡  SUBSECTION: icons_lualine_fileformat_symbols (for lualine.nvim) ╞══╡ --
+-- ╞═╡  SUBSECTION: icons_lualine_ff_symbols (for lualine.nvim) ╞══════════╡ --
 
 icons_lualine_fileformat_symbols = {
    unix = ' ',
@@ -351,7 +358,7 @@ icons_mason_ui_icons = {
    package_uninstalled = "✗", -- ⎩ "󱄯" ⎭  them.
 }
 
--- ╞═╡  SUBSECTION: icons_render_md_icons (for render-markdown.nvim) ══════╡ --
+-- ╞═╡  SUBSECTION: icons_render_md_icons (for render-markdown.nvim) ╞═════╡ --
 
 icons_render_markdown_icons = {
    '󰎥 ',
@@ -500,7 +507,7 @@ function lazy.install(path)
       'clone',
       '--filter=blob:none',
       'https://github.com/folke/lazy.nvim.git',
-      '--branch=stable', -- latest stable release
+      '--branch=stable',
       path,
     })
   end
@@ -532,7 +539,7 @@ lazy.opts = {
    ui = {
       border = "single",
       backdrop = 0,
-      icons = require("config.assets.icons").lazy()
+      icons = icons_lazy
    },
    performance = {
       rtp = {
@@ -557,12 +564,20 @@ lazy.opts = {
 lazy.setup({
 
 
+   -- ╞═╡ PLUGIN: base16-nvim ╞════════════════════════════════════════╡ --
 
--- ╞═╡ PLUGIN: Comment.nvim ╞══════════════════════════════════════════════╡ --
+   {
+      "RRethy/base16-nvim",
+      config = function()
+         vim.cmd("colorscheme base16-bright")
+      end
+   },
+
+   -- ╞═╡ PLUGIN: Comment.nvim ╞════════════════════════════════════════╡ --
 
    { "numToStr/Comment.nvim" },
 
--- ╞═╡ PLUGIN: browser-bokmarks.nvim ╞═════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: browser-bokmarks.nvim ╞═══════════════════════════════╡ --
 
    {
       "dhruvmanila/browser-bookmarks.nvim",
@@ -573,21 +588,21 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: cmp-buffer ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: cmp-buffer ╞══════════════════════════════════════════╡ --
 
    { "hrsh7th/cmp-buffer" },
 
--- ╞═╡ PLUGIN: cmp-nvim-lsp ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: cmp-nvim-lsp ╞════════════════════════════════════════╡ --
 
    { "hrsh7th/cmp-nvim-lsp" },
 
--- ╞═╡ PLUGIN: cmp-path ╞══════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: cmp-path ╞════════════════════════════════════════════╡ --
 
    { "hrsh7th/cmp-path" },
 
 
 
--- ╞═╡ PLUGIN: command-completion.nvim ╞═══════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: command-completion.nvim ╞═════════════════════════════╡ --
 
    {
       "smolck/command-completion.nvim",
@@ -599,7 +614,7 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: conform.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: conform.nvim ╞════════════════════════════════════════╡ --
 
    {
       "stevearc/conform.nvim",
@@ -620,11 +635,11 @@ lazy.setup({
       end
    },
 
--- ╞═╡ PLUGIN: csvvview.nvim ╞═════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: csvvview.nvim ╞═══════════════════════════════════════╡ --
 
    { "hat0uma/csvview.nvim" },
 
--- ╞═╡ PLUGIN: custom-theme.nvim ╞═════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: custom-theme.nvim ╞═══════════════════════════════════╡ --
 
    {
       "Djancyp/custom-theme.nvim",
@@ -633,11 +648,11 @@ lazy.setup({
       end
    },
 
--- ╞═╡ PLUGIN: dressing.nvim ╞═════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: dressing.nvim ╞═══════════════════════════════════════╡ --
 
    { "stevearc/dressing.nvim" },
 
--- ╞═╡ PLUGIN: edgy.nvim ╞═════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: edgy.nvim ╞═══════════════════════════════════════════╡ --
 
    {
       "folke/edgy.nvim",
@@ -706,7 +721,7 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: flash.nvim ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: flash.nvim ╞══════════════════════════════════════════╡ --
 
    {
       "folke/flash.nvim",
@@ -722,35 +737,35 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: fortune.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: fortune.nvim ╞════════════════════════════════════════╡ --
 
    { "fecet/fortune.nvim" },
 
--- ╞═╡ PLUGIN: friendly-snippets ╞═════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: friendly-snippets ╞═══════════════════════════════════╡ --
 
    { "rafamadriz/friendly-snippets"},
 
--- ╞═╡ PLUGIN: gitsigns.nvim ╞═════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: gitsigns.nvim ╞═══════════════════════════════════════╡ --
 
-   {
-      "sewis6991/gitsigns.nvim",
-      opts = {
-         signs = require("config.assets.icons").gitsigns_signs(),
-         signs_staged = require("config.assets.icons").gitsigns_signs_staged(),
-         signs_staged_enable = true,
-         word_diff = true,
-         watch_gitdir = {
-            follow_files = true
-         },
-         attach_to_untracked = true,
-      }
-   },
+--    {
+--       "sewis6991/gitsigns.nvim",
+--       opts = {
+--          signs = icons_gitsigns_signs,
+--          signs_staged = icons_gitsigns_signs_staged,
+--          signs_staged_enable = true,
+--          word_diff = true,
+--          watch_gitdir = {
+--             follow_files = true
+--          },
+--          attach_to_untracked = true,
+--       }
+--    },
 
--- ╞═╡ PLUGIN: grug-far.nvim ╞═════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: grug-far.nvim ╞═══════════════════════════════════════╡ --
 
    { "MagicDuck/grug-far.nvim" },
 
--- ╞═╡ PLUGIN: lazydev.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: lazydev.nvim ╞════════════════════════════════════════╡ --
 
    {
       "folke/lazydev.nvim",
@@ -770,7 +785,7 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: lualine.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: lualine.nvim ╞════════════════════════════════════════╡ --
 
    {
       "nvim-lualine/lualine.nvim",
@@ -791,8 +806,7 @@ lazy.setup({
             "encoding",
             {
                "fileformat",
-               symbols = require("config.assets.icons")
-                         .lualine_fileformat_symbols()
+               symbols = icons_lualine_ff_symbols
             },
             "filetype",
             "filesize"
@@ -829,11 +843,11 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: luvit-meta ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: luvit-meta ╞══════════════════════════════════════════╡ --
 
    { "Bilal2453/luvit-meta", lazy = true },
 
--- ╞═╡ PLUGIN: marks.nvim ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: marks.nvim ╞══════════════════════════════════════════╡ --
 
    {
       "chentoast/marks.nvim",
@@ -845,11 +859,11 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: mason-lspconfig.nvim ╞══════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: mason-lspconfig.nvim ╞════════════════════════════════╡ --
 
    { "williamboman/mason-lspconfig.nvim", },
 
--- ╞═╡ PLUGIN: mason.nvim ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: mason.nvim ╞══════════════════════════════════════════╡ --
 
    {
       "williamboman/mason.nvim",
@@ -857,12 +871,12 @@ lazy.setup({
          PATH = 'skip',
          border = 'single',
          ui = {
-            icons = require("config.assets.icons").mason_ui_icons(),
+            icons = icons_mason_ui_icons,
          }
       }
    },
 
--- ╞═╡ PLUGIN: mini.nvim ╞═════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: mini.nvim ╞═══════════════════════════════════════════╡ --
 
    {
       "echasnovski/mini.nvim",
@@ -1165,7 +1179,7 @@ lazy.setup({
 
    --]]
 
--- ╞═╡ PLUGIN: neo-tree.nvim ╞═════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: neo-tree.nvim ╞═══════════════════════════════════════╡ --
 
    {
       "nvim-neo-tree/neo-tree.nvim",
@@ -1204,51 +1218,64 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: neoconf.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: neoconf.nvim ╞════════════════════════════════════════╡ --
 
    { "folke/neoconf.nvim", cmd = 'Neoconf' },
 
--- ╞═╡ PLUGIN: none-ls.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: none-ls.nvim ╞════════════════════════════════════════╡ --
 
    { "nvimtools/none-ls.nvim" },
 
--- ╞═╡ PLUGIN: nui.nvim ╞══════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nui.nvim ╞════════════════════════════════════════════╡ --
 
    { "MunifTanjim/nui.nvim" },
 
--- ╞═╡ PLUGIN: nvim-cmp ╞══════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-cmp ╞════════════════════════════════════════════╡ --
 
    { "hrsh7th/nvim-cmp" },
 
--- ╞═╡ PLUGIN: nvim-colorizer ╞════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-colorizer ╞══════════════════════════════════════╡ --
 
    { "norcalli/nvim-colorizer.lua" },
 
--- ╞═╡ PLUGIN: nvim-comment-frame ╞════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-comment-frame ╞══════════════════════════════════╡ --
 
    { "s1n7ax/nvim-comment-frame" },
 
--- ╞═╡ PLUGIN: nvim-dap ╞══════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-dap ╞════════════════════════════════════════════╡ --
 
    { "mfussenegger/nvim-dap" },
 
--- ╞═╡ PLUGIN: nvim-dap-ui ╞═══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-dap-ui ╞═════════════════════════════════════════╡ --
 
    { "rcarriga/nvim-dap-ui" },
 
--- ╞═╡ PLUGIN: nvim-lspconfig ╞════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-lspconfig ╞══════════════════════════════════════╡ --
 
    { "neovim/nvim-lspconfig" },
 
--- ╞═╡ PLUGIN: nvim-nio ╞══════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-nio ╞════════════════════════════════════════════╡ --
 
    { "nvim-neotest/nvim-nio" },
 
--- ╞═╡ PLUGIN: nvim-surround ╞═════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-surround ╞═══════════════════════════════════════╡ --
 
    { "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
 
--- ╞═╡ PLUGIN: nvim-treesitter ╞═══════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-toggler ╞════════════════════════════════════════╡ --
+
+   {
+      "nguyenvukhang/nvim-toggler",
+      opts = {
+         remove_default_keybinds = true,
+         -- your own inverses
+         -- inverses = {
+         -- ['this'] = 'that'
+         -- },
+      }
+   },
+
+   -- ╞═╡ PLUGIN: nvim-treesitter ╞═════════════════════════════════════╡ --
 
    {
       "nvim-treesitter/nvim-treesitter",
@@ -1340,15 +1367,21 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: nvim-treesitter-endwise ╞═══════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-treesitter-endwise ╞═════════════════════════════╡ --
+
+   {
+      "RRethy/nvim-treesitter-endwise"
+   },
+
+   -- ╞═╡ PLUGIN: nvim-treesitter-endwise ╞═════════════════════════════╡ --
 
    -- These specs live in nvim-treesitter.
 
--- ╞═╡ PLUGIN: nvim-treesitter-textobjects ╞═══════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-treesitter-textobjects ╞═════════════════════════╡ --
 
    -- These specs live in nvim-treesitter.
 
--- ╞═╡ PLUGIN: nvim-update-time ╞══════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-update-time ╞════════════════════════════════════╡ --
 
    {
       "StonyBoy/nvim-update-time",
@@ -1359,11 +1392,11 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: nvim-web-devicons ╞═════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: nvim-web-devicons ╞═══════════════════════════════════╡ --
 
    { "kyazdani42/nvim-web-devicons" },
 
--- ╞═╡ PLUGIN: octo.nvim ╞═════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: octo.nvim ╞═══════════════════════════════════════════╡ --
 
    {
       "pwntester/octo.nvim",
@@ -1385,11 +1418,11 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: plenary.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: plenary.nvim ╞════════════════════════════════════════╡ --
 
    { "nvim-lua/plenary.nvim" },
 
--- ╞═╡ PLUGIN: render-markdown.nvim ╞══════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: render-markdown.nvim ╞════════════════════════════════╡ --
 
    {
       "MeanderingProgrammer/render-markdown.nvim",
@@ -1399,26 +1432,26 @@ lazy.setup({
          heading = {
             position = "inline"
          },
-         icons = require("config.assets.icons").render_markdown_icons(),
+         icons = icons_render_md_icons,
          dash = { width = 79 }
       }
    },
 
--- ╞═╡ PLUGIN: sqlite.lua ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: sqlite.lua ╞══════════════════════════════════════════╡ --
 
    { "kkharji/sqlite.lua" },
 
--- ╞═╡ PLUGIN: stylua-nvim ╞═══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: stylua-nvim ╞═════════════════════════════════════════╡ --
 
    { "ckipp01/stylua-nvim" },
 
--- ╞═╡ PLUGIN: telescope-lazy.nvim ╞═══════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: telescope-lazy.nvim ╞═════════════════════════════════╡ --
 
 -- Move to telescope dependencies
 
 -- Move to telescope opts
 
--- ╞═╡ PLUGIN: telescope.nvim ╞════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: telescope.nvim ╞══════════════════════════════════════╡ --
 
 
    {
@@ -1699,7 +1732,7 @@ lazy.setup({
       end
    },
 
--- ╞═╡ PLUGIN: todo-comments.nvim ╞════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: todo-comments.nvim ╞══════════════════════════════════╡ --
 
    {
       "folke/todo-comments.nvim",
@@ -1758,18 +1791,18 @@ lazy.setup({
          },
          merge_keywords = true,
 
-         --  FIX:  it's broken
-         --  TODO:  done
-         --  HACK:  held together with chewing gum and bailing wire
-         --  WARN:  something bad may happen
-         --  PERF:  make it faster or more efficient
-         --  NOTE:  something informative
-         --  TEST:  will it work
-         --  IDEA:  try this
-         --  SECTION:  complementary items
-         --  SUBSECTION:  small parts of sections
-         --  PLUGIN:  pluggy.nvim
-         --  FUNCTION:  functions, one hopes
+         --  FIX: it's broken
+         --  TODO: done
+         --  HACK: held together with chewing gum and bailing wire
+         --  WARN: something bad may happen
+         --  PERF: make it faster or more efficient
+         --  NOTE: something informative
+         --  TEST: will it work
+         --  IDEA: try this
+         --  SECTION: complementary items
+         --  SUBSECTION: small parts of sections
+         --  PLUGIN: pluggy.nvim
+         --  FUNCTION: functions, one hopes
 
          colors = {
             fix = { "#ff5445" },
@@ -1779,16 +1812,16 @@ lazy.setup({
             perf = { "#d381c3" },
             note = { "#6fb3d2" },
             test = { "#b0b0b0" },
-            plugin = { "#e3845a" }, -- Either the plugin color or the
-            section = { "#6fb3d2" }, -- subsection color will be used.
-            subsection = { "#a1c659" }  -- Or not, depending.
+            plugin = { "#e3845a" },
+            section = { "#6fb3d2" },
+            subsection = { "#a1c659" }
          },
          highlight = {
-            multiline = true, -- default: false
-            before = "", -- 'fg', 'bg', or empty
+            multiline = false, -- default: false
+            before = "fg", -- 'fg', 'bg', or empty
             keyword = "wide", -- 'fg', 'bg', 'wide', 'wide_bg',
                               -- 'wide_fg', or empty
-            after = "",  -- "fg", "bg" or empty
+            after = "fg",  -- "fg", "bg" or empty
             comments_only = true,
             -- pattern or table of patterns, used for highlightng (vim regex)
             -- pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]],
@@ -1816,7 +1849,7 @@ lazy.setup({
       Also need to make multiline work. Soonish.
    --]]
 
--- ╞═╡ PLUGIN: treesj ╞════════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: treesj ╞══════════════════════════════════════════════╡ --
 
    {
       "Wansmer/treesj",
@@ -1826,7 +1859,7 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: trouble.nvim ╞══════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: trouble.nvim ╞════════════════════════════════════════╡ --
 
    {
       "folke/trouble.nvim",
@@ -1875,7 +1908,16 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: which-key.nvim ╞════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: virtcolumn.nvim ╞═════════════════════════════════════╡ --
+
+   {
+      "lukas-reineke/virt-column.nvim",
+      opts = {
+         virtcolumn = "80"
+      }
+   },
+
+   -- ╞═╡ PLUGIN: which-key.nvim ╞══════════════════════════════════════╡ --
 
    {
       "folke/which-key.nvim",
@@ -1895,7 +1937,7 @@ lazy.setup({
       }
    },
 
--- ╞═╡ PLUGIN: yanky.nvim ╞════════════════════════════════════════════════╡ --
+   -- ╞═╡ PLUGIN: yanky.nvim ╞══════════════════════════════════════════╡ --
 
    {
       "gbprod/yanky.nvim",
@@ -1912,7 +1954,7 @@ lazy.setup({
 
 local wk = require("which-key")
 
-   -- ╞═╡ SUBSECTION: core maps ╞═══════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: core maps ╞═════════════════════════════════════════════╡ --
 
 wk.add({
 
@@ -2102,7 +2144,7 @@ wk.add({
 })
 
 
-   -- ╞═╡ SUBSECTION: Leader 0: telescope.nvim ╞════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 0: telescope.nvim ╞══════════════════════════════╡ --
 
 wk.add({
 
@@ -2115,7 +2157,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 1: nvim-treesitter ╞═══════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 1: nvim-treesitter ╞═════════════════════════════╡ --
 
 
 wk.add({
@@ -2170,7 +2212,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 2 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 2 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2184,7 +2226,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 3 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 3 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2198,7 +2240,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 4 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 4 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2212,7 +2254,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 5 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 5 ╞══════════════════════════════════════════════╡ --
 
 
 
@@ -2227,7 +2269,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 6 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 6 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2241,7 +2283,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 7 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 7 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2255,7 +2297,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 8 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 8 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2269,7 +2311,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader 9 ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader 9 ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2283,7 +2325,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader a ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader a ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2297,7 +2339,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader b: Buffers ╞═══════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader b: Buffers ╞═════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2347,7 +2389,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader c: Comments ╞══════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader c: Comments ╞════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2406,7 +2448,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader d: Diagnostics ╞═══════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader d: Diagnostics ╞═════════════════════════════════╡ --
 
 
 wk.add({
@@ -2458,7 +2500,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader e ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader e ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2472,7 +2514,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader f: Files ╞═════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader f: Files ╞═══════════════════════════════════════╡ --
 
 
 wk.add({
@@ -2529,7 +2571,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader g: Github ╞════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader g: Github ╞══════════════════════════════════════╡ --
 
 
 local _octo_reviews = require("octo.reviews")
@@ -3099,7 +3141,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader h ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader h ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3113,7 +3155,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader i ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader i ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3127,7 +3169,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader j ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader j ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3141,7 +3183,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader k ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader k ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3155,7 +3197,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader l: LSP ╞═══════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader l: LSP ╞═════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3169,7 +3211,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader m: Marks ╞═════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader m: Marks ╞═══════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3269,7 +3311,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader n: Navigation ╞════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader n: Navigation ╞══════════════════════════════════╡ --
 
 
 wk.add({
@@ -3310,7 +3352,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader o ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader o ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3324,7 +3366,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader p: Put ╞═══════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader p: Put ╞═════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3381,7 +3423,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader q ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader q ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3395,7 +3437,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader r: Registers ╞═════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader r: Registers ╞═══════════════════════════════════╡ --
 
 
 wk.add({
@@ -3409,7 +3451,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader s: Surround ╞══════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader s: Surround ╞════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3486,7 +3528,7 @@ wk.add({
 
 })
 
-   -- ╞═╡ SUBSECTION: Leader t: Text ╞══════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader t: Text ╞════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3745,29 +3787,33 @@ wk.add({
       "<cmd>TSTextobjectSwapPrevious<cr>",
       desc = "Swap previous"
    },
-   { "<leader>ts", desc = "Text subjects" },
-   { "<leader>tt", desc = "TreeSJ" },
+   { "<leader>ts", desc = "Split/Join" },
    { --                                                        ==> @treesj.nvim
-      "<leader>ttt",
+      "<leader>tst",
       "<cmd>lua require('treesj').toggle()<cr>",
       desc = "Toggle split/join"
    },
    { --                                                        ==> @treesj.nvim
-      "<leader>tts",
+      "<leader>tss",
       "<cmd>lua require('treesj').split()<cr>",
       desc = "Split"
    },
    { --                                                        ==> @treesj.nvim
-      "<leader>ttj",
+      "<leader>tsj",
       "<cmd>lua require('treesj').join()<cr>",
       desc = "Join"
+   },
+   { --                                                       ==> @nvim-toggler
+      "<leader>tt",
+      require('nvim-toggler').toggle(),
+      desc = "Toggle"
    },
 
 })
 
 
 
-   -- ╞═╡ SUBSECTION: Leader u ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader u ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3783,7 +3829,7 @@ wk.add({
 
 
 
-   -- ╞═╡ SUBSECTION: Leader v ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader v ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3799,7 +3845,7 @@ wk.add({
 
 
 
-   -- ╞═╡ SUBSECTION: Leader w: Windows/Tabs ╞══════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader w: Windows/Tabs ╞════════════════════════════════╡ --
 
 
 wk.add({
@@ -3842,7 +3888,7 @@ wk.add({
 
 
 
-   -- ╞═╡ SUBSECTION: Leader x ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader x ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3858,7 +3904,7 @@ wk.add({
 
 
 
-   -- ╞═╡ SUBSECTION: Leader y: Yank ╞══════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader y: Yank ╞════════════════════════════════════════╡ --
 
 
 wk.add({
@@ -3886,7 +3932,7 @@ wk.add({
 
 
 
-   -- ╞═╡ SUBSECTION: Leader z ╞════════════════════════════════════════╡ --
+-- ╞═╡ SUBSECTION: Leader z ╞══════════════════════════════════════════════╡ --
 
 
 wk.add({
