@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-10-31 23:35
+--                                              Last modified: 2024-11-25 22:56
 
 --[[
 
@@ -16,9 +16,9 @@
 
 --[[ ══════════════════════════════════════════════════════════════════════════
 
-      TODO: Continue configuration of nvim
+      TODO: Continue configuration of nvim.
 
-      Finish wildcard expansion options.
+      FIX: Undo is not working at all. Why?
 
       Keymaps:
 
@@ -28,7 +28,6 @@
             it means modifying source code and submitting pull requests.
 
       Plugins in need of configuration:
-
 
          -  conform.nvim
          -  edgy.nvim:
@@ -60,39 +59,6 @@
          -  https://github.com/0styx0/abbremand.nvim
          -  Consider other plugins/solutions.
 
-      Find someplace to put this - Box Drawings:
-
-         -  ═ <-- U+2550: double horizontal
-         -  ║ <-- U+2551: double vertical
-         -  ╒ <-- U+2552: down single and right double
-         -  ╓ <-- U+2553: down double and right single
-         -  ╔ <-- U+2554: double down and right
-         -  ╕ <-- U+2555: down single and left double
-         -  ╖ <-- U+2556: down double and left single
-         -  ╗ <-- U+2557: double down and left
-         -  ╘ <-- U+2558: up single and right double
-         -  ╙ <-- U+2559: up double and right single
-         -  ╚ <-- U+255A: double up and right
-         -  ╛ <-- U+255B: up single and left double
-         -  ╜ <-- U+255C: up double and left single
-         -  ╝ <-- U+255D: double up and left
-         -  ╞ <-- U+255E: vertical single and right double
-         -  ╟ <-- U+255F: vertical double and right single
-         -  ╠ <-- U+2560: double vertical and right
-         -  ╡ <-- U+2561: vertical single and left double
-         -  ╢ <-- U+2562: vertical double and left single
-         -  ╣ <-- U+2563: double vertical and left
-         -  ╤ <-- U+2564: down single and horizontal double
-         -  ╥ <-- U+2565: down double and horizontal single
-         -  ╦ <-- U+2566: double down and horizontal
-         -  ╧ <-- U+2567: up single and horizontal double
-         -  ╨ <-- U+2568: up double and horizontal single
-         -  ╩ <-- U+2569: double up and horizontal
-         -  ╪ <-- U+256A: vertical single and horizontal double
-         -  ╫ <-- U+256B: vertical double and horizontal single
-         -  ╬ <-- U+256C: double vertical and horizontal
-
-
 ══════════════════════════════════════════════════════════════════════════ --]]
 
 
@@ -120,7 +86,7 @@ opt.fileencoding = "UTF-8"
 opt.mouse = "a"
 
 -- The leaders must be loaded prior to loading lazy.nvim.
-g.mapleader = "`"
+g.mapleader = "\\"
 g.maplocalleader = ""
 
 -- These need to be set prior to loading colorscheme.
@@ -157,11 +123,16 @@ opt.numberwidth = 2
 -- Only show status line on last window
 opt.laststatus = 3
 
--- Wildcard expansion settings for the command line                             <-- needs work
+-- Wildcard expansion settings for the command line
 -- opt.wildmode = "list,longest" -- default: "full"
-opt.wildignorecase = on
+opt.wildignorecase = true
+opt.wildignore = "*.bmp,*.cbr,*.cbz,*.class,*.divx,*.dll,*.exe,*.flac,*.gif,\
+*.ico,*.jpeg,*.jpg,*.kgb,*.m2ts,*.manifest,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,\
+*.obj,*.oga,*.ogg,*.otf,*.out,*.pdf,*.png,*.psd,*.rar,*.rbc,*.tar.bz2,*.tar.gz,\
+*.tar.xz,*.toc,*.ttf,*.vob,*.wav,*.webm,*.webp,*.woff,.,..,.DS_Store,._*,.ai,\
+.aux,.avi,.doc,.eot,.git,.hg,.lock,.mp3,.o,.svn,.swp,.zip"
 
--- We'll have spaces in our indents, if you please.
+-- We'll have spaces in our indents.
 opt.expandtab = true
 opt.tabstop = 3
 opt.shiftwidth = 3
@@ -202,7 +173,8 @@ opt.smoothscroll = true
 opt.scrolloff = 6
 
 -- Undoing
-undofile = true
+undofile = on
+undodir = "$XDG_STATE_HOME/nvim/undo"
 
 
 -- ╔═══════════════════════════════════════════════════════════════════════╗ --
@@ -320,9 +292,9 @@ end
 
 
 
--- ╞═╡  SUBSECTION: icons_gitsigns_signs (for gitsigns.nvim) ╞═════════════╡ --
+-- ╞═╡  SUBSECTION: icons_gitsigns (for gitsigns.nvim) ╞═══════════════════╡ --
 
-icons_gitsigns_signs = {
+icons_gitsigns = {
    add = { text = '┃' },
    change = { text = '┃' },
    delete = { text = '_' },
@@ -331,9 +303,9 @@ icons_gitsigns_signs = {
    untracked = { text = '┆' }
 }
 
--- ╞═╡  SUBSECTION: icons_gitsigns_signs_staged (for gitsigns.nvim) ╞══════╡ --
+-- ╞═╡  SUBSECTION: icons_gitsigns_staged (for gitsigns.nvim) ╞════════════╡ --
 
-icons_gitsigns_signs_staged = {
+icons_gitsigns_staged = {
    add = { text = '┃' },
    change = { text = '┃' },
    delete = { text = '_' },
@@ -344,66 +316,55 @@ icons_gitsigns_signs_staged = {
 
 -- ╞═╡  SUBSECTION: icons_lualine_ff_symbols (for lualine.nvim) ╞══════════╡ --
 
-icons_lualine_fileformat_symbols = {
+icons_lualine_ff_symbols = {
    unix = ' ',
    dos = ' ',
    mac = ' '
 }
 
--- ╞═╡  SUBSECTION: icons_mason_ui_icons (for mason.nvim) ╞════════════════╡ --
+-- ╞═╡  SUBSECTION: icons_mason_ui (for mason.nvim) ╞══════════════════════╡ --
 
-icons_mason_ui_icons = {
+icons_mason_ui = {
    package_installed = "✓",   -- ⎧ "󱄲" ⎫  xero's icons: preserved here
    package_pending = "➜",     -- ⎨ "󱄰" ⎬  because I may choose to use
-   package_uninstalled = "✗", -- ⎩ "󱄯" ⎭  them.
-}
-
--- ╞═╡  SUBSECTION: icons_render_md_icons (for render-markdown.nvim) ╞═════╡ --
-
-icons_render_markdown_icons = {
-   '󰎥 ',
-   '󰎨 ',
-   '󰎫 ',
-   '󰎲 ',
-   '󰎯 ',
-   '󰎴 '
+   package_uninstalled = "✗"  -- ⎩ "󱄯" ⎭  them.
 }
 
 -- ╞═╡  SUBSECTION: icons_diagnostics ╞════════════════════════════════════╡ --
 
-icons_diagnostics = {
-   error = " ",
-   hint = " ",
-   information = " ",
-   other = " ",
-   warning = " ",
-}
+-- icons_diagnostics = {
+--    error = " ",
+--    hint = " ",
+--    information = " ",
+--    other = " ",
+--    warning = " "
+-- }
 
 -- ╞═╡  SUBSECTION: icons_git ╞════════════════════════════════════════════╡ --
 
-icons_git = {
-   Added = " ",
-   Modified = " ",
-   Removed = " ",
-}
+-- icons_git = {
+--    Added = " ",
+--    Modified = " ",
+--    Removed = " "
+-- }
 
 -- ╞═╡  SUBSECTION: icons_dap ╞════════════════════════════════════════════╡ --
 
-icons_dap = {
-   breakpoint = " ",
-   breakpoint_condition = " ",
-   log_point = " ",
-   stopped = " ",
-   breakpoint_rejected = " ",
-   pause = " ",
-   play = " ",
-   step_into = " ",
-   step_over = " ",
-   step_out = " ",
-   step_back = " ",
-   run_last = " ",
-   terminate = " ",
-}
+-- icons_dap = {
+--    breakpoint = " ",
+--    breakpoint_condition = " ",
+--    log_point = " ",
+--    stopped = " ",
+--    breakpoint_rejected = " ",
+--    pause = " ",
+--    play = " ",
+--    step_into = " ",
+--    step_over = " ",
+--    step_out = " ",
+--    step_back = " ",
+--    run_last = " ",
+--    terminate = " "
+-- }
 
 -- ╞═╡  SUBSECTION: icons_lazy (for lazy.nvim) ╞═══════════════════════════╡ --
 
@@ -427,70 +388,70 @@ icons_lazy = {
       "󱄰",
       "➜",
       "★",
-      "‒",
-   },
+      "‒"
+   }
 }
 
 -- ╞═╡  SUBSECTION:  icons_trouble (for trouble.nvim) ╞════════════════════╡ --
 
-icons_trouble = {
-   indent = {
-      top = "┊ ",
-      middle = "├╴",
-      last = "└╴",
-      fold_open = " ",
-      fold_closed = " ",
-      ws = "  ",
-   },
-   folder_closed = " ",
-   folder_open = " ",
-   kinds = {
-      Array = " ",
-      Boolean = "󰨙 ",
-      Class = " ",
-      Constant = "󰏿 ",
-      Constructor = " ",
-      Enum = " ",
-      EnumMember = " ",
-      Event = " ",
-      Field = " ",
-      File = " ",
-      Function = "󰊕 ",
-      Interface = " ",
-      Key = " ",
-      Method = "󰊕 ",
-      Module = " ",
-      Namespace = "󰦮 ",
-      Null = " ",
-      Number = "󰎠 ",
-      Object = " ",
-      Operator = " ",
-      Package = " ",
-      Property = " ",
-      String = " ",
-      Struct = "󰆼 ",
-      TypeParameter = " ",
-      Variable = "󰀫 ",
-   }
-}
+-- icons_trouble = {
+--    indent = {
+--       top = "┊ ",
+--       middle = "├╴",
+--       last = "└╴",
+--       fold_open = " ",
+--       fold_closed = " ",
+--       ws = "  "
+--    },
+--    folder_closed = " ",
+--    folder_open = " ",
+--    kinds = {
+--       Array = " ",
+--       Boolean = "󰨙 ",
+--       Class = " ",
+--       Constant = "󰏿 ",
+--       Constructor = " ",
+--       Enum = " ",
+--       EnumMember = " ",
+--       Event = " ",
+--       Field = " ",
+--       File = " ",
+--       Function = "󰊕 ",
+--       Interface = " ",
+--       Key = " ",
+--       Method = "󰊕 ",
+--       Module = " ",
+--       Namespace = "󰦮 ",
+--       Null = " ",
+--       Number = "󰎠 ",
+--       Object = " ",
+--       Operator = " ",
+--       Package = " ",
+--       Property = " ",
+--       String = " ",
+--       Struct = "󰆼 ",
+--       TypeParameter = " ",
+--       Variable = "󰀫 "
+--    }
+-- }
 
 -- ╞═╡  FUNCTION: borders() ╞══════════════════════════════════════════════╡ --
 
-icons_borders = {
-   dashed = { "┄", "┊", "┄", "┊", "╭", "╮", "╯", "╰", },
-   double = { "═", "║", "═", "║", "╔", "╗", "╝", "╚", },
-   single = { "─", "│", "─", "│", "╭", "╮", "╯", "╰", },
-   blocks = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙", },
-   blocky = { "▀", "▐", "▄", "▌", "▄", "▄", "▓", "▀", },
-}
+-- icons_borders = {
+--    dashed = { "┄", "┊", "┄", "┊", "╭", "╮", "╯", "╰", },
+--    double = { "═", "║", "═", "║", "╔", "╗", "╝", "╚", },
+--    single = { "─", "│", "─", "│", "╭", "╮", "╯", "╰", },
+--    blocks = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙", },
+--    blocky = { "▀", "▐", "▄", "▌", "▄", "▄", "▓", "▀", }
+-- }
 
 -- ╞═╡  SUBSECTION:  icons_telescope (for telescope.nvim) ╞════════════════╡ --
 
-icons_telescope = {
-   prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰", },
-   results = { "─", " ", "─", "│", "╭", "─", "─", "╰", },
-   preview = { "─", "│", "─", "│", "─", "╮", "╯", "╰", },
-}
+-- icons_telescope = {
+--    prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰", },
+--    results = { "─", " ", "─", "│", "╭", "─", "─", "╰", },
+--    preview = { "─", "│", "─", "│", "─", "╮", "╯", "╰", }
+-- }
 
 -- ╔═══════════════════════════════════════════════════════════════════════╗ --
 -- ║  SECTION: PLUGINS                                                     ║ --
@@ -747,19 +708,19 @@ lazy.setup({
 
    -- ╞═╡ PLUGIN: gitsigns.nvim ╞═══════════════════════════════════════╡ --
 
---    {
---       "sewis6991/gitsigns.nvim",
---       opts = {
---          signs = icons_gitsigns_signs,
---          signs_staged = icons_gitsigns_signs_staged,
---          signs_staged_enable = true,
---          word_diff = true,
---          watch_gitdir = {
---             follow_files = true
---          },
---          attach_to_untracked = true,
---       }
---    },
+   {
+      "lewis6991/gitsigns.nvim",
+      opts = {
+         signs = icons_gitsigns,
+         signs_staged = icons_gitsigns_staged,
+         signs_staged_enable = true,
+         word_diff = true,
+         watch_gitdir = {
+            follow_files = true
+         },
+         attach_to_untracked = true,
+      }
+   },
 
    -- ╞═╡ PLUGIN: grug-far.nvim ╞═══════════════════════════════════════╡ --
 
@@ -871,7 +832,7 @@ lazy.setup({
          PATH = 'skip',
          border = 'single',
          ui = {
-            icons = icons_mason_ui_icons,
+            icons = icons_mason_ui,
          }
       }
    },
@@ -1262,19 +1223,6 @@ lazy.setup({
 
    { "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
 
-   -- ╞═╡ PLUGIN: nvim-toggler ╞════════════════════════════════════════╡ --
-
-   {
-      "nguyenvukhang/nvim-toggler",
-      opts = {
-         remove_default_keybinds = true,
-         -- your own inverses
-         -- inverses = {
-         -- ['this'] = 'that'
-         -- },
-      }
-   },
-
    -- ╞═╡ PLUGIN: nvim-treesitter ╞═════════════════════════════════════╡ --
 
    {
@@ -1422,21 +1370,6 @@ lazy.setup({
 
    { "nvim-lua/plenary.nvim" },
 
-   -- ╞═╡ PLUGIN: render-markdown.nvim ╞════════════════════════════════╡ --
-
-   {
-      "MeanderingProgrammer/render-markdown.nvim",
-      opts = {
-         file_types = { "md", "markdown" },
-         render_modes = { "n", "v", "i", "c" },
-         heading = {
-            position = "inline"
-         },
-         icons = icons_render_md_icons,
-         dash = { width = 79 }
-      }
-   },
-
    -- ╞═╡ PLUGIN: sqlite.lua ╞══════════════════════════════════════════╡ --
 
    { "kkharji/sqlite.lua" },
@@ -1447,9 +1380,7 @@ lazy.setup({
 
    -- ╞═╡ PLUGIN: telescope-lazy.nvim ╞═════════════════════════════════╡ --
 
--- Move to telescope dependencies
-
--- Move to telescope opts
+-- Moved to telescope dependencies and opts.
 
    -- ╞═╡ PLUGIN: telescope.nvim ╞══════════════════════════════════════╡ --
 
@@ -1924,6 +1855,7 @@ lazy.setup({
       event = "VeryLazy",
       opts = {
          preset = "modern",
+         delay = 1000;
          notify = true,
          triggers = {
             { "<auto>", mode = "nixsotc" },
@@ -3802,11 +3734,6 @@ wk.add({
       "<leader>tsj",
       "<cmd>lua require('treesj').join()<cr>",
       desc = "Join"
-   },
-   { --                                                       ==> @nvim-toggler
-      "<leader>tt",
-      require('nvim-toggler').toggle(),
-      desc = "Toggle"
    },
 
 })
