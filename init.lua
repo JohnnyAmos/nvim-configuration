@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-11-25 22:56
+--                                              Last modified: 2024-11-26 22:53
 
 --[[
 
@@ -86,7 +86,10 @@ opt.fileencoding = "UTF-8"
 opt.mouse = "a"
 
 -- The leaders must be loaded prior to loading lazy.nvim.
-g.mapleader = "\\"
+
+g.mapleader = "/"
+
+
 g.maplocalleader = ""
 
 -- These need to be set prior to loading colorscheme.
@@ -126,11 +129,64 @@ opt.laststatus = 3
 -- Wildcard expansion settings for the command line
 -- opt.wildmode = "list,longest" -- default: "full"
 opt.wildignorecase = true
-opt.wildignore = "*.bmp,*.cbr,*.cbz,*.class,*.divx,*.dll,*.exe,*.flac,*.gif,\
-*.ico,*.jpeg,*.jpg,*.kgb,*.m2ts,*.manifest,*.mkv,*.mov,*.mp4,*.mpeg,*.mpg,\
-*.obj,*.oga,*.ogg,*.otf,*.out,*.pdf,*.png,*.psd,*.rar,*.rbc,*.tar.bz2,*.tar.gz,\
-*.tar.xz,*.toc,*.ttf,*.vob,*.wav,*.webm,*.webp,*.woff,.,..,.DS_Store,._*,.ai,\
-.aux,.avi,.doc,.eot,.git,.hg,.lock,.mp3,.o,.svn,.swp,.zip"
+opt.wildignore = {
+   "*.bmp",
+   "*.cbr",
+   "*.cbz",
+   "*.class",
+   "*.divx",
+   "*.dll",
+   "*.exe",
+   "*.flac",
+   "*.gif",
+   "*.ico",
+   "*.jpeg",
+   "*.jpg",
+   "*.kgb",
+   "*.m2ts",
+   "*.mkv",
+   "*.mov",
+   "*.mp4",
+   "*.mpeg",
+   "*.mpg",
+   "*.obj",
+   "*.oga",
+   "*.ogg",
+   "*.otf",
+   "*.out",
+   "*.pdf",
+   "*.png",
+   "*.psd",
+   "*.rar",
+   "*.rbc",
+   "*.tar.bz2",
+   "*.tar.gz",
+   "*.tar.xz",
+   "*.toc",
+   "*.ttf",
+   "*.vob",
+   "*.wav",
+   "*.webm",
+   "*.webp",
+   "*.woff",
+   ".",
+   "..",
+  ".DS_Store",
+   "._*",
+   ".ai",
+   ".aux",
+   ".avi",
+   ".doc",
+   ".eot",
+   ".git",
+   ".hg",
+   ".lock",
+   ".mp3",
+   ".o",
+   ".svn",
+   ".swp",
+   ".zip"
+}
 
 -- We'll have spaces in our indents.
 opt.expandtab = true
