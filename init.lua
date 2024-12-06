@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-11-26 22:53
+--                                              Last modified: 2024-12-05 22:13
 
 --[[
 
@@ -88,14 +88,15 @@ opt.mouse = "a"
 -- The leaders must be loaded prior to loading lazy.nvim.
 
 g.mapleader = "/"
-
-
 g.maplocalleader = ""
 
 -- These need to be set prior to loading colorscheme.
 g.have_nerd_font = true
 g.base16_colorspace = 256
 opt.termguicolors = true
+
+-- colorsheme
+vim.cmd("colorscheme colorum")
 
 -- Helpful guides
 opt.linebreak = true
@@ -583,12 +584,12 @@ lazy.setup({
 
    -- ╞═╡ PLUGIN: base16-nvim ╞════════════════════════════════════════╡ --
 
-   {
-      "RRethy/base16-nvim",
-      config = function()
-         vim.cmd("colorscheme base16-bright")
-      end
-   },
+--    {
+--       "RRethy/base16-nvim",
+--       config = function()
+--          vim.cmd("colorscheme base16-colors")
+--       end
+--    },
 
    -- ╞═╡ PLUGIN: Comment.nvim ╞════════════════════════════════════════╡ --
 
@@ -828,9 +829,12 @@ lazy.setup({
             "filetype",
             "filesize"
          },
+         lualine_y = {
+            "progress"
+         },
          lualine_z = {
             "location",
-            "tabs" ,
+            "tabs",
             {
                "windows",
                mode = 1,
