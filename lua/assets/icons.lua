@@ -3,54 +3,63 @@
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Asset file: $HOME/.config/nvim/lua/assets/icons.lua                  ║ --
--- ║  Borrowed with modifications from xero harrison's dotfiles:           ║ --
+-- ║  Based on xero harrison's dotfiles:                                   ║ --
 -- ║  Source: https://github.com/xero/dotfiles/                            ║ --
 -- ║  Source license: CC0-1.0                                              ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
 --                                              Last modified: 2024-12-09 21:30
 
+local icons = {}
 
--- ╞═╡  SECTION: icons_gitsigns (for gitsigns.nvim) ╞══════════════════════╡ --
+-- ╞═╡  SECTION: icons.gitsigns (for gitsigns.nvim) ╞══════════════════════╡ --
 
-icons_gitsigns = {
-   add = { text = '┃' },
-   change = { text = '┃' },
-   delete = { text = '_' },
-   topdelete = { text = '‾' },
-   changedelete = { text = '~' },
-   untracked = { text = '┆' }
-}
+function icons.gitsigns()
+   return {
+      add = { text = '┃' },
+      change = { text = '┃' },
+      delete = { text = '_' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
+      untracked = { text = '┆' }
+   }
+end
 
--- ╞═╡  SECTION: icons_gitsigns_staged (for gitsigns.nvim) ╞═══════════════╡ --
+-- ╞═╡  SECTION: icons.gitsigns_staged (for gitsigns.nvim) ╞═══════════════╡ --
 
-icons_gitsigns_staged = {
-   add = { text = '┃' },
-   change = { text = '┃' },
-   delete = { text = '_' },
-   topdelete = { text = '‾' },
-   changedelete = { text = '~' },
-   untracked = { text = '┆' }
-}
+function icons.gitsigns_staged()
+   return {
+      add = { text = '┃' },
+      change = { text = '┃' },
+      delete = { text = '_' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
+      untracked = { text = '┆' }
+   }
+end
 
--- ╞═╡  SECTION: icons_lualine_ff_symbols (for lualine.nvim) ╞═════════════╡ --
+-- ╞═╡  SECTION: icons.lualine_ff_symbols (for lualine.nvim) ╞═════════════╡ --
 
-icons_lualine_ff_symbols = {
-   unix = ' ',
-   dos = ' ',
-   mac = ' '
-}
+function icons.lualine_ff_symbols()
+   return {
+      unix = ' ',
+      dos = ' ',
+      mac = ' '
+   }
+end
 
--- ╞═╡  SECTION: icons_mason_ui (for mason.nvim) ╞═════════════════════════╡ --
+-- ╞═╡  SECTION: icons.mason_ui (for mason.nvim) ╞═════════════════════════╡ --
 
-icons_mason_ui = {
-   package_installed = "✓",   -- ⎧ "󱄲" ⎫  xero's icons: preserved here
-   package_pending = "➜",     -- ⎨ "󱄰" ⎬  because I may choose to use
-   package_uninstalled = "✗"  -- ⎩ "󱄯" ⎭  them.
-}
+function icons.mason_ui()
+   return {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
+   }
+end
 
--- ╞═╡  SECTION: icons_diagnostics ╞═══════════════════════════════════════╡ --
+-- ╞═╡  SECTION: icons.diagnostics ╞═══════════════════════════════════════╡ --
 
--- icons_diagnostics = {
+-- icons.diagnostics = {
 --    error = " ",
 --    hint = " ",
 --    information = " ",
@@ -58,17 +67,17 @@ icons_mason_ui = {
 --    warning = " "
 -- }
 
--- ╞═╡  SECTION: icons_git ╞═══════════════════════════════════════════════╡ --
+-- ╞═╡  SECTION: icons.git ╞═══════════════════════════════════════════════╡ --
 
--- icons_git = {
+-- icons.git = {
 --    Added = " ",
 --    Modified = " ",
 --    Removed = " "
 -- }
 
--- ╞═╡  SECTION: icons_dap ╞═══════════════════════════════════════════════╡ --
+-- ╞═╡  SECTION: icons.dap ╞═══════════════════════════════════════════════╡ --
 
--- icons_dap = {
+-- icons.dap = {
 --    breakpoint = " ",
 --    breakpoint_condition = " ",
 --    log_point = " ",
@@ -84,35 +93,39 @@ icons_mason_ui = {
 --    terminate = " "
 -- }
 
--- ╞═╡  SECTION: icons_lazy (for lazy.nvim) ╞══════════════════════════════╡ --
+-- ╞═╡  SECTION: icons.lazy (for lazy.nvim) ╞══════════════════════════════╡ --
 
-icons_lazy = {
-   cmd = " ",
-   config = "",
-   event = "",
-   ft = " ",
-   init = " ",
-   import = " ",
-   keys = " ",
-   lazy = "󰒲 ",
-   loaded = "󱄲",
-   not_loaded = "󱄯",
-   plugin = " ",
-   runtime = " ",
-   source = " ",
-   start = "",
-   task = "✔ ",
-   list = {
-      "󱄰",
-      "➜",
-      "★",
-      "‒"
+function icons.lazy()
+   return {
+      cmd = " ",
+      config = "",
+      event = " ",
+      favorite = " ",
+      ft = " ",
+      init = " ",
+      import = " ",
+      keys = " ",
+      lazy = "󰒲 ",
+      loaded = "●",
+      not_loaded = "○",
+      plugin = " ",
+      runtime = " ",
+      require = "󰢱 ",
+      source = " ",
+      start = " ",
+      task = "✔ ",
+      list = {
+        "●",
+        "➜",
+        "★",
+        "‒"
+      }
    }
-}
+end
 
--- ╞═╡  SECTION:  icons_trouble (for trouble.nvim) ╞═══════════════════════╡ --
+-- ╞═╡  SECTION: icons.trouble (for trouble.nvim) ╞═══════════════════════╡ --
 
--- icons_trouble = {
+-- icons.trouble = {
 --    indent = {
 --       top = "┊ ",
 --       middle = "├╴",
@@ -155,7 +168,7 @@ icons_lazy = {
 
 -- ╞═╡  SECTION: borders() ╞═══════════════════════════════════════════════╡ --
 
--- icons_borders = {
+-- icons.borders = {
 --    dashed = { "┄", "┊", "┄", "┊", "╭", "╮", "╯", "╰", },
 --    double = { "═", "║", "═", "║", "╔", "╗", "╝", "╚", },
 --    single = { "─", "│", "─", "│", "╭", "╮", "╯", "╰", },
@@ -163,13 +176,16 @@ icons_lazy = {
 --    blocky = { "▀", "▐", "▄", "▌", "▄", "▄", "▓", "▀", }
 -- }
 
--- ╞═╡  SECTION:  icons_telescope (for telescope.nvim) ╞═══════════════════╡ --
+-- ╞═╡  SECTION:  icons.telescope (for telescope.nvim) ╞═══════════════════╡ --
 
--- icons_telescope = {
+-- icons.telescope = {
 --    prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰", },
 --    results = { "─", " ", "─", "│", "╭", "─", "─", "╰", },
 --    preview = { "─", "│", "─", "│", "─", "╮", "╯", "╰", }
 -- }
+
+
+return icons
 
 -- ╞═════════════════════════╡  ❈✧❈  finis  ❈✧❈  ╞═════════════════════════╡ --
 
