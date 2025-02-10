@@ -21,7 +21,7 @@ augrp("Folds", { clear = true })
 aucmd({ "BufWritePre" }, {
    group = "Folds",
    desc = "Save folds",
-   pattern = "*.*",
+   pattern = "*",
    callback = function()
       cmd("mkview 1")
    end
@@ -29,7 +29,7 @@ aucmd({ "BufWritePre" }, {
 aucmd({ "BufEnter", "BufWinEnter" }, {
    group = "Folds",
    desc = "Restore folds",
-   pattern = "*.*",
+   pattern = "*",
    callback = function()
       cmd("silent! loadview 1")
    end
@@ -48,7 +48,7 @@ aucmd('FileType', {
 augrp("WorkingDirectory", { clear = true })
 aucmd({ "BufEnter" }, {
   group = "WorkingDirectory",
-  pattern = { "*.*" },
+  pattern = { "*" },
   callback = function()
     local path = fn.expand('%:h')..'/'
     path = "cd "..path

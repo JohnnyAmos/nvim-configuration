@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-12-27 16:21
+--                                              Last modified: 2025-01-25 20:30
 
 
 local wk = require("which-key")
@@ -106,6 +106,17 @@ wk.add({
    },
 
 
+   --[[ Keymaps for -->                                       ==> @Comment.nvim
+
+   "gb", Toggle linewise with motion in normal & visual modes
+   "gbc", Toggle blockwise current or w/ count in normal mode
+   "gc", Toggle linewise with motion in normal & visual modes
+   "gcA", Insert comment to the of the current line and enter INSERT mode
+   "gcc", Toggle linewise current or w/ count in normal mode
+   "gcO", Insert comment to the previous line and enter INSERT mode
+   "gco", Insert comment to the next line and enter INSERT mode
+
+   --]]
 
    -- NOTE: The following mini.nvim maps must be set in the plugin spec file.
    -- They are shown here for ease of reference and so the key combinations
@@ -403,7 +414,6 @@ wk.add({
    {
       "<leader>bb",
       "<cmd>buffers<cr>:b<space>",
-      mode = "n",
       desc = "List Buffers"
    },
    {
@@ -438,7 +448,6 @@ wk.add({
    { --                                                     ==> @telescope.nvim
       "<leader>bt",
       "<cmd>Telescope buffers<CR>",
-      mode = "n",
       desc = "List buffers (Telescope)"
    },
 
@@ -453,13 +462,11 @@ wk.add({
    { --                                                 ==> @nvim-comment-frame
       "<leader>cm",
       "<cmd>lua require('nvim-comment-frame').add_multiline_comment()<cr>",
-      mode = "n",
       desc = "Add multiple-line comment frame"
    },
    { --                                                 ==> @nvim-comment-frame
       "<leader>cs",
       "<cmd>lua require('nvim-comment-frame').add_comment()<cr>",
-      mode = "n",
       desc = "Add single-line comment frame"
    },
    { --                                                 ==> @todo-comments.nvim
@@ -518,38 +525,32 @@ wk.add({
    { --                                                       ==> @trouble.nvim
       "<leader>dtb",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      mode = "n",
       desc = "Buffer Diagnostics (Trouble)"
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dtd",
       "<cmd>Trouble diagnostics toggle<cr>",
-      mode = "n",
       desc = "Diagnostics (Trouble)"
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dts",
       "<cmd>Trouble symbols toggle focus=false<cr>",
-      mode = "n",
       desc = "Symbols (Trouble)"
    },
    { "<leader>dtl", desc = "LSP toggle/loclist toggle" },
    { --                                                       ==> @trouble.nvim
       "<leader>dtll",
       "<cmd>Trouble loclist toggle<cr>",
-      mode = "n",
       desc = "Location List (Trouble)"
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dtls",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-      mode = "n",
       desc = "LSP Defs / refs / … (Trouble)"
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dtq",
       "<cmd>Trouble qflist toggle<cr>",
-      mode = "n",
       desc = "Quickfix List (Trouble)"
    },
 
@@ -578,49 +579,41 @@ wk.add({
    { --                                                     ==> @telescope.nvim
       "<leader>fb",
       "<cmd>Telescope file_browser<CR>",
-      mode = "n",
       desc = "Browser"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fc",
       "<cmd>Telescope current_buffer_tags<CR>",
-      mode = "n",
       desc = "This buffer's ctags"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>ff",
       "<cmd>Telescope find_files<CR>",
-      mode = "n",
       desc = "Find files"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fg",
       "<cmd>Telescope tags<CR>",
-      mode = "n",
       desc = "List global ctags"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fh",
       "<cmd>Telescope help_tags<CR>",
-      mode = "n",
       desc = "Help tags"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fl",
       "<cmd>Telescope live_grep<CR>",
-      mode = "n",
       desc = "Live grep"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fo",
       "<cmd>Telescope oldfiles<CR>",
-      mode = "n",
       desc = "Old files"
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fz",
       "<cmd>Telescope current_buffer_fuzzy_find<CR>",
-      mode = "n",
       desc = "fzf in current buffer"
    },
 
@@ -1545,26 +1538,22 @@ wk.add({
    { --                                                      ==> @nvim-surround
       "<leader>snc",
       "<Plug>(nvim-surround-normal-cur)",
-      mode = "n",
       desc = "Spot insert in current line"
    },
    { "<leader>snl", desc = "Line insert" },
    { --                                                      ==> @nvim-surround
       "<leader>snlc",
       "<Plug>(nvim-surround-normal-cur-line)",
-      mode = "n",
       desc = "Line insert in current line"
    },
    { --                                                      ==> @nvim-surround
       "<leader>snls",
       "<Plug>(nvim-surround-normal-line)",
-      mode = "n",
       desc = "Line insert"
    },
    { --                                                      ==> @nvim-surround
       "<leader>sns",
       "<Plug>(nvim-surround-normal)",
-      mode = "n",
       desc = "Spot insert"
    },
    { "<leader>sv", desc = "Visual Mode" },

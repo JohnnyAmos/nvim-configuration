@@ -4,70 +4,59 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-12-23 16:54
+--                                              Last modified: 2025-01-30 21:44
 
 
 return {
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: Comment.nvim [***] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/numToStr/Comment.nvim              ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚══════════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
 
    { "numToStr/Comment.nvim" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: cmp-buffer [*  ] ╞══════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/hrsh7th/cmp-buffer                 ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚═══════════════════════════════════════════════╡ Coding: Completion  ╞═╝ --
 
-   { "hrsh7th/cmp-buffer" },
+--   { "hrsh7th/cmp-buffer" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: cmp-nvim-lsp [*  ] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/hrsh7th/cmp-nvim-lsp               ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚═════════════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
 
-   { "hrsh7th/cmp-nvim-lsp" },
+--   { "hrsh7th/cmp-nvim-lsp" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: cmp-path [*  ] ╞════════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/hrsh7th/cmp-path                   ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
-   { "hrsh7th/cmp-path" },
+--   { "hrsh7th/cmp-path" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: command-completion.nvim [*!!] ╞═════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/smolck/command-completion.nvim     ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚════════════════════════════════════════╡ Editor: Command Completion ╞═╝ --
 
-   {
-      "smolck/command-completion.nvim",
-      opts = {
-         border = single,
-         max_col_num = 3,
-         min_col_width = 25,
-         use_matchfuzzy = false
-      }
-   },
+   -- FIX: Getting odd error when entering command: Invalid buffer number.
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+   -- {
+   --    "smolck/command-completion.nvim",
+   --    opts = {
+   --       max_col_num = 5,
+   --       min_col_width = 25,
+   --       use_matchfuzzy = false
+   --    }
+   -- },
+
+-- ╔═╡ PLUGIN: conform.nvim [** ] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source:  https://github.com/stevearc/conform.nvim             ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
    {
       "stevearc/conform.nvim",
@@ -88,29 +77,28 @@ return {
       end
    },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: csvview.nvim [***] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/hat0uma/csvview.nvim               ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚═══════════════════════════════════════════════╡ Languages: CSV, TSV ╞═╝ --
 
-   { "hat0uma/csvview.nvim" },
+   {
+      "hat0uma/csvview.nvim",
+      opts = {
+         display_mode = "border" -- or "highlight"
+      }
+   },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: dressing.nvim [***] ╞═══════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/stevearc/dressing.nvim             ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚══════════════════════════════════════════════════╡ UI: Enhancement  ╞═╝ --
 
    { "stevearc/dressing.nvim" },
 
--- ╔═╡ PLUGIN: edgy.nvim ╞═════════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
+-- ╔═╡ PLUGIN: edgy.nvim [** ] ╞═══════════════════════════════════════════╗ --
 -- ║  Plugin source: https://github.com/folke/edgy.nvim                    ║ --
 -- ║  Plugin license: Apache-2.0                                           ║ --
--- ║                                                                       ║ --
 -- ╚═══════════════════════════════════════════════════════╡ UI: Layouts ╞═╝ --
 
    {
@@ -178,12 +166,10 @@ return {
       }
    },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: flash.nvim [** ] ╞══════════════════════════════════════════╗ --
+-- ║  Plugin source:  https://github.com/folke/flash.nvim                  ║ --
+-- ║  Plugin license: Apache-2.0                                           ║ --
+-- ╚════════════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
 
    {
       "folke/flash.nvim",
@@ -199,30 +185,113 @@ return {
       }
    },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: flexoki-nvim [** ] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/nuvic/flexoki-nvim                 ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚═══════════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
 
-   { "fecet/fortune.nvim" },
+   {
+      "nuvic/flexoki-nvim",
+      name = "flexoki",
+      config = function()
+         require("flexoki").setup({
+            variant = "auto", -- auto, moon, or dawn
+            dim_inactive_windows = false,
+            extend_background_behind_borders = true,
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+            enable = {
+               terminal = true,
+            },
+
+            styles = {
+               bold = true,
+               italic = false,
+            },
+
+            -- may experiment with this later
+            -- groups = {
+            --    border = "muted",
+            --    link = "purple_two",
+            --    panel = "surface",
+            --
+            --    error = "red_one",
+            --    hint = "purple_one",
+            --    info = "cyan_one",
+            --    ok = "green_one",
+            --    warn = "orange_one",
+            --    note = "blue_one",
+            --    todo = "magenta_one",
+            --
+            --    git_add = "green_one",
+            --    git_change = "yellow_one",
+            --    git_delete = "red_one",
+            --    git_dirty = "yellow_one",
+            --    git_ignore = "muted",
+            --    git_merge = "purple_one",
+            --    git_rename = "blue_one",
+            --    git_stage = "purple_one",
+            --    git_text = "magenta_one",
+            --    git_untracked = "subtle",
+            --
+            --    h1 = "purple_two",
+            --    h2 = "cyan_two",
+            --    h3 = "magenta_two",
+            --    h4 = "orange_two",
+            --    h5 = "blue_two",
+            --    h6 = "cyan_two",
+            -- },
+
+            palette = {
+               moon = {
+                  base = '#000000',
+                  overlay = '#1c1b1a'
+               },
+               dawn = {
+                  base = "#ffffff",
+                  overlay = "#f2f0e5"
+               }
+            },
+
+            -- highlight_groups = {
+            --    Comment = { fg = "subtle" },
+            --    VertSplit = { fg = "muted", bg = "muted" },
+            -- },
+
+            -- before_highlight = function(group, highlight, palette)
+            --    -- Disable all undercurls
+            --    if highlight.undercurl then
+            --        highlight.undercurl = false
+            --    end
+            --
+            --    -- Change palette colour
+            --    if highlight.fg == palette.blue_two then
+            --        highlight.fg = palette.cyan_two
+            --    end
+            -- end,
+         })
+
+         vim.cmd("colorscheme flexoki-moon")
+      end
+   },
+
+-- ╔═╡ PLUGIN: fortune.nvim [*  ] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/fecet/fortune.nvim                 ║ --
+-- ║  Plugin license: None                                                 ║ --
+-- ╚════════════════════════════════════════════╡ Utility: Miscellaneous ╞═╝ --
+
+--   { "fecet/fortune.nvim" },
+
+-- ╔═╡ PLUGIN: friendly-snippets [***] ╞═══════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/rafamadriz/friendly-snippets       ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
    { "rafamadriz/friendly-snippets"},
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: gitsigns.nvim [** ] ╞═══════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/lewis6991/gitsigns.nvim            ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚══════════════════════════════════════════════════════╡ Codibng: Git ╞═╝ --
 
    {
       "lewis6991/gitsigns.nvim",
@@ -238,21 +307,17 @@ return {
       }
    },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: grug-far.nvim [*  ] ╞═══════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/MagicDuck/grug-far.nvim            ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚════════════════════════════════════════════════════╡ Editor: Search ╞═╝ --
 
    { "MagicDuck/grug-far.nvim" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: lazydev.nvim [*  ] ╞════════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/folke/lazydev.nvim                 ║ --
+-- ║  Plugin license: Apache-2.0                                           ║ --
+-- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
    {
       "folke/lazydev.nvim",
@@ -271,7 +336,7 @@ return {
       }
    },
 
--- ╔═╡ PLUGIN: lualine.nvim ╞══════════════════════════════════════════════╗ --
+-- ╔═╡ PLUGIN: lualine.nvim [***] ╞════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
 -- ║  Plugin source: https://github.com/nvim-lualine/lualine.nvim          ║ --
 -- ║                                                                       ║ --
@@ -341,16 +406,14 @@ return {
       end
    },
 
-
-
--- ╔═╡ PLUGIN: lush.nvim ╞═════════════════════════════════════════════════╗ --
+-- ╔═╡ PLUGIN: lush.nvim [*  ] ╞═══════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
 -- ║  Plugin source: https://github.com/rktjmp/lush.nvim                   ║ --
 -- ║  Plugin license: MIT                                                  ║ --
 -- ║                                                                       ║ --
 -- ╚═════════════════════════════════════════════╡ UI: Colorscheme Maker ╞═╝ --
 
-   { "rktjmp/lush.nvim" },
+   -- { "rktjmp/lush.nvim" },
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
@@ -1003,6 +1066,15 @@ return {
       }
    },
 
+-- ╔═╡ PLUGIN: shipwright.nvim [*  ] ╞═════════════════════════════════════╗ --
+-- ║  Plugin source: https://github.com/rktjmp/shipwright.nvim             ║ --
+-- ║  Plugin license: MIT                                                  ║ --
+-- ╚══════════════════════════════════════════╡ Utilities: Miscellaneous ╞═╝ --
+
+   {
+      "rktjmp/shipwright.nvim"
+   },
+
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
 -- ║  Plugin source:           ║ --
@@ -1364,38 +1436,44 @@ return {
             },
             FUNCTION = {
                icon = '󰡱 ',
-               color = 'subsection'
+               color = 'plugin'
             }
          },
          merge_keywords = true,
 
-         --  FIX: it's broken
-         --  TODO: done
-         --  HACK: held together with chewing gum and bailing wire
-         --  WARN: something bad may happen
-         --  PERF: make it faster or more efficient
-         --  NOTE: something informative
-         --  TEST: will it work
-         --  IDEA: try this
-         --  SECTION: complementary items
-         --  SUBSECTION: small parts of sections
-         --  PLUGIN: pluggy.nvim
-         --  FUNCTION: functions, one hopes
+
+         --  FIX:
+         --  TODO:
+         --  HACK:
+         --  WARN:
+         --  PERF:
+         --  NOTE:
+         --  IDEA:
+         --  TEST:
+         --  SECTION:
+         --  SUBSECTION:
+         --  PLUGIN:
+         --  FUNCTION:
 
          colors = {
-            fix = { "#ff5445" },
-            todo = { "#76c7b7" },
-            hack = { "#fda331" },
-            warn = { "#e8e805" },
-            perf = { "#d381c3" },
-            note = { "#6fb3d2" },
-            test = { "#b0b0b0" },
-            plugin = { "#e3845a" },
-            section = { "#6fb3d2" },
-            subsection = { "#a1c659" }
+            fix = { "#b22222" },
+            todo = { "#01bfff" },
+            hack = { "#ff8c00" },
+            warn = { "#ffd703" },
+            perf = { "#78889a" },
+            note = { "#2e8c22" },
+            test = { "#deb887" },
+            plugin = { "#ba55d3" },
+            section = { "#1e91ff" },
+            subsection = { "#87cefa" }
+
+
+
          },
          highlight = {
             multiline = false, -- default: false
+            multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
+            multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
             before = "", -- 'fg', 'bg', or empty
             keyword = "wide", -- 'fg', 'bg', 'wide', 'wide_bg',
                               -- 'wide_fg', or empty
@@ -1403,7 +1481,9 @@ return {
             comments_only = true,
             -- pattern or table of patterns, used for highlightng (vim regex)
             -- pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]],
-            pattern = [[.*<(KEYWORDS)\s*:]]
+            pattern = {
+               [[.*<(KEYWORDS)\s*:]],
+            }
          }
       }
    },

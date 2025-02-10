@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-12-25 22:50
+--                                              Last modified: 2025-01-17 19:42
 
 
 local bo = vim.bo
@@ -19,7 +19,7 @@ opt.mouse = "a"
 
 -- The leaders must be loaded prior to loading lazy.nvim.
 
-g.mapleader = "/"
+g.mapleader = " "
 g.maplocalleader = ""
 
 -- These need to be set prior to loading colorscheme.
