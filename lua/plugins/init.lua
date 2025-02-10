@@ -4,42 +4,42 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-01-30 21:44
+--                                              Last modified: 2025-02-10 13:49
 
 
 return {
 
 -- ╔═╡ PLUGIN: Comment.nvim [***] ╞════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/numToStr/Comment.nvim              ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/numToStr/Comment.nvim                     ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚══════════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
 
    { "numToStr/Comment.nvim" },
 
 -- ╔═╡ PLUGIN: cmp-buffer [*  ] ╞══════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/hrsh7th/cmp-buffer                 ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/hrsh7th/cmp-buffer                        ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════╡ Coding: Completion  ╞═╝ --
 
 --   { "hrsh7th/cmp-buffer" },
 
 -- ╔═╡ PLUGIN: cmp-nvim-lsp [*  ] ╞════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/hrsh7th/cmp-nvim-lsp               ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/hrsh7th/cmp-nvim-lsp                      ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═════════════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
 
 --   { "hrsh7th/cmp-nvim-lsp" },
 
 -- ╔═╡ PLUGIN: cmp-path [*  ] ╞════════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/hrsh7th/cmp-path                   ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/hrsh7th/cmp-path                          ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
 --   { "hrsh7th/cmp-path" },
 
 -- ╔═╡ PLUGIN: command-completion.nvim [*!!] ╞═════════════════════════════╗ --
--- ║  Plugin source: https://github.com/smolck/command-completion.nvim     ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/smolck/command-completion.nvim            ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════╡ Editor: Command Completion ╞═╝ --
 
    -- FIX: Getting odd error when entering command: Invalid buffer number.
@@ -54,8 +54,8 @@ return {
    -- },
 
 -- ╔═╡ PLUGIN: conform.nvim [** ] ╞════════════════════════════════════════╗ --
--- ║  Plugin source:  https://github.com/stevearc/conform.nvim             ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/stevearc/conform.nvim                     ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
    {
@@ -78,8 +78,8 @@ return {
    },
 
 -- ╔═╡ PLUGIN: csvview.nvim [***] ╞════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/hat0uma/csvview.nvim               ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/hat0uma/csvview.nvim                      ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════╡ Languages: CSV, TSV ╞═╝ --
 
    {
@@ -90,15 +90,15 @@ return {
    },
 
 -- ╔═╡ PLUGIN: dressing.nvim [***] ╞═══════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/stevearc/dressing.nvim             ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/stevearc/dressing.nvim                    ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚══════════════════════════════════════════════════╡ UI: Enhancement  ╞═╝ --
 
    { "stevearc/dressing.nvim" },
 
 -- ╔═╡ PLUGIN: edgy.nvim [** ] ╞═══════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/folke/edgy.nvim                    ║ --
--- ║  Plugin license: Apache-2.0                                           ║ --
+-- ║  Source: https://github.com/folke/edgy.nvim                           ║ --
+-- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════╡ UI: Layouts ╞═╝ --
 
    {
@@ -167,8 +167,8 @@ return {
    },
 
 -- ╔═╡ PLUGIN: flash.nvim [** ] ╞══════════════════════════════════════════╗ --
--- ║  Plugin source:  https://github.com/folke/flash.nvim                  ║ --
--- ║  Plugin license: Apache-2.0                                           ║ --
+-- ║  Source: https://github.com/folke/flash.nvim                          ║ --
+-- ║  License: Apache-2.0                                                  ║ --
 -- ╚════════════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
 
    {
@@ -186,8 +186,8 @@ return {
    },
 
 -- ╔═╡ PLUGIN: flexoki-nvim [** ] ╞════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/nuvic/flexoki-nvim                 ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/nuvic/flexoki-nvim                        ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
 
    {
@@ -275,22 +275,22 @@ return {
    },
 
 -- ╔═╡ PLUGIN: fortune.nvim [*  ] ╞════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/fecet/fortune.nvim                 ║ --
--- ║  Plugin license: None                                                 ║ --
+-- ║  Source: https://github.com/fecet/fortune.nvim                        ║ --
+-- ║  License: None                                                        ║ --
 -- ╚════════════════════════════════════════════╡ Utility: Miscellaneous ╞═╝ --
 
 --   { "fecet/fortune.nvim" },
 
 -- ╔═╡ PLUGIN: friendly-snippets [***] ╞═══════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/rafamadriz/friendly-snippets       ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/rafamadriz/friendly-snippets              ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
    { "rafamadriz/friendly-snippets"},
 
 -- ╔═╡ PLUGIN: gitsigns.nvim [** ] ╞═══════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/lewis6991/gitsigns.nvim            ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/lewis6991/gitsigns.nvim                   ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚══════════════════════════════════════════════════════╡ Codibng: Git ╞═╝ --
 
    {
@@ -308,15 +308,15 @@ return {
    },
 
 -- ╔═╡ PLUGIN: grug-far.nvim [*  ] ╞═══════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/MagicDuck/grug-far.nvim            ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/MagicDuck/grug-far.nvim                   ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════════════════╡ Editor: Search ╞═╝ --
 
    { "MagicDuck/grug-far.nvim" },
 
 -- ╔═╡ PLUGIN: lazydev.nvim [*  ] ╞════════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/folke/lazydev.nvim                 ║ --
--- ║  Plugin license: Apache-2.0                                           ║ --
+-- ║  Source: https://github.com/folke/lazydev.nvim                        ║ --
+-- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
    {
@@ -337,9 +337,8 @@ return {
    },
 
 -- ╔═╡ PLUGIN: lualine.nvim [***] ╞════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source: https://github.com/nvim-lualine/lualine.nvim          ║ --
--- ║                                                                       ║ --
+-- ║  Source: https://github.com/nvim-lualine/lualine.nvim                 ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚══════════════════════════════════════════╡ UI: Statusline & Tabline ╞═╝ --
 
    {
@@ -407,18 +406,16 @@ return {
    },
 
 -- ╔═╡ PLUGIN: lush.nvim [*  ] ╞═══════════════════════════════════════════╗ --
--- ║                                                                       ║ --
--- ║  Plugin source: https://github.com/rktjmp/lush.nvim                   ║ --
--- ║  Plugin license: MIT                                                  ║ --
--- ║                                                                       ║ --
+-- ║  Source: https://github.com/rktjmp/lush.nvim                          ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═════════════════════════════════════════════╡ UI: Colorscheme Maker ╞═╝ --
 
    -- { "rktjmp/lush.nvim" },
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -426,8 +423,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -443,8 +440,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -452,8 +449,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -470,8 +467,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -782,8 +779,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -794,8 +791,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -838,8 +835,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -847,8 +844,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -856,8 +853,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -865,8 +862,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -874,8 +871,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -883,8 +880,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -892,8 +889,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -901,8 +898,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -910,8 +907,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -919,8 +916,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1016,8 +1013,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1032,8 +1029,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1041,8 +1038,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1067,8 +1064,8 @@ return {
    },
 
 -- ╔═╡ PLUGIN: shipwright.nvim [*  ] ╞═════════════════════════════════════╗ --
--- ║  Plugin source: https://github.com/rktjmp/shipwright.nvim             ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/rktjmp/shipwright.nvim                    ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚══════════════════════════════════════════╡ Utilities: Miscellaneous ╞═╝ --
 
    {
@@ -1077,8 +1074,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1086,8 +1083,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1095,8 +1092,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1379,8 +1376,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1509,8 +1506,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1524,8 +1521,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
@@ -1578,8 +1575,8 @@ return {
 
 -- ╔═╡ PLUGIN: virtcolumn.nvim ╞═══════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source: https://github.com/lukas-reineke/virt-column.nvim     ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/lukas-reineke/virt-column.nvim            ║ --
+-- ║  License: MIT                                                         ║ --
 -- ║                                                                       ║ --
 -- ╚═══════════════════════════════════════════════════╡ UI: Colorcolumn ╞═╝ --
 
@@ -1592,8 +1589,8 @@ return {
 
 -- ╔═╡ PLUGIN: virtcolumn.nvim ╞═══════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source: https://github.com/lukas-reineke/virt-column.nvim     ║ --
--- ║  Plugin license: MIT                                                  ║ --
+-- ║  Source: https://github.com/lukas-reineke/virt-column.nvim            ║ --
+-- ║  License: MIT                                                         ║ --
 -- ║                                                                       ║ --
 -- ╚═══════════════════════════════════════════════════╡ UI: Colorcolumn ╞═╝ --
 
@@ -1618,8 +1615,8 @@ return {
 
 -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════════╗ --
 -- ║                                                                       ║ --
--- ║  Plugin source:           ║ --
--- ║  Plugin license:           ║ --
+-- ║  Source:                  ║ --
+-- ║  License:                  ║ --
 -- ║                                                                       ║ --
 -- ╚══════════════════════════════════════════╡  ╞═╝ --
 
