@@ -4,12 +4,15 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-01-25 20:30
+--                                              Last modified: 2025-03-01 11:58
 
+-- n = Normal,             i = Insert,             x = Visual,
+-- s = Select,             o = Operator-pending,   t = Terminal-Job,
+-- c = Command-line
 
 local wk = require("which-key")
 
--- ╞════╡ SECTION: core maps ╞═════════════════════════════════════════════╡ --
+-- ╞════╡ SECTION: direct (non-leader) maps ╞══════════════════════════════╡ --
 
 wk.add({
 
@@ -105,10 +108,104 @@ wk.add({
       desc = "Toggle Flash Search"
    },
 
+   -- INFO: Primary maps for multiple-cursors.nvim.
+   -- Remainder are in <leader>c.
+
+   { --                                              ==> @multiple-cursors.nvim
+      "<c-j>",
+      "<Cmd>MultipleCursorsAddDown<CR>",
+      mode = {"n", "x"},
+      desc = "Add cursor and move down"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<C-k>",
+      "<Cmd>MultipleCursorsAddUp<CR>",
+      mode = {"n", "x"},
+      desc = "Add cursor and move up"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<C-Up>",
+      "<Cmd>MultipleCursorsAddUp<CR>",
+      mode = {"n", "i", "x"},
+      desc = "Add cursor and move up"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<C-Down>",
+      "<Cmd>MultipleCursorsAddDown<CR>",
+      mode = {"n", "i", "x"},
+      desc = "Add cursor and move down"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<C-LeftMouse>",
+      "<Cmd>MultipleCursorsMouseAddDelete<CR>",
+      mode = {"n", "i"},
+      desc = "Add or remove cursor"
+   },
+
+   { --                                                          ==> @mini.move
+      "<A-h>",
+      function()
+         MiniMove.move_line("left")
+      end,
+      desc = "Move line left"
+   },
+   { --                                                          ==> @mini.move
+      "<A-j>",
+      function()
+         MiniMove.move_line("down")
+      end,
+      desc = "Move line down"
+   },
+   { --                                                          ==> @mini.move
+      "<A-k>",
+      function()
+         MiniMove.move_line("up")
+      end,
+      desc = "Move line up"
+   },
+   { --                                                          ==> @mini.move
+      "<A-l>",
+      function()
+         MiniMove.move_line("right")
+      end,
+      desc = "Move line right"
+   },
+   { --                                                          ==> @mini.move
+      "<A-Up>",
+      function()
+         MiniMove.move_selection("up")
+      end,
+      mode = "x",
+      desc = "Move line up"
+   },
+   { --                                                          ==> @mini.move
+      "<A-Down>",
+      function()
+         MiniMove.move_selection("down")
+      end,
+      mode = "x",
+      desc = "Move line down"
+   },
+   { --                                                          ==> @mini.move
+      "<A-Left>",
+      function()
+         MiniMove.move_selection("left")
+      end,
+      mode = "x",
+      desc = "Move line left"
+   },
+   { --                                                          ==> @mini.move
+      "<A-Right>",
+      function()
+         MiniMove.move_selection("right")
+      end,
+      mode = "x",
+      desc = "Move line right"
+   },
 
    --[[ Keymaps for -->                                       ==> @Comment.nvim
 
-   "gb", Toggle linewise with motion in normal & visual modes
+   "gb", Toggle blockwise with motion in normal & visual modes
    "gbc", Toggle blockwise current or w/ count in normal mode
    "gc", Toggle linewise with motion in normal & visual modes
    "gcA", Insert comment to the of the current line and enter INSERT mode
@@ -453,12 +550,48 @@ wk.add({
 
 })
 
--- ╞════╡ SECTION: Leader c: Comments ╞════════════════════════════════════╡ --
+-- ╞════╡ SECTION: Leader c: Comments/Cursors ╞════════════════════════════╡ --
 
 
 wk.add({
 
-   { "<leader>c", group = "Comments" },
+   { "<leader>c", group = "Comments/Cursors" },
+   { --                                              ==> @multiple-cursors.nvim
+      "<Leader>ccv",
+      "<Cmd>MultipleCursorsAddVisualArea<CR>",
+      mode = {"x"},
+      desc = "Add cursors to the lines of the visual area"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<Leader>ccc",
+      "<Cmd>MultipleCursorsAddMatches<CR>",
+      mode = {"n", "x"},
+      desc = "Add cursors to cword"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<Leader>ccp",
+      "<Cmd>MultipleCursorsAddMatchesV<CR>",
+      mode = {"n", "x"},
+      desc = "Add cursors to cword in previous area"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<Leader>ccn",
+      "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
+      mode = {"n", "x"},
+      desc = "Add cursor and jump to next cword"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<Leader>ccj",
+      "<Cmd>MultipleCursorsJumpNextMatch<CR>",
+      mode = {"n", "x"},
+      desc = "Jump to next cword"
+   },
+   { --                                              ==> @multiple-cursors.nvim
+      "<Leader>ccl",
+      "<Cmd>MultipleCursorsLock<CR>",
+      mode = {"n", "x"},
+      desc = "Lock virtual cursors"
+   },
    { --                                                 ==> @nvim-comment-frame
       "<leader>cm",
       "<cmd>lua require('nvim-comment-frame').add_multiline_comment()<cr>",
@@ -1085,7 +1218,7 @@ wk.add({
       desc = "Reset hunk - visual"
    },
    { --                                                      ==> @gitsigns.nvim
-      "<leadergse",
+      "<leader>gse",
       "<cmd>gitsigns.stage_buffer<cr>",
       desc = "Stage buffer"
    },

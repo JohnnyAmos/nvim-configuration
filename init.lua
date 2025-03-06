@@ -1,8 +1,8 @@
--- ╔═JMJ══════════════════════╡  ❈✧❈  ✞  ❈✧❈  ╞═══════════════════════AMDG═╗ --
+-- ╔═JMJ═══════════════════════════╡  ✞  ╞════════════════════════════AMDG═╗ --
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-12-13 13:13
+--                                              Last modified: 2025-03-05 21:40
 
 
 vim.loader.enable()
@@ -27,6 +27,7 @@ require("config.keymaps")
 
          -  Arrange core maps as close to asciibetical (or utf-8) order as
             possible.
+         -  Move trouble.nvim maps from plugin spec` to keymaps.lua.
          -  Get all the keymaps out of specs and with the rest of the maps if
             it means modifying source code and submitting pull requests.
 
