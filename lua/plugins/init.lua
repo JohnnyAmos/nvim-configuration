@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 00:12
+--                                              Last modified: 2025-03-08 13:45
 
 --[[
 
@@ -13,6 +13,7 @@
    cmp-buffer
    cmp-nvim-lsp
    cmp-path
+   command-completion.nvim
    fortune.nvim  <== needs mini.startup footer to be altered
    icon-picker.nvis
    illustro.nvim
@@ -69,13 +70,76 @@ return {
 
    -- FIX: Getting odd error when entering command: Invalid buffer number.
 
+--    {
+--       "smolck/command-completion.nvim",
+--       opts = {
+--          max_col_num = 5,
+--          min_col_width = 25,
+--          use_matchfuzzy = false
+--       }
+--    },
+
+-- ╔═╡ PLUGIN: conform.nvim ╞════════════════════════════════════╡ [** ] ╞═╗ --
+-- ║  Source: https://github.com/stevearc/conform.nvim                     ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚════════════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
+
    {
-      "smolck/command-completion.nvim",
-      opts = {
-         max_col_num = 5,
-         min_col_width = 25,
-         use_matchfuzzy = false
-      }
+      'stevearc/conform.nvim',
+      config = function()
+         require("conform").setup({
+            formatters_by_ft = {
+               css = {
+                  "rustywind",
+                  "prettierd",
+                  "ast-grep"
+               },
+               html = {
+                  "ast-grep",
+                  "prettierd"
+               },
+               javascript = {
+                  "prettierd",
+                  "ast-grep"
+               },
+               json = { "prettierd" },
+               lua = { "stylua" },
+               markdown = {
+                  "cbformat",
+                  "doctoc"
+               },
+               python = { "ruff" },
+               scss = {
+                  "prettierd"
+               },
+               sql = { "sqlfmt" },
+               vue = { "prettierd" },
+               yaml = { "yamlfmt" },
+            },
+            lang_to_ext = {
+               javascript = "js",
+               latex = "tex",
+               markdown = "md",
+               python = "py",
+            },
+            ft_parsers = {
+               javascript = "babel",
+               vue = "vue",
+               css = "css",
+               scss = "scss",
+               html = "html",
+               json = "json",
+               jsonc = "json",
+               yaml = "yaml",
+               markdown = "markdown",
+               ["markdown.mdx"] = "mdx",
+               graphql = "graphql",
+            },
+            default_format_opts = {
+               lsp_format = "fallback",
+            }
+         })
+      end
    },
 
 -- ╔═╡ PLUGIN: csvview.nvim ╞════════════════════════════════════╡ [***] ╞═╗ --

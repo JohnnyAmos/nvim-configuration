@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2024-12-10 21:17
+--                                              Last modified: 2025-03-08 13:32
 
 
 local api = vim.api
@@ -15,6 +15,14 @@ local cmd = vim.cmd
 local fn = vim.fn
 local lsp = vim.lsp
 
+
+-- Automatically run code formatters using conform.nvim.
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf })
+  end,
+})
 
 -- Save/load folds with mkview & loadview.
 augrp("Folds", { clear = true })
