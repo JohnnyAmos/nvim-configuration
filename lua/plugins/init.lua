@@ -4,8 +4,33 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-05 22:12
+--                                              Last modified: 2025-03-08 00:12
 
+--[[
+
+   List of plugins that need to be set up.
+
+   cmp-buffer
+   cmp-nvim-lsp
+   cmp-path
+   fortune.nvim  <== needs mini.startup footer to be altered
+   icon-picker.nvis
+   illustro.nvim
+   lazydev.nvim
+   mason-lspconfig.nvim
+   nvim-cmp
+   nvim-dap
+   nvim-dap-ui
+   nvim-lsp-file-operations
+   nvim-lspconfig
+   nvim-nio
+
+--]]
+
+-- ╔═╡ PLUGIN:  ╞═══════════════════════════════╡ [   ] ╞═╗ --
+-- ║  Source:               ║ --
+-- ║  License:                                                          ║ --
+-- ╚════════════════════════════════════════════════╡  ╞═╝ --
 
 return {
 
@@ -44,26 +69,62 @@ return {
 
    -- FIX: Getting odd error when entering command: Invalid buffer number.
 
-   -- {
-   --    "smolck/command-completion.nvim",
-   --    opts = {
-   --       max_col_num = 5,
-   --       min_col_width = 25,
-   --       use_matchfuzzy = false
-   --    }
-   -- },
+   {
+      "smolck/command-completion.nvim",
+      opts = {
+         max_col_num = 5,
+         min_col_width = 25,
+         use_matchfuzzy = false
+      }
+   },
 
 -- ╔═╡ PLUGIN: csvview.nvim ╞════════════════════════════════════╡ [***] ╞═╗ --
 -- ║  Source: https://github.com/hat0uma/csvview.nvim                      ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════╡ Languages: CSV, TSV ╞═╝ --
 
---    {
---       "hat0uma/csvview.nvim",
---       opts = {
---          display_mode = "border" -- or "highlight"
---       }
---    },
+   {
+      "hat0uma/csvview.nvim",
+      opts = {
+         display_mode = "border" -- or "highlight"
+      }
+   },
+
+-- ╔═╡ PLUGIN: dark_flat.nvim ╞══════════════════════════════════╡ [** ] ╞═╗ --
+-- ║  Source: https://github.com/uncleTen276/dark_flat.nvim                ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚══════════════════════════════════════════════════╡ UI: Colourscheme ╞═╝ --
+
+   {
+      "sekke276/dark_flat.nvim",
+      priority = 1000,
+      config = function()
+         require("dark_flat").setup({
+            colors = {
+               fg = "#ddeedd",
+               bg = "#060606",
+               gray = "#aaaaaa",
+               pink = "#d60075",
+               green = "#00bb28",
+               light_green = "#14df4c",
+               cyan = "#00d2cb",
+               aqua = "#4a63f7",
+               purple = "#a733c9",
+               peanut = "#e6a868",
+               orange = "#ff4704",
+               dark_pink = "#c70053",
+               dark_cyan = "#2b8db3",
+               red = "#c00102",
+               dark_red = "#a60404",
+               light_gray = "#bababa",
+               dark_gray = "#777777",
+               dark_green = "#00570e",
+               dark_blue = "#00156d"
+            },
+            italics = false,
+         })
+      end
+   },
 
 -- ╔═╡ PLUGIN: dressing.nvim ╞═══════════════════════════════════╡ [***] ╞═╗ --
 -- ║  Source: https://github.com/stevearc/dressing.nvim                    ║ --
@@ -77,89 +138,89 @@ return {
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════╡ UI: Layouts ╞═╝ --
 
---    {
---       "folke/edgy.nvim",
---       event = "VeryLazy",
---       opts = {
---          bottom = {
---             {
---                ft = "toggleterm",
---                size = { height = 0.4 },
---                filter = function(buf, win)
---                   return vim.api.nvim_win_get_config(win).relative == ""
---                end
---             },
---             "Trouble",
---             { ft = "qf", title = "QuickFix" }
---          },
---          left = {
---             {
---                title = "Files",
---                ft = "neo-tree",
---                filter = function(buf)
---                   return vim.b[buf].neo_tree_source == "filesystem"
---                end,
---                size = { height = 0.5 }
---             },
---             {
---                title = "Git",
---                ft = "neo-tree",
---                filter = function(buf)
---                   return vim.b[buf].neo_tree_source == "git_status"
---                end,
---                pinned = true,
---                collapsed = true, -- show window as collapsed on start
---                open = "Neotree position=right git_status"
---             },
---             {
---                title = "Buffers",
---                ft = "neo-tree",
---                filter = function(buf)
---                   return vim.b[buf].neo_tree_source == "buffers"
---                end,
---                pinned = true,
---                collapsed = true, -- show window as collapsed on start
---                open = "Neotree position=top buffers"
---             },
---             {
---                title = function()
---                   local buf_name = vim.api.nvim_buf_get_name(0) or "[No Name]"
---                   return vim.fn.fnamemodify(buf_name, ":t")
---                end,
---                ft = "Outline",
---                pinned = true,
---                open = "SymbolsOutlineOpen"
---             },
---             -- any other neo-tree windows
---             "neo-tree"
---          },
---          right = {
---                ft = "help",
---                filter = function(buf)
---                   return vim.bo[buf].buftype == "help"
---                end
---          }
---       }
---    },
+   {
+      "folke/edgy.nvim",
+      event = "VeryLazy",
+      opts = {
+         bottom = {
+            {
+               ft = "toggleterm",
+               size = { height = 0.4 },
+               filter = function(buf, win)
+                  return vim.api.nvim_win_get_config(win).relative == ""
+               end
+            },
+            "Trouble",
+            { ft = "qf", title = "QuickFix" }
+         },
+         left = {
+            {
+               title = "Files",
+               ft = "neo-tree",
+               filter = function(buf)
+                  return vim.b[buf].neo_tree_source == "filesystem"
+               end,
+               size = { height = 0.5 }
+            },
+            {
+               title = "Git",
+               ft = "neo-tree",
+               filter = function(buf)
+                  return vim.b[buf].neo_tree_source == "git_status"
+               end,
+               pinned = true,
+               collapsed = true, -- show window as collapsed on start
+               open = "Neotree position=right git_status"
+            },
+            {
+               title = "Buffers",
+               ft = "neo-tree",
+               filter = function(buf)
+                  return vim.b[buf].neo_tree_source == "buffers"
+               end,
+               pinned = true,
+               collapsed = true, -- show window as collapsed on start
+               open = "Neotree position=top buffers"
+            },
+            {
+               title = function()
+                  local buf_name = vim.api.nvim_buf_get_name(0) or "[No Name]"
+                  return vim.fn.fnamemodify(buf_name, ":t")
+               end,
+               ft = "Outline",
+               pinned = true,
+               open = "SymbolsOutlineOpen"
+            },
+            -- any other neo-tree windows
+            "neo-tree"
+         },
+         right = {
+               ft = "help",
+               filter = function(buf)
+                  return vim.bo[buf].buftype == "help"
+               end
+         }
+      }
+   },
 
 -- ╔═╡ PLUGIN: flash.nvim ╞══════════════════════════════════════╡ [** ] ╞═╗ --
 -- ║  Source: https://github.com/folke/flash.nvim                          ║ --
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚════════════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
 
---    {
---       "folke/flash.nvim",
---       event = "VeryLazy",
---       opts = {
---          -- Ordered thusly because it places the home row keys first, with the
---          -- top second and the bottom third.
---          labels = "asdfghjklqwertyuiopzxcvbnm",
---          search = {
---             mode = "search",
---             incremental = true
---          }
---       }
---    },
+   {
+      "folke/flash.nvim",
+      event = "VeryLazy",
+      opts = {
+         -- Ordered thusly because it places the home row keys first, with the
+         -- top second and the bottom third.
+         labels = "asdfghjklqwertyuiopzxcvbnm",
+         search = {
+            mode = "search",
+            incremental = true
+         }
+      }
+   },
 
 -- ╔═╡ PLUGIN: flexoki-nvim ╞════════════════════════════════════╡ [** ] ╞═╗ --
 -- ║  Source: https://github.com/nuvic/flexoki-nvim                        ║ --
@@ -219,8 +280,9 @@ return {
 
             palette = {
                moon = {
-                  base = '#000000',
-                  overlay = '#1c1b1a'
+                  base = "#000000",
+                  overlay = "#111111",
+                  muted = "#afafaf"
                },
                dawn = {
                   base = "#ffffff",
@@ -228,10 +290,10 @@ return {
                }
             },
 
-            -- highlight_groups = {
-            --    Comment = { fg = "subtle" },
+            highlight_groups = {
+               Comment = { fg = "muted" },
             --    VertSplit = { fg = "muted", bg = "muted" },
-            -- },
+            },
 
             -- before_highlight = function(group, highlight, palette)
             --    -- Disable all undercurls
@@ -246,7 +308,7 @@ return {
             -- end,
          })
 
-         vim.cmd("colorscheme flexoki-moon")
+--          vim.cmd("colorscheme flexoki-moon")
       end
    },
 
@@ -262,7 +324,18 @@ return {
 -- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
---    { "rafamadriz/friendly-snippets"},
+    { "rafamadriz/friendly-snippets" },
+
+-- ╔═╡ PLUGIN: garbage-day.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
+-- ║  Source: https://github.com/Zeioth/garbage-day.nvim                   ║ --
+-- ║  License: GPL-3.0                                                     ║ --
+-- ╚══════════════════════════════════════════════╡ Utility: LSP Cleanup ╞═╝ --
+
+   {
+      "zeioth/garbage-day.nvim",
+      dependencies = { "neovim/nvim-lspconfig" },
+      event = "VeryLazy"
+   },
 
 -- ╔═╡ PLUGIN: gitsigns.nvim ╞═══════════════════════════════════╡ [** ] ╞═╗ --
 -- ║  Source: https://github.com/lewis6991/gitsigns.nvim                   ║ --
@@ -288,23 +361,57 @@ return {
 -- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════════════════╡ Editor: Search ╞═╝ --
 
---    { "MagicDuck/grug-far.nvim" },
+   { "MagicDuck/grug-far.nvim" },
+
+-- ╔═╡ PLUGIN: icon-picker.nvim ╞════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/JohnnyAmos/icon-picker.nvim               ║ --
+-- ║  License: MIT {Detach from fork and release under ISC license.}       ║ --
+-- ╚═════════════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
+
+-- FIX: Set maps up in keymaps.lua and reflect change in config before using.
+
+--    {
+--       "JohnnyAmos/icon-picker.nvim",
+--       config = function()
+--          require("icon-picker").setup({ disable_legacy_commands = true })
+--          local opts = { noremap = true, silent = true }
+--          vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+--          vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+--          vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
+--       end
+--    }
+
+-- ╔═╡ PLUGIN: illustro.nvim ╞═══════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/JohnnyAmos/illustro.nvim                  ║ --
+-- ║  License: ISC                                                         ║ --
+-- ╚═══════════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
+
+--    {
+--       "JohnnyAmos/illustro.nvim",
+--       name = "illustro",
+--       priority = 1000,
+--       config = function()
+--          require("illustro").setup({
+--          })
+--       end
+--    }
 
 -- ╔═╡ PLUGIN: key-analyzer.nvim ╞═══════════════════════════════╡ [*  ] ╞═╗ --
 -- ║  source: https://github.com/meznaric/key-analyzer.nvim                ║ --
 -- ║  license: MIT                                                         ║ --
 -- ╚══════════════════════════════════════════════╡ Utility: Mapping Aid ╞═╝ --
 
---    {
---       "meznaric/key-analyzer.nvim",
---       opts = {}
---    },
+   {
+      "meznaric/key-analyzer.nvim",
+      opts = {}
+   },
 
 -- ╔═╡ PLUGIN: lazydev.nvim ╞════════════════════════════════════╡ [*  ] ╞═╗ --
 -- ║  Source: https://github.com/folke/lazydev.nvim                        ║ --
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
+-- TODO: Set up after nvim-lspconfig.
 --    {
 --       "folke/lazydev.nvim",
 --       ft = "lua",
@@ -391,35 +498,20 @@ return {
       end
    },
 
--- ╔═╡ PLUGIN: lush.nvim ╞═══════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/rktjmp/lush.nvim                          ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═════════════════════════════════════════════╡ UI: Colorscheme Maker ╞═╝ --
-
-   -- { "rktjmp/lush.nvim" },
-
--- ╔═╡ FIX: luvit-meta ╞═════════════════════════════════════════╡ [   ] ╞═╗ --
--- ║  This needs to be set up in the lspconfig settings, not here          ║ --
--- ║  Source: https://github.com/Bilal2453/luvit-meta                      ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚════════════════════════════════════════════════════════════╡ DELETE ╞═╝ --
-
---    { "Bilal2453/luvit-meta", lazy = true },
-
 -- ╔═╡ PLUGIN: marks.nvim ╞══════════════════════════════════════╡ [***] ╞═╗ --
 -- ║  Source: https://github.com/chentoast/marks.nvim                      ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚════════════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
 
---    {
---       "chentoast/marks.nvim",
---       event = "VeryLazy",
---       opts = {
---          default_mappings = false,
---          force_write_shada = true,
---          sign_priority = 10
---       }
---    },
+   {
+      "chentoast/marks.nvim",
+      event = "VeryLazy",
+      opts = {
+         default_mappings = false,
+         force_write_shada = true,
+         sign_priority = 10
+      }
+   },
 
 -- ╔═╡ PLUGIN: mason-lspconfig.nvim ╞════════════════════════════╡ [***] ╞═╗ --
 -- ║  Source: https://github.com/williamboman/mason-lspconfig.nvim         ║ --
@@ -461,16 +553,16 @@ return {
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
---    {
---       "williamboman/mason.nvim",
---       opts = {
---          PATH = 'skip',
---          border = 'single',
---          ui = {
---             icons = icons_mason_ui,
---          }
---       }
---    },
+   {
+      "williamboman/mason.nvim",
+      opts = {
+         PATH = 'skip',
+         border = 'single',
+         ui = {
+            icons = icons_mason_ui,
+         }
+      }
+   },
 
 -- ╔═╡ PLUGIN: mini.nvim ╞═══════════════════════════════════════╡ [***] ╞═╗ --
 -- ║  Source: https://github.com/echasnovski/mini.nvim                     ║ --
@@ -802,23 +894,23 @@ return {
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════╡ Editor: Multicursor ╞═╝ --
 
---    {
---       "brenton-leighton/multiple-cursors.nvim",
---       version = "*",  -- Use the latest tagged version
---       opts = {
---          pre_hook = function()
---             vim.cmd("Lazy load mini.move")
---             vim.g.minipairs_disable = true
---             require("cmp").setup({enabled=false})
---             vim.cmd("NoMatchParen")
---          end,
---          post_hook = function()
---             vim.g.minipairs_disable = false
---             require("cmp").setup({enabled=true})
---             vim.cmd("DoMatchParen")
---          end
---       }
---    },
+   {
+      "brenton-leighton/multiple-cursors.nvim",
+      version = "*",  -- Use the latest tagged version
+      opts = {
+         pre_hook = function()
+            vim.cmd("Lazy load mini.move")
+            vim.g.minipairs_disable = true
+            require("cmp").setup({enabled=false})
+            vim.cmd("NoMatchParen")
+         end,
+         post_hook = function()
+            vim.g.minipairs_disable = false
+            require("cmp").setup({enabled=true})
+            vim.cmd("DoMatchParen")
+         end
+      }
+   },
 
 -- ╔═╡ PLUGIN: neo-tree.nvim ╞═══════════════════════════════════╡ [** ] ╞═╗ --
 -- ║  Source: https://github.com/nvim-neo-tree/neo-tree.nvim               ║ --
@@ -898,21 +990,17 @@ return {
        cmd = 'Nerdy',
    },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nui.nvim ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/MunifTanjim/nui.nvim                      ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚════════════════════════════════════════════════════════════════╡ UI ╞═╝ --
 
    { "MunifTanjim/nui.nvim" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nvim-cmp ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/hrsh7th/nvim-cmp                          ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚═══════════════════════════════════════════════╡ Coding: Completions ╞═╝ --
 
 --    { "hrsh7th/nvim-cmp" },
 
@@ -930,12 +1018,10 @@ return {
 
 --    { "mfussenegger/nvim-dap" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nvim-dap-ui ╞═════════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/rcarriga/nvim-dap-ui                      ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚═══════════════════════════════════════════════════════╡ Coding: DAP ╞═╝ --
 
 --    { "rcarriga/nvim-dap-ui" },
 
@@ -955,118 +1041,114 @@ return {
 --       end
 --    },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nvim-lspconfig ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/neovim/nvim-lspconfig                     ║ --
+-- ║  License: Apache-2.0                                                  ║ --
+-- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
 --    { "neovim/nvim-lspconfig" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nvim-nio ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/nvim-neotest/nvim-nio                     ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚═══════════════════════════════════════════════════════════╡ API: IO ╞═╝ --
 
 --    { "nvim-neotest/nvim-nio" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nvim-surround ╞═══════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/kylechui/nvim-surround                    ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚══════════════════════════════════════════════════════════╡ Coding:  ╞═╝ --
 
---    { "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
+   {
+      "kylechui/nvim-surround",
+      version = "*",
+      event = "VeryLazy"
+   },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: nvim-treesitter ╞═════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/nvim-treesitter/nvim-treesitter           ║ --
+-- ║  License: Apache-2.0                                                  ║ --
+-- ╚════════════════════════════════════════════════════╡ Coding: Syntax ╞═╝ --
 
---    {
---       "nvim-treesitter/nvim-treesitter",
---       version = false,
---       event = { "BufReadPre", "BufNewFile" },
---       dependencies = {
---          "nvim-treesitter/nvim-treesitter-textobjects",
---          "RRethy/nvim-treesitter-endwise"
---       },
---       build = function()
---          require("nvim-treesitter.install").update({ with_sync = true })()
---       end,
---       vim.treesitter.language.register('markdown', 'octo'),
---       opts = {
---          auto_install = true,
---          highlight = { enable = true },
---          indent = { enable = true },
---          ensure_installed = {
---             "arduino",
---             "astro",
---             "bash",
---             "css",
---             "csv",
---             "diff",
---             "dtd",
---             "editorconfig",
---             "git_config",
---             "git_rebase",
---             "gitattributes",
---             "gitcommit",
---             "gitigniore",
---             "html",
---             "http",
---             "javascript",
---             "jsdoc",
---             "json",
---             "json5",
---             "ledger",
---             "lua",
---             "luadocs",
---             "luap",
---             "markdown",
---             "perl",
---             "pod",
---             "printf",
---             "python",
---             "query",
---             "regex",
---             "robots",
---             "scss",
---             "sql",
---             "ssh_config",
---             "styled",
---             "tmux",
---             "toml",
---             "yaml"
---          },
---          textobjects = {
---             select = {
---                enable = true,
---                lookahead = true
---             },
---             swap = {
---                enable = true
---             },
---             move = {
---                enable = true,
---                set_jumps = true
---             },
---             lsp_interop = {
---                enable = true,
---                border = "none"
---             }
---          },
---          endwise = {
---             enable = true
---          }
---       }
---    },
+   {
+      "nvim-treesitter/nvim-treesitter",
+      version = false,
+      event = { "BufReadPre", "BufNewFile" },
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter-textobjects",
+         "RRethy/nvim-treesitter-endwise"
+      },
+      build = function()
+         require("nvim-treesitter.install").update({ with_sync = true })()
+      end,
+      vim.treesitter.language.register('markdown', 'octo'),
+      opts = {
+         auto_install = true,
+         highlight = { enable = true },
+         indent = { enable = true },
+         ensure_installed = {
+            "arduino",
+            "astro",
+            "bash",
+            "css",
+            "csv",
+            "diff",
+            "dtd",
+            "editorconfig",
+            "git_config",
+            "git_rebase",
+            "gitattributes",
+            "gitcommit",
+            "gitigniore",
+            "html",
+            "http",
+            "javascript",
+            "jsdoc",
+            "json",
+            "json5",
+            "ledger",
+            "lua",
+            "luadocs",
+            "luap",
+            "markdown",
+            "perl",
+            "pod",
+            "printf",
+            "python",
+            "query",
+            "regex",
+            "robots",
+            "scss",
+            "sql",
+            "ssh_config",
+            "styled",
+            "tmux",
+            "toml",
+            "yaml"
+         },
+         textobjects = {
+            select = {
+               enable = true,
+               lookahead = true
+            },
+            swap = {
+               enable = true
+            },
+            move = {
+               enable = true,
+               set_jumps = true
+            },
+            lsp_interop = {
+               enable = true,
+               border = "none"
+            }
+         },
+         endwise = {
+            enable = true
+         }
+      }
+   },
 
 -- ╔═╡ PLUGIN: nvim-update-time ╞════════════════════════════════╡ [***] ╞═╗ --
 -- ║  Source: https://github.com/StonyBoy/nvim-update-time                 ║ --
@@ -1092,7 +1174,7 @@ return {
 -- ╔═╡ PLUGIN: octo.nvim ╞═══════════════════════════════════════╡ [*  ] ╞═╗ --
 -- ║  Source: https://github.com/pwntester/octo.nvim                       ║ --
 -- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════╡ Editor: Git ╞═╝ --
+-- ╚═══════════════════════════════════════════════════════╡ Editor: Git ╞═╝ --
 
    {
       "pwntester/octo.nvim",
@@ -1114,429 +1196,417 @@ return {
       }
    },
 
--- ╔═╡ PLUGIN: shipwright.nvim ╞═════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/rktjmp/shipwright.nvim                    ║ --
+-- ╔═╡ PLUGIN: sqlite.lua ╞══════════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/kkharji/sqlite.lua                        ║ --
 -- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════╡ Utilities: Miscellaneous ╞═╝ --
+-- ╚═════════════════════════════════════════════════╡ Utility: Database ╞═╝ --
 
---    {
---       "rktjmp/shipwright.nvim"
---    },
+   { "kkharji/sqlite.lua" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: stylua-nvim ╞═════════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/wesleimp/stylua.nvim                      ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚════════════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
 
---    { "kkharji/sqlite.lua" },
+   { "ckipp01/stylua-nvim" },
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN: telescope.nvim ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+-- ║  Source: https://github.com/nvim-telescope/telescope.nvim             ║ --
+-- ║  License: MIT                                                         ║ --
+-- ╚════════════════════════════════════════════════════════════════╡ UI ╞═╝ --
 
---    { "ckipp01/stylua-nvim" },
+   {
+      "nvim-telescope/telescope.nvim",
+      dependencies = {
+         { "nvim-lua/plenary.nvim" },
+         { "MunifTanjim/nui.nvim" },
+         { "nvim-telescope/telescope-file-browser.nvim" },
+         { "nvim-telescope/telescope-frecency.nvim" },
+         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+         { "nvim-telescope/telescope-github.nvim" },
+         { "tsakirist/telescope-lazy.nvim" },
+         { "cljoly/telescope-repo.nvim" },
+         { "nvim-telescope/telescope-symbols.nvim" }
+      },
+      config = function()
+         local Layout = require("nui.layout")
+         local Popup = require("nui.popup")
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+         local telescope = require("telescope")
+         local TSLayout = require("telescope.pickers.layout")
 
---    {
---       "nvim-telescope/telescope.nvim",
---       dependencies = {
---          { "nvim-lua/plenary.nvim" },
---          { "MunifTanjim/nui.nvim" },
---          { "nvim-telescope/telescope-file-browser.nvim" },
---          { "nvim-telescope/telescope-frecency.nvim" },
---          { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
---          { "nvim-telescope/telescope-github.nvim" },
---          { "tsakirist/telescope-lazy.nvim" },
---          { "cljoly/telescope-repo.nvim" },
---          { "nvim-telescope/telescope-symbols.nvim" }
---       },
---       config = function()
---          local Layout = require("nui.layout")
---          local Popup = require("nui.popup")
--- 
---          local telescope = require("telescope")
---          local TSLayout = require("telescope.pickers.layout")
--- 
---          local function make_popup(options)
---             local popup = Popup(options)
---             function popup.border:change_title(title)
---                popup.border.set_text(popup.border, "top", title)
---             end
---             return TSLayout.Window(popup)
---          end
--- 
---          telescope.setup({
---             defaults = {
---                layout_strategy = "flex",
---                layout_config = {
---                   horizontal = {
---                      size = {
---                         width = "90%",
---                         height = "60%"
---                      }
---                   },
---                   vertical = {
---                      size = {
---                         width = "90%",
---                         height = "90%"
---                      }
---                   }
---                },
---                extensions = {
---                   ---@module "telescope._extensions.lazy"
---                   ---@type TelescopeLazy.Config
---                   lazy = {
---                      mappings = {
---                         open_in_browser = "<c-o>",
---                         open_in_file_browser = "<m-b>",
---                         open_in_find_files = "<c-f>",
---                         open_in_live_grep = "<c-g>",
---                         open_in_terminal = "<c-t>",
---                         open_plugins_picker = "<c-b>",
---                         open_lazy_root_find_files = "<c-r>f",
---                         open_lazy_root_live_grep = "<c-r>g",
---                         change_cwd_to_plugin = "<c-c>d"
---                      }
---                   }
---                },
---                create_layout = function(picker)
---                   local border = {
---                      results = {
---                         top_left = "┌",
---                         top = "─",
---                         top_right = "┬",
---                         right = "│",
---                         bottom_right = "",
---                         bottom = "",
---                         bottom_left = "",
---                         left = "│"
---                      },
---                      results_patch = {
---                         minimal = {
---                            top_left = "┌",
---                            top_right = "┐"
---                         },
---                         horizontal = {
---                            top_left = "┌",
---                            top_right = "┬"
---                         },
---                         vertical = {
---                            top_left = "├",
---                            top_right = "┤"
---                         }
---                      },
---                      prompt = {
---                         top_left = "├",
---                         top = "─",
---                         top_right = "┤",
---                         right = "│",
---                         bottom_right = "┘",
---                         bottom = "─",
---                         bottom_left = "└",
---                         left = "│"
---                      },
---                      prompt_patch = {
---                         minimal = {
---                            bottom_right = "┘"
---                         },
---                         horizontal = {
---                            bottom_right = "┴"
---                         },
---                         vertical = {
---                            bottom_right = "┘"
---                         }
---                      },
---                      preview = {
---                         top_left = "┌",
---                         top = "─",
---                         top_right = "┐",
---                         right = "│",
---                         bottom_right = "┘",
---                         bottom = "─",
---                         bottom_left = "└",
---                         left = "│"
---                      },
---                      preview_patch = {
---                         minimal = {},
---                         horizontal = {
---                            bottom = "─",
---                            bottom_left = "",
---                            bottom_right = "┘",
---                            left = "",
---                            top_left = ""
---                         },
---                         vertical = {
---                            bottom = "",
---                            bottom_left = "",
---                            bottom_right = "",
---                            left = "│",
---                            top_left = "┌"
---                         }
---                      }
---                   }
--- 
---                   local results = make_popup({
---                      focusable = false,
---                      border = {
---                         style = border.results,
---                         text = {
---                            top = picker.results_title,
---                            top_align = "center"
---                         }
---                      },
---                      win_options = {
---                         winhighlight = "Normal:Normal"
---                      }
---                   })
--- 
---                   local prompt = make_popup({
---                      enter = true,
---                      border = {
---                         style = border.prompt,
---                         text = {
---                            top = picker.prompt_title,
---                            top_align = "center"
---                         }
---                      },
---                      win_options = {
---                         winhighlight = "Normal:Normal"
---                      }
---                   })
--- 
---                   local preview = make_popup({
---                      focusable = false,
---                      border = {
---                         style = border.preview,
---                         text = {
---                            top = picker.preview_title,
---                            top_align = "center"
---                         }
---                      }
---                   })
--- 
---                   local box_by_kind = {
---                      vertical = Layout.Box({
---                         Layout.Box(preview, { grow = 1 }),
---                         Layout.Box(results, { grow = 1 }),
---                         Layout.Box(prompt, { size = 3 })
---                      }, { dir = "col" }),
---                      horizontal = Layout.Box({
---                         Layout.Box({
---                            Layout.Box(results, { grow = 1 }),
---                            Layout.Box(prompt, { size = 3 })
---                         }, { dir = "col", size = "50%" }),
---                         Layout.Box(preview, { size = "50%" })
---                      }, { dir = "row" }),
---                      minimal = Layout.Box({
---                         Layout.Box(results, { grow = 1 }),
---                         Layout.Box(prompt, { size = 3 })
---                      }, { dir = "col" }),
---                   }
--- 
---                   local function get_box()
---                      local strategy = picker.layout_strategy
---                      if strategy == "vertical" or strategy == "horizontal" then
---                         return box_by_kind[strategy], strategy
---                      end
--- 
---                      local height, width = vim.o.lines, vim.o.columns
---                      local box_kind = "horizontal"
---                      if width < 100 then
---                         box_kind = "vertical"
---                         if height < 40 then
---                            box_kind = "minimal"
---                         end
---                      end
---                      return box_by_kind[box_kind], box_kind
---                   end
--- 
---                   local function prepare_layout_parts(layout, box_type)
---                      layout.results = results
---                      results.border:set_style(border.results_patch[box_type])
--- 
---                      layout.prompt = prompt
---                      prompt.border:set_style(border.prompt_patch[box_type])
--- 
---                      if box_type == "minimal" then
---                         layout.preview = nil
---                      else
---                         layout.preview = preview
---                         preview.border:set_style(
---                            border.preview_patch[box_type]
---                         )
---                      end
---                   end
--- 
---                   local function get_layout_size(box_kind)
---                      return picker.layout_config[box_kind == "minimal"
---                         and "vertical" or box_kind].size
---                   end
--- 
---                   local box, box_kind = get_box()
---                   local layout = Layout({
---                      relative = "editor",
---                      position = "50%",
---                      size = get_layout_size(box_kind)
---                   }, box)
--- 
---                   layout.picker = picker
---                   prepare_layout_parts(layout, box_kind)
--- 
---                   local layout_update = layout.update
---                   function layout:update()
---                      local box, box_kind = get_box()
---                      prepare_layout_parts(layout, box_kind)
---                      layout_update(self, {
---                         size = get_layout_size(box_kind)
---                      }, box)
---                   end
--- 
---                   return TSLayout(layout)
---                end
---             }
---          })
--- 
---          telescope.load_extension("frecency")
---          telescope.load_extension("fzf")
---          telescope.load_extension("gh")
---          telescope.load_extension("lazy")
---          telescope.load_extension('nerdy')
---          telescope.load_extension("repo")
--- --          require("telescope.builtin").symbols{
--- --             sources = {
--- --                "emoji",
--- --                "gitmoji",
--- --                "julia",
--- --                "kaomoji",
--- --                "math",
--- --                "nerd"
--- --             }
--- --          }
---       end
---    },
+         local function make_popup(options)
+            local popup = Popup(options)
+            function popup.border:change_title(title)
+               popup.border.set_text(popup.border, "top", title)
+            end
+            return TSLayout.Window(popup)
+         end
 
--- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║                                                                       ║ --
--- ║  Source:                  ║ --
--- ║  License:                  ║ --
--- ║                                                                       ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
+         telescope.setup({
+            defaults = {
+               layout_strategy = "flex",
+               layout_config = {
+                  horizontal = {
+                     size = {
+                        width = "90%",
+                        height = "60%"
+                     }
+                  },
+                  vertical = {
+                     size = {
+                        width = "90%",
+                        height = "90%"
+                     }
+                  }
+               },
+               extensions = {
+                  ---@module "telescope._extensions.lazy"
+                  ---@type TelescopeLazy.Config
+                  lazy = {
+                     mappings = {
+                        open_in_browser = "<c-o>",
+                        open_in_file_browser = "<m-b>",
+                        open_in_find_files = "<c-f>",
+                        open_in_live_grep = "<c-g>",
+                        open_in_terminal = "<c-t>",
+                        open_plugins_picker = "<c-b>",
+                        open_lazy_root_find_files = "<c-r>f",
+                        open_lazy_root_live_grep = "<c-r>g",
+                        change_cwd_to_plugin = "<c-c>d"
+                     }
+                  }
+               },
+               create_layout = function(picker)
+                  local border = { -- relocate to icons.lua?
+                     results = {
+                        top_left = "┌",
+                        top = "─",
+                        top_right = "┬",
+                        right = "│",
+                        bottom_right = "",
+                        bottom = "",
+                        bottom_left = "",
+                        left = "│"
+                     },
+                     results_patch = {
+                        minimal = {
+                           top_left = "┌",
+                           top_right = "┐"
+                        },
+                        horizontal = {
+                           top_left = "┌",
+                           top_right = "┬"
+                        },
+                        vertical = {
+                           top_left = "├",
+                           top_right = "┤"
+                        }
+                     },
+                     prompt = {
+                        top_left = "├",
+                        top = "─",
+                        top_right = "┤",
+                        right = "│",
+                        bottom_right = "┘",
+                        bottom = "─",
+                        bottom_left = "└",
+                        left = "│"
+                     },
+                     prompt_patch = {
+                        minimal = {
+                           bottom_right = "┘"
+                        },
+                        horizontal = {
+                           bottom_right = "┴"
+                        },
+                        vertical = {
+                           bottom_right = "┘"
+                        }
+                     },
+                     preview = {
+                        top_left = "┌",
+                        top = "─",
+                        top_right = "┐",
+                        right = "│",
+                        bottom_right = "┘",
+                        bottom = "─",
+                        bottom_left = "└",
+                        left = "│"
+                     },
+                     preview_patch = {
+                        minimal = {},
+                        horizontal = {
+                           bottom = "─",
+                           bottom_left = "",
+                           bottom_right = "┘",
+                           left = "",
+                           top_left = ""
+                        },
+                        vertical = {
+                           bottom = "",
+                           bottom_left = "",
+                           bottom_right = "",
+                           left = "│",
+                           top_left = "┌"
+                        }
+                     }
+                  }
 
---    {
---       "folke/todo-comments.nvim",
---       cmd = { 'TodoTrouble', 'TodoTelescope' },
---       lazy = false,
---       opts = {
---          keywords = {
---             FIX = {
---                icon = " ",
---                color = "fix"
---             },
---             TODO = {
---                icon = " ",
---                color = "todo"
---             },
---             HACK = {
---                icon = " ",
---                color = "hack"
---             },
---             WARN = {
---                icon = " ",
---                color = "warn"
---             },
---             PERF = {
---                icon = "󰇬 ",
---                color = "perf"
---             },
---             NOTE = {
---                icon = " ",
---                color = "note"
---             },
---             IDEA = {
---                icon = " ",
---                color = "note"
---             },
---             TEST = {
---                icon = " ",
---                color = "test"
---             },
---             SECTION = {
---                icon = '󰚟 ',
---                color = 'section'
---             },
---             SUBSECTION = {
---                icon = '¶ ',
---                color = 'subsection'
---             },
---             PLUGIN = {
---                icon = ' ',
---                color = 'plugin'
---             },
---             FUNCTION = {
---                icon = '󰡱 ',
---                color = 'plugin'
---             }
---          },
---          merge_keywords = true,
--- 
--- 
---          --  FIX:
---          --  TODO:
---          --  HACK:
---          --  WARN:
---          --  PERF:
---          --  NOTE:
---          --  IDEA:
---          --  TEST:
---          --  SECTION:
---          --  SUBSECTION:
---          --  PLUGIN:
---          --  FUNCTION:
--- 
---          colors = {
---             fix = { "#b22222" },
---             todo = { "#01bfff" },
---             hack = { "#ff8c00" },
---             warn = { "#ffd703" },
---             perf = { "#78889a" },
---             note = { "#2e8c22" },
---             test = { "#deb887" },
---             plugin = { "#ba55d3" },
---             section = { "#1e91ff" },
---             subsection = { "#87cefa" }
--- 
--- 
--- 
---          },
---          highlight = {
---             multiline = false, -- default: false
---             multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
---             multiline_context = 0, -- extra lines that will be re-evaluated when changing a line
--- 
---             before = "", -- 'fg', 'bg', or empty
---             keyword = "wide_bg", -- 'fg', 'bg', 'wide', 'wide_bg',
---                               -- 'wide_fg', or empty
---             after = "",  -- "fg", "bg" or empty
---             comments_only = true,
---             -- pattern or table of patterns, used for highlightng (vim regex)
---             -- pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]],
---             pattern = {
---                [[.*<(KEYWORDS)\s*:]],
+                  local results = make_popup({
+                     focusable = false,
+                     border = {
+                        style = border.results,
+                        text = {
+                           top = picker.results_title,
+                           top_align = "center"
+                        }
+                     },
+                     win_options = {
+                        winhighlight = "Normal:Normal"
+                     }
+                  })
+
+                  local prompt = make_popup({
+                     enter = true,
+                     border = {
+                        style = border.prompt,
+                        text = {
+                           top = picker.prompt_title,
+                           top_align = "center"
+                        }
+                     },
+                     win_options = {
+                        winhighlight = "Normal:Normal"
+                     }
+                  })
+
+                  local preview = make_popup({
+                     focusable = false,
+                     border = {
+                        style = border.preview,
+                        text = {
+                           top = picker.preview_title,
+                           top_align = "center"
+                        }
+                     }
+                  })
+
+                  local box_by_kind = {
+                     vertical = Layout.Box({
+                        Layout.Box(preview, { grow = 1 }),
+                        Layout.Box(results, { grow = 1 }),
+                        Layout.Box(prompt, { size = 3 })
+                     }, { dir = "col" }),
+                     horizontal = Layout.Box({
+                        Layout.Box({
+                           Layout.Box(results, { grow = 1 }),
+                           Layout.Box(prompt, { size = 3 })
+                        }, { dir = "col", size = "50%" }),
+                        Layout.Box(preview, { size = "50%" })
+                     }, { dir = "row" }),
+                     minimal = Layout.Box({
+                        Layout.Box(results, { grow = 1 }),
+                        Layout.Box(prompt, { size = 3 })
+                     }, { dir = "col" }),
+                  }
+
+                  local function get_box()
+                     local strategy = picker.layout_strategy
+                     if strategy == "vertical" or strategy == "horizontal" then
+                        return box_by_kind[strategy], strategy
+                     end
+
+                     local height, width = vim.o.lines, vim.o.columns
+                     local box_kind = "horizontal"
+                     if width < 100 then
+                        box_kind = "vertical"
+                        if height < 40 then
+                           box_kind = "minimal"
+                        end
+                     end
+                     return box_by_kind[box_kind], box_kind
+                  end
+
+                  local function prepare_layout_parts(layout, box_type)
+                     layout.results = results
+                     results.border:set_style(border.results_patch[box_type])
+
+                     layout.prompt = prompt
+                     prompt.border:set_style(border.prompt_patch[box_type])
+
+                     if box_type == "minimal" then
+                        layout.preview = nil
+                     else
+                        layout.preview = preview
+                        preview.border:set_style(
+                           border.preview_patch[box_type]
+                        )
+                     end
+                  end
+
+                  local function get_layout_size(box_kind)
+                     return picker.layout_config[box_kind == "minimal"
+                        and "vertical" or box_kind].size
+                  end
+
+                  local box, box_kind = get_box()
+                  local layout = Layout({
+                     relative = "editor",
+                     position = "50%",
+                     size = get_layout_size(box_kind)
+                  }, box)
+
+                  layout.picker = picker
+                  prepare_layout_parts(layout, box_kind)
+
+                  local layout_update = layout.update
+                  function layout:update()
+                     local box, box_kind = get_box()
+                     prepare_layout_parts(layout, box_kind)
+                     layout_update(self, {
+                        size = get_layout_size(box_kind)
+                     }, box)
+                  end
+
+                  return TSLayout(layout)
+               end
+            }
+         })
+
+         telescope.load_extension("frecency")
+         telescope.load_extension("fzf")
+         telescope.load_extension("gh")
+         telescope.load_extension("lazy")
+         telescope.load_extension('nerdy')
+         telescope.load_extension("repo")
+--          require("telescope.builtin").symbols{
+--             sources = {
+--                "emoji",
+--                "gitmoji",
+--                "julia",
+--                "kaomoji",
+--                "math",
+--                "nerd"
 --             }
 --          }
---       }
---    },
+      end
+   },
+
+-- ╔═╡ PLUGIN: todo-comments.nvim ╞══════════════════════════════╡ [** ] ╞═╗ --
+-- ║  Source: https://github.com/folke/todo-comments.nvim                  ║ --
+-- ║  License: Apache-2.0                                                  ║ --
+-- ╚══════════════════════════════════════════════════╡ Coding: comments ╞═╝ --
+
+   {
+      "folke/todo-comments.nvim",
+      cmd = { 'TodoTrouble', 'TodoTelescope' },
+      lazy = false,
+      opts = {
+         keywords = {
+            FIX = {
+               icon = " ",
+               color = "fix"
+            },
+            TODO = {
+               icon = " ",
+               color = "todo"
+            },
+            HACK = {
+               icon = " ",
+               color = "hack"
+            },
+            WARN = {
+               icon = " ",
+               color = "warn"
+            },
+            PERF = {
+               icon = "󰇬 ",
+               color = "perf"
+            },
+            NOTE = {
+               icon = " ",
+               color = "note"
+            },
+            IDEA = {
+               icon = " ",
+               color = "note"
+            },
+            TEST = {
+               icon = " ",
+               color = "test"
+            },
+            SECTION = {
+               icon = '󰚟 ',
+               color = 'section'
+            },
+            SUBSECTION = {
+               icon = '¶ ',
+               color = 'subsection'
+            },
+            PLUGIN = {
+               icon = ' ',
+               color = 'plugin'
+            },
+            FUNCTION = {
+               icon = '󰡱 ',
+               color = 'plugin'
+            }
+         },
+         merge_keywords = true,
+
+
+         --  FIX:
+         --  TODO:
+         --  HACK:
+         --  WARN:
+         --  PERF:
+         --  NOTE:
+         --  IDEA:
+         --  TEST:
+         --  SECTION:
+         --  SUBSECTION:
+         --  PLUGIN:
+         --  FUNCTION:
+
+         colors = {
+            fix = { "#b22222" },
+            todo = { "#01bfff" },
+            hack = { "#ff8c00" },
+            warn = { "#ffd703" },
+            perf = { "#78889a" },
+            note = { "#2e8c22" },
+            test = { "#deb887" },
+            plugin = { "#ba55d3" },
+            section = { "#1e91ff" },
+            subsection = { "#87cefa" }
+
+
+
+         },
+         highlight = {
+            multiline = false, -- default: false
+            -- FIX: The highlighting starts in line with the beginning of the
+            -- keyword instead of the beginning of the line.
+            -- Lua pattern to match the next multiline from the start of the
+            -- matched keyword
+            multiline_pattern = "^.",
+            -- Extra lines that will be re-evaluated when changing a line.
+            multiline_context = 0,
+
+            before = "", -- 'fg', 'bg', or empty
+            keyword = "wide_bg", -- 'fg', 'bg', 'wide', 'wide_bg',
+                              -- 'wide_fg', or empty
+            after = "",  -- "fg", "bg" or empty
+            comments_only = true,
+            -- pattern or table of patterns, used for highlightng (vim regex)
+            -- pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]],
+            pattern = {
+               [[.*<(KEYWORDS)\s*:]],
+            }
+         }
+      }
+   },
 
    --[[
       TODO: Experiment with different patterns for highlights.
@@ -1627,12 +1697,12 @@ return {
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════╡ UI: Colorcolumn ╞═╝ --
 
---    {
---       "lukas-reineke/virt-column.nvim",
---       opts = {
---          virtcolumn = "80"
---       }
---    },
+   {
+      "lukas-reineke/virt-column.nvim",
+      opts = {
+         virtcolumn = "80"
+      }
+   },
 
 -- ╔═╡ PLUGIN: which-key.nvim ╞══════════════════════════════════╡ [** ] ╞═╗ --
 -- ║  Source: https://github.com/folke/which-key.nvim                      ║ --

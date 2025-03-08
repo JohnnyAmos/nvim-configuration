@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-05 21:40
+--                                              Last modified: 2025-03-06 15:07
 
 
 vim.loader.enable()
@@ -22,6 +22,9 @@ require("config.keymaps")
 
 
       TODO: Continue configuration of nvim.
+
+      Add fortune code to footer of startup screen and integrate fortune
+      plugin.
 
       Keymaps:
 
