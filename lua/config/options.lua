@@ -1,17 +1,15 @@
--- ╔═JMJ═══════════════════════╡  ❈✧❈  ✞  ❈✧❈  ╞══════════════════════AMDG═╗ --
+-- ╔═JMJ════════════════════════════╡  ✞  ╞═══════════════════════════AMDG═╗ --
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-01-17 19:42
-
+--                                              Last modified: 2025-03-08 14:33
 
 local bo = vim.bo
 local cmd = vim.cmd
 local g = vim.g
 local opt = vim.opt
-
 
 opt.fileencoding = "UTF-8"
 
@@ -45,7 +43,7 @@ opt.listchars = {
    nbsp = "␣",
    extends = "»",
    precedes = "«",
---  eol = "¦" -- Use sparingly, it"s truly annoying.
+   --  eol = "¦" -- Use sparingly, it"s truly annoying.
 }
 opt.showbreak = "¤ "
 
@@ -60,13 +58,62 @@ opt.laststatus = 3
 -- opt.wildmode = "list,longest" -- default: "full"
 opt.wildignorecase = true
 opt.wildignore = {
-   "*.bmp", "*.cbr", "*.cbz", "*.class", "*.divx", "*.dll", "*.exe", "*.flac",
-   "*.gif", "*.ico", "*.jpeg", "*.jpg", "*.kgb", "*.m2ts", "*.mkv", "*.mov",
-   "*.mp4", "*.mpeg", "*.mpg", "*.obj", "*.oga", "*.ogg", "*.otf", "*.out",
-   "*.pdf", "*.png", "*.psd", "*.rar", "*.rbc", "*.tar.bz2", "*.tar.gz",
-   "*.tar.xz", "*.toc", "*.ttf", "*.vob", "*.wav", "*.webm", "*.webp",
-   "*.woff", ".", "..", ".DS_Store", "._*", ".ai", ".aux", ".avi", ".doc",
-   ".eot", ".git", ".hg", ".lock", ".mp3", ".o", ".svn", ".swp", ".zip"
+   "*.bmp",
+   "*.cbr",
+   "*.cbz",
+   "*.class",
+   "*.divx",
+   "*.dll",
+   "*.exe",
+   "*.flac",
+   "*.gif",
+   "*.ico",
+   "*.jpeg",
+   "*.jpg",
+   "*.kgb",
+   "*.m2ts",
+   "*.mkv",
+   "*.mov",
+   "*.mp4",
+   "*.mpeg",
+   "*.mpg",
+   "*.obj",
+   "*.oga",
+   "*.ogg",
+   "*.otf",
+   "*.out",
+   "*.pdf",
+   "*.png",
+   "*.psd",
+   "*.rar",
+   "*.rbc",
+   "*.tar.bz2",
+   "*.tar.gz",
+   "*.tar.xz",
+   "*.toc",
+   "*.ttf",
+   "*.vob",
+   "*.wav",
+   "*.webm",
+   "*.webp",
+   "*.woff",
+   ".",
+   "..",
+   ".DS_Store",
+   "._*",
+   ".ai",
+   ".aux",
+   ".avi",
+   ".doc",
+   ".eot",
+   ".git",
+   ".hg",
+   ".lock",
+   ".mp3",
+   ".o",
+   ".svn",
+   ".swp",
+   ".zip",
 }
 
 -- We'll have spaces in our indents.
@@ -113,6 +160,4 @@ opt.scrolloff = 6
 opt.undofile = on
 opt.undodir = "$XDG_STATE_HOME/nvim/undo"
 
-
--- ╞═════════════════════════╡  ❈✧❈  finis  ❈✧❈  ╞═════════════════════════╡ --
-
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

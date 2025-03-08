@@ -1,10 +1,10 @@
--- ╔═JMJ═══════════════════════╡  ❈✧❈  ✞  ❈✧❈  ╞══════════════════════AMDG═╗ --
+-- ╔═JMJ════════════════════════════╡  ✞  ╞═══════════════════════════AMDG═╗ --
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-01 11:58
+--                                              Last modified: 2025-03-08 14:37
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -27,12 +27,12 @@ wk.add({
    {
       "<down>",
       "<cmd>call append(line('.'), repeat([''], v:count1))<cr>",
-      desc = "Add lines below cursor."
+      desc = "Add lines below cursor.",
    },
    {
       "<up>",
       "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>",
-      desc = "Add lines above cursor."
+      desc = "Add lines above cursor.",
    },
 
    -- Move line up or down. This may be superfluous with mini.move.
@@ -46,7 +46,7 @@ wk.add({
    {
       "<esc>",
       "<cmd>nohlsearch<cr>",
-      desc = "Remove search highlights"
+      desc = "Remove search highlights",
    },
 
    -- exit terminal mode (doesn"t work in all situations)
@@ -63,7 +63,7 @@ wk.add({
    { "<c-j>", "<c-w><c-j>", desc = "Move to window below" },
    { "<c-k>", "<c-w><c-k>", desc = "Move to window above" },
 
-  -- Easy window resizing.
+   -- Easy window resizing.
    { "<c-up>", "<cmd>res -2<cr>", desc = "Resize window up" },
    { "<c-down>", "<cmd>res +2<cr>", desc = "Resize window down" },
    { "<c-left>", "<cmd>vert res -2<cr>", desc = "Resize window left" },
@@ -72,32 +72,32 @@ wk.add({
       "y",
       "<Plug>(YankyYank)",
       mode = { "n", "x" },
-      desc = "Yank text"
+      desc = "Yank text",
    },
    { --                                                         ==> @yanky.nvim
       "p",
       "<Plug>(YankyPutAfter)",
 
       mode = { "n", "x" },
-      desc = "Put yanked text after cursor"
+      desc = "Put yanked text after cursor",
    },
    { --                                                         ==> @yanky.nvim
       "P",
       "<Plug>(YankyPutBefore)",
       mode = { "n", "x" },
-      desc = "Put yanked text before cursor"
+      desc = "Put yanked text before cursor",
    },
    { --                                                         ==> @yanky.nvim
       "gp",
       "<Plug>(YankyGPutAfter)",
       mode = { "n", "x" },
-      desc = "Put yanked text after selection"
+      desc = "Put yanked text after selection",
    },
    { --                                                         ==> @yanky.nvim
       "gP",
       "<Plug>(YankyGPutBefore)",
       mode = { "n", "x" },
-      desc = "Put yanked text before selection"
+      desc = "Put yanked text before selection",
    },
    { --                                                         ==> @flash.nvim
       "<c-s>",
@@ -105,7 +105,7 @@ wk.add({
          require("flash").toggle()
       end,
       mode = { "c" },
-      desc = "Toggle Flash Search"
+      desc = "Toggle Flash Search",
    },
 
    -- INFO: Primary maps for multiple-cursors.nvim.
@@ -114,32 +114,32 @@ wk.add({
    { --                                              ==> @multiple-cursors.nvim
       "<c-j>",
       "<Cmd>MultipleCursorsAddDown<CR>",
-      mode = {"n", "x"},
-      desc = "Add cursor and move down"
+      mode = { "n", "x" },
+      desc = "Add cursor and move down",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<C-k>",
       "<Cmd>MultipleCursorsAddUp<CR>",
-      mode = {"n", "x"},
-      desc = "Add cursor and move up"
+      mode = { "n", "x" },
+      desc = "Add cursor and move up",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<C-Up>",
       "<Cmd>MultipleCursorsAddUp<CR>",
-      mode = {"n", "i", "x"},
-      desc = "Add cursor and move up"
+      mode = { "n", "i", "x" },
+      desc = "Add cursor and move up",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<C-Down>",
       "<Cmd>MultipleCursorsAddDown<CR>",
-      mode = {"n", "i", "x"},
-      desc = "Add cursor and move down"
+      mode = { "n", "i", "x" },
+      desc = "Add cursor and move down",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<C-LeftMouse>",
       "<Cmd>MultipleCursorsMouseAddDelete<CR>",
-      mode = {"n", "i"},
-      desc = "Add or remove cursor"
+      mode = { "n", "i" },
+      desc = "Add or remove cursor",
    },
 
    { --                                                          ==> @mini.move
@@ -147,28 +147,28 @@ wk.add({
       function()
          MiniMove.move_line("left")
       end,
-      desc = "Move line left"
+      desc = "Move line left",
    },
    { --                                                          ==> @mini.move
       "<A-j>",
       function()
          MiniMove.move_line("down")
       end,
-      desc = "Move line down"
+      desc = "Move line down",
    },
    { --                                                          ==> @mini.move
       "<A-k>",
       function()
          MiniMove.move_line("up")
       end,
-      desc = "Move line up"
+      desc = "Move line up",
    },
    { --                                                          ==> @mini.move
       "<A-l>",
       function()
          MiniMove.move_line("right")
       end,
-      desc = "Move line right"
+      desc = "Move line right",
    },
    { --                                                          ==> @mini.move
       "<A-Up>",
@@ -176,7 +176,7 @@ wk.add({
          MiniMove.move_selection("up")
       end,
       mode = "x",
-      desc = "Move line up"
+      desc = "Move line up",
    },
    { --                                                          ==> @mini.move
       "<A-Down>",
@@ -184,7 +184,7 @@ wk.add({
          MiniMove.move_selection("down")
       end,
       mode = "x",
-      desc = "Move line down"
+      desc = "Move line down",
    },
    { --                                                          ==> @mini.move
       "<A-Left>",
@@ -192,7 +192,7 @@ wk.add({
          MiniMove.move_selection("left")
       end,
       mode = "x",
-      desc = "Move line left"
+      desc = "Move line left",
    },
    { --                                                          ==> @mini.move
       "<A-Right>",
@@ -200,7 +200,7 @@ wk.add({
          MiniMove.move_selection("right")
       end,
       mode = "x",
-      desc = "Move line right"
+      desc = "Move line right",
    },
 
    --[[ Keymaps for -->                                       ==> @Comment.nvim
@@ -303,9 +303,7 @@ wk.add({
    "'" action = "closeopen", pair = "''", neigh_pattern = "[^%w][^%w]",
    "`" action = "closeopen", pair = "``", neigh_pattern = "[^%w][^%w]",
    --]]
-
 })
-
 
 -- ╞════╡ SECTION: Leader 0: telescope.nvim ╞══════════════════════════════╡ --
 
@@ -315,68 +313,64 @@ wk.add({
    { --                                                     ==> @telescope.nvim
       "<leader>0r",
       "<cmd>Telescope resume<cr>",
-      desc = "Resume last telescope session"
+      desc = "Resume last telescope session",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 1: nvim-treesitter ╞═════════════════════════════╡ --
 
-
 wk.add({
 
    { "<leader>1", group = "Treesitter" },
-   { "<leader>1b", desc  = "Treesitter Buffer" },
+   { "<leader>1b", desc = "Treesitter Buffer" },
    { --                                                    ==> @treesitter.nvim
       "<leader>1bd",
       "<cmd>TSBufDisable<cr>",
-      desc = "TSBufDisable"
+      desc = "TSBufDisable",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1be",
       "<cmd>TSBufEnable<cr>",
-      desc = "TSBufEnable"
+      desc = "TSBufEnable",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1bt",
       "<cmd>TSBufToggle<cr>",
-      desc = "TSBufToggle"
+      desc = "TSBufToggle",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1c",
       "<cmd>TSConfigInfo<cr>",
-      desc = "TSConfigInfo"
+      desc = "TSConfigInfo",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1d",
       "<cmd>TSDisable<cr>",
-      desc = "TSDisable"
+      desc = "TSDisable",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1e",
       "<cmd>TSEnable<cr>",
-      desc = "TSEnable"
+      desc = "TSEnable",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1q",
       "<cmd>TSEditQuery<cr>",
-      desc = "TSEditQuery"
+      desc = "TSEditQuery",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1t",
       "<cmd>TSToggle<cr>",
-      desc = "TSToggle"
+      desc = "TSToggle",
    },
    { --                                                    ==> @treesitter.nvim
       "<leader>1u",
       "<cmd>TSEditQueryUserAfter<cr>",
-      desc = "TSEditQueryUserAfter"
+      desc = "TSEditQueryUserAfter",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 2 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -384,13 +378,11 @@ wk.add({
    {
       "<leader>2a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 3 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -398,13 +390,11 @@ wk.add({
    {
       "<leader>3a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 4 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -412,14 +402,11 @@ wk.add({
    {
       "<leader>4a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 5 ╞══════════════════════════════════════════════╡ --
-
-
 
 wk.add({
 
@@ -427,13 +414,11 @@ wk.add({
    {
       "<leader>5a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 6 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -441,13 +426,11 @@ wk.add({
    {
       "<leader>6a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 7 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -455,13 +438,11 @@ wk.add({
    {
       "<leader>7a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 8 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -469,13 +450,11 @@ wk.add({
    {
       "<leader>8a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader 9 ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -483,13 +462,11 @@ wk.add({
    {
       "<leader>9a",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader a ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -497,13 +474,11 @@ wk.add({
    {
       "<leader>aa",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader b: Buffers ╞═════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -511,47 +486,45 @@ wk.add({
    {
       "<leader>bb",
       "<cmd>buffers<cr>:b<space>",
-      desc = "List Buffers"
+      desc = "List Buffers",
    },
    {
       "<leader>bd",
       "<cmd>bdelete<cr>",
-      desc = "Close buffer"
+      desc = "Close buffer",
    },
    { --                                                       ==> @conform.nvim
       "<leader>bf",
       function()
          require("conform").format({ async = true })
       end,
-      desc = "Format buffer"
+      desc = "Format buffer",
    },
    {
       "<leader>bn",
       "<cmd>bnext<cr>",
-      desc = "Next buffer"
+      desc = "Next buffer",
    },
    {
       "<leader>bp",
       "<cmd>bprevious<cr>",
-      desc = "Previous buffer"
+      desc = "Previous buffer",
    },
    { --                                                     ==> @which-key.nvim
       "<leader>bs",
       expand = function()
          return require("which-key.extras").expand.buf()
       end,
-      desc = "Show Buffers"
+      desc = "Show Buffers",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>bt",
       "<cmd>Telescope buffers<CR>",
-      desc = "List buffers (Telescope)"
+      desc = "List buffers (Telescope)",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader c: Comments/Cursors ╞════════════════════════════╡ --
-
 
 wk.add({
 
@@ -559,92 +532,90 @@ wk.add({
    { --                                              ==> @multiple-cursors.nvim
       "<Leader>ccv",
       "<Cmd>MultipleCursorsAddVisualArea<CR>",
-      mode = {"x"},
-      desc = "Add cursors to the lines of the visual area"
+      mode = { "x" },
+      desc = "Add cursors to the lines of the visual area",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<Leader>ccc",
       "<Cmd>MultipleCursorsAddMatches<CR>",
-      mode = {"n", "x"},
-      desc = "Add cursors to cword"
+      mode = { "n", "x" },
+      desc = "Add cursors to cword",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<Leader>ccp",
       "<Cmd>MultipleCursorsAddMatchesV<CR>",
-      mode = {"n", "x"},
-      desc = "Add cursors to cword in previous area"
+      mode = { "n", "x" },
+      desc = "Add cursors to cword in previous area",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<Leader>ccn",
       "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-      mode = {"n", "x"},
-      desc = "Add cursor and jump to next cword"
+      mode = { "n", "x" },
+      desc = "Add cursor and jump to next cword",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<Leader>ccj",
       "<Cmd>MultipleCursorsJumpNextMatch<CR>",
-      mode = {"n", "x"},
-      desc = "Jump to next cword"
+      mode = { "n", "x" },
+      desc = "Jump to next cword",
    },
    { --                                              ==> @multiple-cursors.nvim
       "<Leader>ccl",
       "<Cmd>MultipleCursorsLock<CR>",
-      mode = {"n", "x"},
-      desc = "Lock virtual cursors"
+      mode = { "n", "x" },
+      desc = "Lock virtual cursors",
    },
    { --                                                 ==> @nvim-comment-frame
       "<leader>cm",
       "<cmd>lua require('nvim-comment-frame').add_multiline_comment()<cr>",
-      desc = "Add multiple-line comment frame"
+      desc = "Add multiple-line comment frame",
    },
    { --                                                 ==> @nvim-comment-frame
       "<leader>cs",
       "<cmd>lua require('nvim-comment-frame').add_comment()<cr>",
-      desc = "Add single-line comment frame"
+      desc = "Add single-line comment frame",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>ct",
-      group = "Todo-Comments"
+      group = "Todo-Comments",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>cta",
       "<cmd>Trouble todo toggle filter = {tag = {TODO,FIX}}<cr>",
-      desc = "Todo/Fix/Fixme (Trouble)"
+      desc = "Todo/Fix/Fixme (Trouble)",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>ctb",
       "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>",
-      desc = "Todo/Fix/Fixme"
+      desc = "Todo/Fix/Fixme",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>ctn",
       function()
          require("todo-comments").jump_next()
       end,
-      desc = "Next Todo Comment"
+      desc = "Next Todo Comment",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>ctp",
       function()
          require("todo-comments").jump_prev()
       end,
-      desc = "Previous Todo Comment"
+      desc = "Previous Todo Comment",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>ctr",
       "<cmd>Trouble todo toggle<cr>",
-      desc = "Todo (Trouble)"
+      desc = "Todo (Trouble)",
    },
    { --                                                 ==> @todo-comments.nvim
       "<leader>ctt",
       "<cmd>TodoTelescope<cr>",
-      desc = "Todo"
+      desc = "Todo",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader d: Diagnostics ╞═════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -652,45 +623,43 @@ wk.add({
    { --                                          ==> @vim.diagnostic.setloclist
       "<leader>dq",
       "vim.diagnostic.setloclist",
-      desc = "Open diagnostic quickfix list"
+      desc = "Open diagnostic quickfix list",
    },
    { "<leader>dt", desc = "trouble.nvim" },
    { --                                                       ==> @trouble.nvim
       "<leader>dtb",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      desc = "Buffer Diagnostics (Trouble)"
+      desc = "Buffer Diagnostics (Trouble)",
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dtd",
       "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Diagnostics (Trouble)"
+      desc = "Diagnostics (Trouble)",
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dts",
       "<cmd>Trouble symbols toggle focus=false<cr>",
-      desc = "Symbols (Trouble)"
+      desc = "Symbols (Trouble)",
    },
    { "<leader>dtl", desc = "LSP toggle/loclist toggle" },
    { --                                                       ==> @trouble.nvim
       "<leader>dtll",
       "<cmd>Trouble loclist toggle<cr>",
-      desc = "Location List (Trouble)"
+      desc = "Location List (Trouble)",
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dtls",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-      desc = "LSP Defs / refs / … (Trouble)"
+      desc = "LSP Defs / refs / … (Trouble)",
    },
    { --                                                       ==> @trouble.nvim
       "<leader>dtq",
       "<cmd>Trouble qflist toggle<cr>",
-      desc = "Quickfix List (Trouble)"
+      desc = "Quickfix List (Trouble)",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader e ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -698,13 +667,11 @@ wk.add({
    {
       "<leader>ea",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader f: Files ╞═══════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -712,48 +679,46 @@ wk.add({
    { --                                                     ==> @telescope.nvim
       "<leader>fb",
       "<cmd>Telescope file_browser<CR>",
-      desc = "Browser"
+      desc = "Browser",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fc",
       "<cmd>Telescope current_buffer_tags<CR>",
-      desc = "This buffer's ctags"
+      desc = "This buffer's ctags",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>ff",
       "<cmd>Telescope find_files<CR>",
-      desc = "Find files"
+      desc = "Find files",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fg",
       "<cmd>Telescope tags<CR>",
-      desc = "List global ctags"
+      desc = "List global ctags",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fh",
       "<cmd>Telescope help_tags<CR>",
-      desc = "Help tags"
+      desc = "Help tags",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fl",
       "<cmd>Telescope live_grep<CR>",
-      desc = "Live grep"
+      desc = "Live grep",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fo",
       "<cmd>Telescope oldfiles<CR>",
-      desc = "Old files"
+      desc = "Old files",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>fz",
       "<cmd>Telescope current_buffer_fuzzy_find<CR>",
-      desc = "fzf in current buffer"
+      desc = "fzf in current buffer",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader g: Github ╞══════════════════════════════════════╡ --
-
 
 local _octo_reviews = require("octo.reviews")
 
@@ -766,21 +731,21 @@ wk.add({
       function()
          require("octo.commands").add_user("assignee")
       end,
-      desc = "Add assignee"
+      desc = "Add assignee",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gar",
       function()
          require("octo.commands").remove_user("assignee")
       end,
-      desc = "Remove assignee"
+      desc = "Remove assignee",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gb",
       function()
          require("octo.navigation").open_in_browser()
       end,
-      desc = "Open PR in browser"
+      desc = "Open PR in browser",
    },
    { "<leader>gc", desc = "Comments" },
    { --                                                          ==> @octo.nvim
@@ -788,35 +753,35 @@ wk.add({
       function()
          require("octo.commands").add_comment()
       end,
-      desc = "Add comment"
+      desc = "Add comment",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gcd",
       function()
          require("octo.commands").delete_comment()
       end,
-      desc = "Delete comment"
+      desc = "Delete comment",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gcn",
       function()
          require("octo.navigation").next_comment()
       end,
-      desc = "Go to next comment"
+      desc = "Go to next comment",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gcp",
       function()
          require("octo.navigation").prev_comment()
       end,
-      desc = "Go to previous comment"
+      desc = "Go to previous comment",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gcs",
       function()
          require("octo.commands").add_suggestion()
       end,
-      desc = "Add suggestion"
+      desc = "Add suggestion",
    },
    { "<leader>ge", desc = "Entries" },
    { --                                                          ==> @octo.nvim
@@ -830,7 +795,7 @@ wk.add({
             end
          end
       end,
-      desc = "Move to first changed file"
+      desc = "Move to first changed file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gesl",
@@ -843,7 +808,7 @@ wk.add({
             end
          end
       end,
-      desc = "Move to last changed file"
+      desc = "Move to last changed file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gesn",
@@ -857,7 +822,7 @@ wk.add({
             end
          end
       end,
-      desc = "Move to next changed file"
+      desc = "Move to next changed file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gesp",
@@ -871,7 +836,7 @@ wk.add({
             end
          end
       end,
-      desc = "Move to previous changed file"
+      desc = "Move to previous changed file",
    },
    { "<leader>gf", desc = "Files" },
    { --                                                          ==> @octo.nvim
@@ -882,14 +847,14 @@ wk.add({
             layout.file_panel:focus(true)
          end
       end,
-      desc = "Move focus to changed file panel"
+      desc = "Move focus to changed file panel",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gfg",
       function()
          require("octo.navigation").go_to_file()
       end,
-      desc  = "Go to file"
+      desc = "Go to file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gfn",
@@ -899,7 +864,7 @@ wk.add({
             layout.file_panel:highlight_next_file()
          end
       end,
-      desc = "Go to next file"
+      desc = "Go to next file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gfp",
@@ -909,7 +874,7 @@ wk.add({
             layout.file_panel:highlight_prev_file()
          end
       end,
-      desc = "Go to previousd file"
+      desc = "Go to previousd file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gfr",
@@ -919,7 +884,7 @@ wk.add({
             layout:update_files()
          end
       end,
-     desc = "Refresh files"
+      desc = "Refresh files",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gfs",
@@ -932,7 +897,7 @@ wk.add({
             end
          end
       end,
-      desc = "Select file"
+      desc = "Select file",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gft",
@@ -942,7 +907,7 @@ wk.add({
             layout.file_panel:toggle()
          end
       end,
-      desc = "Hide/show changed files panel"
+      desc = "Hide/show changed files panel",
    },
    { "<leader>gi", desc = "Issues" },
    { --                                                          ==> @octo.nvim
@@ -950,14 +915,14 @@ wk.add({
       function()
          require("octo.commands").change_state("CLOSED")
       end,
-      desc = "Close issue"
+      desc = "Close issue",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gir",
       function()
          require("octo.commands").change_state("OPEN")
       end,
-      desc = "Reopen Issue"
+      desc = "Reopen Issue",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gil",
@@ -966,10 +931,10 @@ wk.add({
          local buffer = octo_buffers[bufnr]
          local repo = buffer.repo
          if repo then
-            require("octo.picker").issues { repo = repo }
+            require("octo.picker").issues({ repo = repo })
          end
       end,
-      desc = "List open issues on same repo"
+      desc = "List open issues on same repo",
    },
    { "<leader>gl", desc = "Labels" },
    { --                                                          ==> @octo.nvim
@@ -977,21 +942,21 @@ wk.add({
       function()
          require("octo.commands").add_label()
       end,
-      desc  = "Add label"
+      desc = "Add label",
    },
    { --                                                          ==> @octo.nvim
       "<leader>glc",
       function()
          require("octo.commands").create_label()
       end,
-      desc  = "Create label"
+      desc = "Create label",
    },
    { --                                                          ==> @octo.nvim
       "<leader>glr",
       function()
          require("octo.commands").remove_label()
       end,
-      desc  = "Remove label"
+      desc = "Remove label",
    },
    { "<leader>gp", desc = "Pull requests" },
    { --                                                          ==> @octo.nvim
@@ -999,14 +964,14 @@ wk.add({
       function()
          require("octo.commands").commands.pr.checkout()
       end,
-      desc = "Checkout PR"
+      desc = "Checkout PR",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gpd",
       function()
          require("octo.commands").show_pr_diff()
       end,
-      desc = "Show PR diff"
+      desc = "Show PR diff",
    },
    { "<leader>gpl", desc = "List…" },
    { --                                                          ==> @octo.nvim
@@ -1014,35 +979,35 @@ wk.add({
       function()
          require("octo.picker").commits()
       end,
-      desc = "List PR commits"
+      desc = "List PR commits",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gplf",
       function()
          require("octo.picker").changed_files()
       end,
-      desc = "List changed files"
+      desc = "List changed files",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gpm",
       function()
          require("octo.commands").merge_pr("commit")
       end,
-      desc = "Merge commit PR"
+      desc = "Merge commit PR",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gpr",
       function()
          require("octo.commands").merge_pr("rebase")
       end,
-      desc = "Rebase and merge PR"
+      desc = "Rebase and merge PR",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gps",
       function()
          require("octo.commands").merge_pr("squash")
       end,
-      desc = "Squash and merge PR"
+      desc = "Squash and merge PR",
    },
    { "<leader>gr", desc = "Reviews/Reactions" },
    { "<leader>grr", desc = "Reactions" },
@@ -1051,56 +1016,56 @@ wk.add({
       function()
          require("octo.commands").reaction_action("confused")
       end,
-      desc = "Add/remove 😕 reaction"
+      desc = "Add/remove 😕 reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grrd",
       function()
          require("octo.commands").reaction_action("-1")
       end,
-      desc = "Add/remove 👎 reaction"
+      desc = "Add/remove 👎 reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grrh",
       function()
          require("octo.commands").reaction_action("heart")
       end,
-      desc = "Add/remove ❤️ reaction"
+      desc = "Add/remove ❤️ reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grri",
       function()
          require("octo.commands").reaction_action("eyes")
       end,
-      desc = "Add/remove 👀 reaction"
+      desc = "Add/remove 👀 reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grrk",
       function()
          require("octo.commands").reaction_action("rocket")
       end,
-      desc = "Add/remove 🚀 reaction"
+      desc = "Add/remove 🚀 reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grrl",
       function()
          require("octo.commands").reaction_action("laugh")
       end,
-      desc = "Add/remove 😄 reaction"
+      desc = "Add/remove 😄 reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grru",
       function()
          require("octo.commands").reaction_action("+1")
       end,
-      desc = "Add/remove 👍 reaction"
+      desc = "Add/remove 👍 reaction",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grry",
       function()
          require("octo.commands").reaction_action("hooray")
       end,
-      desc = "Add/remove 🎉 reaction"
+      desc = "Add/remove 🎉 reaction",
    },
    { "<leader>grv", desc = "Reviews" },
    { --                                                          ==> @octo.nvim
@@ -1108,14 +1073,14 @@ wk.add({
       function()
          require("octo.commands").remove_user("reviewer")
       end,
-      desc = "Remove reviewer"
+      desc = "Remove reviewer",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grv+",
       function()
          require("octo.commands").add_user("reviewer")
       end,
-      desc = "Add reviewer"
+      desc = "Add reviewer",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grva",
@@ -1123,14 +1088,14 @@ wk.add({
          local current_review = reviews.get_current_review()
          current_review:submit("APPROVE")
       end,
-      desc  = "Approve review"
+      desc = "Approve review",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvb",
       function()
          reviews.start_review()
       end,
-      desc = "Start a review for the current PR"
+      desc = "Start a review for the current PR",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvc",
@@ -1138,35 +1103,35 @@ wk.add({
          local current_review = reviews.get_current_review()
          current_review:submit("COMMENT")
       end,
-      desc = "Comment review"
+      desc = "Comment review",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvd",
       function()
          reviews.discard_review()
       end,
-      desc = "Discard review"
+      desc = "Discard review",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grve",
       function()
          reviews.add_review_comment(false)
       end,
-      desc = "Add a new review comment"
+      desc = "Add a new review comment",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvr",
       function()
          reviews.resume_review()
       end,
-      desc = "Resume a pending review for current PR"
+      desc = "Resume a pending review for current PR",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvs",
       function()
          reviews.submit_review()
       end,
-      desc = "Submit review"
+      desc = "Submit review",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvt",
@@ -1174,103 +1139,103 @@ wk.add({
          local tabpage = vim.api.nget_current_tabpage()
          reviews.close(tabpage)
       end,
-      desc = "Close review tab"
+      desc = "Close review tab",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvu",
       function()
          reviews.add_review_comment(true)
       end,
-      desc = "Add a new review suggestion"
+      desc = "Add a new review suggestion",
    },
    { --                                                          ==> @octo.nvim
       "<leader>grvw",
       function()
          vim.api.nvim_win_close(vim.api.nget_current_win())
       end,
-      desc = "Close review window"
+      desc = "Close review window",
    },
    { "<leader>gs", desc = "gitsigns" },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsa",
       "gitsigns.stage_hunk",
-      desc = "Stage hunk"
+      desc = "Stage hunk",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsb",
       "gitsigns.reset_hunk",
-      desc = "Reset hunk"
+      desc = "Reset hunk",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsc",
       function()
-         gitsigns.stage_hunk({vim.fn.line('.'), vim.fn.line('v')})
+         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end,
       mode = "v",
-      desc = "Stage hunk - visual"
+      desc = "Stage hunk - visual",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsd",
       function()
-         gitsigns.reset_hunk({vim.fn.line('.'), vim.fn.line('v')})
+         gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end,
       mode = "v",
-      desc = "Reset hunk - visual"
+      desc = "Reset hunk - visual",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gse",
       "<cmd>gitsigns.stage_buffer<cr>",
-      desc = "Stage buffer"
+      desc = "Stage buffer",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsf",
       "<cmd>gitsigns.undo_stage_hunk<cr>",
-      desc = "Undo stage hunk"
+      desc = "Undo stage hunk",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsg",
       "<cmd>gitsigns.reset_buffer<cr>",
-      desc = "Reset buffer"
+      desc = "Reset buffer",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsh",
       "<cmd>gitsigns.preview_hunk<cr>",
-      desc = "Preview Hunk"
+      desc = "Preview Hunk",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsi",
       function()
-         gitsigns.blame_line({full=true})
+         gitsigns.blame_line({ full = true })
       end,
-      desc = "Blame line"
+      desc = "Blame line",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsj",
       "<cmd>gitsigns.toggle_current_line_blame<cr>",
-      desc = ""
+      desc = "",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsk",
       "<cmd>gitsigns.diffthis<cr>",
-      desc = ""
+      desc = "",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsl",
       function()
-         gitsigns.diffthis('~')
+         gitsigns.diffthis("~")
       end,
-      desc = ""
+      desc = "",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsm",
       "<cmd>gitsigns.toggle_deleted<cr>",
-      desc = ""
+      desc = "",
    },
    { --                                                      ==> @gitsigns.nvim
       "<leader>gsn",
       "<cmd>Gitsigns select_hunk<cr>",
       mode = { "o", "x" },
-      desc = ""
+      desc = "",
    },
    { "<leader>gt", desc = "Threads" },
    { --                                                          ==> @octo.nvim
@@ -1278,21 +1243,21 @@ wk.add({
       function()
          require("octo.reviews.file-panel").next_thread()
       end,
-      desc = "Move to next thread"
+      desc = "Move to next thread",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gtp",
       function()
          require("octo.reviews.file-panel").prev_thread()
       end,
-      desc = "Move to previous thread"
+      desc = "Move to previous thread",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gu",
       function()
          require("octo.commands").copy_url()
       end,
-      desc = "Copy url to system clipboard"
+      desc = "Copy url to system clipboard",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gv",
@@ -1302,14 +1267,14 @@ wk.add({
             layout.file_panel:get_file_at_cursor():toggle_viewed()
          end
       end,
-      desc = "Toggle viewer viewed state"
+      desc = "Toggle viewer viewed state",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gx",
       function()
-         vim.cmd [[e!]]
+         vim.cmd([[e!]])
       end,
-      desc = "Reload PR/Issue"
+      desc = "Reload PR/Issue",
    },
    { --                                                          ==> @octo.nvim
       "<leader>gy",
@@ -1317,13 +1282,11 @@ wk.add({
          local current_review = reviews.get_current_review()
          current_review:submit("REQUEST_CHANGES")
       end,
-      desc = "Request changes review"
+      desc = "Request changes review",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader h ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1331,13 +1294,11 @@ wk.add({
    {
       "<leader>ha",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader i ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1345,13 +1306,11 @@ wk.add({
    {
       "<leader>ia",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader j ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1359,13 +1318,11 @@ wk.add({
    {
       "<leader>ja",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader k ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1373,13 +1330,11 @@ wk.add({
    {
       "<leader>ka",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader l: LSP ╞═════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1387,13 +1342,11 @@ wk.add({
    {
       "<leader>li",
       "<cmd>LspInfo<cr>",
-      desc = "LSP Info"
-   }
-
+      desc = "LSP Info",
+   },
 })
 
 -- ╞════╡ SECTION: Leader m: Marks ╞═══════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1404,96 +1357,94 @@ wk.add({
    { --                                                         ==> @marks.nvim
       "<leader>mbgd",
       "<Plug>(Marks-delete-bookmark[0-9])",
-      desc = "Delete bookmarks from group [0-9]"
+      desc = "Delete bookmarks from group [0-9]",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mbgn",
       "<Plug>(Marks-next-bookmark[0-9])",
-      desc = "Go to next bookmark from group [0-9]"
+      desc = "Go to next bookmark from group [0-9]",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mbgp",
       "<Plug>(Marks-prev-bookmark[0-9])",
-      desc = "Go to next bookmark from group [0-9]"
+      desc = "Go to next bookmark from group [0-9]",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mbgs",
       "<Plug>(Marks-set-bookmark[0-9])",
-      desc = "Set bookmark from group [0-9]"
+      desc = "Set bookmark from group [0-9]",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mbgt",
       "<Plug>(Marks-toggle-bookmark[0-9])",
-      desc = "Toggle bookmark from group [0-9]"
+      desc = "Toggle bookmark from group [0-9]",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mbn",
       "<Plug>(Marks-next-bookmark)",
-      desc = "Move to next bookmark of same type"
+      desc = "Move to next bookmark of same type",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mbp",
       "<Plug>(Marks-prev-bookmark)",
-      desc = "Move to previous bookmark of same type"
+      desc = "Move to previous bookmark of same type",
    },
    { "<leader>mc", desc = "Operate on mark at cursor" },
    { --                                                         ==> @marks.nvim
       "<leader>mcd",
       "<Plug>(Marks-delete-bookmark)",
-      desc = "Delete bookmark under cursor"
+      desc = "Delete bookmark under cursor",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mcn",
       "<Plug>(Marks-setnext)",
-      desc = "Set next mark at cursor"
+      desc = "Set next mark at cursor",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mcs",
       "<Plug>(Marks-set)",
-      desc = "Set mark at cursor"
+      desc = "Set mark at cursor",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mct",
       "<Plug>(Marks-toggle)",
-      desc = "Toggle next mark at cursor"
+      desc = "Toggle next mark at cursor",
    },
    { "<leader>md", desc = "Delete Marks" },
    { --                                                         ==> @marks.nvim
       "<leader>mdb",
       "<Plug>(Marks-deletebuf)",
-      desc = "Delete all marks in current buffer"
+      desc = "Delete all marks in current buffer",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mdl",
       "<Plug>(Marks-deleteline)",
-      desc = "Delete all marks on current line"
+      desc = "Delete all marks on current line",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mdm",
       "<Plug>(Marks-delete)",
-      desc = "Delete a letter mark"
+      desc = "Delete a letter mark",
    },
    { "<leader>mf", desc = "Operate on marks in buffers" },
    { --                                                         ==> @marks.nvim
       "<leader>mfn",
       "<Plug>(Marks-next)",
-      desc = "Go to next mark in buffer"
+      desc = "Go to next mark in buffer",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mfp",
       "<Plug>(Marks-prev)",
-      desc = "Go to previous mark in buffer"
+      desc = "Go to previous mark in buffer",
    },
    { --                                                         ==> @marks.nvim
       "<leader>mp",
       "<Plug>(Marks-preview)",
-      desc = "Preview marks"
+      desc = "Preview marks",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader n: Navigation ╞══════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1504,7 +1455,7 @@ wk.add({
          require("flash").treesitter_search()
       end,
       mode = { "o", "x" },
-      desc = "Treesitter Search"
+      desc = "Treesitter Search",
    },
    { --                                                         ==> @flash.nvim
       "<leader>nr",
@@ -1512,7 +1463,7 @@ wk.add({
          require("flash").remote()
       end,
       mode = "o",
-      desc = "Remote Flash"
+      desc = "Remote Flash",
    },
    { --                                                         ==> @flash.nvim
       "<leader>ns",
@@ -1520,7 +1471,7 @@ wk.add({
          require("flash").jump()
       end,
       mode = { "n", "x", "o" },
-      desc = "Flash"
+      desc = "Flash",
    },
    { --                                                         ==> @flash.nvim
       "<leader>nt",
@@ -1528,13 +1479,11 @@ wk.add({
          require("flash").treesitter()
       end,
       mode = { "n", "x", "o" },
-      desc = "Flash Treesitter"
+      desc = "Flash Treesitter",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader o ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1542,13 +1491,11 @@ wk.add({
    {
       "<leader>oa",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader p: Put ╞═════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1557,55 +1504,53 @@ wk.add({
    { --                                                         ==> @yanky.nvim
       "<leader>paf",
       "<Plug>(YankyPutAfterFilter)",
-      desc = "Put after applying a filter"
+      desc = "Put after applying a filter",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>pal",
       "<Plug>(YankyPutIndentAfterShiftLeft)",
-      desc = "Put and indent left"
+      desc = "Put and indent left",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>par",
       "<Plug>(YankyPutIndentAfterShiftRight)",
-      desc = "Put and indent right"
+      desc = "Put and indent right",
    },
    { "<leader>pb", desc = "Put before and indent" },
    { --                                                         ==> @yanky.nvim
       "<leader>pbf",
       "<Plug>(YankyPutBeforeFilter)",
-      desc = "Put before applying a filter"
+      desc = "Put before applying a filter",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>pbl",
       "<Plug>(YankyPutIndentBeforeShiftLeft)",
-      desc = "Put before and indent left"
+      desc = "Put before and indent left",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>pbr",
       "<Plug>(YankyPutIndentBeforeShiftRight)",
-      desc = "Put before and indent right"
+      desc = "Put before and indent right",
    },
    { "<leader>pi", desc = "Put indented" },
    { --                                                         ==> @yanky.nvim
       "<leader>pia",
       "<Plug>(YankyPutIndentAfterLinewise)",
-      desc = "Put indented after cursor (linewise)"
+      desc = "Put indented after cursor (linewise)",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>pib",
       "<Plug>(YankyPutIndentBeforeLinewise)",
-      desc = "Put indented before cursor (linewise)"
+      desc = "Put indented before cursor (linewise)",
    },
    { --                                                     ==> @telescope.nvim
       "<leader>pl",
       "<cmd>Telescope lazy<cr>",
-      desc = "Work with lazy plugins"
+      desc = "Work with lazy plugins",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader q ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1613,13 +1558,11 @@ wk.add({
    {
       "<leader>qa",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader r: Registers ╞═══════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1627,13 +1570,11 @@ wk.add({
    {
       "<leader>ra",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader s: Surround ╞════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1642,71 +1583,69 @@ wk.add({
    { --                                                      ==> @nvim-surround
       "<leader>scl",
       "<Plug>(nvim-surround-change-line)",
-      desc = "Line change"
+      desc = "Line change",
    },
    { --                                                      ==> @nvim-surround
       "<leader>scs",
       "<Plug>(nvim-surround-change)",
-      desc = "Spot change"
+      desc = "Spot change",
    },
    { --                                                      ==> @nvim-surround
       "<leader>sd",
       "<Plug>(nvim-surround-delete)",
-      desc = "Delete"
+      desc = "Delete",
    },
    { "<leader>si", desc = "Insert Mode" },
    { --                                                      ==> @nvim-surround
       "<leader>sil",
       "<Plug>(nvim-surround-insert-line)",
       mode = "i",
-      desc = "Line insert"
+      desc = "Line insert",
    },
    { --                                                      ==> @nvim-surround
       "<leader>sis",
       "<Plug>(nvim-surround-insert)",
       mode = "i",
-      desc = "Spot insert"
+      desc = "Spot insert",
    },
    { "<leader>sn", desc = "Normal mode" },
    { --                                                      ==> @nvim-surround
       "<leader>snc",
       "<Plug>(nvim-surround-normal-cur)",
-      desc = "Spot insert in current line"
+      desc = "Spot insert in current line",
    },
    { "<leader>snl", desc = "Line insert" },
    { --                                                      ==> @nvim-surround
       "<leader>snlc",
       "<Plug>(nvim-surround-normal-cur-line)",
-      desc = "Line insert in current line"
+      desc = "Line insert in current line",
    },
    { --                                                      ==> @nvim-surround
       "<leader>snls",
       "<Plug>(nvim-surround-normal-line)",
-      desc = "Line insert"
+      desc = "Line insert",
    },
    { --                                                      ==> @nvim-surround
       "<leader>sns",
       "<Plug>(nvim-surround-normal)",
-      desc = "Spot insert"
+      desc = "Spot insert",
    },
    { "<leader>sv", desc = "Visual Mode" },
    { --                                                      ==> @nvim-surround
       "<leader>svl",
       "<Plug>(nvim-surround-visual-line)",
       mode = "v",
-      desc = "Line insert"
+      desc = "Line insert",
    },
    { --                                                      ==> @nvim-surround
       "<leader>svs",
       "<Plug>(nvim-surround-visual)",
       mode = "v",
-      desc = "Spot insert"
+      desc = "Spot insert",
    },
-
 })
 
 -- ╞════╡ SECTION: Leader t: Text ╞════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1724,12 +1663,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomcne",
       "<cmd>TSTextobjectGotoNextEnd class.outer<cr>",
-      desc = "Next class end"
+      desc = "Next class end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomcns",
       "<cmd>TSTextobjectGotoNextStart class.outer<cr>",
-      desc = "Next class start"
+      desc = "Next class start",
    },
 
    -- Move > Class > Previous
@@ -1737,12 +1676,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomcpe",
       "<cmd>TSTextobjectGotoPreviousEnd class.outer<cr>",
-      desc = "Prev class end"
+      desc = "Prev class end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomcps",
       "<cmd>TSTextobjectGotoPreviousStart class.outer<cr>",
-      desc = "Prev class start"
+      desc = "Prev class start",
    },
 
    -- Move > Function call
@@ -1753,12 +1692,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomfne",
       "<cmd>TSTextobjectGotoNextEnd call.outer<cr>",
-      desc = "Next function call end"
+      desc = "Next function call end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomfns",
       "<cmd>TSTextobjectGotoNextStart call.outer<cr>",
-      desc = "Next function call start"
+      desc = "Next function call start",
    },
 
    -- Move > Function call > Previous
@@ -1766,12 +1705,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomfpe",
       "<cmd>TSTextobjectGotoPreviousEnd call.outer<cr>",
-      desc = "Prev function call end"
+      desc = "Prev function call end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomfps",
       "<cmd>TSTextobjectGotoPreviousStart call.outer<cr>",
-      desc = "Prev function call start"
+      desc = "Prev function call start",
    },
 
    -- Move > Loop
@@ -1782,12 +1721,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomlne",
       "<cmd>TSTextobjectGotoNextEnd loop.outer<cr>",
-      desc = "Next loop end"
+      desc = "Next loop end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomlns",
       "<cmd>TSTextobjectGotoNextStart loop.outer<cr>",
-      desc = "Next loop start"
+      desc = "Next loop start",
    },
 
    -- Move > Loop > Previous
@@ -1795,12 +1734,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomlpe",
       "<cmd>TSTextobjectGotoPreviousEnd loop.outer<cr>",
-      desc = "Prev loop end"
+      desc = "Prev loop end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomlps",
       "<cmd>TSTextobjectGotoPreviousStart loop.outer<cr>",
-      desc = "Prev loop start"
+      desc = "Prev loop start",
    },
 
    -- Move > Method/function
@@ -1811,12 +1750,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tommne",
       "<cmd>TSTextobjectGotoNextEnd function.outer<cr>",
-      desc = "Next method/function def end"
+      desc = "Next method/function def end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tommns",
       "<cmd>TSTextobjectGotoNextStart function.outer<cr>",
-      desc = "Next method/function definition start"
+      desc = "Next method/function definition start",
    },
 
    -- Move > Method/function > Previous
@@ -1824,12 +1763,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tommpe",
       "<cmd>TSTextobjectGotoPreviousEnd function.outer<cr>",
-      desc = "Prev method/function def end"
+      desc = "Prev method/function def end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tommps",
       "<cmd>TSTextobjectGotoPreviousStart function.outer<cr>",
-      desc = "Prev method/function def start"
+      desc = "Prev method/function def start",
    },
 
    -- Move > Conditional
@@ -1840,12 +1779,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomone",
       "<cmd>TSTextobjectGotoNextEnd conditional.outer<cr>",
-      desc = "Next conditional end"
+      desc = "Next conditional end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomons",
       "<cmd>TSTextobjectGotoNextStart conditional.outer<cr>",
-      desc = "Next conditional start"
+      desc = "Next conditional start",
    },
 
    -- Move > Conditional > Previous
@@ -1853,12 +1792,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomope",
       "<cmd>TSTextobjectGotoPreviousEnd conditional.outer<cr>",
-      desc = "Prev conditional end"
+      desc = "Prev conditional end",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tomops",
       "<cmd>TSTextobjectGotoPreviousStart conditional.outer<cr>",
-      desc = "Prev conditional start"
+      desc = "Prev conditional start",
    },
 
    -- Select
@@ -1869,22 +1808,22 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosai",
       "<cmd>TSTextobjectSelect @assignment.inner<cr>",
-      desc = "Select inner part of an assignment"
+      desc = "Select inner part of an assignment",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosal",
       "<cmd>TSTextobjectSelect @assignment.lhs<cr>",
-      desc = "Select left hand side of an assignment"
+      desc = "Select left hand side of an assignment",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosao",
       "<cmd>TSTextobjectSelect @assignment.nuter<cr>",
-      desc = "Select outer part of an assignment"
+      desc = "Select outer part of an assignment",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosar",
       "<cmd>TSTextobjectSelect @assignment.rhs<cr>",
-      desc = "Select right hand side of an assignment"
+      desc = "Select right hand side of an assignment",
    },
 
    -- Select > Class
@@ -1892,12 +1831,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosfi",
       "<cmd>TSTextobjectSelect @call.inner<cr>",
-      desc = "Select inner part of a function call"
+      desc = "Select inner part of a function call",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosfo",
       "<cmd>TSTextobjectSelect @call.outer<cr>",
-      desc = "Select outer part of a function call"
+      desc = "Select outer part of a function call",
    },
 
    -- Select > Loop
@@ -1905,12 +1844,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosli",
       "<cmd>TSTextobjectSelect @loop.inner<cr>",
-      desc = "Select inner part of a loop"
+      desc = "Select inner part of a loop",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>toslo",
       "<cmd>TSTextobjectSelect @loop.outer<cr>",
-      desc = "Select outer part of a loop"
+      desc = "Select outer part of a loop",
    },
 
    -- Select > Method/function
@@ -1918,12 +1857,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosmi",
       "<cmd>TSTextobjectSelect @function.inner<cr>",
-      desc = "Select inner part of a method/function definition"
+      desc = "Select inner part of a method/function definition",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosmo",
       "<cmd>TSTextobjectSelect @function.outer<cr>",
-      desc = "Select outer part of a method/function definition"
+      desc = "Select outer part of a method/function definition",
    },
 
    -- Select > Conditional
@@ -1931,12 +1870,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosoi",
       "<cmd>TSTextobjectSelect @conditional.inner<cr>",
-      desc = "Select inner part of a conditional"
+      desc = "Select inner part of a conditional",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosoo",
       "<cmd>TSTextobjectSelect @conditional.outer<cr>",
-      desc = "Select outer part of a conditional"
+      desc = "Select outer part of a conditional",
    },
 
    -- Select > Parameter/argument
@@ -1944,12 +1883,12 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tospi",
       "<cmd>TSTextobjectSelect @parameter.inner<cr>",
-      desc = "Select inner part of a parameter/argument"
+      desc = "Select inner part of a parameter/argument",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tospo",
       "<cmd>TSTextobjectSelect @parameter.outer<cr>",
-      desc = "Select outer part of a parameter/argument"
+      desc = "Select outer part of a parameter/argument",
    },
 
    -- Swap
@@ -1957,36 +1896,32 @@ wk.add({
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>town",
       "<cmd>TSTextobjectSwapNext<cr>",
-      desc = "Swap next"
+      desc = "Swap next",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>towp",
       "<cmd>TSTextobjectSwapPrevious<cr>",
-      desc = "Swap previous"
+      desc = "Swap previous",
    },
    { "<leader>ts", desc = "Split/Join" },
    { --                                                        ==> @treesj.nvim
       "<leader>tst",
       "<cmd>lua require('treesj').toggle()<cr>",
-      desc = "Toggle split/join"
+      desc = "Toggle split/join",
    },
    { --                                                        ==> @treesj.nvim
       "<leader>tss",
       "<cmd>lua require('treesj').split()<cr>",
-      desc = "Split"
+      desc = "Split",
    },
    { --                                                        ==> @treesj.nvim
       "<leader>tsj",
       "<cmd>lua require('treesj').join()<cr>",
-      desc = "Join"
+      desc = "Join",
    },
-
 })
 
-
-
 -- ╞════╡ SECTION: Leader u ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -1994,15 +1929,11 @@ wk.add({
    {
       "<leader>ua",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
-
-
 -- ╞════╡ SECTION: Leader v ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -2010,35 +1941,33 @@ wk.add({
    {
       "<leader>va",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
-
-
 -- ╞════╡ SECTION: Leader w: Windows/Tabs ╞════════════════════════════════╡ --
-
 
 wk.add({
 
    { "<leader>w", group = "Windows/Tabs" },
    { --                                                          ==> @edgy.nvim
       "<leader>wa",
-      function() require("edgy").select() end,
-      desc = "Edgy Select Window"
+      function()
+         require("edgy").select()
+      end,
+      desc = "Edgy Select Window",
    },
 
    { "<leader>wc", group = "Close…" },
-   {
+   { --                                    NOTE: Is this necessary? Just use q.
       "<leader>wch",
       "<cmd>helpc<cr>",
-      desc = "Close help buffer"
+      desc = "Close help buffer",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>wco",
       "<cmd>only<cr>",
-      desc = "Close all but this window"
+      desc = "Close all but this window",
    },
    { "<leader>wct", "<cmd>tabc<cr>", desc = "Close tab" },
    { --                                                     ==> @which-key.nvim
@@ -2046,22 +1975,18 @@ wk.add({
       function()
          require("which-key.extras").expand.win()
       end,
-      desc = "Show Windows"
+      desc = "Show Windows",
    },
    { --                                                          ==> @edgy.nvim
       "<leader>wt",
       function()
          require("edgy").toggle()
       end,
-      desc = "Edgy Toggle"
+      desc = "Edgy Toggle",
    },
-
 })
 
-
-
 -- ╞════╡ SECTION: Leader x ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -2069,15 +1994,11 @@ wk.add({
    {
       "<leader>xa",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
-
-
 -- ╞════╡ SECTION: Leader y: Yank ╞════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -2087,25 +2008,21 @@ wk.add({
       function()
          require("telescope").extensions.yank_history.yank_history()
       end,
-      desc = "Open Yank History"
+      desc = "Open Yank History",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>yn",
       "<Plug>(YankyNextEntry)",
-      desc = "Select next entry through yank history"
+      desc = "Select next entry through yank history",
    },
    { --                                                         ==> @yanky.nvim
       "<leader>yp",
       "<Plug>(YankyPreviousEntry)",
-      desc = "Select previous entry through yank history"
+      desc = "Select previous entry through yank history",
    },
-
 })
 
-
-
 -- ╞════╡ SECTION: Leader z ╞══════════════════════════════════════════════╡ --
-
 
 wk.add({
 
@@ -2113,11 +2030,8 @@ wk.add({
    {
       "<leader>za",
       "<cmd>write<cr>",
-      desc = "placeholder"
+      desc = "placeholder",
    },
-
 })
 
-
--- ╞═════════════════════════╡  ❈✧❈  finis  ❈✧❈  ╞═════════════════════════╡ --
-
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

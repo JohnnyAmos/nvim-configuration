@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 13:45
+--                                              Last modified: 2025-03-08 15:10
 
 --[[
 
@@ -28,89 +28,89 @@
 
 --]]
 
--- ╔═╡ PLUGIN:  ╞═══════════════════════════════╡ [   ] ╞═╗ --
--- ║  Source:               ║ --
--- ║  License:                                                          ║ --
--- ╚════════════════════════════════════════════════╡  ╞═╝ --
+-- ╔═╡ PLUGIN:  ╞═════════════════════════╡ [   ] ╞═╗ --
+-- ║  Source:         ║ --
+-- ║  License:                                           ║ --
+-- ╚══════════════════════════════════════════╡  ╞═╝ --
 
 return {
 
--- ╔═╡ PLUGIN: Comment.nvim ╞════════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/numToStr/Comment.nvim                     ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
+   -- ╔═╡ PLUGIN: Comment.nvim ╞═══════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/numToStr/Comment.nvim            ║ --
+   -- ║  License: MIT                                                ║ --
+   -- ╚═════════════════════════════════════════╡ Coding: Comments ╞═╝ --
 
    { "numToStr/Comment.nvim" },
 
--- ╔═╡ PLUGIN: cmp-buffer ╞══════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/hrsh7th/cmp-buffer                        ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- ╔═╡ PLUGIN: cmp-buffer ╞═════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/cmp-buffer               ║ --
+   -- ║  License: MIT                                                ║ --
+   -- ╚═══════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
---   { "hrsh7th/cmp-buffer" },
+   --   { "hrsh7th/cmp-buffer" },
 
--- ╔═╡ PLUGIN: cmp-nvim-lsp ╞════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/hrsh7th/cmp-nvim-lsp                      ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═════════════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
+   -- ╔═╡ PLUGIN: cmp-nvim-lsp ╞═══════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/cmp-nvim-lsp             ║ --
+   -- ║  License: MIT                                                ║ --
+   -- ╚════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
 
---   { "hrsh7th/cmp-nvim-lsp" },
+   --   { "hrsh7th/cmp-nvim-lsp" },
 
--- ╔═╡ PLUGIN: cmp-path ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/hrsh7th/cmp-path                          ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- ╔═╡ PLUGIN: cmp-path ╞═══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/cmp-path                 ║ --
+   -- ║  License: MIT                                                ║ --
+   -- ╚═══════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
---   { "hrsh7th/cmp-path" },
+   --   { "hrsh7th/cmp-path" },
 
--- ╔═╡ PLUGIN: command-completion.nvim ╞═════════════════════════╡ [*!!] ╞═╗ --
--- ║  Source: https://github.com/smolck/command-completion.nvim            ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════╡ Editor: Command Completion ╞═╝ --
+   -- ╔═╡ PLUGIN: command-completion.nvim ╞═══════════════════╡ [*!!] ╞═╗ --
+   -- ║  Source: https://github.com/smolck/command-completion.nvim      ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════╡ Editor: Command Completion ╞═╝ --
 
    -- FIX: Getting odd error when entering command: Invalid buffer number.
 
---    {
---       "smolck/command-completion.nvim",
---       opts = {
---          max_col_num = 5,
---          min_col_width = 25,
---          use_matchfuzzy = false
---       }
---    },
+   --    {
+   --       "smolck/command-completion.nvim",
+   --       opts = {
+   --          max_col_num = 5,
+   --          min_col_width = 25,
+   --          use_matchfuzzy = false
+   --       }
+   --    },
 
--- ╔═╡ PLUGIN: conform.nvim ╞════════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/stevearc/conform.nvim                     ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
+   -- ╔═╡ PLUGIN: conform.nvim ╞══════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/stevearc/conform.nvim               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
 
    {
-      'stevearc/conform.nvim',
+      "stevearc/conform.nvim",
       config = function()
          require("conform").setup({
             formatters_by_ft = {
                css = {
                   "rustywind",
                   "prettierd",
-                  "ast-grep"
+                  "ast-grep",
                },
                html = {
                   "ast-grep",
-                  "prettierd"
+                  "prettierd",
                },
                javascript = {
                   "prettierd",
-                  "ast-grep"
+                  "ast-grep",
                },
                json = { "prettierd" },
                lua = { "stylua" },
                markdown = {
                   "cbformat",
-                  "doctoc"
+                  "doctoc",
                },
                python = { "ruff" },
                scss = {
-                  "prettierd"
+                  "prettierd",
                },
                sql = { "sqlfmt" },
                vue = { "prettierd" },
@@ -137,27 +137,27 @@ return {
             },
             default_format_opts = {
                lsp_format = "fallback",
-            }
+            },
          })
-      end
+      end,
    },
 
--- ╔═╡ PLUGIN: csvview.nvim ╞════════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/hat0uma/csvview.nvim                      ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════╡ Languages: CSV, TSV ╞═╝ --
+   -- ╔═╡ PLUGIN: csvview.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/hat0uma/csvview.nvim                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════╡ Languages: CSV, TSV ╞═╝ --
 
    {
       "hat0uma/csvview.nvim",
       opts = {
-         display_mode = "border" -- or "highlight"
-      }
+         display_mode = "border", -- or "highlight"
+      },
    },
 
--- ╔═╡ PLUGIN: dark_flat.nvim ╞══════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/uncleTen276/dark_flat.nvim                ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════════╡ UI: Colourscheme ╞═╝ --
+   -- ╔═╡ PLUGIN: dark_flat.nvim ╞════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/uncleTen276/dark_flat.nvim          ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════════╡ UI: Colourscheme ╞═╝ --
 
    {
       "sekke276/dark_flat.nvim",
@@ -183,24 +183,24 @@ return {
                light_gray = "#bababa",
                dark_gray = "#777777",
                dark_green = "#00570e",
-               dark_blue = "#00156d"
+               dark_blue = "#00156d",
             },
             italics = false,
          })
-      end
+      end,
    },
 
--- ╔═╡ PLUGIN: dressing.nvim ╞═══════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/stevearc/dressing.nvim                    ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════════╡ UI: Enhancement  ╞═╝ --
+   -- ╔═╡ PLUGIN: dressing.nvim ╞═════════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/stevearc/dressing.nvim              ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════════╡ UI: Enhancement  ╞═╝ --
 
    { "stevearc/dressing.nvim" },
 
--- ╔═╡ PLUGIN: edgy.nvim ╞═══════════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/folke/edgy.nvim                           ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════════════╡ UI: Layouts ╞═╝ --
+   -- ╔═╡ PLUGIN: edgy.nvim ╞═════════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/folke/edgy.nvim                     ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════════════╡ UI: Layouts ╞═╝ --
 
    {
       "folke/edgy.nvim",
@@ -212,10 +212,10 @@ return {
                size = { height = 0.4 },
                filter = function(buf, win)
                   return vim.api.nvim_win_get_config(win).relative == ""
-               end
+               end,
             },
             "Trouble",
-            { ft = "qf", title = "QuickFix" }
+            { ft = "qf", title = "QuickFix" },
          },
          left = {
             {
@@ -224,7 +224,7 @@ return {
                filter = function(buf)
                   return vim.b[buf].neo_tree_source == "filesystem"
                end,
-               size = { height = 0.5 }
+               size = { height = 0.5 },
             },
             {
                title = "Git",
@@ -234,7 +234,7 @@ return {
                end,
                pinned = true,
                collapsed = true, -- show window as collapsed on start
-               open = "Neotree position=right git_status"
+               open = "Neotree position=right git_status",
             },
             {
                title = "Buffers",
@@ -244,7 +244,7 @@ return {
                end,
                pinned = true,
                collapsed = true, -- show window as collapsed on start
-               open = "Neotree position=top buffers"
+               open = "Neotree position=top buffers",
             },
             {
                title = function()
@@ -253,24 +253,24 @@ return {
                end,
                ft = "Outline",
                pinned = true,
-               open = "SymbolsOutlineOpen"
+               open = "SymbolsOutlineOpen",
             },
             -- any other neo-tree windows
-            "neo-tree"
+            "neo-tree",
          },
          right = {
-               ft = "help",
-               filter = function(buf)
-                  return vim.bo[buf].buftype == "help"
-               end
-         }
-      }
+            ft = "help",
+            filter = function(buf)
+               return vim.bo[buf].buftype == "help"
+            end,
+         },
+      },
    },
 
--- ╔═╡ PLUGIN: flash.nvim ╞══════════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/folke/flash.nvim                          ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚════════════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
+   -- ╔═╡ PLUGIN: flash.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/folke/flash.nvim                    ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚══════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
 
    {
       "folke/flash.nvim",
@@ -281,15 +281,15 @@ return {
          labels = "asdfghjklqwertyuiopzxcvbnm",
          search = {
             mode = "search",
-            incremental = true
-         }
-      }
+            incremental = true,
+         },
+      },
    },
 
--- ╔═╡ PLUGIN: flexoki-nvim ╞════════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/nuvic/flexoki-nvim                        ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
+   -- ╔═╡ PLUGIN: flexoki-nvim ╞══════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/nuvic/flexoki-nvim                  ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
 
    {
       "nuvic/flexoki-nvim",
@@ -346,17 +346,17 @@ return {
                moon = {
                   base = "#000000",
                   overlay = "#111111",
-                  muted = "#afafaf"
+                  muted = "#afafaf",
                },
                dawn = {
                   base = "#ffffff",
-                  overlay = "#f2f0e5"
-               }
+                  overlay = "#f2f0e5",
+               },
             },
 
             highlight_groups = {
                Comment = { fg = "muted" },
-            --    VertSplit = { fg = "muted", bg = "muted" },
+               --    VertSplit = { fg = "muted", bg = "muted" },
             },
 
             -- before_highlight = function(group, highlight, palette)
@@ -372,39 +372,39 @@ return {
             -- end,
          })
 
---          vim.cmd("colorscheme flexoki-moon")
-      end
+         --          vim.cmd("colorscheme flexoki-moon")
+      end,
    },
 
--- ╔═╡ PLUGIN: fortune.nvim ╞════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/fecet/fortune.nvim                        ║ --
--- ║  License: None                                                        ║ --
--- ╚══════════════════════════════════════════════════════╡ Utility: Fun ╞═╝ --
+   -- ╔═╡ PLUGIN: fortune.nvim ╞══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/fecet/fortune.nvim                  ║ --
+   -- ║  License: None                                                  ║ --
+   -- ╚════════════════════════════════════════════════╡ Utility: Fun ╞═╝ --
 
---   { "fecet/fortune.nvim" },
+   --   { "fecet/fortune.nvim" },
 
--- ╔═╡ PLUGIN: friendly-snippets ╞═══════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/rafamadriz/friendly-snippets              ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- ╔═╡ PLUGIN: friendly-snippets ╞═════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/rafamadriz/friendly-snippets        ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
-    { "rafamadriz/friendly-snippets" },
+   { "rafamadriz/friendly-snippets" },
 
--- ╔═╡ PLUGIN: garbage-day.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/Zeioth/garbage-day.nvim                   ║ --
--- ║  License: GPL-3.0                                                     ║ --
--- ╚══════════════════════════════════════════════╡ Utility: LSP Cleanup ╞═╝ --
+   -- ╔═╡ PLUGIN: garbage-day.nvim ╞══════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/Zeioth/garbage-day.nvim             ║ --
+   -- ║  License: GPL-3.0                                               ║ --
+   -- ╚════════════════════════════════════════╡ Utility: LSP Cleanup ╞═╝ --
 
    {
       "zeioth/garbage-day.nvim",
       dependencies = { "neovim/nvim-lspconfig" },
-      event = "VeryLazy"
+      event = "VeryLazy",
    },
 
--- ╔═╡ PLUGIN: gitsigns.nvim ╞═══════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/lewis6991/gitsigns.nvim                   ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: Git ╞═╝ --
+   -- ╔═╡ PLUGIN: gitsigns.nvim ╞═════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/lewis6991/gitsigns.nvim             ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: Git ╞═╝ --
 
    {
       "lewis6991/gitsigns.nvim",
@@ -414,89 +414,89 @@ return {
          signs_staged_enable = true,
          word_diff = true,
          watch_gitdir = {
-            follow_files = true
+            follow_files = true,
          },
          attach_to_untracked = true,
-      }
+      },
    },
 
--- ╔═╡ PLUGIN: grug-far.nvim ╞═══════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/MagicDuck/grug-far.nvim                   ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════════╡ Editor: Search ╞═╝ --
+   -- ╔═╡ PLUGIN: grug-far.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/MagicDuck/grug-far.nvim             ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════════╡ Editor: Search ╞═╝ --
 
    { "MagicDuck/grug-far.nvim" },
 
--- ╔═╡ PLUGIN: icon-picker.nvim ╞════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/JohnnyAmos/icon-picker.nvim               ║ --
--- ║  License: MIT {Detach from fork and release under ISC license.}       ║ --
--- ╚═════════════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
+   -- ╔═╡ PLUGIN: icon-picker.nvim ╞══════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/JohnnyAmos/icon-picker.nvim         ║ --
+   -- ║  License: MIT {Detach from fork and release under ISC license.} ║ --
+   -- ╚═══════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
 
--- FIX: Set maps up in keymaps.lua and reflect change in config before using.
+   -- FIX: Set maps up in keymaps.lua and reflect change in config before using.
 
---    {
---       "JohnnyAmos/icon-picker.nvim",
---       config = function()
---          require("icon-picker").setup({ disable_legacy_commands = true })
---          local opts = { noremap = true, silent = true }
---          vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
---          vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
---          vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
---       end
---    }
+   --    {
+   --       "JohnnyAmos/icon-picker.nvim",
+   --       config = function()
+   --          require("icon-picker").setup({ disable_legacy_commands = true })
+   --          local opts = { noremap = true, silent = true }
+   --          vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
+   --          vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
+   --          vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
+   --       end
+   --    }
 
--- ╔═╡ PLUGIN: illustro.nvim ╞═══════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/JohnnyAmos/illustro.nvim                  ║ --
--- ║  License: ISC                                                         ║ --
--- ╚═══════════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
+   -- ╔═╡ PLUGIN: illustro.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/JohnnyAmos/illustro.nvim            ║ --
+   -- ║  License: ISC                                                   ║ --
+   -- ╚═════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
 
---    {
---       "JohnnyAmos/illustro.nvim",
---       name = "illustro",
---       priority = 1000,
---       config = function()
---          require("illustro").setup({
---          })
---       end
---    }
+   --    {
+   --       "JohnnyAmos/illustro.nvim",
+   --       name = "illustro",
+   --       priority = 1000,
+   --       config = function()
+   --          require("illustro").setup({
+   --          })
+   --       end
+   --    }
 
--- ╔═╡ PLUGIN: key-analyzer.nvim ╞═══════════════════════════════╡ [*  ] ╞═╗ --
--- ║  source: https://github.com/meznaric/key-analyzer.nvim                ║ --
--- ║  license: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════╡ Utility: Mapping Aid ╞═╝ --
+   -- ╔═╡ PLUGIN: key-analyzer.nvim ╞═════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  source: https://github.com/meznaric/key-analyzer.nvim          ║ --
+   -- ║  license: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════╡ Utility: Mapping Aid ╞═╝ --
 
    {
       "meznaric/key-analyzer.nvim",
-      opts = {}
+      opts = {},
    },
 
--- ╔═╡ PLUGIN: lazydev.nvim ╞════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/folke/lazydev.nvim                        ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
+   -- ╔═╡ PLUGIN: lazydev.nvim ╞══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/folke/lazydev.nvim                  ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
--- TODO: Set up after nvim-lspconfig.
---    {
---       "folke/lazydev.nvim",
---       ft = "lua",
---       opts = {
---          library = {
---             {
---                path = "luvit-meta/library",
---                words = { "vim%.uv" }
---             }
---          },
---          integrations = {
---             lspconfig = true,
---             cmp = true
---          }
---       }
---    },
+   -- TODO: Set up after nvim-lspconfig.
+   --    {
+   --       "folke/lazydev.nvim",
+   --       ft = "lua",
+   --       opts = {
+   --          library = {
+   --             {
+   --                path = "luvit-meta/library",
+   --                words = { "vim%.uv" }
+   --             }
+   --          },
+   --          integrations = {
+   --             lspconfig = true,
+   --             cmp = true
+   --          }
+   --       }
+   --    },
 
--- ╔═╡ PLUGIN: lualine.nvim ╞════════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/nvim-lualine/lualine.nvim                 ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════╡ UI: Statusline & Tabline ╞═╝ --
+   -- ╔═╡ PLUGIN: lualine.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/nvim-lualine/lualine.nvim           ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════╡ UI: Statusline & Tabline ╞═╝ --
 
    {
       "nvim-lualine/lualine.nvim",
@@ -504,7 +504,7 @@ return {
          require("lualine").setup({
             options = {
                theme = "auto",
-               globalstatus = true
+               globalstatus = true,
             },
             sections = {
                lualine_a = { "mode" },
@@ -512,20 +512,20 @@ return {
                lualine_c = {
                   {
                      "filename",
-                     path = 1
-                  }
+                     path = 1,
+                  },
                },
                lualine_x = {
                   "encoding",
                   {
                      "fileformat",
-                     symbols = icons_lualine_ff_symbols
+                     symbols = icons_lualine_ff_symbols,
                   },
                   "filetype",
-                  "filesize"
+                  "filesize",
                },
                lualine_y = {
-                  "progress"
+                  "progress",
                },
                lualine_z = {
                   "location",
@@ -533,17 +533,17 @@ return {
                   {
                      "windows",
                      mode = 1,
-                     show_modified_status = true
-                  }
-               }
+                     show_modified_status = true,
+                  },
+               },
             },
             tabline = {
                lualine_a = {
                   {
                      "buffers",
                      max_length = vim.o.columns * 3 / 4,
-                     mode = 4
-                  }
+                     mode = 4,
+                  },
                },
                lualine_b = {},
                lualine_c = {},
@@ -553,19 +553,18 @@ return {
                   {
                      "tabs",
                      max_length = vim.o.columns / 4,
-                     mode = 0
-                  }
-               }
-            }
-
+                     mode = 0,
+                  },
+               },
+            },
          })
-      end
+      end,
    },
 
--- ╔═╡ PLUGIN: marks.nvim ╞══════════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/chentoast/marks.nvim                      ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
+   -- ╔═╡ PLUGIN: marks.nvim ╞════════════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/chentoast/marks.nvim                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
 
    {
       "chentoast/marks.nvim",
@@ -573,96 +572,94 @@ return {
       opts = {
          default_mappings = false,
          force_write_shada = true,
-         sign_priority = 10
-      }
+         sign_priority = 10,
+      },
    },
 
--- ╔═╡ PLUGIN: mason-lspconfig.nvim ╞════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/williamboman/mason-lspconfig.nvim         ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
+   -- ╔═╡ PLUGIN: mason-lspconfig.nvim ╞══════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/williamboman/mason-lspconfig.nvim   ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
---    {
---       "williamboman/mason-lspconfig.nvim",
---       config = function()
---          require("mason-lspconfig").setup({
---             ensure_installed = {
---                "arduino_language_server",
---                "ast_grep",
---                "astro",
---                "basedpyright",
---                "bashls",
---                "css_variables",
---                "cssls",
---                "cssmodules_ls",
---                "denols",
---                "eslint",
---                "htmx",
---                "jsonls",
---                "ltex",
---                "lua_ls",
---                "markdown_oxide",
---                "perlnavigator",
---                "ruff",
---                "sqlls",
---                "tailwindcss",
---                "taplo",
---             }
---          })
---       end
---    },
+   --    {
+   --       "williamboman/mason-lspconfig.nvim",
+   --       config = function()
+   --          require("mason-lspconfig").setup({
+   --             ensure_installed = {
+   --                "arduino_language_server",
+   --                "ast_grep",
+   --                "astro",
+   --                "basedpyright",
+   --                "bashls",
+   --                "css_variables",
+   --                "cssls",
+   --                "cssmodules_ls",
+   --                "denols",
+   --                "eslint",
+   --                "htmx",
+   --                "jsonls",
+   --                "ltex",
+   --                "lua_ls",
+   --                "markdown_oxide",
+   --                "perlnavigator",
+   --                "ruff",
+   --                "sqlls",
+   --                "tailwindcss",
+   --                "taplo",
+   --             }
+   --          })
+   --       end
+   --    },
 
--- ╔═╡ PLUGIN: mason.nvim ╞══════════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/williamboman/mason.nvim                   ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
+   -- ╔═╡ PLUGIN: mason.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/williamboman/mason.nvim             ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
    {
       "williamboman/mason.nvim",
       opts = {
-         PATH = 'skip',
-         border = 'single',
+         PATH = "skip",
+         border = "single",
          ui = {
             icons = icons_mason_ui,
-         }
-      }
+         },
+      },
    },
 
--- ╔═╡ PLUGIN: mini.nvim ╞═══════════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/echasnovski/mini.nvim                     ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════════════╡ Various ╞═╝ --
+   -- ╔═╡ PLUGIN: mini.nvim ╞═════════════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/echasnovski/mini.nvim               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════════╡ Various ╞═╝ --
 
    {
       "echasnovski/mini.nvim",
       version = false,
       config = function()
-
-
--- ╞═╡ mini.align ╞═════════════════════════════════╡ Coding: Formatting ╞═╡ --
+         -- ╞═╡ mini.align ╞═════════════════════╡ Coding: Formatting ╞═╡ --
 
          require("mini.align").setup()
 
--- ╞═╡ mini.bracketed ╞═════════════════════════════════╡ UI: Navigation ╞═╡ --
+         -- ╞═╡ mini.bracketed ╞═════════════════════╡ UI: Navigation ╞═╡ --
 
          require("mini.bracketed").setup()
 
--- ╞═╡ mini.cursorword ╞════════════════════════════════════════╡ Coding ╞═╡ --
+         -- ╞═╡ mini.cursorword ╞════════════════════════════╡ Coding ╞═╡ --
 
--- i'm of two minds about this one. it can be useful, and it can be very
--- annoying. the trait it exhibits most wins.
+         -- i'm of two minds about this one. it can be useful, and it can be very
+         -- annoying. the trait it exhibits most wins.
 
          require("mini.cursorword").setup()
 
--- ╞═╡ mini.icons ╞══════════════════════════════════════════╡ UI: Icons ╞═╡ --
+         -- ╞═╡ mini.icons ╞══════════════════════════════╡ UI: Icons ╞═╡ --
 
          require("mini.icons").setup()
 
--- ╞═╡ mini.jump ╞══════════════════════════════════════╡ UI: Navigation ╞═╡ --
+         -- ╞═╡ mini.jump ╞══════════════════════════╡ UI: Navigation ╞═╡ --
 
          require("mini.jump").setup()
 
--- ╞═╡ mini.jump2d ╞════════════════════════════════════╡ UI: Navigation ╞═╡ --
+         -- ╞═╡ mini.jump2d ╞════════════════════════╡ UI: Navigation ╞═╡ --
 
          require("mini.jump2d").setup({
             mappings = {
@@ -670,35 +667,35 @@ return {
             },
          })
 
--- ╞═╡ mini.misc ╞═════════════════════════════════════════════╡ Utilily ╞═╡ --
+         -- ╞═╡ mini.misc ╞═════════════════════════════════╡ Utilily ╞═╡ --
 
--- i know it's just a box, but it's a nice box and i might need it someday. i
--- just hope i can remember where i put it when i need it.
+         -- i know it's just a box, but it's a nice box and i might need it someday. i
+         -- just hope i can remember where i put it when i need it.
 
          require("mini.misc").setup()
 
--- ╞═╡ mini.move ╞══════════════════════════════════════════════╡ Editor ╞═╡ --
+         -- ╞═╡ mini.move ╞══════════════════════════════════╡ Editor ╞═╡ --
 
          require("mini.move").setup({
             mappings = {
                -- move visual selection in visual mode.
-               left = '<ca-h>',
-               right = '<ca-l>',
-               down = '<ca-j>',
-               up = '<ca-k>',
+               left = "<ca-h>",
+               right = "<ca-l>",
+               down = "<ca-j>",
+               up = "<ca-k>",
                -- move current line in normal mode
-               line_left = '<a-h>',
-               line_right = '<a-l>',
-               line_down = '<a-j>',
-               line_up = '<a-k>',
+               line_left = "<a-h>",
+               line_right = "<a-l>",
+               line_down = "<a-j>",
+               line_up = "<a-k>",
             },
          })
 
--- ╞═╡ mini.pairs ╞═════════════════════════════════════════════╡ Editor ╞═╡ --
+         -- ╞═╡ mini.pairs ╞═════════════════════════════════╡ Editor ╞═╡ --
 
--- i borrowed (blatenly stole) this and i can't remember where from. as soon as
--- i figure it out i will post the requisite credits. if it's yours let me
--- know. thanks.
+         -- i borrowed (blatenly stole) this and i can't remember where from. as soon as
+         -- i figure it out i will post the requisite credits. if it's yours let me
+         -- know. thanks.
 
          require("mini.pairs").setup({
             mappings = {
@@ -708,34 +705,34 @@ return {
                ["("] = {
                   action = "open",
                   pair = "()",
-                  neigh_pattern = "[^\\][%s%)%]%}]"
+                  neigh_pattern = "[^\\][%s%)%]%}]",
                },
                ["["] = {
                   action = "open",
                   pair = "[]",
-                  neigh_pattern = "[^\\][%s%)%]%}]"
+                  neigh_pattern = "[^\\][%s%)%]%}]",
                },
                ["{"] = {
                   action = "open",
                   pair = "{}",
-                  neigh_pattern = "[^\\][%s%)%]%}]"
+                  neigh_pattern = "[^\\][%s%)%]%}]",
                },
                -- this is default (prevents the action if the cursor is just
                -- next to a "\").
                [")"] = {
                   action = "close",
                   pair = "()",
-                  neigh_pattern = "[^\\]."
+                  neigh_pattern = "[^\\].",
                },
                ["]"] = {
                   action = "close",
                   pair = "[]",
-                  neigh_pattern = "[^\\]."
+                  neigh_pattern = "[^\\].",
                },
                ["}"] = {
                   action = "close",
                   pair = "{}",
-                  neigh_pattern = "[^\\]."
+                  neigh_pattern = "[^\\].",
                },
                -- prevents the action if the cursor is just before or next to
                -- any character.
@@ -743,30 +740,30 @@ return {
                   action = "closeopen",
                   pair = '""',
                   neigh_pattern = "[^%w][^%w]",
-                  register = { cr = false }
+                  register = { cr = false },
                },
                ["'"] = {
                   action = "closeopen",
                   pair = "''",
                   neigh_pattern = "[^%w][^%w]",
-                  register = { cr = false }
+                  register = { cr = false },
                },
                ["`"] = {
                   action = "closeopen",
                   pair = "``",
                   neigh_pattern = "[^%w][^%w]",
-                  register = { cr = false }
+                  register = { cr = false },
                },
             },
          })
 
--- ╞═╡ mini.sessions ╞════════════════════════════════════════╡ Projects ╞═╡ --
+         -- ╞═╡ mini.sessions ╞════════════════════════════╡ Projects ╞═╡ --
 
--- todo: see if there are any keymaps that can be used, or make some
+         -- todo: see if there are any keymaps that can be used, or make some
 
          require("mini.sessions").setup()
 
--- ╞═╡ mini.starter ╞══════════════════════════════════╡ UI: Enhancement ╞═╡ --
+         -- ╞═╡ mini.starter ╞══════════════════════╡ UI: Enhancement ╞═╡ --
 
          local logo = table.concat({
             [[,----------------------------------------------------,]],
@@ -784,11 +781,11 @@ return {
             return {
                name = name,
                action = action,
-               section = pad .. section
+               section = pad .. section,
             }
          end
 
--- todo: add fortune and stats to footer and put the cow back in the header.
+         -- todo: add fortune and stats to footer and put the cow back in the header.
 
          local starter = require("mini.starter")
          starter.setup({
@@ -798,68 +795,68 @@ return {
                {
                   action = "ene | startinsert",
                   name = "new file",
-                  section = "files"
+                  section = "files",
                },
                {
                   action = "telescope oldfiles",
                   name = "recent files",
-                  section = "files"
+                  section = "files",
                },
                {
                   action = "telescope find_files",
                   name = "find files",
-                  section = "files"
+                  section = "files",
                },
                {
                   action = "telescope file_browser",
                   name = "browser",
-                  section = "files"
+                  section = "files",
                },
                {
                   action = "telescope live_grep",
                   name = "live grep",
-                  section = "search"
+                  section = "search",
                },
                {
                   action = "telescope command_history",
                   name = "command history",
-                  section = "search"
+                  section = "search",
                },
                {
                   action = "telescope repo list",
                   name = "git repos",
-                  section = "projects"
+                  section = "projects",
                },
                starter.sections.sessions(5, true),
                {
                   action = "telescope man_pages",
                   name = "man pages",
-                  section = "reference/config"
+                  section = "reference/config",
                },
                {
                   action = "telescope help_tags",
                   name = "help tags",
-                  section = "reference/config"
+                  section = "reference/config",
                },
                {
                   action = "lazy",
                   name = "plugins",
-                  section = "reference/config"
+                  section = "reference/config",
                },
                {
                   action = "telescope colorscheme",
                   name = "schémas de couleurs",
-                  section = "reference/config"
+                  section = "reference/config",
                },
                {
                   action = "telescope bookmarks",
                   name = "vivaldi bookmarks",
-                  section = "internet resources"
+                  section = "internet resources",
                },
                {
                   action = "qa",
                   name = "quit",
-                  section = "exit"
+                  section = "exit",
                },
             },
             -- footer = footer, -- need to set up fortune.nvim
@@ -872,17 +869,15 @@ return {
                   "projects",
                   "reference/config",
                   "internet resources",
-                  "exit"
-               })
-            }
+                  "exit",
+               }),
+            },
          })
 
--- ╞═╡ mini.visits ╞══════════════════════════════════════════╡ Projects ╞═╡ --
+         -- ╞═╡ mini.visits ╞══════════════════════════════╡ Projects ╞═╡ --
 
          require("mini.visits").setup()
-
-      end
-
+      end,
    },
 
    --[[
@@ -953,33 +948,34 @@ return {
 
    --]]
 
--- ╔═╡ PLUGIN: multiple-cursors.nvim ╞═══════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/brenton-leighton/multiple-cursors.nvim    ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════╡ Editor: Multicursor ╞═╝ --
+   -- ╔═╡ PLUGIN: multiple-cursors.nvim ╞═════════════════════╡ [***] ╞═╗ --
+   -- ║  Source:                                                        ║ --
+   -- ║     https://github.com/brenton-leighton/multiple-cursors.nvim   ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════╡ Editor: Multicursor ╞═╝ --
 
    {
       "brenton-leighton/multiple-cursors.nvim",
-      version = "*",  -- Use the latest tagged version
+      version = "*", -- Use the latest tagged version
       opts = {
          pre_hook = function()
             vim.cmd("Lazy load mini.move")
             vim.g.minipairs_disable = true
-            require("cmp").setup({enabled=false})
+            require("cmp").setup({ enabled = false })
             vim.cmd("NoMatchParen")
          end,
          post_hook = function()
             vim.g.minipairs_disable = false
-            require("cmp").setup({enabled=true})
+            require("cmp").setup({ enabled = true })
             vim.cmd("DoMatchParen")
-         end
-      }
+         end,
+      },
    },
 
--- ╔═╡ PLUGIN: neo-tree.nvim ╞═══════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/nvim-neo-tree/neo-tree.nvim               ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════╡ Editor: File Manager ╞═╝ --
+   -- ╔═╡ PLUGIN: neo-tree.nvim ╞═════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/nvim-neo-tree/neo-tree.nvim         ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════╡ Editor: File Manager ╞═╝ --
 
    {
       "nvim-neo-tree/neo-tree.nvim",
@@ -987,24 +983,24 @@ return {
       dependencies = {
          "nvim-lua/plenary.nvim",
          "nvim-tree/nvim-web-devicons",
-         "MunifTanjim/nui.nvim"
+         "MunifTanjim/nui.nvim",
       },
       config = function()
          vim.fn.sign_define("DiagnosticSignError", {
             text = " ",
-            texthl = "DiagnosticSignError"
+            texthl = "DiagnosticSignError",
          })
          vim.fn.sign_define("DiagnosticSignWarn", {
             text = " ",
-            texthl = "DiagnosticSignWarn"
+            texthl = "DiagnosticSignWarn",
          })
          vim.fn.sign_define("DiagnosticSignInfo", {
             text = " ",
-            texthl = "DiagnosticSignInfo"
+            texthl = "DiagnosticSignInfo",
          })
          vim.fn.sign_define("DiagnosticSignHint", {
             text = "󰌵",
-            texthl = "DiagnosticSignHint"
+            texthl = "DiagnosticSignHint",
          })
          require("neo-tree").setup({
             popup_border_style = "single",
@@ -1013,7 +1009,7 @@ return {
             -- "trace", "debug", "info", "warn", "error", "fatal"
             log_level = "info",
             -- true, false, "/path/to/file.log"
-            log_to_file = '$HOME/.config/nvim/.logs/neotree.log',
+            log_to_file = "$HOME/.config/nvim/.logs/neotree.log",
             -- used when sorting files and directories in the tree
             sort_case_insensitive = false,
             use_default_mappings = false,
@@ -1037,103 +1033,103 @@ return {
                hijack_netrw_behavior = "open_default",
             },
          })
-      end
+      end,
    },
 
--- ╔═╡ PLUGIN: nerdy.nvim ╞══════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/2KAbhishek/nerdy.nvim                     ║ --
--- ║  License: GPL-3.0                                                     ║ --
--- ╚═════════════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
+   -- ╔═╡ PLUGIN: nerdy.nvim ╞════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/2KAbhishek/nerdy.nvim               ║ --
+   -- ║  License: GPL-3.0                                               ║ --
+   -- ╚═══════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
 
    {
-       '2kabhishek/nerdy.nvim',
-       dependencies = {
-           'stevearc/dressing.nvim',
-           'nvim-telescope/telescope.nvim',
-       },
-       cmd = 'Nerdy',
+      "2kabhishek/nerdy.nvim",
+      dependencies = {
+         "stevearc/dressing.nvim",
+         "nvim-telescope/telescope.nvim",
+      },
+      cmd = "Nerdy",
    },
 
--- ╔═╡ PLUGIN: nui.nvim ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/MunifTanjim/nui.nvim                      ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════════════════════╡ UI ╞═╝ --
+   -- ╔═╡ PLUGIN: nui.nvim ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/MunifTanjim/nui.nvim                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════════════════════╡ UI ╞═╝ --
 
    { "MunifTanjim/nui.nvim" },
 
--- ╔═╡ PLUGIN: nvim-cmp ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/hrsh7th/nvim-cmp                          ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════╡ Coding: Completions ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-cmp ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/nvim-cmp                    ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════╡ Coding: Completions ╞═╝ --
 
---    { "hrsh7th/nvim-cmp" },
+   --    { "hrsh7th/nvim-cmp" },
 
--- ╔═╡ PLUGIN: nvim-comment-frame ╞══════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/s1n7ax/nvim-comment-frame                 ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-comment-frame ╞════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/s1n7ax/nvim-comment-frame           ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
 
    { "s1n7ax/nvim-comment-frame" },
 
--- ╔═╡ PLUGIN: nvim-dap ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/mfussenegger/nvim-dap                     ║ --
--- ║  License: GPL-3.0                                                     ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: DAP ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-dap ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/mfussenegger/nvim-dap               ║ --
+   -- ║  License: GPL-3.0                                               ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: DAP ╞═╝ --
 
---    { "mfussenegger/nvim-dap" },
+   --    { "mfussenegger/nvim-dap" },
 
--- ╔═╡ PLUGIN: nvim-dap-ui ╞═════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/rcarriga/nvim-dap-ui                      ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: DAP ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-dap-ui ╞═══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/rcarriga/nvim-dap-ui                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: DAP ╞═╝ --
 
---    { "rcarriga/nvim-dap-ui" },
+   --    { "rcarriga/nvim-dap-ui" },
 
--- ╔═╡ PLUGIN: nvim-lsp-file-operations ╞════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/antosha417/nvim-lsp-file-operations       ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-lsp-file-operations ╞══════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/antosha417/nvim-lsp-file-operations ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
---    {
---       "antosha417/nvim-lsp-file-operations",
---       dependencies = {
---          "nvim-lua/plenary.nvim",
---          "nvim-neo-tree/neo-tree.nvim",
---       },
---       config = function()
---          require("lsp-file-operations").setup()
---       end
---    },
+   --    {
+   --       "antosha417/nvim-lsp-file-operations",
+   --       dependencies = {
+   --          "nvim-lua/plenary.nvim",
+   --          "nvim-neo-tree/neo-tree.nvim",
+   --       },
+   --       config = function()
+   --          require("lsp-file-operations").setup()
+   --       end
+   --    },
 
--- ╔═╡ PLUGIN: nvim-lspconfig ╞══════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/neovim/nvim-lspconfig                     ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-lspconfig ╞════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/neovim/nvim-lspconfig               ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
---    { "neovim/nvim-lspconfig" },
+   --    { "neovim/nvim-lspconfig" },
 
--- ╔═╡ PLUGIN: nvim-nio ╞════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/nvim-neotest/nvim-nio                     ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════════════╡ API: IO ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-nio ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/nvim-neotest/nvim-nio               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════════╡ API: IO ╞═╝ --
 
---    { "nvim-neotest/nvim-nio" },
+   --    { "nvim-neotest/nvim-nio" },
 
--- ╔═╡ PLUGIN: nvim-surround ╞═══════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/kylechui/nvim-surround                    ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════════════════════╡ Coding:  ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-surround ╞═════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/kylechui/nvim-surround              ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════════════════╡ Coding:  ╞═╝ --
 
    {
       "kylechui/nvim-surround",
       version = "*",
-      event = "VeryLazy"
+      event = "VeryLazy",
    },
 
--- ╔═╡ PLUGIN: nvim-treesitter ╞═════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/nvim-treesitter/nvim-treesitter           ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚════════════════════════════════════════════════════╡ Coding: Syntax ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-treesitter ╞═══════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/nvim-treesitter/nvim-treesitter     ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚══════════════════════════════════════════════╡ Coding: Syntax ╞═╝ --
 
    {
       "nvim-treesitter/nvim-treesitter",
@@ -1141,12 +1137,12 @@ return {
       event = { "BufReadPre", "BufNewFile" },
       dependencies = {
          "nvim-treesitter/nvim-treesitter-textobjects",
-         "RRethy/nvim-treesitter-endwise"
+         "RRethy/nvim-treesitter-endwise",
       },
       build = function()
          require("nvim-treesitter.install").update({ with_sync = true })()
       end,
-      vim.treesitter.language.register('markdown', 'octo'),
+      vim.treesitter.language.register("markdown", "octo"),
       opts = {
          auto_install = true,
          highlight = { enable = true },
@@ -1189,66 +1185,66 @@ return {
             "styled",
             "tmux",
             "toml",
-            "yaml"
+            "yaml",
          },
          textobjects = {
             select = {
                enable = true,
-               lookahead = true
+               lookahead = true,
             },
             swap = {
-               enable = true
+               enable = true,
             },
             move = {
                enable = true,
-               set_jumps = true
+               set_jumps = true,
             },
             lsp_interop = {
                enable = true,
-               border = "none"
-            }
+               border = "none",
+            },
          },
          endwise = {
-            enable = true
-         }
-      }
+            enable = true,
+         },
+      },
    },
 
--- ╔═╡ PLUGIN: nvim-update-time ╞════════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/StonyBoy/nvim-update-time                 ║ --
--- ║  License: MIT                                                         ║ --
--- ╚══════════════════════════════════════════╡ Utilities: Timestamp ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-update-time ╞══════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/StonyBoy/nvim-update-time           ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════╡ Utilities: Timestamp ╞═╝ --
 
    {
       "StonyBoy/nvim-update-time",
       opts = {
          last = 8,
          format = "%Y-%m-%d %H:%M",
-         pattern = "Last modified: "
-      }
+         pattern = "Last modified: ",
+      },
    },
 
--- ╔═╡ PLUGIN: nvim-web-devicons ╞═══════════════════════════════╡ [***] ╞═╗ --
--- ║  Source: https://github.com/nvim-tree/nvim-web-devicons               ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═════════════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
+   -- ╔═╡ PLUGIN: nvim-web-devicons ╞═════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/nvim-tree/nvim-web-devicons         ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═══════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
 
    { "kyazdani42/nvim-web-devicons" },
 
--- ╔═╡ PLUGIN: octo.nvim ╞═══════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/pwntester/octo.nvim                       ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════════╡ Editor: Git ╞═╝ --
+   -- ╔═╡ PLUGIN: octo.nvim ╞═════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/pwntester/octo.nvim                 ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════╡ Editor: Git ╞═╝ --
 
    {
       "pwntester/octo.nvim",
       opts = {
          enable_builtin = true,
-         default_remote = {"origin", "upstream"},
+         default_remote = { "origin", "upstream" },
          picker = "telescope",
          default_to_projects_v2 = false,
          suppress_missing_scope = {
-            projects_v2 = true
+            projects_v2 = true,
          },
          ui = {
             -- show "modified" marks on the sign column
@@ -1257,27 +1253,27 @@ return {
             use_signstatus = true,
          },
          mappings_disable_default = true,
-      }
+      },
    },
 
--- ╔═╡ PLUGIN: sqlite.lua ╞══════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/kkharji/sqlite.lua                        ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═════════════════════════════════════════════════╡ Utility: Database ╞═╝ --
+   -- ╔═╡ PLUGIN: sqlite.lua ╞════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/kkharji/sqlite.lua                  ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═══════════════════════════════════════════╡ Utility: Database ╞═╝ --
 
    { "kkharji/sqlite.lua" },
 
--- ╔═╡ PLUGIN: stylua-nvim ╞═════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/wesleimp/stylua.nvim                      ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
+   -- ╔═╡ PLUGIN: stylua-nvim ╞═══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/wesleimp/stylua.nvim                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
 
    { "ckipp01/stylua-nvim" },
 
--- ╔═╡ PLUGIN: telescope.nvim ╞══════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/nvim-telescope/telescope.nvim             ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════════════════════╡ UI ╞═╝ --
+   -- ╔═╡ PLUGIN: telescope.nvim ╞════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/nvim-telescope/telescope.nvim       ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════════════════════╡ UI ╞═╝ --
 
    {
       "nvim-telescope/telescope.nvim",
@@ -1290,7 +1286,7 @@ return {
          { "nvim-telescope/telescope-github.nvim" },
          { "tsakirist/telescope-lazy.nvim" },
          { "cljoly/telescope-repo.nvim" },
-         { "nvim-telescope/telescope-symbols.nvim" }
+         { "nvim-telescope/telescope-symbols.nvim" },
       },
       config = function()
          local Layout = require("nui.layout")
@@ -1314,15 +1310,15 @@ return {
                   horizontal = {
                      size = {
                         width = "90%",
-                        height = "60%"
-                     }
+                        height = "60%",
+                     },
                   },
                   vertical = {
                      size = {
                         width = "90%",
-                        height = "90%"
-                     }
-                  }
+                        height = "90%",
+                     },
+                  },
                },
                extensions = {
                   ---@module "telescope._extensions.lazy"
@@ -1337,9 +1333,9 @@ return {
                         open_plugins_picker = "<c-b>",
                         open_lazy_root_find_files = "<c-r>f",
                         open_lazy_root_live_grep = "<c-r>g",
-                        change_cwd_to_plugin = "<c-c>d"
-                     }
-                  }
+                        change_cwd_to_plugin = "<c-c>d",
+                     },
+                  },
                },
                create_layout = function(picker)
                   local border = { -- relocate to icons.lua?
@@ -1351,21 +1347,21 @@ return {
                         bottom_right = "",
                         bottom = "",
                         bottom_left = "",
-                        left = "│"
+                        left = "│",
                      },
                      results_patch = {
                         minimal = {
                            top_left = "┌",
-                           top_right = "┐"
+                           top_right = "┐",
                         },
                         horizontal = {
                            top_left = "┌",
-                           top_right = "┬"
+                           top_right = "┬",
                         },
                         vertical = {
                            top_left = "├",
-                           top_right = "┤"
-                        }
+                           top_right = "┤",
+                        },
                      },
                      prompt = {
                         top_left = "├",
@@ -1375,18 +1371,18 @@ return {
                         bottom_right = "┘",
                         bottom = "─",
                         bottom_left = "└",
-                        left = "│"
+                        left = "│",
                      },
                      prompt_patch = {
                         minimal = {
-                           bottom_right = "┘"
+                           bottom_right = "┘",
                         },
                         horizontal = {
-                           bottom_right = "┴"
+                           bottom_right = "┴",
                         },
                         vertical = {
-                           bottom_right = "┘"
-                        }
+                           bottom_right = "┘",
+                        },
                      },
                      preview = {
                         top_left = "┌",
@@ -1396,7 +1392,7 @@ return {
                         bottom_right = "┘",
                         bottom = "─",
                         bottom_left = "└",
-                        left = "│"
+                        left = "│",
                      },
                      preview_patch = {
                         minimal = {},
@@ -1405,16 +1401,16 @@ return {
                            bottom_left = "",
                            bottom_right = "┘",
                            left = "",
-                           top_left = ""
+                           top_left = "",
                         },
                         vertical = {
                            bottom = "",
                            bottom_left = "",
                            bottom_right = "",
                            left = "│",
-                           top_left = "┌"
-                        }
-                     }
+                           top_left = "┌",
+                        },
+                     },
                   }
 
                   local results = make_popup({
@@ -1423,12 +1419,12 @@ return {
                         style = border.results,
                         text = {
                            top = picker.results_title,
-                           top_align = "center"
-                        }
+                           top_align = "center",
+                        },
                      },
                      win_options = {
-                        winhighlight = "Normal:Normal"
-                     }
+                        winhighlight = "Normal:Normal",
+                     },
                   })
 
                   local prompt = make_popup({
@@ -1437,12 +1433,12 @@ return {
                         style = border.prompt,
                         text = {
                            top = picker.prompt_title,
-                           top_align = "center"
-                        }
+                           top_align = "center",
+                        },
                      },
                      win_options = {
-                        winhighlight = "Normal:Normal"
-                     }
+                        winhighlight = "Normal:Normal",
+                     },
                   })
 
                   local preview = make_popup({
@@ -1451,27 +1447,27 @@ return {
                         style = border.preview,
                         text = {
                            top = picker.preview_title,
-                           top_align = "center"
-                        }
-                     }
+                           top_align = "center",
+                        },
+                     },
                   })
 
                   local box_by_kind = {
                      vertical = Layout.Box({
                         Layout.Box(preview, { grow = 1 }),
                         Layout.Box(results, { grow = 1 }),
-                        Layout.Box(prompt, { size = 3 })
+                        Layout.Box(prompt, { size = 3 }),
                      }, { dir = "col" }),
                      horizontal = Layout.Box({
                         Layout.Box({
                            Layout.Box(results, { grow = 1 }),
-                           Layout.Box(prompt, { size = 3 })
+                           Layout.Box(prompt, { size = 3 }),
                         }, { dir = "col", size = "50%" }),
-                        Layout.Box(preview, { size = "50%" })
+                        Layout.Box(preview, { size = "50%" }),
                      }, { dir = "row" }),
                      minimal = Layout.Box({
                         Layout.Box(results, { grow = 1 }),
-                        Layout.Box(prompt, { size = 3 })
+                        Layout.Box(prompt, { size = 3 }),
                      }, { dir = "col" }),
                   }
 
@@ -1510,15 +1506,14 @@ return {
                   end
 
                   local function get_layout_size(box_kind)
-                     return picker.layout_config[box_kind == "minimal"
-                        and "vertical" or box_kind].size
+                     return picker.layout_config[box_kind == "minimal" and "vertical" or box_kind].size
                   end
 
                   local box, box_kind = get_box()
                   local layout = Layout({
                      relative = "editor",
                      position = "50%",
-                     size = get_layout_size(box_kind)
+                     size = get_layout_size(box_kind),
                   }, box)
 
                   layout.picker = picker
@@ -1529,96 +1524,95 @@ return {
                      local box, box_kind = get_box()
                      prepare_layout_parts(layout, box_kind)
                      layout_update(self, {
-                        size = get_layout_size(box_kind)
+                        size = get_layout_size(box_kind),
                      }, box)
                   end
 
                   return TSLayout(layout)
-               end
-            }
+               end,
+            },
          })
 
          telescope.load_extension("frecency")
          telescope.load_extension("fzf")
          telescope.load_extension("gh")
          telescope.load_extension("lazy")
-         telescope.load_extension('nerdy')
+         telescope.load_extension("nerdy")
          telescope.load_extension("repo")
---          require("telescope.builtin").symbols{
---             sources = {
---                "emoji",
---                "gitmoji",
---                "julia",
---                "kaomoji",
---                "math",
---                "nerd"
---             }
---          }
-      end
+         --          require("telescope.builtin").symbols{
+         --             sources = {
+         --                "emoji",
+         --                "gitmoji",
+         --                "julia",
+         --                "kaomoji",
+         --                "math",
+         --                "nerd"
+         --             }
+         --          }
+      end,
    },
 
--- ╔═╡ PLUGIN: todo-comments.nvim ╞══════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/folke/todo-comments.nvim                  ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚══════════════════════════════════════════════════╡ Coding: comments ╞═╝ --
+   -- ╔═╡ PLUGIN: todo-comments.nvim ╞════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/folke/todo-comments.nvim            ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚════════════════════════════════════════════╡ Coding: comments ╞═╝ --
 
    {
       "folke/todo-comments.nvim",
-      cmd = { 'TodoTrouble', 'TodoTelescope' },
+      cmd = { "TodoTrouble", "TodoTelescope" },
       lazy = false,
       opts = {
          keywords = {
             FIX = {
                icon = " ",
-               color = "fix"
+               color = "fix",
             },
             TODO = {
                icon = " ",
-               color = "todo"
+               color = "todo",
             },
             HACK = {
                icon = " ",
-               color = "hack"
+               color = "hack",
             },
             WARN = {
                icon = " ",
-               color = "warn"
+               color = "warn",
             },
             PERF = {
                icon = "󰇬 ",
-               color = "perf"
+               color = "perf",
             },
             NOTE = {
                icon = " ",
-               color = "note"
+               color = "note",
             },
             IDEA = {
                icon = " ",
-               color = "note"
+               color = "note",
             },
             TEST = {
                icon = " ",
-               color = "test"
+               color = "test",
             },
             SECTION = {
-               icon = '󰚟 ',
-               color = 'section'
+               icon = "󰚟 ",
+               color = "section",
             },
             SUBSECTION = {
-               icon = '¶ ',
-               color = 'subsection'
+               icon = "¶ ",
+               color = "subsection",
             },
             PLUGIN = {
-               icon = ' ',
-               color = 'plugin'
+               icon = " ",
+               color = "plugin",
             },
             FUNCTION = {
-               icon = '󰡱 ',
-               color = 'plugin'
-            }
+               icon = "󰡱 ",
+               color = "plugin",
+            },
          },
          merge_keywords = true,
-
 
          --  FIX:
          --  TODO:
@@ -1643,10 +1637,7 @@ return {
             test = { "#deb887" },
             plugin = { "#ba55d3" },
             section = { "#1e91ff" },
-            subsection = { "#87cefa" }
-
-
-
+            subsection = { "#87cefa" },
          },
          highlight = {
             multiline = false, -- default: false
@@ -1660,16 +1651,16 @@ return {
 
             before = "", -- 'fg', 'bg', or empty
             keyword = "wide_bg", -- 'fg', 'bg', 'wide', 'wide_bg',
-                              -- 'wide_fg', or empty
-            after = "",  -- "fg", "bg" or empty
+            -- 'wide_fg', or empty
+            after = "", -- "fg", "bg" or empty
             comments_only = true,
             -- pattern or table of patterns, used for highlightng (vim regex)
             -- pattern = [[[-]{1,2}.*<(KEYWORDS)\s*:]],
             pattern = {
                [[.*<(KEYWORDS)\s*:]],
-            }
-         }
-      }
+            },
+         },
+      },
    },
 
    --[[
@@ -1691,23 +1682,23 @@ return {
       Also need to make multiline work. Soonish.
    --]]
 
--- ╔═╡ PLUGIN: treesj ╞══════════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/Wansmer/treesj                            ║ --
--- ║  License: MIT                                                         ║ --
--- ╚════════════════════════════════════════════════════════════╡ Coding ╞═╝ --
+   -- ╔═╡ PLUGIN: treesj ╞════════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/Wansmer/treesj                      ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════════════════╡ Coding ╞═╝ --
 
    {
       "Wansmer/treesj",
       opts = {
          use_default_keymaps = false,
-         max_join_length = 79
-      }
+         max_join_length = 79,
+      },
    },
 
--- ╔═╡ PLUGIN: trouble.nvim ╞════════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/folke/trouble.nvim                        ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════╡ Coding: Diagnostics ╞═╝ --
+   -- ╔═╡ PLUGIN: trouble.nvim ╞══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/folke/trouble.nvim                  ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════╡ Coding: Diagnostics ╞═╝ --
 
    {
       "folke/trouble.nvim",
@@ -1751,27 +1742,27 @@ return {
             zX = "fold_update_all",
             zn = "fold_disable",
             zN = "fold_enable",
-            zi = "fold_toggle_enable"
-         }
-      }
+            zi = "fold_toggle_enable",
+         },
+      },
    },
 
--- ╔═╡ PLUGIN: virtcolumn.nvim ╞═════════════════════════════════╡ [*  ] ╞═╗ --
--- ║  Source: https://github.com/lukas-reineke/virt-column.nvim            ║ --
--- ║  License: MIT                                                         ║ --
--- ╚═══════════════════════════════════════════════════╡ UI: Colorcolumn ╞═╝ --
+   -- ╔═╡ PLUGIN: virtcolumn.nvim ╞═══════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/lukas-reineke/virt-column.nvim      ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════╡ UI: Colorcolumn ╞═╝ --
 
    {
       "lukas-reineke/virt-column.nvim",
       opts = {
-         virtcolumn = "80"
-      }
+         virtcolumn = "80",
+      },
    },
 
--- ╔═╡ PLUGIN: which-key.nvim ╞══════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/folke/which-key.nvim                      ║ --
--- ║  License: Apache-2.0                                                  ║ --
--- ╚═══════════════════════════════════════════════════╡ Editor: Keymaps ╞═╝ --
+   -- ╔═╡ PLUGIN: which-key.nvim ╞════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/folke/which-key.nvim                ║ --
+   -- ║  License: Apache-2.0                                            ║ --
+   -- ╚═════════════════════════════════════════════╡ Editor: Keymaps ╞═╝ --
 
    {
       "folke/which-key.nvim",
@@ -1782,25 +1773,22 @@ return {
          notify = true,
          triggers = {
             { "<auto>", mode = "nixsotc" },
-            { "<leader>", mode = { "n", "v" } }
+            { "<leader>", mode = { "n", "v" } },
          },
          keys = {
             scroll_down = "<A-DOWN>",
-            scroll_up = "<A-UP>"
+            scroll_up = "<A-UP>",
          },
-         sort = { "alphanum" }
-      }
+         sort = { "alphanum" },
+      },
    },
 
--- ╔═╡ PLUGIN: yanky.nvim ╞══════════════════════════════════════╡ [** ] ╞═╗ --
--- ║  Source: https://github.com/gbprod/yanky.nvim                         ║ --
--- ║  License: WTFPL                                                       ║ --
--- ╚═════════════════════════════════════════╡ Coding: Text Manipulation ╞═╝ --
+   -- ╔═╡ PLUGIN: yanky.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
+   -- ║  Source: https://github.com/gbprod/yanky.nvim                   ║ --
+   -- ║  License: WTFPL                                                 ║ --
+   -- ╚═══════════════════════════════════╡ Coding: Text Manipulation ╞═╝ --
 
-   { "gbprod/yanky.nvim", config = true }
-
-
+   { "gbprod/yanky.nvim", config = true },
 }
 
 -- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --
-

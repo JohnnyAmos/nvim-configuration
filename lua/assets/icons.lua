@@ -1,4 +1,4 @@
--- ╔═JMJ═══════════════════════╡  ❈✧❈  ✞  ❈✧❈  ╞══════════════════════AMDG═╗ --
+-- ╔═JMJ════════════════════════════╡  ✞  ╞═══════════════════════════AMDG═╗ --
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
@@ -11,29 +11,31 @@
 
 local icons = {}
 
--- ╞═╡  SECTION: icons.gitsigns (for gitsigns.nvim) ╞══════════════════════╡ --
+-- ╞═╡  SECTION: icons for gitsigns.nvim ╞═════════════════════════════════╡ --
+
+-- ╞═╡  SUBSECTION: icons.gitsigns ╞═══════════════════════════════════════╡ --
 
 function icons.gitsigns()
    return {
-      add = { text = '┃' },
-      change = { text = '┃' },
-      delete = { text = '_' },
-      topdelete = { text = '‾' },
-      changedelete = { text = '~' },
-      untracked = { text = '┆' }
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "┆" },
    }
 end
 
--- ╞═╡  SECTION: icons.gitsigns_staged (for gitsigns.nvim) ╞═══════════════╡ --
+-- ╞═╡  SUBSECTION: icons.gitsigns_staged ╞════════════════════════════════╡ --
 
 function icons.gitsigns_staged()
    return {
-      add = { text = '┃' },
-      change = { text = '┃' },
-      delete = { text = '_' },
-      topdelete = { text = '‾' },
-      changedelete = { text = '~' },
-      untracked = { text = '┆' }
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "┆" },
    }
 end
 
@@ -41,9 +43,9 @@ end
 
 function icons.lualine_ff_symbols()
    return {
-      unix = ' ',
-      dos = ' ',
-      mac = ' '
+      unix = " ",
+      dos = " ",
+      mac = " ",
    }
 end
 
@@ -53,7 +55,7 @@ function icons.mason_ui()
    return {
       package_installed = "✓",
       package_pending = "➜",
-      package_uninstalled = "✗"
+      package_uninstalled = "✗",
    }
 end
 
@@ -115,11 +117,11 @@ function icons.lazy()
       start = " ",
       task = "✔ ",
       list = {
-        "●",
-        "➜",
-        "★",
-        "‒"
-      }
+         "●",
+         "➜",
+         "★",
+         "‒",
+      },
    }
 end
 
@@ -184,8 +186,6 @@ end
 --    preview = { "─", "│", "─", "│", "─", "╮", "╯", "╰", }
 -- }
 
-
 return icons
 
--- ╞═════════════════════════╡  ❈✧❈  finis  ❈✧❈  ╞═════════════════════════╡ --
-
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

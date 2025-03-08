@@ -2,8 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 14:28
-
+--                                              Last modified: 2025-03-08 14:44
 
 vim.loader.enable()
 
@@ -31,7 +30,7 @@ require("config.keymaps")
          -  The <c-s> map for flash.nvim makes no sense. Make it make sense.
          -  Arrange core maps as close to asciibetical (or utf-8) order as
             possible.
-         -  Move trouble.nvim maps from plugin spec` to keymaps.lua.
+         -  Move trouble.nvim maps from plugin spec to keymaps.lua.
          -  Get all the keymaps out of specs and with the rest of the maps if
             it means modifying source code and submitting pull requests.
 
@@ -69,4 +68,3 @@ require("config.keymaps")
 ]]
 
 -- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --
-
