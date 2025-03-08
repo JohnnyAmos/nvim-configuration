@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-06 15:07
+--                                              Last modified: 2025-03-08 14:28
 
 
 vim.loader.enable()
@@ -14,7 +14,7 @@ require("config.keymaps")
 
 --[[
 
-   WARN: This is a complete mess of several incomplete implementations being
+   WARNING: This is a complete mess of several incomplete implementations being
    melded together to make an efficient and extensive nvim configuration
    that works for my particular and peculiar needs. The cheese is being
    moved on the regular. The maze walls are want to dissappear, which is a
@@ -28,6 +28,7 @@ require("config.keymaps")
 
       Keymaps:
 
+         -  The <c-s> map for flash.nvim makes no sense. Make it make sense.
          -  Arrange core maps as close to asciibetical (or utf-8) order as
             possible.
          -  Move trouble.nvim maps from plugin spec` to keymaps.lua.
@@ -36,7 +37,6 @@ require("config.keymaps")
 
       Plugins in need of configuration:
 
-         -  conform.nvim
          -  edgy.nvim:
             -  Change config to new terminal plugin.
          -  gitsigns.nvim:
@@ -68,5 +68,5 @@ require("config.keymaps")
 
 ]]
 
--- ╞═════════════════════════╡  ❈✧❈  finis  ❈✧❈  ╞═════════════════════════╡ --
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --
 
