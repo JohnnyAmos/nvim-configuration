@@ -2,14 +2,22 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 14:44
+--                                              Last modified: 2025-03-09 22:50
 
 vim.loader.enable()
 
-require("config.options")
-require("config.lazy")
-require("config.autocommands")
-require("config.keymaps")
+local function safeRequire(module)
+   local ok, loadedModule = pcall(require, module)
+   if ok then
+      return loadedModule
+   end
+   vim.cmd.echo("Error loading " .. module)
+end
+
+safeRequire("config.options")
+safeRequire("config.lazy")
+safeRequire("config.autocommands")
+safeRequire("config.keymaps")
 
 --[[
 
@@ -22,11 +30,15 @@ require("config.keymaps")
 
       TODO: Continue configuration of nvim.
 
-      Add fortune code to footer of startup screen and integrate fortune
-      plugin.
+      - Move plugin specifications to their own files. Only one-liners should
+        stay in init.lua.
+      - Add fortune code to footer of startup screen and integrate fortune
+        plugin.
 
       Keymaps:
 
+         -  Finish maps for nvim-various-textobjects.
+         -  Add keymaps to replace option-up & option-down for which-key.nvim.
          -  The <c-s> map for flash.nvim makes no sense. Make it make sense.
          -  Arrange core maps as close to asciibetical (or utf-8) order as
             possible.

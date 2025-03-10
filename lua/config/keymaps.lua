@@ -4,11 +4,51 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 14:37
+--                                              Last modified: 2025-03-09 22:47
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
 -- c = Command-line
+
+--[[
+
+   Plugins whose keymaps are configured here:
+
+      - conform.nvim
+      - edgy.nvim
+      - flash.nvim
+      - gitsigns.nvim
+      - lsp_lines.nvim
+      - marks.nvim
+      - mini.move
+      - multiple-cursors.nvim
+      - nvim-comment-frame
+      - nvim-lspconfig
+      - nvim-surround
+      - nvim-treesitter-textobjects
+      - octo.nvim
+      - telescope.nvim
+      - todo-comments.nvim
+      - treesitter.nvim
+      - treesj
+      - trouble.nvim
+      - which-key.nvim
+      - yanky.nvim
+
+
+   Plugins whose keymaps are configured in plugins/init.lua:
+   NOTE: This list is incomplete.
+
+      - Comment.nvim
+      - mini.align
+      - mini.bracketed
+      - mini.jump
+      - mini.jump2d
+      - mini.move
+      - mini.operators
+      - mini.pairs
+
+--]]
 
 local wk = require("which-key")
 
@@ -34,6 +74,17 @@ wk.add({
       "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>",
       desc = "Add lines above cursor.",
    },
+
+   -- Easy indenting in visual mode.
+   { "<", "<gv", mode = "v" },
+   { ">", ">gv", mode = "v" },
+
+   -- Easily switch buffers.
+   { "<tab>", "<cmd>bn<cr>" },
+   { "<s-tab>", "<cmd>bp<cr>" },
+
+   -- Upen hover information in temporary window.
+   { "K", "<cmd>lua vim.lsp.buf.hover()<cr>" },
 
    -- Move line up or down. This may be superfluous with mini.move.
    { "<s-up>", "yyddkP", desc = "Move line up" },
@@ -124,24 +175,11 @@ wk.add({
       desc = "Add cursor and move up",
    },
    { --                                              ==> @multiple-cursors.nvim
-      "<C-Up>",
-      "<Cmd>MultipleCursorsAddUp<CR>",
-      mode = { "n", "i", "x" },
-      desc = "Add cursor and move up",
-   },
-   { --                                              ==> @multiple-cursors.nvim
-      "<C-Down>",
-      "<Cmd>MultipleCursorsAddDown<CR>",
-      mode = { "n", "i", "x" },
-      desc = "Add cursor and move down",
-   },
-   { --                                              ==> @multiple-cursors.nvim
       "<C-LeftMouse>",
       "<Cmd>MultipleCursorsMouseAddDelete<CR>",
       mode = { "n", "i" },
       desc = "Add or remove cursor",
    },
-
    { --                                                          ==> @mini.move
       "<A-h>",
       function()
@@ -1339,10 +1377,46 @@ wk.add({
 wk.add({
 
    { "<leader>l", group = "LSP" },
-   {
-      "<leader>li",
+   { --                                                     ==> @lsp_lines.nvim
+      "<leader>l1",
+      require("lsp_lines").toggle,
+      desc = "Toggle lsp_lines",
+   },
+   { --                                                     ==> @nvim-lspconfig
+      "<leader>l2",
       "<cmd>LspInfo<cr>",
       desc = "LSP Info",
+   },
+   { --                                                     ==> @nvim-lspconfig
+      "<leader>l3",
+      "<cmd>LspStart<cr>",
+      desc = "Start LSP client",
+   },
+   { --                                                     ==> @nvim-lspconfig
+      "<leader>l4",
+      "<cmd>LspStop<cr>",
+      desc = "Stop LSP client",
+   },
+   { --                                                     ==> @nvim-lspconfig
+      "<leader>l5",
+      "<cmd>LspRestart<cr>",
+      desc = "Restart LSP client",
+   },
+   {
+      "<leader>ld",
+      "<cmd>lua vim.lsp.buf.definition()<cr>",
+   },
+   {
+      "<leader>lf",
+      "<cmd>lua vim.lsp.buf.references()<cr>",
+   },
+   {
+      "<leader>lm",
+      "<cmd>lua vim.lsp.buf.implementation()<cr>",
+   },
+   {
+      "<leader>lr",
+      "<cmd>lua vim.lsp.buf.rename()<cr>",
    },
 })
 
@@ -1647,6 +1721,439 @@ wk.add({
 
 -- ╞════╡ SECTION: Leader t: Text ╞════════════════════════════════════════╡ --
 
+--[[
+
+   TODO: For the nvim-various-textobjects keymap setup.
+
+   { "<leader>tosi", desc = "Select > Indentation…" }
+   {
+      "<leader>tosii",
+      '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>'
+      mode = { "o", "x" },
+      desc = "Select inner indentation",
+   },
+   {
+      "<leader>tosio",
+      '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>'
+      mode = { "o", "x" },
+      desc = "Select outer indentation",
+   },
+
+   {
+      "<leader>tosir",
+      '<cmd>lua require("various-textobjs").restOfIndentation()<cr>',
+      mode = { "o", "x" },
+      desc = "Select rest of indentation",
+   },
+
+   { "<leader>tosig", desc = "Select > Indentation > Greedy…" }
+   {
+      "<leader>tosigo",
+      '<cmd>lua require("various-textobjs").greedyOuterIndentation("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer indentation (greedy)",
+   },
+   {
+      "<leader>tosigi",
+      '<cmd>lua require("various-textobjs").greedyOuterIndentation("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "Select inner indentation (greedy)",
+   },
+
+   { "<leader>toss", desc = "Select > Subword…" }
+   {
+      "<leader>tosso",
+      '<cmd>lua require("various-textobjs").subword("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer subword",
+   },
+   {
+      "<leader>tossi",
+      '<cmd>lua require("various-textobjs").subword("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "Select inner subword",
+   },
+
+   { "<leader>tosn", desc = "Select > Next…" }
+   {
+      "<leader>tosnb",
+      '<cmd>lua require("various-textobjs").toNextClosingBracket()<cr>',
+      mode = { "o", "x" },
+      desc = "Select to next closing bracket",
+   },
+   {
+      "<leader>tosnq",
+      '<cmd>lua require("various-textobjs").toNextQuotationMark()<cr>',
+      mode = { "o", "x" },
+      desc = "Select to next quotation mark",
+   },
+
+   { "<leader>tosy", desc = "Select > Any…" }
+   { "<leader>tosyq", desc = "Select > Any > Quote…" }
+   {
+      "<leader>tosyqo",
+      '<cmd>lua require("various-textobjs").anyQuote("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select any outer quote",
+   },
+   {
+      "<leader>tosyqi",
+      '<cmd>lua require("various-textobjs").anyQuote("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "Select any inner quote",
+   },
+
+   { "<leader>tosyb", desc = "Select > Any > Bracket…" }
+   {
+      "<leader>tosybo",
+      '<cmd>lua require("various-textobjs").anyBracket("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>tosybi",
+      '<cmd>lua require("various-textobjs").anyBracket("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   { "<leader>tosg", desc = "Select > Paragraph…" }
+   {
+      "<leader>tosgr",
+      '<cmd>lua require("various-textobjs").restOfParagraph()<cr>',
+      mode = { "o", "x" },
+      desc = "Select rest of paragraph",
+   },
+
+   { "<leader>tosb", desc = "Select > Paragraph…" }
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").entireBuffer()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   nearEoL
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").nearEoL()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   lineCharacterwise
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").lineCharacterwise("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   column
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").column()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   value
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").value("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").value("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   key
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").key("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").key("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   url
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").url()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   number
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").number("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").number("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   diagnostic
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").diagnostic()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   closedFold
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").closedFold("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").closedFold("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   chainMember
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").chainMember("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").chainMember("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   visibleInWindow
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").visibleInWindow()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   restOfWindow
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").restOfWindow()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   lastChange
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").lastChange()<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+   mdLink
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").mdLink("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").mdLink("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   mdEmphasis
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").mdEmphasis("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").mdEmphasis("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   mdFencedCodeBlock
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   cssselector
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").cssselector("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").cssselector("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   cssColor
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").cssColor("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").cssColor("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   htmlAttribute
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").htmlAttribute("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").htmlAttribute("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   doubleSquareBrackets
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").doubleSquareBrackets("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").doubleSquareBrackets("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   shellPipe
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").shellPipe("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").shellPipe("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   pyTripleQuotes
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").pyTripleQuotes("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").pyTripleQuotes("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+   notebookCell
+
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").notebookCell("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").notebookCell("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "",
+   },
+
+
+--]]
+
 wk.add({
 
    { "<leader>t", group = "Text" },
@@ -1826,8 +2333,8 @@ wk.add({
       desc = "Select right hand side of an assignment",
    },
 
-   -- Select > Class
-   { "<leader>tosc", desc = "Select > Class…" },
+   -- Select > Function Call
+   { "<leader>tosf", desc = "Select > Function Call…" },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosfi",
       "<cmd>TSTextobjectSelect @call.inner<cr>",

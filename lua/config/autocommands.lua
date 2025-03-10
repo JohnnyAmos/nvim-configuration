@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 14:39
+--                                              Last modified: 2025-03-09 02:59
 
 local api = vim.api
 local aucmd = api.nvim_create_autocmd

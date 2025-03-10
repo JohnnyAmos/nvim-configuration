@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 15:10
+--                                              Last modified: 2025-03-09 21:48
 
 --[[
 
@@ -28,38 +28,41 @@
 
 --]]
 
--- ╔═╡ PLUGIN:  ╞═════════════════════════╡ [   ] ╞═╗ --
--- ║  Source:         ║ --
--- ║  License:                                           ║ --
--- ╚══════════════════════════════════════════╡  ╞═╝ --
-
 return {
 
-   -- ╔═╡ PLUGIN: Comment.nvim ╞═══════════════════════════╡ [***] ╞═╗ --
-   -- ║  Source: https://github.com/numToStr/Comment.nvim            ║ --
-   -- ║  License: MIT                                                ║ --
-   -- ╚═════════════════════════════════════════╡ Coding: Comments ╞═╝ --
+   --  NOTE: The following is a blank for copying to the proper location for a
+   -- new plugin.
+
+   -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [   ] ╞═╗ --
+   -- ║  Source:                                                        ║ --
+   -- ║  License:                                                       ║ --
+   -- ╚════════════════════════════════════════════════════════════╡  ╞═╝ --
+
+   -- ╔═╡ PLUGIN: Comment.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
+   -- ║  Source: https://github.com/numToStr/Comment.nvim               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
 
    { "numToStr/Comment.nvim" },
 
-   -- ╔═╡ PLUGIN: cmp-buffer ╞═════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/cmp-buffer               ║ --
-   -- ║  License: MIT                                                ║ --
-   -- ╚═══════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- ╔═╡ PLUGIN: cmp-buffer ╞════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/cmp-buffer                  ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
    --   { "hrsh7th/cmp-buffer" },
 
-   -- ╔═╡ PLUGIN: cmp-nvim-lsp ╞═══════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/cmp-nvim-lsp             ║ --
-   -- ║  License: MIT                                                ║ --
-   -- ╚════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
+   -- ╔═╡ PLUGIN: cmp-nvim-lsp ╞══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/cmp-nvim-lsp                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═══════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
 
    --   { "hrsh7th/cmp-nvim-lsp" },
 
-   -- ╔═╡ PLUGIN: cmp-path ╞═══════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/cmp-path                 ║ --
-   -- ║  License: MIT                                                ║ --
-   -- ╚═══════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- ╔═╡ PLUGIN: cmp-path ╞══════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/hrsh7th/cmp-path                    ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════╡ Coding: Completion ╞═╝ --
 
    --   { "hrsh7th/cmp-path" },
 
@@ -420,12 +423,59 @@ return {
       },
    },
 
+   -- ╔═╡ PLUGIN: glow.nvim ╞═════════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/ellisonleao/glow.nvim               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚══════════════════════════════════════════╡ Language: Markdown ╞═╝ --
+
+   {
+      "ellisonleao/glow.nvim",
+      config = true,
+      cmd = "Glow",
+   },
+
    -- ╔═╡ PLUGIN: grug-far.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
    -- ║  Source: https://github.com/MagicDuck/grug-far.nvim             ║ --
    -- ║  License: MIT                                                   ║ --
    -- ╚══════════════════════════════════════════════╡ Editor: Search ╞═╝ --
 
    { "MagicDuck/grug-far.nvim" },
+
+   -- ╔═╡ PLUGIN: hardtime.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/m4xshen/hardtime.nvim               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════════╡ Utility ╞═╝ --
+
+   --    {
+   --       "m4xshen/hardtime.nvim",
+   --       dependencies = { "MunifTanjim/nui.nvim" },
+   --       opts = {},
+   --    },
+
+   -- ╔═╡ PLUGIN: hawtkeys.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/tris203/hawtkeys.nvim               ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚════════════════════════════════════════════╡ Utility: Keymaps ╞═╝ --
+
+   {
+      "tris203/hawtkeys.nvim",
+      dependencies = {
+         "nvim-lua/plenary.nvim",
+         "nvim-treesitter/nvim-treesitter",
+      },
+      config = function()
+         require("hawtkeys").setup({
+            customMaps = {
+               ["wk.register"] = {
+                  method = "which_key",
+               },
+               ["lazy"] = {
+                  method = "lazy",
+               },
+            },
+         })
+      end,
+   },
 
    -- ╔═╡ PLUGIN: icon-picker.nvim ╞══════════════════════════╡ [*  ] ╞═╗ --
    -- ║  Source: https://github.com/JohnnyAmos/icon-picker.nvim         ║ --
@@ -492,6 +542,25 @@ return {
    --          }
    --       }
    --    },
+
+   -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [   ] ╞═╗ --
+   -- ║  Source:                                                        ║ --
+   -- ║  License:                                                       ║ --
+   -- ╚════════════════════════════════════════════════════════════╡  ╞═╝ --
+
+   {
+      url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+         require("lsp_lines").setup()
+      end,
+      vim.diagnostic.config({
+         virtual_text = false,
+         virtual_lines = {
+            only_current_line = true,
+            highlight_whole_line = false,
+         },
+      }),
+   },
 
    -- ╔═╡ PLUGIN: lualine.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
    -- ║  Source: https://github.com/nvim-lualine/lualine.nvim           ║ --
@@ -1224,6 +1293,21 @@ return {
       },
    },
 
+   -- ╔═╡ PLUGIN: nvim-various-textobjects ╞══════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/chrisgrieser/nvim-various-textobjs  ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════╡ Coding: Object Manipulation ╞═╝ --
+
+   {
+      "chrisgrieser/nvim-various-textobjs",
+      event = "VeryLazy",
+      opts = {
+         keymaps = {
+            useDefaults = false,
+         },
+      },
+   },
+
    -- ╔═╡ PLUGIN: nvim-web-devicons ╞═════════════════════════╡ [***] ╞═╗ --
    -- ║  Source: https://github.com/nvim-tree/nvim-web-devicons         ║ --
    -- ║  License: MIT                                                   ║ --
@@ -1776,8 +1860,8 @@ return {
             { "<leader>", mode = { "n", "v" } },
          },
          keys = {
-            scroll_down = "<A-DOWN>",
-            scroll_up = "<A-UP>",
+            scroll_down = "<c-d>",
+            scroll_up = "<c-u>",
          },
          sort = { "alphanum" },
       },
