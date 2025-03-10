@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-09 22:47
+--                                              Last modified: 2025-03-10 10:43
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -1721,11 +1721,35 @@ wk.add({
 
 -- ╞════╡ SECTION: Leader t: Text ╞════════════════════════════════════════╡ --
 
---[[
 
-   TODO: For the nvim-various-textobjects keymap setup.
+   -- TODO: For the nvim-various-textobjects keymap setup.
 
-   { "<leader>tosi", desc = "Select > Indentation…" }
+   { "<leader>tosb", desc = "Select > Buffer…" },
+   {
+      "<leader>to",
+      '<cmd>lua require("various-textobjs").entireBuffer()<cr>',
+      mode = { "o", "x" },
+      desc = "Select entire buffer",
+   },
+   {
+      "<leader>tose",
+      '<cmd>lua require("various-textobjs").nearEoL()<cr>',
+      mode = { "o", "x" },
+      desc = "Select to near EoL",
+   },
+
+   { "<leader>tosg", desc = "Select > Paragraph…" },
+   {
+      "<leader>tosgr",
+      '<cmd>lua require("various-textobjs").restOfParagraph()<cr>',
+      mode = { "o", "x" },
+      desc = "Select rest of paragraph",
+   },
+
+
+
+
+   { "<leader>tosi", desc = "Select > Indentation…" },
    {
       "<leader>tosii",
       '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>'
@@ -1738,6 +1762,19 @@ wk.add({
       mode = { "o", "x" },
       desc = "Select outer indentation",
    },
+   { "<leader>tosig", desc = "Select > Indentation > Greedy…" },
+   {
+      "<leader>tosigi",
+      '<cmd>lua require("various-textobjs").greedyOuterIndentation("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "Select inner indentation (greedy)",
+   },
+   {
+      "<leader>tosigo",
+      '<cmd>lua require("various-textobjs").greedyOuterIndentation("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer indentation (greedy)",
+   },
 
    {
       "<leader>tosir",
@@ -1746,35 +1783,7 @@ wk.add({
       desc = "Select rest of indentation",
    },
 
-   { "<leader>tosig", desc = "Select > Indentation > Greedy…" }
-   {
-      "<leader>tosigo",
-      '<cmd>lua require("various-textobjs").greedyOuterIndentation("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer indentation (greedy)",
-   },
-   {
-      "<leader>tosigi",
-      '<cmd>lua require("various-textobjs").greedyOuterIndentation("inner")<cr>',
-      mode = { "o", "x" },
-      desc = "Select inner indentation (greedy)",
-   },
-
-   { "<leader>toss", desc = "Select > Subword…" }
-   {
-      "<leader>tosso",
-      '<cmd>lua require("various-textobjs").subword("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer subword",
-   },
-   {
-      "<leader>tossi",
-      '<cmd>lua require("various-textobjs").subword("inner")<cr>',
-      mode = { "o", "x" },
-      desc = "Select inner subword",
-   },
-
-   { "<leader>tosn", desc = "Select > Next…" }
+   { "<leader>tosn", desc = "Select > Next…" },
    {
       "<leader>tosnb",
       '<cmd>lua require("various-textobjs").toNextClosingBracket()<cr>',
@@ -1788,77 +1797,65 @@ wk.add({
       desc = "Select to next quotation mark",
    },
 
-   { "<leader>tosy", desc = "Select > Any…" }
-   { "<leader>tosyq", desc = "Select > Any > Quote…" }
+   { "<leader>toss", desc = "Select > Subword…" },
    {
-      "<leader>tosyqo",
-      '<cmd>lua require("various-textobjs").anyQuote("outer")<cr>',
+      "<leader>tossi",
+      '<cmd>lua require("various-textobjs").subword("inner")<cr>',
       mode = { "o", "x" },
-      desc = "Select any outer quote",
+      desc = "Select inner subword",
    },
+   {
+      "<leader>tosso",
+      '<cmd>lua require("various-textobjs").subword("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer subword",
+   },
+
+
+   { "<leader>tosy", desc = "Select > Any…" },
+   { "<leader>tosyb", desc = "Select > Any > Bracket…" },
+   {
+      "<leader>tosybi",
+      '<cmd>lua require("various-textobjs").anyBracket("inner")<cr>',
+      mode = { "o", "x" },
+      desc = "Select any inner bracket",
+   },
+   {
+      "<leader>tosybo",
+      '<cmd>lua require("various-textobjs").anyBracket("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select any outer bracket",
+   },
+
+   { "<leader>tosyq", desc = "Select > Any > Quote…" },
    {
       "<leader>tosyqi",
       '<cmd>lua require("various-textobjs").anyQuote("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select any inner quote",
    },
-
-   { "<leader>tosyb", desc = "Select > Any > Bracket…" }
    {
-      "<leader>tosybo",
-      '<cmd>lua require("various-textobjs").anyBracket("outer")<cr>',
+      "<leader>tosyqo",
+      '<cmd>lua require("various-textobjs").anyQuote("outer")<cr>',
       mode = { "o", "x" },
-      desc = "",
-   },
-   {
-      "<leader>tosybi",
-      '<cmd>lua require("various-textobjs").anyBracket("inner")<cr>',
-      mode = { "o", "x" },
-      desc = "",
+      desc = "Select any outer quote",
    },
 
-   { "<leader>tosg", desc = "Select > Paragraph…" }
-   {
-      "<leader>tosgr",
-      '<cmd>lua require("various-textobjs").restOfParagraph()<cr>',
-      mode = { "o", "x" },
-      desc = "Select rest of paragraph",
-   },
 
-   { "<leader>tosb", desc = "Select > Paragraph…" }
-   {
-      "<leader>to",
-      '<cmd>lua require("various-textobjs").entireBuffer()<cr>',
-      mode = { "o", "x" },
-      desc = "",
-   },
-
-   nearEoL
-
-   {
-      "<leader>to",
-      '<cmd>lua require("various-textobjs").nearEoL()<cr>',
-      mode = { "o", "x" },
-      desc = "",
-   },
-
-   lineCharacterwise
 
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").lineCharacterwise("outer")<cr>',
       mode = { "o", "x" },
-      desc = "",
+      desc = "Select outer line characterwise",
    },
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>',
       mode = { "o", "x" },
-      desc = "",
+      desc = "Select inner line characterwise",
    },
 
-
-   column
 
    {
       "<leader>to",
@@ -1866,8 +1863,6 @@ wk.add({
       mode = { "o", "x" },
       desc = "",
    },
-
-   value
 
    {
       "<leader>to",
@@ -1883,8 +1878,6 @@ wk.add({
    },
 
 
-   key
-
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").key("outer")<cr>',
@@ -1899,16 +1892,12 @@ wk.add({
    },
 
 
-   url
-
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").url()<cr>',
       mode = { "o", "x" },
       desc = "",
    },
-
-   number
 
    {
       "<leader>to",
@@ -1924,16 +1913,12 @@ wk.add({
    },
 
 
-   diagnostic
-
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").diagnostic()<cr>',
       mode = { "o", "x" },
       desc = "",
    },
-
-   closedFold
 
    {
       "<leader>to",
@@ -1949,8 +1934,6 @@ wk.add({
    },
 
 
-   chainMember
-
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").chainMember("outer")<cr>',
@@ -1965,16 +1948,12 @@ wk.add({
    },
 
 
-   visibleInWindow
-
    {
       "<leader>to",
       '<cmd>lua require("various-textobjs").visibleInWindow()<cr>',
       mode = { "o", "x" },
       desc = "",
    },
-
-   restOfWindow
 
    {
       "<leader>to",
@@ -1983,7 +1962,6 @@ wk.add({
       desc = "",
    },
 
-   lastChange
 
    {
       "<leader>to",
@@ -1992,7 +1970,6 @@ wk.add({
       desc = "",
    },
 
-   mdLink
 
    {
       "<leader>to",
@@ -2008,7 +1985,6 @@ wk.add({
    },
 
 
-   mdEmphasis
 
    {
       "<leader>to",
@@ -2024,7 +2000,6 @@ wk.add({
    },
 
 
-   mdFencedCodeBlock
 
    {
       "<leader>to",
@@ -2040,7 +2015,6 @@ wk.add({
    },
 
 
-   cssselector
 
    {
       "<leader>to",
@@ -2056,7 +2030,6 @@ wk.add({
    },
 
 
-   cssColor
 
    {
       "<leader>to",
@@ -2072,7 +2045,6 @@ wk.add({
    },
 
 
-   htmlAttribute
 
    {
       "<leader>to",
@@ -2088,7 +2060,6 @@ wk.add({
    },
 
 
-   doubleSquareBrackets
 
    {
       "<leader>to",
@@ -2104,7 +2075,6 @@ wk.add({
    },
 
 
-   shellPipe
 
    {
       "<leader>to",
@@ -2120,7 +2090,6 @@ wk.add({
    },
 
 
-   pyTripleQuotes
 
    {
       "<leader>to",
@@ -2136,7 +2105,6 @@ wk.add({
    },
 
 
-   notebookCell
 
    {
       "<leader>to",
@@ -2152,7 +2120,6 @@ wk.add({
    },
 
 
---]]
 
 wk.add({
 
