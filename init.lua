@@ -2,22 +2,14 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-09 22:50
+--                                              Last modified: 2025-03-10 15:28
 
 vim.loader.enable()
 
-local function safeRequire(module)
-   local ok, loadedModule = pcall(require, module)
-   if ok then
-      return loadedModule
-   end
-   vim.cmd.echo("Error loading " .. module)
-end
-
-safeRequire("config.options")
-safeRequire("config.lazy")
-safeRequire("config.autocommands")
-safeRequire("config.keymaps")
+require("config.options")
+require("config.lazy")
+require("config.autocommands")
+require("config.keymaps")
 
 --[[
 
