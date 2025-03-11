@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-10 17:16
+--                                              Last modified: 2025-03-10 21:09
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -1721,11 +1721,6 @@ wk.add({
 
 -- ╞════╡ SECTION: Leader t: Text ╞════════════════════════════════════════╡ --
 
-
-
-
-
-
 wk.add({
 
    { "<leader>t", group = "Text" },
@@ -1890,33 +1885,96 @@ wk.add({
    -- Select
    { "<leader>tos", desc = "Select…" },
 
+   -- Select Rest of Indentation
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosa",
+      '<cmd>lua require("various-textobjs").restOfIndentation()<cr>',
+      mode = { "o", "x" },
+      desc = "Select rest of indentation",
+   },
+
+   -- Select Buffer
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosb",
+      '<cmd>lua require("various-textobjs").entireBuffer()<cr>',
+      mode = { "o", "x" },
+      desc = "Select entire buffer",
+   },
+
+   -- Select Column
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosc",
+      '<cmd>lua require("various-textobjs").column()<cr>',
+      mode = { "o", "x" },
+      desc = "Select column",
+   },
+
+   -- Select to Near End of Line
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosd",
+      '<cmd>lua require("various-textobjs").nearEoL()<cr>',
+      mode = { "o", "x" },
+      desc = "Select to near end of line",
+   },
+
+   -- Select to Next Closing Bracket
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tose",
+      '<cmd>lua require("various-textobjs").toNextClosingBracket()<cr>',
+      mode = { "o", "x" },
+      desc = "Select to next closing bracket",
+   },
+
+   -- Select to Next Quotation Mark
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosf",
+      '<cmd>lua require("various-textobjs").toNextQuotationMark()<cr>',
+      mode = { "o", "x" },
+      desc = "Select to next quotation mark",
+   },
+
+   -- Select Rest of Paragraph
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosg",
+      '<cmd>lua require("various-textobjs").restOfParagraph()<cr>',
+      mode = { "o", "x" },
+      desc = "Select rest of paragraph",
+   },
+
+   -- Select Last Change
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosh",
+      '<cmd>lua require("various-textobjs").lastChange()<cr>',
+      mode = { "o", "x" },
+      desc = "Select last change",
+   },
+
    -- Select Inner
    { "<leader>tosi", desc = "Select inner…"}
-
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosia",
       "<cmd>TSTextobjectSelect @assignment.inner<cr>",
       desc = "Select inner part of an assignment",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosib",
       '<cmd>lua require("various-textobjs").anyBracket("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select any inner bracket",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosic",
       '<cmd>lua require("various-textobjs").lineCharacterwise("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner line characterwise",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosid",
       '<cmd>lua require("various-textobjs").doubleSquareBrackets("inner")<cr>',
       mode = { "o", "x" },
-      desc = "Select double square brackets",
+      desc = "Select inner double square brackets",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosie",
       '<cmd>lua require("various-textobjs").mdEmphasis("inner")<cr>',
       mode = { "o", "x" },
@@ -1927,31 +1985,31 @@ wk.add({
       "<cmd>TSTextobjectSelect @call.inner<cr>",
       desc = "Select inner part of a function call",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosig",
       '<cmd>lua require("various-textobjs").chainMember("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner chain member",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosih",
       '<cmd>lua require("various-textobjs").htmlAttribute("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner HTML attribute",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosii",
       '<cmd>lua require("various-textobjs").indentation("inner", "inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner indentation",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosij",
       '<cmd>lua require("various-textobjs").notebookCell("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select Jupyter notebook cell",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosik",
       '<cmd>lua require("various-textobjs").key("inner")<cr>',
       mode = { "o", "x" },
@@ -1967,7 +2025,7 @@ wk.add({
       "<cmd>TSTextobjectSelect @function.inner<cr>",
       desc = "Select inner part of a method/function definition",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosin",
       '<cmd>lua require("various-textobjs").greedyOuterIndentation("inner")<cr>',
       mode = { "o", "x" },
@@ -1983,160 +2041,178 @@ wk.add({
       "<cmd>TSTextobjectSelect @parameter.inner<cr>",
       desc = "Select inner part of a parameter/argument",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosiq",
       '<cmd>lua require("various-textobjs").anyQuote("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select any inner quote",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosir",
       '<cmd>lua require("various-textobjs").mdFencedCodeBlock("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner markdown fenced code block",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosis",
       '<cmd>lua require("various-textobjs").subword("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner subword",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosit",
       '<cmd>lua require("various-textobjs").mdLink("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner markdown link",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosiu",
       '<cmd>lua require("various-textobjs").number("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner number",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosiv",
       '<cmd>lua require("various-textobjs").value("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner value",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosiw",
       '<cmd>lua require("various-textobjs").cssselector("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner CSS selector",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosix",
       '<cmd>lua require("various-textobjs").cssColor("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner CSS color",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosiy",
       '<cmd>lua require("various-textobjs").closedFold("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select inner closed fold",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosiz",
       '<cmd>lua require("various-textobjs").shellPipe("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select shell pipe",
    },
-   {
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosi1",
       '<cmd>lua require("various-textobjs").pyTripleQuotes("inner")<cr>',
       mode = { "o", "x" },
       desc = "Select Python triple quotes",
    },
 
-   -- Select Outer
-   { "<leader>tosi", desc = "Select outer…"}
-   {
-      "<leader>tosio",
-      '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>',
+   -- Select What's Visible in the Window
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosj",
+      '<cmd>lua require("various-textobjs").visibleInWindow()<cr>',
       mode = { "o", "x" },
-      desc = "Select outer indentation",
+      desc = "Select what's visible in the window",
    },
+
+   -- Select Rest of Window
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosk",
+      '<cmd>lua require("various-textobjs").restOfWindow()<cr>',
+      mode = { "o", "x" },
+      desc = "Select rest of window",
+   },
+
+
+   -- Select left hand side of assignment
    { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>tosao",
+      "<leader>tosl",
+      "<cmd>TSTextobjectSelect @assignment.lhs<cr>",
+      desc = "Select left hand side of an assignment",
+   },
+
+   -- Select Outer
+   { "<leader>toso", desc = "Select outer…"}
+   { --                                        ==> @nvim-treesitter-textobjects
+      "<leader>tosoa",
       "<cmd>TSTextobjectSelect @assignment.outer<cr>",
       desc = "Select outer part of an assignment",
    },
-   {
-      "<leader>tosdmbo",
-      '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>',
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosob",
+      '<cmd>lua require("various-textobjs").anyBracket("outer")<cr>',
       mode = { "o", "x" },
-      desc = "Select outer markdown fenced code block",
+      desc = "Select any outer bracket",
    },
-   {
-      "<leader>tosdmlo",
-      '<cmd>lua require("various-textobjs").mdLink("outer")<cr>',
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoc",
+      '<cmd>lua require("various-textobjs").lineCharacterwise("outer")<cr>',
       mode = { "o", "x" },
-      desc = "Select outer markdown link",
+      desc = "Select outer line characterwise",
    },
-   {
-      "<leader>tosdcso",
-      '<cmd>lua require("various-textobjs").cssselector("outer")<cr>',
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosod",
+      '<cmd>lua require("various-textobjs").doubleSquareBrackets("outer")<cr>',
       mode = { "o", "x" },
-      desc = "Select outer CSS selector",
+      desc = "Select outer double square brackets",
    },
-   {
-      "<leader>tosdcco",
-      '<cmd>lua require("various-textobjs").cssColor("outer")<cr>',
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoe",
+      '<cmd>lua require("various-textobjs").mdEmphasis("outer")<cr>',
       mode = { "o", "x" },
-      desc = "Select outer CSS color",
-   },
-   {
-      "<leader>tosdhao",
-      '<cmd>lua require("various-textobjs").htmlAttribute("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer HTML attribute",
+      desc = "Select outer markdown emphasis",
    },
    { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>tosfo",
+      "<leader>tosof",
       "<cmd>TSTextobjectSelect @call.outer<cr>",
       desc = "Select outer part of a function call",
    },
-   {
-      "<leader>tosft",
-      '<cmd>lua require("various-textobjs").closedFold("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer closed fold",
-   },
-   {
-      "<leader>tosho",
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosog",
       '<cmd>lua require("various-textobjs").chainMember("outer")<cr>',
       mode = { "o", "x" },
       desc = "Select outer chain member",
    },
-   {
-      "<leader>tosit",
-      '<cmd>lua require("various-textobjs").greedyOuterIndentation("outer")<cr>',
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoh",
+      '<cmd>lua require("various-textobjs").htmlAttribute("outer")<cr>',
       mode = { "o", "x" },
-      desc = "Select outer indentation (greedy)",
+      desc = "Select outer HTML attribute",
    },
-   {
-      "<leader>tosko",
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoi",
+      '<cmd>lua require("various-textobjs").indentation("outer", "inner")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer indentation",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoj",
+      '<cmd>lua require("various-textobjs").notebookCell("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer Jupyter notebook Cell",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosok",
       '<cmd>lua require("various-textobjs").key("outer")<cr>',
       mode = { "o", "x" },
       desc = "Select outer key",
    },
    { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>toslo",
+      "<leader>tosol",
       "<cmd>TSTextobjectSelect @loop.outer<cr>",
       desc = "Select outer part of a loop",
    },
-   {
-      "<leader>toslt",
-      '<cmd>lua require("various-textobjs").lineCharacterwise("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer line characterwise",
-   },
    { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>tosmo",
+      "<leader>tosom",
       "<cmd>TSTextobjectSelect @function.outer<cr>",
       desc = "Select outer part of a method/function definition",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>toson",
+      '<cmd>lua require("various-textobjs").greedyOuterIndentation("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer indentation (greedy)",
    },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosoo",
@@ -2144,160 +2220,91 @@ wk.add({
       desc = "Select outer part of a conditional",
    },
    { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>tospo",
+      "<leader>tosop",
       "<cmd>TSTextobjectSelect @parameter.outer<cr>",
       desc = "Select outer part of a parameter/argument",
    },
-   {
-      "<leader>tosso",
-      '<cmd>lua require("various-textobjs").subword("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer subword",
-   },
-   {
-      "<leader>tosvo",
-      '<cmd>lua require("various-textobjs").value("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select outer value",
-   },
-   {
-      "<leader>tosybo",
-      '<cmd>lua require("various-textobjs").anyBracket("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "Select any outer bracket",
-   },
-   {
-      "<leader>tosyqo",
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoq",
       '<cmd>lua require("various-textobjs").anyQuote("outer")<cr>',
       mode = { "o", "x" },
       desc = "Select any outer quote",
    },
-   {
-      "<leader>tos#o",
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosor",
+      '<cmd>lua require("various-textobjs").mdFencedCodeBlock("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer markdown fenced code block",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosos",
+      '<cmd>lua require("various-textobjs").subword("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer subword",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosot",
+      '<cmd>lua require("various-textobjs").mdLink("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer markdown link",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosou",
       '<cmd>lua require("various-textobjs").number("outer")<cr>',
       mode = { "o", "x" },
       desc = "Select outer number",
    },
-   {
-      "<leader>to",
-      '<cmd>lua require("various-textobjs").doubleSquareBrackets("outer")<cr>',
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosov",
+      '<cmd>lua require("various-textobjs").value("outer")<cr>',
       mode = { "o", "x" },
-      desc = "",
+      desc = "Select outer value",
    },
-   {
-      "<leader>to",
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosow",
+      '<cmd>lua require("various-textobjs").cssselector("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer CSS selector",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosox",
+      '<cmd>lua require("various-textobjs").cssColor("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer CSS color",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoy",
+      '<cmd>lua require("various-textobjs").closedFold("outer")<cr>',
+      mode = { "o", "x" },
+      desc = "Select outer closed fold",
+   },
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>tosoz",
       '<cmd>lua require("various-textobjs").shellPipe("outer")<cr>',
       mode = { "o", "x" },
-      desc = "",
+      desc = "Select outer shell pipe",
    },
-   {
-      "<leader>to",
+   { --                                           ==> @nvim-various-textobjects
+      "<leader>toso1",
       '<cmd>lua require("various-textobjs").pyTripleQuotes("outer")<cr>',
       mode = { "o", "x" },
-      desc = "",
-   },
-   {
-      "<leader>to",
-      '<cmd>lua require("various-textobjs").notebookCell("outer")<cr>',
-      mode = { "o", "x" },
-      desc = "",
+      desc = "Select outer Python triple quotes",
    },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   -- Select right hand side of assignment
    { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>tosal",
-      "<cmd>TSTextobjectSelect @assignment.lhs<cr>",
-      desc = "Select left hand side of an assignment",
-   },
-   { --                                        ==> @nvim-treesitter-textobjects
-      "<leader>tosar",
+      "<leader>tosr",
       "<cmd>TSTextobjectSelect @assignment.rhs<cr>",
       desc = "Select right hand side of an assignment",
    },
-   {
-      "<leader>tosb",
-      '<cmd>lua require("various-textobjs").entireBuffer()<cr>',
-      mode = { "o", "x" },
-      desc = "Select entire buffer",
-   },
-   {
-      "<leader>tosc",
-      '<cmd>lua require("various-textobjs").column()<cr>',
-      mode = { "o", "x" },
-      desc = "Select column",
-   },
-   {
-      "<leader>tosg",
-      '<cmd>lua require("various-textobjs").restOfParagraph()<cr>',
-      mode = { "o", "x" },
-      desc = "Select rest of paragraph",
-   },
-   {
-      "<leader>tosir",
-      '<cmd>lua require("various-textobjs").restOfIndentation()<cr>',
-      mode = { "o", "x" },
-      desc = "Select rest of indentation",
-   },
-   {
-      "<leader>tosle",
-      '<cmd>lua require("various-textobjs").nearEoL()<cr>',
-      mode = { "o", "x" },
-      desc = "Select to near end of line",
-   },
-   {
-      "<leader>tosnb",
-      '<cmd>lua require("various-textobjs").toNextClosingBracket()<cr>',
-      mode = { "o", "x" },
-      desc = "Select to next closing bracket",
-   },
-   {
-      "<leader>tosnq",
-      '<cmd>lua require("various-textobjs").toNextQuotationMark()<cr>',
-      mode = { "o", "x" },
-      desc = "Select to next quotation mark",
-   },
-   {
-      "<leader>tost",
-      '<cmd>lua require("various-textobjs").lastChange()<cr>',
-      mode = { "o", "x" },
-      desc = "Select last change",
-   },
-   {
+
+   -- Select URL
+   { --                                           ==> @nvim-various-textobjects
       "<leader>tosu",
       '<cmd>lua require("various-textobjs").url()<cr>',
       mode = { "o", "x" },
       desc = "Select URL",
    },
-   {
-      "<leader>toswv",
-      '<cmd>lua require("various-textobjs").visibleInWindow()<cr>',
-      mode = { "o", "x" },
-      desc = "Select whats visible in the window",
-   },
-   {
-      "<leader>toswr",
-      '<cmd>lua require("various-textobjs").restOfWindow()<cr>',
-      mode = { "o", "x" },
-      desc = "Select rest of window",
-   },
-
 
    -- Swap
    { "<leader>tow", desc = "Swap…" },
