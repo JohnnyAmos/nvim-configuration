@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-10 21:09
+--                                              Last modified: 2025-03-10 21:14
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -1950,7 +1950,7 @@ wk.add({
    },
 
    -- Select Inner
-   { "<leader>tosi", desc = "Select inner…"}
+   { "<leader>tosi", desc = "Select inner…" },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosia",
       "<cmd>TSTextobjectSelect @assignment.inner<cr>",
@@ -2124,7 +2124,6 @@ wk.add({
       desc = "Select rest of window",
    },
 
-
    -- Select left hand side of assignment
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosl",
@@ -2133,7 +2132,7 @@ wk.add({
    },
 
    -- Select Outer
-   { "<leader>toso", desc = "Select outer…"}
+   { "<leader>toso", desc = "Select outer…" },
    { --                                        ==> @nvim-treesitter-textobjects
       "<leader>tosoa",
       "<cmd>TSTextobjectSelect @assignment.outer<cr>",

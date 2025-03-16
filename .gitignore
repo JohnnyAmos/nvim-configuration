@@ -5,3 +5,10 @@
 .logs/*
 .info/*
 *wk.log
+
+# ast-grep
+rule-tests/*
+rules/*
+utils/*
+sgconfig.yml
+
