@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-16 21:33
+--                                              Last modified: 2025-03-18 23:49
 
 --[[
 
@@ -15,7 +15,7 @@
    cmp-path
    command-completion.nvim
    fortune.nvim  <== needs mini.startup footer to be altered
-   icon-picker.nvis
+   icon-picker.nvim
    illustro.nvim
    lazydev.nvim
    mason-lspconfig.nvim
@@ -108,7 +108,7 @@ return {
                json = { "prettierd" },
                lua = { "stylua" },
                markdown = {
-                  "cbformat",
+                  "cbfmt",
                   "doctoc",
                },
                python = { "ruff" },
@@ -543,10 +543,10 @@ return {
    --       }
    --    },
 
-   -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [   ] ╞═╗ --
-   -- ║  Source:                                                        ║ --
-   -- ║  License:                                                       ║ --
-   -- ╚════════════════════════════════════════════════════════════╡  ╞═╝ --
+   -- ╔═╡ PLUGIN: lsp_lines.nvim ╞════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://git.sr.ht/~whynothugo/lsp_lines.nvim           ║ --
+   -- ║  License: ISC                                                   ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
 
    {
       url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -738,8 +738,8 @@ return {
 
          -- ╞═╡ mini.misc ╞═════════════════════════════════╡ Utilily ╞═╡ --
 
-         -- i know it's just a box, but it's a nice box and i might need it someday. i
-         -- just hope i can remember where i put it when i need it.
+         -- I know it's just a box, but it's a nice box and I might need it
+         -- someday. I just hope I can remember where I put it when I need it.
 
          require("mini.misc").setup()
 
@@ -762,9 +762,9 @@ return {
 
          -- ╞═╡ mini.pairs ╞═════════════════════════════════╡ Editor ╞═╡ --
 
-         -- i borrowed (blatenly stole) this and i can't remember where from. as soon as
-         -- i figure it out i will post the requisite credits. if it's yours let me
-         -- know. thanks.
+         -- i borrowed (blatenly stole) this and i can't remember where from.
+         -- As soon as I figure it out I will post the requisite credits. if
+         -- it's yours let me know. thanks.
 
          require("mini.pairs").setup({
             mappings = {
@@ -854,7 +854,8 @@ return {
             }
          end
 
-         -- todo: add fortune and stats to footer and put the cow back in the header.
+         -- todo: add fortune and stats to footer and put the cow back
+         -- in the header.
 
          local starter = require("mini.starter")
          starter.setup({
