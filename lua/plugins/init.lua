@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-18 23:49
+--                                              Last modified: 2025-03-19 00:05
 
 --[[
 
@@ -256,7 +256,7 @@ return {
                end,
                ft = "Outline",
                pinned = true,
-               open = "SymbolsOutlineOpen",
+               open = "Lspsaga outline",
             },
             -- any other neo-tree windows
             "neo-tree",
@@ -560,6 +560,22 @@ return {
             highlight_whole_line = false,
          },
       }),
+   },
+
+   -- ╔═╡ PLUGIN: lspsaga.nvim ╞══════════════════════════════╡ [*  ] ╞═╗ --
+   -- ║  Source: https://github.com/nvimdev/lspsaga.nvim                ║ --
+   -- ║  License: MIT                                                   ║ --
+   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
+
+   {
+      "nvimdev/lspsaga.nvim",
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter",
+         "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+         require("lspsaga").setup()
+      end,
    },
 
    -- ╔═╡ PLUGIN: lualine.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
