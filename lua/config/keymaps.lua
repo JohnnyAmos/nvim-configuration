@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-10 21:14
+--                                              Last modified: 2025-03-16 15:26
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -26,6 +26,7 @@
       - nvim-lspconfig
       - nvim-surround
       - nvim-treesitter-textobjects
+      - nvim-various-textobjects
       - octo.nvim
       - telescope.nvim
       - todo-comments.nvim

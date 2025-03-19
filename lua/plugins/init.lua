@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-09 21:48
+--                                              Last modified: 2025-03-16 21:33
 
 --[[
 
@@ -1293,7 +1293,7 @@ return {
       },
    },
 
-   -- ╔═╡ PLUGIN: nvim-various-textobjects ╞══════════════════╡ [*  ] ╞═╗ --
+   -- ╔═╡ PLUGIN: nvim-various-textobjects ╞══════════════════╡ [***] ╞═╗ --
    -- ║  Source: https://github.com/chrisgrieser/nvim-various-textobjs  ║ --
    -- ║  License: MIT                                                   ║ --
    -- ╚═════════════════════════════════╡ Coding: Object Manipulation ╞═╝ --
@@ -1872,7 +1872,10 @@ return {
    -- ║  License: WTFPL                                                 ║ --
    -- ╚═══════════════════════════════════╡ Coding: Text Manipulation ╞═╝ --
 
-   { "gbprod/yanky.nvim", config = true },
+   {
+      "gbprod/yanky.nvim",
+      config = true,
+   },
 }
 
 -- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --
