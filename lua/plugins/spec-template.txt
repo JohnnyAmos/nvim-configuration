@@ -1,0 +1,26 @@
+-- ╔═JMJ════════════════════════════╡  ✞  ╞═══════════════════════════AMDG═╗ --
+-- ║                  Neovim configuration for Mac/unix                    ║ --
+-- ║                        (Mac now, unix soon.)                          ║ --
+-- ╠═══════════════════════════════════════════════════════════════════════╣ --
+-- ║  Plugin file: $HOME/.config/nvim/lua/plugins/.lua                 ║ --
+-- ║  Source: https://github.com/                        ║ --
+-- ║  License:                                                   ║ --
+-- ╚═══════════════════════════════════════════════════════════════════════╝ --
+-- [*  ] { description }                        Last modified: 2025-04-27 16:01
+
+-- See the lazy.nvim website for more information.
+-- https://lazy.folke.io/spec
+
+-- Spec. source, loading, lazy loading, and versioning.
+local M = {}
+
+-- Spec. setup data
+function M.config()
+
+end
+
+-- Any additional functions
+
+return M
+
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

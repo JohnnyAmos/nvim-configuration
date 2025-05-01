@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-08 14:33
+--                                              Last modified: 2025-04-21 16:51
 
 local bo = vim.bo
 local cmd = vim.cmd
@@ -159,5 +159,8 @@ opt.scrolloff = 6
 -- Undoing
 opt.undofile = on
 opt.undodir = "$XDG_STATE_HOME/nvim/undo"
+
+-- No wrapping, thank you anyway
+opt.wrap = off
 
 -- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

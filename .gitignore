@@ -3,7 +3,7 @@
 
 # nvim
 .logs/*
-.info/*
+old-confs/*
 *wk.log
 
 # ast-grep

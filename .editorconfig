@@ -1,0 +1,28 @@
+# EditorConfig file for ~./config/nvim
+root = true
+
+# We must have our newline endings
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Trim trailing whitespace
+[*]
+trim_trailing_whitespace = true
+
+# Default charset and indentation
+[*.{md,txt,js,lua}] # What am I forgetting?
+charset = utf-8
+indent_style = space
+indent_size = 3
+
+# Indentation for HTML, Perl, and Python
+[*.{cgi,html,pl,pm,py}]
+indent_size = 4
+
+# CSS indentation
+[*.css]
+indent_size = 2
+
+# Setrtings may be needed for YAML, TOML, Rust, and ?
+

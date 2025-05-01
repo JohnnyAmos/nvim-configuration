@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-09 02:59
+--                                              Last modified: 2025-04-21 16:12
 
 local api = vim.api
 local aucmd = api.nvim_create_autocmd
@@ -54,7 +54,7 @@ aucmd("FileType", {
 augrp("WorkingDirectory", { clear = true })
 aucmd({ "BufEnter" }, {
    group = "WorkingDirectory",
-   pattern = { "*" },
+   pattern = { "*.*" },
    callback = function()
       local path = fn.expand("%:h") .. "/"
       path = "cd " .. path

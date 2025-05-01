@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-03-16 15:26
+--                                              Last modified: 2025-04-29 22:30
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -682,12 +682,12 @@ wk.add({
    },
    { "<leader>dtl", desc = "LSP toggle/loclist toggle" },
    { --                                                       ==> @trouble.nvim
-      "<leader>dtll",
+      "<leader>dtl",
       "<cmd>Trouble loclist toggle<cr>",
       desc = "Location List (Trouble)",
    },
    { --                                                       ==> @trouble.nvim
-      "<leader>dtls",
+      "<leader>dtp",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
       desc = "LSP Defs / refs / … (Trouble)",
    },
