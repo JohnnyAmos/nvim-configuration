@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-04 12:32
+--                                              Last modified: 2025-05-04 12:38
 
 --[[
 
@@ -32,28 +32,28 @@
 
 return {
 
-   -- [***] Comment.nvim                                       Coding: Comments
-   -- https://github.com/numToStr/Comment.nvim                              MIT
+   -- [***] Comment.nvim                                 Coding: Comments --
+   -- https://github.com/numToStr/Comment.nvim                        MIT --
 
    { "numToStr/Comment.nvim" },
 
-   -- [*  ] cmp-buffer                                       Coding: Completion
-   -- https://github.com/hrsh7th/cmp-buffer                                 MIT
+   -- [*  ] cmp-buffer                                 Coding: Completion --
+   -- https://github.com/hrsh7th/cmp-buffer                           MIT --
 
    --   { "hrsh7th/cmp-buffer" },
 
-   -- [*  ] cmp-nvim-lsp                              Coding: Completion (LSP?)
-   -- https://github.com/hrsh7th/cmp-nvim-lsp                               MIT
+   -- [*  ] cmp-nvim-lsp                        Coding: Completion (LSP?) --
+   -- https://github.com/hrsh7th/cmp-nvim-lsp                         MIT --
 
    --   { "hrsh7th/cmp-nvim-lsp" },
 
-   -- [*  ] cmp-path                                         Coding: Completion
-   -- https://github.com/hrsh7th/cmp-path                                   MIT
+   -- [*  ] cmp-path                                   Coding: Completion --
+   -- https://github.com/hrsh7th/cmp-path                             MIT --
 
    --   { "hrsh7th/cmp-path" },
 
-   -- [*!!] command-completion.nvim                  Editor: Command Completion
-   -- https://github.com/smolck/command-completion.nvim                     MIT
+   -- [*!!] command-completion.nvim            Editor: Command Completion --
+   -- https://github.com/smolck/command-completion.nvim               MIT --
 
    -- FIX: Getting odd error when entering command: Invalid buffer number.
 
@@ -66,8 +66,8 @@ return {
    --    },
    -- },
 
-   -- [***] csvview.nvim                                    Languages: CSV, TSV
-   -- https://github.com/hat0uma/csvview.nvim                               MIT
+   -- [***] csvview.nvim                              Languages: CSV, TSV --
+   -- https://github.com/hat0uma/csvview.nvim                         MIT --
 
    {
       "hat0uma/csvview.nvim",
@@ -76,8 +76,8 @@ return {
       },
    },
 
-   -- [***] dressing.nvim                                       UI: Enhancement
-   -- https://github.com/stevearc/dressing.nvim                             MIT
+   -- [***] dressing.nvim                                 UI: Enhancement --
+   -- https://github.com/stevearc/dressing.nvim                       MIT --
 
    { "stevearc/dressing.nvim" },
 
@@ -501,7 +501,7 @@ return {
       cmd = "Nerdy",
    },
 
-   -- [*  ] nui.nvim                                                         UI
+   -- [*  ] nui.nvim                                                         UI --
    -- https://github.com/MunifTanjim/nui.nvim                               MIT
 
    { "MunifTanjim/nui.nvim" },
@@ -657,13 +657,13 @@ return {
       },
    },
 
-   -- [*  ] virtcolumn.nvim                                     UI: Colorcolumn
-   -- https://github.com/lukas-reineke/virt-column.nvim                     MIT
+   -- [*  ] virtcolumn.nvim                               UI: Colorcolumn --
+   -- https://github.com/lukas-reineke/virt-column.nvim               MIT --
 
    { "lukas-reineke/virt-column.nvim", opts = { virtcolumn = "80" } },
 
-   -- [** ] yanky.nvim                                Coding: Text Manipulation
-   -- https://github.com/gbprod/yanky.nvim                                WTFPL
+   -- [** ] yanky.nvim                          Coding: Text Manipulation --
+   -- https://github.com/gbprod/yanky.nvim                          WTFPL --
 
    { "gbprod/yanky.nvim", config = true },
 }
