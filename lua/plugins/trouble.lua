@@ -6,7 +6,7 @@
 -- ║  Source: https://github.com/folke/trouble.nvim                        ║ --
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [*  ] Coding: Diagnostics                    Last modified: 2025-04-29 23:28
+-- [*  ] Coding: Diagnostics                    Last modified: 2025-05-01 16:00
 
 local ok, icons = pcall(required, "assets.icons")
 if not ok then

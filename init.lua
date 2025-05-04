@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-04-21 17:04
+--                                              Last modified: 2025-05-01 16:00
 
 vim.loader.enable()
 
@@ -22,7 +22,7 @@ require("config.keymaps")
 
       TODO: Continue configuration of nvim.
 
-      FIX: edgy.nvim needs work. Soonish.;
+      FIX: edgy.nvim needs work. Soonish.
 
       - Move plugin specifications to their own files. Only one-liners should
         stay in init.lua.
@@ -76,6 +76,6 @@ require("config.keymaps")
          - https://github.com/0styx0/abbremand.nvim
          - Consider other plugins/solutions.
 
-]]
+--]]
 
 -- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

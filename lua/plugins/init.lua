@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-04-28 19:01
+--                                              Last modified: 2025-05-04 12:32
 
 --[[
 
@@ -32,46 +32,28 @@
 
 return {
 
-   --  NOTE: The following is a blank for copying to the proper location for a
-   -- new plugin.
-
-   -- ╔═╡ PLUGIN:  ╞══════════════════════════════════════════╡ [   ] ╞═╗ --
-   -- ║  Source:                                                        ║ --
-   -- ║  License:                                                       ║ --
-   -- ╚════════════════════════════════════════════════════════════╡  ╞═╝ --
-
-   -- ╔═╡ PLUGIN: Comment.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
-   -- ║  Source: https://github.com/numToStr/Comment.nvim               ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
+   -- [***] Comment.nvim                                       Coding: Comments
+   -- https://github.com/numToStr/Comment.nvim                              MIT
 
    { "numToStr/Comment.nvim" },
 
-   -- ╔═╡ PLUGIN: cmp-buffer ╞════════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/cmp-buffer                  ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- [*  ] cmp-buffer                                       Coding: Completion
+   -- https://github.com/hrsh7th/cmp-buffer                                 MIT
 
    --   { "hrsh7th/cmp-buffer" },
 
-   -- ╔═╡ PLUGIN: cmp-nvim-lsp ╞══════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/cmp-nvim-lsp                ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚═══════════════════════════════════╡ Coding: Completion (LSP?) ╞═╝ --
+   -- [*  ] cmp-nvim-lsp                              Coding: Completion (LSP?)
+   -- https://github.com/hrsh7th/cmp-nvim-lsp                               MIT
 
    --   { "hrsh7th/cmp-nvim-lsp" },
 
-   -- ╔═╡ PLUGIN: cmp-path ╞══════════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/cmp-path                    ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- [*  ] cmp-path                                         Coding: Completion
+   -- https://github.com/hrsh7th/cmp-path                                   MIT
 
    --   { "hrsh7th/cmp-path" },
 
-   -- ╔═╡ PLUGIN: command-completion.nvim ╞═══════════════════╡ [*!!] ╞═╗ --
-   -- ║  Source: https://github.com/smolck/command-completion.nvim      ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════╡ Editor: Command Completion ╞═╝ --
+   -- [*!!] command-completion.nvim                  Editor: Command Completion
+   -- https://github.com/smolck/command-completion.nvim                     MIT
 
    -- FIX: Getting odd error when entering command: Invalid buffer number.
 
@@ -84,73 +66,8 @@ return {
    --    },
    -- },
 
-   -- ╔═╡ PLUGIN: conform.nvim ╞══════════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/stevearc/conform.nvim               ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════╡ Coding: Formatting ╞═╝ --
-
-   {
-      "stevearc/conform.nvim",
-      config = function()
-         require("conform").setup({
-            formatters_by_ft = {
-               css = {
-                  "stylelint",
-                  "prettierd",
-               },
-               html = {
-                  "ast-grep",
-                  "prettierd",
-               },
-               javascript = {
-                  "ast-grep",
-                  "prettierd",
-               },
-               json = { "prettierd" },
-               lua = { "stylua" },
-               markdown = {
-                  "cbfmt",
-                  "doctoc",
-               },
-               python = { "ruff" },
-               scss = {
-                  "stylelint",
-                  "prettierd",
-               },
-               sql = { "sqlfmt" },
-               vue = { "prettierd" },
-               yaml = { "yamlfmt" },
-            },
-            lang_to_ext = {
-               javascript = "js",
-               latex = "tex",
-               markdown = "md",
-               python = "py",
-            },
-            ft_parsers = {
-               javascript = "babel",
-               vue = "vue",
-               css = "css",
-               scss = "scss",
-               html = "html",
-               json = "json",
-               jsonc = "json",
-               yaml = "yaml",
-               markdown = "markdown",
-               ["markdown.mdx"] = "mdx",
-               graphql = "graphql",
-            },
-            default_format_opts = {
-               lsp_format = "fallback",
-            },
-         })
-      end,
-   },
-
-   -- ╔═╡ PLUGIN: csvview.nvim ╞══════════════════════════════╡ [***] ╞═╗ --
-   -- ║  Source: https://github.com/hat0uma/csvview.nvim                ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚═════════════════════════════════════════╡ Languages: CSV, TSV ╞═╝ --
+   -- [***] csvview.nvim                                    Languages: CSV, TSV
+   -- https://github.com/hat0uma/csvview.nvim                               MIT
 
    {
       "hat0uma/csvview.nvim",
@@ -159,46 +76,8 @@ return {
       },
    },
 
-   -- ╔═╡ PLUGIN: dark_flat.nvim ╞════════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/uncleTen276/dark_flat.nvim          ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════════╡ UI: Colourscheme ╞═╝ --
-
-   {
-      "sekke276/dark_flat.nvim",
-      priority = 1000,
-      config = function()
-         require("dark_flat").setup({
-            colors = {
-               fg = "#ddeedd",
-               bg = "#060606",
-               gray = "#aaaaaa",
-               pink = "#d60075",
-               green = "#00bb28",
-               light_green = "#14df4c",
-               cyan = "#00d2cb",
-               aqua = "#4a63f7",
-               purple = "#a733c9",
-               peanut = "#e6a868",
-               orange = "#ff4704",
-               dark_pink = "#c70053",
-               dark_cyan = "#2b8db3",
-               red = "#c00102",
-               dark_red = "#a60404",
-               light_gray = "#bababa",
-               dark_gray = "#777777",
-               dark_green = "#00570e",
-               dark_blue = "#00156d",
-            },
-            italics = false,
-         })
-      end,
-   },
-
-   -- ╔═╡ PLUGIN: dressing.nvim ╞═════════════════════════════╡ [***] ╞═╗ --
-   -- ║  Source: https://github.com/stevearc/dressing.nvim              ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════════╡ UI: Enhancement  ╞═╝ --
+   -- [***] dressing.nvim                                       UI: Enhancement
+   -- https://github.com/stevearc/dressing.nvim                             MIT
 
    { "stevearc/dressing.nvim" },
 
@@ -381,24 +260,18 @@ return {
       end,
    },
 
-   -- ╔═╡ PLUGIN: fortune.nvim ╞══════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/fecet/fortune.nvim                  ║ --
-   -- ║  License: None                                                  ║ --
-   -- ╚════════════════════════════════════════════════╡ Utility: Fun ╞═╝ --
+   -- [*  ] fortune.nvim                                           Utility: Fun
+   -- https://github.com/fecet/fortune.nvim                                None
 
    --   { "fecet/fortune.nvim" },
 
-   -- ╔═╡ PLUGIN: friendly-snippets ╞═════════════════════════╡ [***] ╞═╗ --
-   -- ║  Source: https://github.com/rafamadriz/friendly-snippets        ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════╡ Coding: Completion ╞═╝ --
+   -- [***] friendly-snippets                                Coding: Completion
+   -- https://github.com/rafamadriz/friendly-snippets                       MIT
 
    { "rafamadriz/friendly-snippets" },
 
-   -- ╔═╡ PLUGIN: garbage-day.nvim ╞══════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/Zeioth/garbage-day.nvim             ║ --
-   -- ║  License: GPL-3.0                                               ║ --
-   -- ╚════════════════════════════════════════╡ Utility: LSP Cleanup ╞═╝ --
+   -- [** ] garbage-day.nvim                               Utility: LSP Cleanup
+   -- https://github.com/Zeioth/garbage-day.nvim                        GPL-3.0
 
    {
       "zeioth/garbage-day.nvim",
@@ -406,10 +279,8 @@ return {
       event = "VeryLazy",
    },
 
-   -- ╔═╡ PLUGIN: glow.nvim ╞═════════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/ellisonleao/glow.nvim               ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════╡ Language: Markdown ╞═╝ --
+   -- [*  ] glow.nvim                                        Language: Markdown
+   -- https://github.com/ellisonleao/glow.nvim                              MIT
 
    {
       "ellisonleao/glow.nvim",
@@ -417,17 +288,13 @@ return {
       cmd = "Glow",
    },
 
-   -- ╔═╡ PLUGIN: grug-far.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/MagicDuck/grug-far.nvim             ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════════╡ Editor: Search ╞═╝ --
+   -- [*  ] grug-far.nvim                                        Editor: Search
+   -- https://github.com/MagicDuck/grug-far.nvim                            MIT
 
    { "MagicDuck/grug-far.nvim" },
 
-   -- ╔═╡ PLUGIN: hardtime.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/m4xshen/hardtime.nvim               ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚═════════════════════════════════════════════════════╡ Utility ╞═╝ --
+   -- [*  ] hardtime.nvim                                               Utility
+   -- https://github.com/m4xshen/hardtime.nvim                              MIT
 
    --    {
    --       "m4xshen/hardtime.nvim",
@@ -479,7 +346,7 @@ return {
    --    }
 
    -- ╔═╡ PLUGIN: key-analyzer.nvim ╞═════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  source: https://github.com/meznaric/key-analyzer.nvim          ║ --
+   -- ║  Source: https://github.com/meznaric/key-analyzer.nvim          ║ --
    -- ║  license: MIT                                                   ║ --
    -- ╚════════════════════════════════════════╡ Utility: Mapping Aid ╞═╝ --
 
@@ -620,70 +487,6 @@ return {
       },
    },
 
-   -- ╔═╡ PLUGIN: neo-tree.nvim ╞═════════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/nvim-neo-tree/neo-tree.nvim         ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════╡ Editor: File Manager ╞═╝ --
-
-   {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-         "nvim-lua/plenary.nvim",
-         "nvim-tree/nvim-web-devicons",
-         "MunifTanjim/nui.nvim",
-      },
-      config = function()
-         vim.fn.sign_define("DiagnosticSignError", {
-            text = " ",
-            texthl = "DiagnosticSignError",
-         })
-         vim.fn.sign_define("DiagnosticSignWarn", {
-            text = " ",
-            texthl = "DiagnosticSignWarn",
-         })
-         vim.fn.sign_define("DiagnosticSignInfo", {
-            text = " ",
-            texthl = "DiagnosticSignInfo",
-         })
-         vim.fn.sign_define("DiagnosticSignHint", {
-            text = "󰌵",
-            texthl = "DiagnosticSignHint",
-         })
-         require("neo-tree").setup({
-            popup_border_style = "single",
-            add_blank_line_at_top = true,
-            auto_clean_after_session_restore = true,
-            -- "trace", "debug", "info", "warn", "error", "fatal"
-            log_level = "info",
-            -- true, false, "/path/to/file.log"
-            log_to_file = "$HOME/.config/nvim/.logs/neotree.log",
-            -- used when sorting files and directories in the tree
-            sort_case_insensitive = false,
-            use_default_mappings = false,
-            window = {
-               -- left, right, top, bottom, float, current
-               position = "left",
-               -- applies to left and right positions
-               width = 40,
-               auto_expand_width = true,
-               insert_as = "child",
-            },
-            filesystem = {
-               async_directory_scan = "auto",
-               scan_mode = "shallow",
-               bind_to_cwd = true,
-               filtered_items = {
-                  visible = true,
-                  force_visible_in_empty_folder = true,
-                  hide_dotfiles = false,
-               },
-               hijack_netrw_behavior = "open_default",
-            },
-         })
-      end,
-   },
-
    -- ╔═╡ PLUGIN: nerdy.nvim ╞════════════════════════════════╡ [*  ] ╞═╗ --
    -- ║  Source: https://github.com/2KAbhishek/nerdy.nvim               ║ --
    -- ║  License: GPL-3.0                                               ║ --
@@ -698,31 +501,23 @@ return {
       cmd = "Nerdy",
    },
 
-   -- ╔═╡ PLUGIN: nui.nvim ╞══════════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/MunifTanjim/nui.nvim                ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚══════════════════════════════════════════════════════════╡ UI ╞═╝ --
+   -- [*  ] nui.nvim                                                         UI
+   -- https://github.com/MunifTanjim/nui.nvim                               MIT
 
    { "MunifTanjim/nui.nvim" },
 
-   -- ╔═╡ PLUGIN: nvim-cmp ╞══════════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/hrsh7th/nvim-cmp                    ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚═════════════════════════════════════════╡ Coding: Completions ╞═╝ --
+   -- [*  ] nvim-cmp                                        Coding: Completions
+   -- https://github.com/hrsh7th/nvim-cmp                                   MIT
 
    --    { "hrsh7th/nvim-cmp" },
 
-   -- ╔═╡ PLUGIN: nvim-comment-frame ╞════════════════════════╡ [***] ╞═╗ --
-   -- ║  Source: https://github.com/s1n7ax/nvim-comment-frame           ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════════╡ Coding: Comments ╞═╝ --
+   -- [***] nvim-comment-frame                                 Coding: Comments
+   -- https://github.com/s1n7ax/nvim-comment-frame                          MIT
 
    { "s1n7ax/nvim-comment-frame" },
 
-   -- ╔═╡ PLUGIN: nvim-dap ╞══════════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/mfussenegger/nvim-dap               ║ --
-   -- ║  License: GPL-3.0                                               ║ --
-   -- ╚═════════════════════════════════════════════════╡ Coding: DAP ╞═╝ --
+   -- [*  ] nvim-dap                                                Coding: DAP
+   -- https://github.com/mfussenegger/nvim-dap                          GPL-3.0
 
    --    { "mfussenegger/nvim-dap" },
 
@@ -772,90 +567,6 @@ return {
       "kylechui/nvim-surround",
       version = "*",
       event = "VeryLazy",
-   },
-
-   -- ╔═╡ PLUGIN: nvim-treesitter ╞═══════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/nvim-treesitter/nvim-treesitter     ║ --
-   -- ║  License: Apache-2.0                                            ║ --
-   -- ╚══════════════════════════════════════════════╡ Coding: Syntax ╞═╝ --
-
-   {
-      "nvim-treesitter/nvim-treesitter",
-      version = false,
-      event = { "BufReadPre", "BufNewFile" },
-      dependencies = {
-         "nvim-treesitter/nvim-treesitter-textobjects",
-         "RRethy/nvim-treesitter-endwise",
-      },
-      build = function()
-         require("nvim-treesitter.install").update({ with_sync = true })()
-      end,
-      vim.treesitter.language.register("markdown", "octo"),
-      opts = {
-         auto_install = true,
-         highlight = { enable = true },
-         indent = { enable = true },
-         ensure_installed = {
-            "arduino",
-            "astro",
-            "bash",
-            "css",
-            "csv",
-            "diff",
-            "dtd",
-            "editorconfig",
-            "git_config",
-            "git_rebase",
-            "gitattributes",
-            "gitcommit",
-            "gitigniore",
-            "html",
-            "http",
-            "javascript",
-            "jsdoc",
-            "json",
-            "json5",
-            "ledger",
-            "lua",
-            "luadocs",
-            "luap",
-            "markdown",
-            "perl",
-            "pod",
-            "printf",
-            "python",
-            "query",
-            "regex",
-            "robots",
-            "scss",
-            "sql",
-            "ssh_config",
-            "styled",
-            "tmux",
-            "toml",
-            "yaml",
-         },
-         textobjects = {
-            select = {
-               enable = true,
-               lookahead = true,
-            },
-            swap = {
-               enable = true,
-            },
-            move = {
-               enable = true,
-               set_jumps = true,
-            },
-            lsp_interop = {
-               enable = true,
-               border = "none",
-            },
-         },
-         endwise = {
-            enable = true,
-         },
-      },
    },
 
    -- ╔═╡ PLUGIN: nvim-update-time ╞══════════════════════════╡ [***] ╞═╗ --
@@ -946,27 +657,15 @@ return {
       },
    },
 
-   -- ╔═╡ PLUGIN: virtcolumn.nvim ╞═══════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/lukas-reineke/virt-column.nvim      ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚═════════════════════════════════════════════╡ UI: Colorcolumn ╞═╝ --
+   -- [*  ] virtcolumn.nvim                                     UI: Colorcolumn
+   -- https://github.com/lukas-reineke/virt-column.nvim                     MIT
 
-   {
-      "lukas-reineke/virt-column.nvim",
-      opts = {
-         virtcolumn = "80",
-      },
-   },
+   { "lukas-reineke/virt-column.nvim", opts = { virtcolumn = "80" } },
 
-   -- ╔═╡ PLUGIN: yanky.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/gbprod/yanky.nvim                   ║ --
-   -- ║  License: WTFPL                                                 ║ --
-   -- ╚═══════════════════════════════════╡ Coding: Text Manipulation ╞═╝ --
+   -- [** ] yanky.nvim                                Coding: Text Manipulation
+   -- https://github.com/gbprod/yanky.nvim                                WTFPL
 
-   {
-      "gbprod/yanky.nvim",
-      config = true,
-   },
+   { "gbprod/yanky.nvim", config = true },
 }
 
 -- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --
