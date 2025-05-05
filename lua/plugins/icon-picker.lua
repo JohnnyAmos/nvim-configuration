@@ -1,0 +1,49 @@
+-- ╔═JMJ════════════════════════════╡  ✞  ╞═══════════════════════════AMDG═╗ --
+-- ║                  Neovim configuration for Mac/unix                    ║ --
+-- ║                        (Mac now, unix soon.)                          ║ --
+-- ╠═══════════════════════════════════════════════════════════════════════╣ --
+-- ║  Plugin file: $HOME/.config/nvim/lua/plugins/icon-picker.lua          ║ --
+-- ║  Source: https://github.com/JohnnyAmos/icon-picker.nvim               ║ --
+-- ║  License: MIT { Detach from fork and release under ISC license. }     ║ --
+-- ╚═══════════════════════════════════════════════════════════════════════╝ --
+-- [*  ] UI: Icons                              Last modified: 2025-05-04 22:03
+
+--  FIX: Set maps up in keymaps.lua and reflect change in config before using.
+
+-- local M = {
+--    "JohnnyAmos/icon-picker.nvim",
+-- }
+--
+-- function M.config()
+--    local ok, icon_picker = pcall(require, "icon-picker")
+--    if not ok then
+--       print("Error: " .. icon_picker)
+--    end
+--
+--    icon_picker.setup({
+--       require("icon-picker").setup({ disable_legacy_commands = true })
+--       local opts = { noremap = true, silent = true }
+--       vim.keymap.set(
+--          "n",
+--          "<Leader><Leader>i",
+--          "<cmd>IconPickerNormal<cr>",
+--          opts
+--       )
+--       vim.keymap.set(
+--          "n",
+--          "<Leader><Leader>y",
+--          "<cmd>IconPickerYank<cr>",
+--          opts
+--       ) --> Yank the selected icon into register
+--       vim.keymap.set(
+--          "i",
+--          "<C-i>",
+--          "<cmd>IconPickerInsert<cr>",
+--          opts
+--       )
+--    })
+-- end
+--
+-- return M
+
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --

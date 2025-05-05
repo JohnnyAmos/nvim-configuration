@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-04 12:38
+--                                              Last modified: 2025-05-04 22:13
 
 --[[
 
@@ -52,226 +52,28 @@ return {
 
    --   { "hrsh7th/cmp-path" },
 
-   -- [*!!] command-completion.nvim            Editor: Command Completion --
-   -- https://github.com/smolck/command-completion.nvim               MIT --
-
-   -- FIX: Getting odd error when entering command: Invalid buffer number.
-
-   -- {
-   --    "smolck/command-completion.nvim",
-   --    opts = {
-   --       max_col_num = 5,
-   --       min_col_width = 25,
-   --       use_matchfuzzy = false,
-   --    },
-   -- },
-
    -- [***] csvview.nvim                              Languages: CSV, TSV --
    -- https://github.com/hat0uma/csvview.nvim                         MIT --
 
-   {
-      "hat0uma/csvview.nvim",
-      opts = {
-         display_mode = "border", -- or "highlight"
-      },
-   },
+   { "hat0uma/csvview.nvim", opts = { display_mode = "border" } },
 
    -- [***] dressing.nvim                                 UI: Enhancement --
    -- https://github.com/stevearc/dressing.nvim                       MIT --
 
    { "stevearc/dressing.nvim" },
 
-   -- ╔═╡ PLUGIN: edgy.nvim ╞═════════════════════════════════╡ [*!!] ╞═╗ --
-   -- ║  Source: https://github.com/folke/edgy.nvim                     ║ --
-   -- ║  License: Apache-2.0                                            ║ --
-   -- ╚═════════════════════════════════════════════════╡ UI: Layouts ╞═╝ --
-
-   {
-      "folke/edgy.nvim",
-      event = "VeryLazy",
-      opts = {
-         bottom = {
-            {
-               ft = "toggleterm",
-               size = { height = 0.4 },
-               filter = function(buf, win)
-                  return vim.api.nvim_win_get_config(win).relative == ""
-               end,
-            },
-            "Trouble",
-            { ft = "qf", title = "QuickFix" },
-         },
-         left = {
-            {
-               title = "Files",
-               ft = "neo-tree",
-               filter = function(buf)
-                  return vim.b[buf].neo_tree_source == "filesystem"
-               end,
-               size = { height = 0.5 },
-            },
-            {
-               title = "Git",
-               ft = "neo-tree",
-               filter = function(buf)
-                  return vim.b[buf].neo_tree_source == "git_status"
-               end,
-               pinned = true,
-               collapsed = true, -- show window as collapsed on start
-               open = "Neotree position=right git_status",
-            },
-            {
-               title = "Buffers",
-               ft = "neo-tree",
-               filter = function(buf)
-                  return vim.b[buf].neo_tree_source == "buffers"
-               end,
-               pinned = true,
-               collapsed = true, -- show window as collapsed on start
-               open = "Neotree position=top buffers",
-            },
-            {
-               title = function()
-                  local buf_name = vim.api.nvim_buf_get_name(0) or "[No Name]"
-                  return vim.fn.fnamemodify(buf_name, ":t")
-               end,
-               ft = "Outline",
-               pinned = true,
-               open = "Lspsaga outline",
-            },
-            -- any other neo-tree windows
-            "neo-tree",
-         },
-         right = {
-            ft = "help",
-            filter = function(buf)
-               return vim.bo[buf].buftype == "help"
-            end,
-         },
-      },
-   },
-
-   -- ╔═╡ PLUGIN: flash.nvim ╞════════════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/folke/flash.nvim                    ║ --
-   -- ║  License: Apache-2.0                                            ║ --
-   -- ╚══════════════════════════════════════════════╡ UI: Navigation ╞═╝ --
-
-   {
-      "folke/flash.nvim",
-      event = "VeryLazy",
-      opts = {
-         -- Ordered thusly because it places the home row keys first, with the
-         -- top second and the bottom third.
-         labels = "asdfghjklqwertyuiopzxcvbnm",
-         search = {
-            mode = "search",
-            incremental = true,
-         },
-      },
-   },
-
-   -- ╔═╡ PLUGIN: flexoki-nvim ╞══════════════════════════════╡ [** ] ╞═╗ --
-   -- ║  Source: https://github.com/nuvic/flexoki-nvim                  ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚═════════════════════════════════════════════╡ UI: Colorscheme ╞═╝ --
-
-   {
-      "nuvic/flexoki-nvim",
-      name = "flexoki",
-      config = function()
-         require("flexoki").setup({
-            variant = "auto", -- auto, moon, or dawn
-            dim_inactive_windows = false,
-            extend_background_behind_borders = true,
-
-            enable = {
-               terminal = true,
-            },
-
-            styles = {
-               bold = true,
-               italic = false,
-            },
-
-            -- may experiment with this later
-            -- groups = {
-            --    border = "muted",
-            --    link = "purple_two",
-            --    panel = "surface",
-            --
-            --    error = "red_one",
-            --    hint = "purple_one",
-            --    info = "cyan_one",
-            --    ok = "green_one",
-            --    warn = "orange_one",
-            --    note = "blue_one",
-            --    todo = "magenta_one",
-            --
-            --    git_add = "green_one",
-            --    git_change = "yellow_one",
-            --    git_delete = "red_one",
-            --    git_dirty = "yellow_one",
-            --    git_ignore = "muted",
-            --    git_merge = "purple_one",
-            --    git_rename = "blue_one",
-            --    git_stage = "purple_one",
-            --    git_text = "magenta_one",
-            --    git_untracked = "subtle",
-            --
-            --    h1 = "purple_two",
-            --    h2 = "cyan_two",
-            --    h3 = "magenta_two",
-            --    h4 = "orange_two",
-            --    h5 = "blue_two",
-            --    h6 = "cyan_two",
-            -- },
-
-            palette = {
-               moon = {
-                  base = "#000000",
-                  overlay = "#111111",
-                  muted = "#afafaf",
-               },
-               dawn = {
-                  base = "#ffffff",
-                  overlay = "#f2f0e5",
-               },
-            },
-
-            highlight_groups = {
-               Comment = { fg = "muted" },
-               --    VertSplit = { fg = "muted", bg = "muted" },
-            },
-
-            -- before_highlight = function(group, highlight, palette)
-            --    -- Disable all undercurls
-            --    if highlight.undercurl then
-            --        highlight.undercurl = false
-            --    end
-            --
-            --    -- Change palette colour
-            --    if highlight.fg == palette.blue_two then
-            --        highlight.fg = palette.cyan_two
-            --    end
-            -- end,
-         })
-
-         --          vim.cmd("colorscheme flexoki-moon")
-      end,
-   },
-
-   -- [*  ] fortune.nvim                                           Utility: Fun
-   -- https://github.com/fecet/fortune.nvim                                None
+   -- [*  ] fortune.nvim                                     Utility: Fun --
+   -- https://github.com/fecet/fortune.nvim                          None --
 
    --   { "fecet/fortune.nvim" },
 
-   -- [***] friendly-snippets                                Coding: Completion
-   -- https://github.com/rafamadriz/friendly-snippets                       MIT
+   -- [***] friendly-snippets                          Coding: Completion --
+   -- https://github.com/rafamadriz/friendly-snippets                 MIT --
 
    { "rafamadriz/friendly-snippets" },
 
-   -- [** ] garbage-day.nvim                               Utility: LSP Cleanup
-   -- https://github.com/Zeioth/garbage-day.nvim                        GPL-3.0
+   -- [** ] garbage-day.nvim                         Utility: LSP Cleanup --
+   -- https://github.com/Zeioth/garbage-day.nvim                  GPL-3.0 --
 
    {
       "zeioth/garbage-day.nvim",
@@ -279,22 +81,18 @@ return {
       event = "VeryLazy",
    },
 
-   -- [*  ] glow.nvim                                        Language: Markdown
-   -- https://github.com/ellisonleao/glow.nvim                              MIT
+   -- [*  ] glow.nvim                                  Language: Markdown --
+   -- https://github.com/ellisonleao/glow.nvim                        MIT --
 
-   {
-      "ellisonleao/glow.nvim",
-      config = true,
-      cmd = "Glow",
-   },
+   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 
-   -- [*  ] grug-far.nvim                                        Editor: Search
-   -- https://github.com/MagicDuck/grug-far.nvim                            MIT
+   -- [*  ] grug-far.nvim                                  Editor: Search --
+   -- https://github.com/MagicDuck/grug-far.nvim                      MIT --
 
    { "MagicDuck/grug-far.nvim" },
 
-   -- [*  ] hardtime.nvim                                               Utility
-   -- https://github.com/m4xshen/hardtime.nvim                              MIT
+   -- [*  ] hardtime.nvim                                         Utility --
+   -- https://github.com/m4xshen/hardtime.nvim                        MIT --
 
    --    {
    --       "m4xshen/hardtime.nvim",
@@ -302,81 +100,10 @@ return {
    --       opts = {},
    --    },
 
-   -- ╔═╡ PLUGIN: hawtkeys.nvim ╞═════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/tris203/hawtkeys.nvim               ║ --
-   -- ║  License: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════════╡ Utility: Keymaps ╞═╝ --
+   -- [*  ] key-analyzer.nvim                        Utility: Mapping Aid --
+   -- https://github.com/meznaric/key-analyzer.nvim                   MIT --
 
-   {
-      "tris203/hawtkeys.nvim",
-      dependencies = {
-         "nvim-lua/plenary.nvim",
-         "nvim-treesitter/nvim-treesitter",
-      },
-      config = function()
-         require("hawtkeys").setup({
-            customMaps = {
-               ["wk.register"] = {
-                  method = "which_key",
-               },
-               ["lazy"] = {
-                  method = "lazy",
-               },
-            },
-         })
-      end,
-   },
-
-   -- ╔═╡ PLUGIN: icon-picker.nvim ╞══════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/JohnnyAmos/icon-picker.nvim         ║ --
-   -- ║  License: MIT {Detach from fork and release under ISC license.} ║ --
-   -- ╚═══════════════════════════════════════════════════╡ UI: Icons ╞═╝ --
-
-   -- FIX: Set maps up in keymaps.lua and reflect change in config before using.
-
-   --    {
-   --       "JohnnyAmos/icon-picker.nvim",
-   --       config = function()
-   --          require("icon-picker").setup({ disable_legacy_commands = true })
-   --          local opts = { noremap = true, silent = true }
-   --          vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", opts)
-   --          vim.keymap.set("n", "<Leader><Leader>y", "<cmd>IconPickerYank<cr>", opts) --> Yank the selected icon into register
-   --          vim.keymap.set("i", "<C-i>", "<cmd>IconPickerInsert<cr>", opts)
-   --       end
-   --    }
-
-   -- ╔═╡ PLUGIN: key-analyzer.nvim ╞═════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/meznaric/key-analyzer.nvim          ║ --
-   -- ║  license: MIT                                                   ║ --
-   -- ╚════════════════════════════════════════╡ Utility: Mapping Aid ╞═╝ --
-
-   {
-      "meznaric/key-analyzer.nvim",
-      opts = {},
-   },
-
-   -- ╔═╡ PLUGIN: lazydev.nvim ╞══════════════════════════════╡ [*  ] ╞═╗ --
-   -- ║  Source: https://github.com/folke/lazydev.nvim                  ║ --
-   -- ║  License: Apache-2.0                                            ║ --
-   -- ╚═════════════════════════════════════════════════╡ Coding: LSP ╞═╝ --
-
-   -- TODO: Set up after nvim-lspconfig.
-   --    {
-   --       "folke/lazydev.nvim",
-   --       ft = "lua",
-   --       opts = {
-   --          library = {
-   --             {
-   --                path = "luvit-meta/library",
-   --                words = { "vim%.uv" }
-   --             }
-   --          },
-   --          integrations = {
-   --             lspconfig = true,
-   --             cmp = true
-   --          }
-   --       }
-   --    },
+   { "meznaric/key-analyzer.nvim", opts = {} },
 
    -- ╔═╡ PLUGIN: lsp_lines.nvim ╞════════════════════════════╡ [*  ] ╞═╗ --
    -- ║  Source: https://git.sr.ht/~whynothugo/lsp_lines.nvim           ║ --
@@ -501,23 +228,23 @@ return {
       cmd = "Nerdy",
    },
 
-   -- [*  ] nui.nvim                                                         UI --
-   -- https://github.com/MunifTanjim/nui.nvim                               MIT
+   -- [*  ] nui.nvim                                                   UI --
+   -- https://github.com/MunifTanjim/nui.nvim                         MIT --
 
    { "MunifTanjim/nui.nvim" },
 
-   -- [*  ] nvim-cmp                                        Coding: Completions
-   -- https://github.com/hrsh7th/nvim-cmp                                   MIT
+   -- [*  ] nvim-cmp                                  Coding: Completions --
+   -- https://github.com/hrsh7th/nvim-cmp                             MIT --
 
    --    { "hrsh7th/nvim-cmp" },
 
-   -- [***] nvim-comment-frame                                 Coding: Comments
-   -- https://github.com/s1n7ax/nvim-comment-frame                          MIT
+   -- [***] nvim-comment-frame                           Coding: Comments --
+   -- https://github.com/s1n7ax/nvim-comment-frame                    MIT --
 
    { "s1n7ax/nvim-comment-frame" },
 
-   -- [*  ] nvim-dap                                                Coding: DAP
-   -- https://github.com/mfussenegger/nvim-dap                          GPL-3.0
+   -- [*  ] nvim-dap                                          Coding: DAP --
+   -- https://github.com/mfussenegger/nvim-dap                    GPL-3.0 --
 
    --    { "mfussenegger/nvim-dap" },
 

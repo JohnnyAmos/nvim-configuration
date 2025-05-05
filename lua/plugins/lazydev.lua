@@ -1,0 +1,40 @@
+-- ╔═JMJ════════════════════════════╡  ✞  ╞═══════════════════════════AMDG═╗ --
+-- ║                  Neovim configuration for Mac/unix                    ║ --
+-- ║                        (Mac now, unix soon.)                          ║ --
+-- ╠═══════════════════════════════════════════════════════════════════════╣ --
+-- ║  Plugin file: $HOME/.config/nvim/lua/plugins/lazydev.lua              ║ --
+-- ║  Source: https://github.com/folke/lazydev.nvim                        ║ --
+-- ║  License: Apache-2.0                                                  ║ --
+-- ╚═══════════════════════════════════════════════════════════════════════╝ --
+-- [*  ] Coding: LSP                            Last modified: 2025-05-04 22:11
+
+--  TODO: Set up after nvim-lspconfig.
+
+-- local M = {
+--    "folke/lazydev.nvim",
+--    ft = "lua",
+-- }
+--
+-- function M.config()
+--    local ok, lazydev = pcall(require, "lazydev")
+--    if not ok then
+--       print("Error: " .. lazydev)
+--    end
+--
+--    lazydev.setup({
+--       library = {
+--          {
+--             path = "luvit-meta/library",
+--             words = { "vim%.uv" }
+--          }
+--       },
+--       integrations = {
+--          lspconfig = true,
+--          cmp = true
+--       }
+--    })
+-- end
+--
+-- return M
+
+-- ╞══════════════════════════════╡  finis  ╞══════════════════════════════╡ --
