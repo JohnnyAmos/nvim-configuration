@@ -6,7 +6,7 @@
 -- ║  Source: https://github.com/folke/trouble.nvim                        ║ --
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [*  ] Coding: Diagnostics                    Last modified: 2025-05-01 16:00
+-- [*  ] Coding: Diagnostics                    Last modified: 2025-05-10 15:32
 
 local ok, icons = pcall(required, "assets.icons")
 if not ok then
@@ -19,8 +19,8 @@ local M = {
 }
 
 function M.config()
-   local ok, trouble = pcall(require, "trouble")
-   if not ok then
+   local okay, trouble = pcall(require, "trouble")
+   if not okay then
       print("Error: " .. trouble)
    end
 

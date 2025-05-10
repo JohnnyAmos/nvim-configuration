@@ -6,7 +6,7 @@
 -- ║  Source: https://github.com/echasnovski/mini.nvim                     ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [***] Various                                Last modified: 2025-04-29 14:43
+-- [***] Various                                Last modified: 2025-05-10 15:28
 
 local M = {
    "echasnovski/mini.nvim",
@@ -182,7 +182,7 @@ function M.config()
 
    -- ╞═╡ mini.sessions ╞══════════════════════════════════╡ Projects ╞═╡ --
 
-   -- todo: see if there are any keymaps that can be used, or make some
+   -- TODO: see if there are any keymaps that can be used, or make some
 
    local ok, mini_sessions = pcall(require, "mini.sessions")
    if not ok then
@@ -213,7 +213,7 @@ function M.config()
       }
    end
 
-   -- todo: add fortune and stats to footer and put the cow back
+   -- TODO: add fortune and stats to footer and put the cow back
    -- in the header.
 
    local ok, mini_starter = pcall(require, "mini.starter")
@@ -231,58 +231,58 @@ function M.config()
             section = "files",
          },
          {
-            action = "telescope oldfiles",
+            action = "Telescope oldfiles",
             name = "recent files",
             section = "files",
          },
          {
-            action = "telescope find_files",
+            action = "Telescope find_files",
             name = "find files",
             section = "files",
          },
          {
-            action = "telescope file_browser",
+            action = "Telescope file_browser",
             name = "browser",
             section = "files",
          },
          {
-            action = "telescope live_grep",
+            action = "Telescope live_grep",
             name = "live grep",
             section = "search",
          },
          {
-            action = "telescope command_history",
+            action = "Telescope command_history",
             name = "command history",
             section = "search",
          },
          {
-            action = "telescope repo list",
+            action = "Telescope repo list",
             name = "git repos",
             section = "projects",
          },
          mini_starter.sections.sessions(5, true),
          {
-            action = "telescope man_pages",
+            action = "Telescope man_pages",
             name = "man pages",
             section = "reference/config",
          },
          {
-            action = "telescope help_tags",
+            action = "Telescope help_tags",
             name = "help tags",
             section = "reference/config",
          },
          {
-            action = "lazy",
+            action = "Lazy",
             name = "plugins",
             section = "reference/config",
          },
          {
-            action = "telescope colorscheme",
+            action = "Telescope colorscheme",
             name = "schémas de couleurs",
             section = "reference/config",
          },
          {
-            action = "telescope bookmarks",
+            action = "Telescope bookmarks",
             name = "vivaldi bookmarks",
             section = "internet resources",
          },

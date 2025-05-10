@@ -7,7 +7,7 @@
 -- ║  Source: https://github.com/xero/dotfiles/                            ║ --
 -- ║  Source license: CC0-1.0                                              ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-01 11:53
+--                                              Last modified: 2025-05-08 13:49
 
 -- NOTE: I am starting function names with the underscore (_) character to
 --       avoid issues with plugin names in the specifications.

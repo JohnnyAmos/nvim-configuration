@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-01 16:00
+--                                              Last modified: 2025-05-10 11:38
 
 vim.loader.enable()
 
@@ -24,8 +24,11 @@ require("config.keymaps")
 
       FIX: edgy.nvim needs work. Soonish.
 
-      - Move plugin specifications to their own files. Only one-liners should
-        stay in init.lua.
+      - Keep Mini.Startup or switch to Snacks.Dashboard?
+      - Set up snacks.nvim completely. Compare snacks modules with mini
+        modules.
+      - Move plugin specifications to their own files. Only one-liners or
+        plugins that don't have options should stay in init.lua.
       - Add fortune code to footer of startup screen and integrate fortune
         plugin.
 

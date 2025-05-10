@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/keymaps.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-04-29 22:30
+--                                              Last modified: 2025-05-09 20:14
 
 -- n = Normal,             i = Insert,             x = Visual,
 -- s = Select,             o = Operator-pending,   t = Terminal-Job,
@@ -18,7 +18,6 @@
       - edgy.nvim
       - flash.nvim
       - gitsigns.nvim
-      - lsp_lines.nvim
       - marks.nvim
       - mini.move
       - multiple-cursors.nvim
@@ -1378,11 +1377,6 @@ wk.add({
 wk.add({
 
    { "<leader>l", group = "LSP" },
-   { --                                                     ==> @lsp_lines.nvim
-      "<leader>l1",
-      require("lsp_lines").toggle,
-      desc = "Toggle lsp_lines",
-   },
    { --                                                     ==> @nvim-lspconfig
       "<leader>l2",
       "<cmd>LspInfo<cr>",
