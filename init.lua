@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-10 11:38
+--                                              Last modified: 2025-05-10 17:20
 
 vim.loader.enable()
 
@@ -21,6 +21,10 @@ require("config.keymaps")
 
 
       TODO: Continue configuration of nvim.
+
+         The biggest tasks left to do are completions, debugging adapters, and
+         finishing language server protocol setups. Everything else is just
+         details and decoration.
 
       FIX: edgy.nvim needs work. Soonish.
 
@@ -74,7 +78,6 @@ require("config.keymaps")
 
       Make with the abbreviations:
 
-         - https://github.com/tpope/vim-abolish
          - https://github.com/0styx0/abbreinder.nvim
          - https://github.com/0styx0/abbremand.nvim
          - Consider other plugins/solutions.

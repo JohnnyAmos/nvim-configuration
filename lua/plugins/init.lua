@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-10 15:26
+--                                              Last modified: 2025-05-10 17:16
 
 --[[
 
@@ -23,35 +23,33 @@
    nvim-cmp
    nvim-dap
    nvim-dap-ui
-   nvim-lsp-file-operations
    nvim-lspconfig
-   nvim-nio
 
 --]]
 
 return {
 
-   -- [***] Comment.nvim                                 Coding: Comments --
+   -- [***] PLUGIN: Comment.nvim                         Coding: Comments --
    -- https://github.com/numToStr/Comment.nvim                        MIT --
 
    { "numToStr/Comment.nvim" },
 
-   -- [*  ] cmp-buffer                                 Coding: Completion --
+   -- [*  ] PLUGIN: cmp-buffer                         Coding: Completion --
    -- https://github.com/hrsh7th/cmp-buffer                           MIT --
 
    --   { "hrsh7th/cmp-buffer" },
 
-   -- [*  ] cmp-nvim-lsp                        Coding: Completion (LSP?) --
+   -- [*  ] PLUGIN: cmp-nvim-lsp                Coding: Completion (LSP?) --
    -- https://github.com/hrsh7th/cmp-nvim-lsp                         MIT --
 
    --   { "hrsh7th/cmp-nvim-lsp" },
 
-   -- [*  ] cmp-path                                   Coding: Completion --
+   -- [*  ] PLUGIN: cmp-path                           Coding: Completion --
    -- https://github.com/hrsh7th/cmp-path                             MIT --
 
    --   { "hrsh7th/cmp-path" },
 
-   -- [***] csvview.nvim                              Languages: CSV, TSV --
+   -- [***] PLUGIN: csvview.nvim                      Languages: CSV, TSV --
    -- https://github.com/hat0uma/csvview.nvim                         MIT --
 
    {
@@ -61,22 +59,22 @@ return {
       },
    },
 
-   -- [***] dressing.nvim                                 UI: Enhancement --
+   -- [***] PLUGIN: dressing.nvim                         UI: Enhancement --
    -- https://github.com/stevearc/dressing.nvim                       MIT --
 
    { "stevearc/dressing.nvim" },
 
-   -- [*  ] fortune.nvim                                     Utility: Fun --
+   -- [*  ] PLUGIN: fortune.nvim                             Utility: Fun --
    -- https://github.com/fecet/fortune.nvim                          None --
 
    --   { "fecet/fortune.nvim" },
 
-   -- [***] friendly-snippets                          Coding: Completion --
+   -- [***] PLUGIN: friendly-snippets                  Coding: Completion --
    -- https://github.com/rafamadriz/friendly-snippets                 MIT --
 
    { "rafamadriz/friendly-snippets" },
 
-   -- [** ] garbage-day.nvim                         Utility: LSP Cleanup --
+   -- [** ] PLUGIN: garbage-day.nvim                 Utility: LSP Cleanup --
    -- https://github.com/Zeioth/garbage-day.nvim                  GPL-3.0 --
 
    {
@@ -85,7 +83,7 @@ return {
       event = "VeryLazy",
    },
 
-   -- [*  ] glow.nvim                                  Language: Markdown --
+   -- [*  ] PLUGIN: glow.nvim                          Language: Markdown --
    -- https://github.com/ellisonleao/glow.nvim                        MIT --
 
    {
@@ -94,12 +92,12 @@ return {
       cmd = "Glow",
    },
 
-   -- [*  ] grug-far.nvim                                  Editor: Search --
+   -- [*  ] PLUGIN: grug-far.nvim                          Editor: Search --
    -- https://github.com/MagicDuck/grug-far.nvim                      MIT --
 
    { "MagicDuck/grug-far.nvim" },
 
-   -- [*  ] hardtime.nvim                                         Utility --
+   -- [*  ] PLUGIN: hardtime.nvim                                 Utility --
    -- https://github.com/m4xshen/hardtime.nvim                        MIT --
 
    -- {
@@ -108,7 +106,7 @@ return {
    --    opts = {},
    -- },
 
-   -- [*  ] key-analyzer.nvim                        Utility: Mapping Aid --
+   -- [*  ] PLUGIN: key-analyzer.nvim                Utility: Mapping Aid --
    -- https://github.com/meznaric/key-analyzer.nvim                   MIT --
 
    {
@@ -116,7 +114,7 @@ return {
       opts = {},
    },
 
-   -- [*  ] nerdy.nvim                                          UI: Icons --
+   -- [*  ] PLUGIN: nerdy.nvim                                  UI: Icons --
    -- https://github.com/2KAbhishek/nerdy.nvim                    GPL-3.0 --
 
    {
@@ -127,42 +125,42 @@ return {
       cmd = "Nerdy",
    },
 
-   -- [*  ] nui.nvim                                                   UI --
+   -- [*  ] PLUGIN: nui.nvim                                           UI --
    -- https://github.com/MunifTanjim/nui.nvim                         MIT --
 
    { "MunifTanjim/nui.nvim" },
 
-   -- [*  ] nvim-cmp                                  Coding: Completions --
+   -- [*  ] PLUGIN: nvim-cmp                          Coding: Completions --
    -- https://github.com/hrsh7th/nvim-cmp                             MIT --
 
-   --    { "hrsh7th/nvim-cmp" },
+   -- { "hrsh7th/nvim-cmp" },
 
-   -- [***] nvim-comment-frame                           Coding: Comments --
+   -- [***] PLUGIN: nvim-comment-frame                   Coding: Comments --
    -- https://github.com/s1n7ax/nvim-comment-frame                    MIT --
 
    { "s1n7ax/nvim-comment-frame" },
 
-   -- [*  ] nvim-dap                                          Coding: DAP --
+   -- [*  ] PLUGIN: nvim-dap                                  Coding: DAP --
    -- https://github.com/mfussenegger/nvim-dap                    GPL-3.0 --
 
    --    { "mfussenegger/nvim-dap" },
 
-   -- [*  ] nvim-dap-ui                                       Coding: DAP --
+   -- [*  ] PLUGIN: nvim-dap-ui                               Coding: DAP --
    -- https://github.com/rcarriga/nvim-dap-ui                         MIT --
 
    --    { "rcarriga/nvim-dap-ui" },
 
-   -- [*  ] nvim-lspconfig                                    Coding: LSP --
+   -- [*  ] PLUGIN: nvim-lspconfig                            Coding: LSP --
    -- https://github.com/neovim/nvim-lspconfig                 Apache-2.0 --
 
    --    { "neovim/nvim-lspconfig" },
 
-   -- [*  ] nvim-nio                                              API: IO --
+   -- [*  ] PLUGIN: nvim-nio                                      API: IO --
    -- https://github.com/nvim-neotest/nvim-nio                        MIT --
 
-   --    { "nvim-neotest/nvim-nio" },
+   { "nvim-neotest/nvim-nio" },
 
-   -- [*  ] nvim-surround                                 Coding: Quoting --
+   -- [*  ] PLUGIN: nvim-surround                         Coding: Quoting --
    -- https://github.com/kylechui/nvim-surround                       MIT --
 
    {
@@ -171,22 +169,22 @@ return {
       event = "VeryLazy",
    },
 
-   -- [***] nvim-web-devicons                                   UI: Icons --
+   -- [***] PLUGIN: nvim-web-devicons                           UI: Icons --
    -- https://github.com/nvim-tree/nvim-web-devicons                  MIT --
 
    { "kyazdani42/nvim-web-devicons" },
 
-   -- [*  ] sqlite.lua                                  Utility: Database --
+   -- [*  ] PLUGIN: sqlite.lua                          Utility: Database --
    -- https://github.com/kkharji/sqlite.lua                           MIT --
 
    { "kkharji/sqlite.lua" },
 
-   -- [*  ] stylua-nvim                                Coding: Formatting --
+   -- [*  ] PLUGIN: stylua-nvim                        Coding: Formatting --
    -- https://github.com/wesleimp/stylua.nvim                         MIT --
 
    { "ckipp01/stylua-nvim" },
 
-   -- [*  ] virtcolumn.nvim                               UI: Colorcolumn --
+   -- [*  ] PLUGIN: virtcolumn.nvim                       UI: Colorcolumn --
    -- https://github.com/lukas-reineke/virt-column.nvim               MIT --
 
    {
