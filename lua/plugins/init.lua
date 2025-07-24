@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Plugin file: $HOME/.config/nvim/lua/plugins/init.lua                 ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-10 17:16
+--                                              Last modified: 2025-07-02 19:33
 
 --[[
 
@@ -83,19 +83,10 @@ return {
       event = "VeryLazy",
    },
 
-   -- [*  ] PLUGIN: glow.nvim                          Language: Markdown --
-   -- https://github.com/ellisonleao/glow.nvim                        MIT --
-
-   {
-      "ellisonleao/glow.nvim",
-      config = true,
-      cmd = "Glow",
-   },
-
    -- [*  ] PLUGIN: grug-far.nvim                          Editor: Search --
    -- https://github.com/MagicDuck/grug-far.nvim                      MIT --
 
-   { "MagicDuck/grug-far.nvim" },
+   --    { "MagicDuck/grug-far.nvim" },
 
    -- [*  ] PLUGIN: hardtime.nvim                                 Utility --
    -- https://github.com/m4xshen/hardtime.nvim                        MIT --

@@ -6,12 +6,7 @@
 -- ║  Source: https://github.com/nvim-lualine/lualine.nvim                 ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [***] UI: Statusline & Tabline               Last modified: 2025-04-29 23:23
-
-local ok, icons = pcall(require, "assets.icons")
-if not ok then
-   print("Error: " .. icons)
-end
+-- [***] UI: Statusline & Tabline               Last modified: 2025-05-17 16:47
 
 local M = {
    "nvim-lualine/lualine.nvim",
@@ -41,7 +36,11 @@ function M.config()
             "encoding",
             {
                "fileformat",
-               symbols = icons._lualine(),
+               symbols = {
+                  unix = " ",
+                  dos = " ",
+                  mac = " ",
+               },
             },
             "filetype",
             "filesize",

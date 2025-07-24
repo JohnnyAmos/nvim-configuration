@@ -7,8 +7,8 @@ old-confs/*
 *wk.log
 
 # ast-grep
-rule-tests/*
-rules/*
-utils/*
-sgconfig.yml
+#rule-tests/*
+#rules/*
+#utils/*
+#sgconfig.yml
 

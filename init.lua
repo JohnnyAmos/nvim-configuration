@@ -2,7 +2,7 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-10 17:20
+--                                              Last modified: 2025-06-05 15:51
 
 vim.loader.enable()
 
@@ -28,6 +28,8 @@ require("config.keymaps")
 
       FIX: edgy.nvim needs work. Soonish.
 
+      - Add cmp code to render-markdown.nvim config when nvim-cmp is
+        configured.
       - Keep Mini.Startup or switch to Snacks.Dashboard?
       - Set up snacks.nvim completely. Compare snacks modules with mini
         modules.

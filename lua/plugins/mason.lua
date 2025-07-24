@@ -6,12 +6,7 @@
 -- ║  Source: https://github.com/williamboman/mason.nvim                   ║ --
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [** ] Coding: LSP                        Last modified: 2025-04-29 23:23
-
-local ok, icons = pcall(require, "assets.icons")
-if not ok then
-   print("Error: " .. icons)
-end
+-- [** ] Coding: LSP                        Last modified: 2025-05-17 16:30
 
 local M = {
    "williamboman/mason.nvim",
@@ -27,7 +22,11 @@ function M.config()
       PATH = "skip",
       border = "single",
       ui = {
-         icons = icons._mason(),
+         icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+         },
       },
    })
 end

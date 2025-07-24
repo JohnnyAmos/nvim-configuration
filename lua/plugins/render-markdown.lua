@@ -2,37 +2,43 @@
 -- ║                  Neovim configuration for Mac/unix                    ║ --
 -- ║                        (Mac now, unix soon.)                          ║ --
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
--- ║  Plugin file: $HOME/.config/nvim/lua/plugins/snacks.lua               ║ --
--- ║  Source: https://github.com/folke/snacks.nvim                         ║ --
--- ║  License: Apache-2.0                                                  ║ --
+-- ║  Plugin file: $HOME/.config/nvim/lua/plugins/render-markdown.lua      ║ --
+-- ║  Source: https://github.com/MeanderingProgrammer/render-markdown.nvim ║ --
+-- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [*  ] Editor: Utils                          Last modified: 2025-05-13 11:42
+-- [*  ] Editor: Languages                      Last modified: 2025-06-05 16:22
 
 local M = {
-   "folke/snacks.nvim",
-   priority = 1000,
-   lazy = false,
+   "MeanderingProgrammer/render-markdown.nvim",
+   dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+   },
+   ---@module 'render-markdown'
+   ---@type render.md.UserConfig
 }
 
 function M.config()
-   local ok, snacks = pcall(require, "snacks")
+   local ok, markdown = pcall(require, "render-markdown")
    if not ok then
-      print("Error: " .. snacks)
+      print("Error: " .. markdown)
    end
 
-   snacks.setup({
-      bigfile = { enabled = true },
-      dashboard = { enabled = false },
-      explorer = { enabled = false },
-      indent = { enabled = false },
-      input = { enabled = false },
-      notifier = { enabled = false },
-      picker = { enabled = false },
-      quickfile = { enabled = false },
-      scope = { enabled = false },
-      scroll = { enabled = false },
-      statuscolumn = { enabled = false },
-      words = { enabled = true },
+   -- local ok, cmp = pcall(require, "cmp")
+   -- if not ok then
+   --    print("Error: " .. cmp)
+   -- end
+
+   -- cmp.setup({
+   --    sources = cmp.config.sources({
+   --       { name = "render-markdown" },
+   --    }),
+   -- })
+
+   markdown.setup({
+      completions = { lsp = { enabled = true } },
+      code = { style = "language" },
+      heading = { position = "inline" },
    })
 end
 

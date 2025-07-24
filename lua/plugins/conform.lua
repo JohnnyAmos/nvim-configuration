@@ -6,10 +6,12 @@
 -- ║  Source: https://github.com/stevearc/conform.nvim                     ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [** ] Coding: Formatting                     Last modified: 2025-05-04 12:02
+-- [** ] Coding: Formatting                     Last modified: 2025-07-11 18:08
 
 local M = {
    "stevearc/conform.nvim",
+   event = { "BufWritePre" },
+   cmd = { "ConformInfo" },
 }
 
 function M.config()
@@ -19,30 +21,28 @@ function M.config()
    end
    conform.setup({
       formatters_by_ft = {
-         css = {
-            "stylelint",
-            "prettierd",
-         },
+         -- css = {
+         --    "stylelint",
+         --    "prettierd",
+         -- },
          html = {
-            "ast-grep",
             "prettierd",
          },
          javascript = {
-            "ast-grep",
             "prettierd",
          },
          json = { "prettierd" },
          lua = { "stylua" },
          markdown = {
-            "cbfmt",
             "doctoc",
          },
-         python = { "ruff" },
+         python = { "black" },
          scss = {
             "stylelint",
             "prettierd",
          },
          sql = { "sqlfmt" },
+         tex = { "tex-fmt" },
          vue = { "prettierd" },
          yaml = { "yamlfmt" },
       },
@@ -68,6 +68,13 @@ function M.config()
       default_format_opts = {
          lsp_format = "fallback",
       },
+      format_on_save = {
+         lsp_format = "fallback",
+         timeout_ms = 250,
+      },
+      log_level = vim.log.levels.ERROR,
+      notify_on_error = true,
+      notify_no_formatters = true,
    })
 end
 

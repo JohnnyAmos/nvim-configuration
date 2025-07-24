@@ -6,12 +6,7 @@
 -- ║  Source: https://github.com/lewis6991/gitsigns.nvim                   ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [** ] Coding: Git                        Last modified: 2025-04-29 23:22
-
-local ok, icons = pcall(require, "assets.icons")
-if not ok then
-   print("Error: " .. icons)
-end
+-- [** ] Coding: Git                        Last modified: 2025-05-17 16:35
 
 local M = {
    "lewis6991/gitsigns.nvim",
@@ -24,8 +19,6 @@ function M.config()
    end
 
    gitsigns.setup({
-      signs = icons._gitsigns(),
-      signs_staged = icons._gitsigns_staged(),
       signs_staged_enable = true,
       word_diff = true,
       watch_gitdir = {

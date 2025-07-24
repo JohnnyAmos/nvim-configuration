@@ -6,12 +6,7 @@
 -- ║  Source: https://github.com/nvim-telescope/telescope.nvim             ║ --
 -- ║  License: MIT                                                         ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [*  ] UI                                     Last modified: 2025-04-29 23:25
-
-local ok, icons = pcall(require, "assets.icons")
-if not ok then
-   print("Error: " .. icons)
-end
+-- [*  ] UI                                     Last modified: 2025-05-17 16:27
 
 local M = {
    "nvim-telescope/telescope.nvim",
@@ -92,7 +87,80 @@ function M.config()
             },
          },
          create_layout = function(picker)
-            local border = icons._telescope()
+            local border = {
+               results = {
+                  top_left = "┌",
+                  top = "─",
+                  top_right = "┬",
+                  right = "│",
+                  bottom_right = "",
+                  bottom = "",
+                  bottom_left = "",
+                  left = "│",
+               },
+               results_patch = {
+                  minimal = {
+                     top_left = "┌",
+                     top_right = "┐",
+                  },
+                  horizontal = {
+                     top_left = "┌",
+                     top_right = "┬",
+                  },
+                  vertical = {
+                     top_left = "├",
+                     top_right = "┤",
+                  },
+               },
+               prompt = {
+                  top_left = "├",
+                  top = "─",
+                  top_right = "┤",
+                  right = "│",
+                  bottom_right = "┘",
+                  bottom = "─",
+                  bottom_left = "└",
+                  left = "│",
+               },
+               prompt_patch = {
+                  minimal = {
+                     bottom_right = "┘",
+                  },
+                  horizontal = {
+                     bottom_right = "┴",
+                  },
+                  vertical = {
+                     bottom_right = "┘",
+                  },
+               },
+               preview = {
+                  top_left = "┌",
+                  top = "─",
+                  top_right = "┐",
+                  right = "│",
+                  bottom_right = "┘",
+                  bottom = "─",
+                  bottom_left = "└",
+                  left = "│",
+               },
+               preview_patch = {
+                  minimal = {},
+                  horizontal = {
+                     bottom = "─",
+                     bottom_left = "",
+                     bottom_right = "┘",
+                     left = "",
+                     top_left = "",
+                  },
+                  vertical = {
+                     bottom = "",
+                     bottom_left = "",
+                     bottom_right = "",
+                     left = "│",
+                     top_left = "┌",
+                  },
+               },
+            }
 
             local results = make_popup({
                focusable = false,

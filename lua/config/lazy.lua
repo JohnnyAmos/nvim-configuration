@@ -8,12 +8,7 @@
 -- ║   Config file: $HOME/.config/nvim/lua/config/lazy.lua                 ║ --
 -- ║                                                                       ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-04-27 21:37
-
-local ok, icons = pcall(require, "assets.icons")
-if not ok then
-   print("Error: " .. icons)
-end
+--                                              Last modified: 2025-05-17 16:38
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -72,7 +67,31 @@ require("lazy").setup({
    ui = {
       border = "single",
       backdrop = 0,
-      icons = icons._lazy(),
+      icons = {
+         cmd = " ",
+         config = "",
+         event = " ",
+         favorite = " ",
+         ft = " ",
+         init = " ",
+         import = " ",
+         keys = " ",
+         lazy = "󰒲 ",
+         loaded = "●",
+         not_loaded = "○",
+         plugin = " ",
+         runtime = " ",
+         require = "󰢱 ",
+         source = " ",
+         start = " ",
+         task = "✔ ",
+         list = {
+            "●",
+            "➜",
+            "★",
+            "‒",
+         },
+      },
    },
 })
 

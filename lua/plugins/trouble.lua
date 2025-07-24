@@ -6,12 +6,7 @@
 -- ║  Source: https://github.com/folke/trouble.nvim                        ║ --
 -- ║  License: Apache-2.0                                                  ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
--- [*  ] Coding: Diagnostics                    Last modified: 2025-05-10 15:32
-
-local ok, icons = pcall(required, "assets.icons")
-if not ok then
-   print("Error: " .. icons)
-end
+-- [*  ] Coding: Diagnostics                    Last modified: 2025-05-17 16:24
 
 local M = {
    "folke/trouble.nvim",
@@ -65,7 +60,46 @@ function M.config()
          zN = "fold_enable",
          zi = "fold_toggle_enable",
       },
-      icons = icons._trouble(),
+      icons = {
+         indent = {
+            top = "┊ ",
+            middle = "├╴",
+            last = "└╴",
+            fold_open = " ",
+            fold_closed = " ",
+            ws = "  ",
+         },
+         folder_closed = " ",
+         folder_open = " ",
+         kinds = {
+            Array = " ",
+            Boolean = "󰨙 ",
+            Class = " ",
+            Constant = "󰏿 ",
+            Constructor = " ",
+            Enum = " ",
+            EnumMember = " ",
+            Event = " ",
+            Field = " ",
+            File = " ",
+            Function = "󰊕 ",
+            Interface = " ",
+            Key = " ",
+            Method = "󰊕 ",
+            Module = " ",
+            Namespace = "󰦮 ",
+            Null = " ",
+            Number = "󰎠 ",
+            Object = " ",
+            Operator = " ",
+            Package = " ",
+            Property = " ",
+            String = " ",
+            Struct = "󰆼 ",
+            TypeParameter = " ",
+            Variable = "󰀫 ",
+         },
+      },
    })
 end
 
