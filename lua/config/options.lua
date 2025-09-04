@@ -4,7 +4,7 @@
 -- ╠═══════════════════════════════════════════════════════════════════════╣ --
 -- ║  Config file: $HOME/.config/nvim/lua/config/options.lua               ║ --
 -- ╚═══════════════════════════════════════════════════════════════════════╝ --
---                                              Last modified: 2025-05-26 11:24
+--                                              Last modified: 2025-09-04 13:32
 
 vim.opt.fileencoding = "UTF-8"
 
@@ -129,7 +129,20 @@ vim.opt.foldmarker = "{{{,}}}"
 vim.opt.foldlevel = 99
 
 -- Use system clipboard
-vim.opt.clipboard = "unnamed" -- works better than unnamedplus for me
+vim.schedule(function()
+   vim.opt.clipboard:append('unnamedplus')
+   vim.g.clipboard = {
+      name = 'OSC 52',
+      copy = {
+         ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+         ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      },
+      paste = {
+         ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+         ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      },
+   }
+end)
 
 -- Searching
 vim.opt.ignorecase = true

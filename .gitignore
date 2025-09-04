@@ -5,10 +5,5 @@
 .logs/*
 old-confs/*
 *wk.log
-
-# ast-grep
-#rule-tests/*
-#rules/*
-#utils/*
-#sgconfig.yml
+lazy-lock.json
 
